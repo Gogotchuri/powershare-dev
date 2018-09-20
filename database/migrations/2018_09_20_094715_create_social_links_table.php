@@ -20,12 +20,7 @@ class CreateSocialLinksTable extends Migration
             $table->unsignedInteger('campaign_id');
             $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');
 
-            $table->enum('platform', [
-                'FACEBOOK',
-                'TWITTER',
-                'LINKEDIN',
-                'OTHER',
-            ])->default('OTHER');
+            $table->unsignedInteger('platform_id')->references('id')->on('social_platforms');
 
             $table->timestamps();
         });

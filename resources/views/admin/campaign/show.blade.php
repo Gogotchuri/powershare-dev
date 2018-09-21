@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="post" action="{{action('CampaignController@store')}}">
+
+    <h2>Campaign</h2>
+
+    <p>{{$campaign->details}}</p>
+
+    <a class="btn btn-dark" href="{{action('CampaignController@edit', [$campaign->id])}}">Edit</a>
+    <a class="btn btn-dark" href="{{action('CampaignController@create')}}">Create other one</a>
+
+    {{--<form method="post" action="{{action('CampaignController@store')}}">
 
         @csrf
 
@@ -19,7 +27,7 @@
             'name' => 'Video'
         ])
 
-        {{-- TODO: make this multi selection 1 to 20 --}}
+        --}}{{-- TODO: make this multi selection 1 to 20 --}}{{--
         @include('components.form.select', [
             'name' => 'Image',
             //'required' => true,
@@ -29,7 +37,7 @@
 
         <button type="submit" class="btn btn-primary">
             Submit
-        </button>
+        </button>--}}
 
         {{-- TODO: Add remaining fields --}}
 

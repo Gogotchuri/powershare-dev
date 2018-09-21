@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Campaign;
 use Illuminate\Http\Request;
 
 class CampaignController extends Controller
@@ -13,7 +14,9 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        //
+        $campaigns = Campaign::all();
+
+        return view('admin.campaign.index', compact('campaigns'));
     }
 
     /**
@@ -34,7 +37,12 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campaign =  new Campaign();
+        $campaign->details = $request->input('details');
+
+        $campaign->save();
+
+        return redirect(action('CampaignController@show', $campaign->id));
     }
 
     /**
@@ -45,7 +53,9 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
-        //
+        $campaign = Campaign::findOrFail($id);
+
+        return view('admin.campaign.show', compact('campaign'));
     }
 
     /**
@@ -56,7 +66,9 @@ class CampaignController extends Controller
      */
     public function edit($id)
     {
-        //
+        $campaign = Campaign::findOrFail($id);
+
+        return view('admin.campaign.edit', compact('campaign'));
     }
 
     /**
@@ -68,7 +80,12 @@ class CampaignController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $campaign =  Campaign::findOrFail($id);
+        $campaign->details = $request->input('details');
+
+        $campaign->save();
+
+        return redirect(action('CampaignController@show', $campaign->id));
     }
 
     /**
@@ -81,4 +98,35 @@ class CampaignController extends Controller
     {
         //
     }
+
+    /**
+     * Approve the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function approve($id)
+    {
+        $campaign = Campaign::findOrFail($id);
+        $campaign->is_approved = true;
+        $campaign->save();
+
+        return redirect(action('CampaignController@edit', $campaign));
+    }
+
+    /**
+     * Unapprove the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function unapprove($id)
+    {
+        $campaign = Campaign::findOrFail($id);
+        $campaign->is_approved = false;
+        $campaign->save();
+
+        return redirect(action('CampaignController@edit', $campaign));
+    }
+
 }

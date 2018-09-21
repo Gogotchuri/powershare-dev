@@ -80,6 +80,12 @@
                     </div>
 
                     <div class="card-body">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="{{action('CampaignController@index')}}">Campaigns</a></li>
+                            </ol>
+                        </nav>
                         @yield('content')
                     </div>
                 </div>

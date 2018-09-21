@@ -18,4 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('campaign', 'CampaignController');
+Route::resource('campaigns', 'CampaignController');
+Route::get('campaigns/{id}/approve', 'CampaignController@approve');
+Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove');

@@ -16,7 +16,17 @@ class CampaignStatus extends Model
         self::APPROVED => 'Approved'
     ];
 
-    public static function string(int $statusConst) {
-        return self::$stringRepresentation[$statusConst];
+    public static function nameFromId(int $id) : string {
+        return self::$stringRepresentation[$id];
+    }
+
+    public static function idFromName(string $name) : int {
+        foreach (self::$stringRepresentation as $id => $itemName) {
+            if($itemName === $name) {
+                return $id;
+            }
+        }
+
+        return null;
     }
 }

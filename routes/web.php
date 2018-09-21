@@ -12,9 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'user' => Auth::user()
+    ]);
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::middleware(['admin'])->namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+
+        Route::resource('campaigns', 'CampaignController');
+        Route::get('campaigns/{id}/approve', 'CampaignController@approve')->name('campaigns.approve');
+        Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove')->name('campaigns.unapprove');
+    });
+
+    Route::namespace('User')->prefix('user')->name('user.')->group(function () {
+        Route::resource('campaigns', 'CampaignController');
+    });
+});

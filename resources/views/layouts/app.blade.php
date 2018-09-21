@@ -73,7 +73,23 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        @yield('header')
+                    </div>
+
+                    <div class="card-body">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('admin.campaigns.index')}}">Campaigns</a></li>
+                            </ol>
+                        </nav>
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </body>

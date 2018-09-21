@@ -21,7 +21,7 @@ class CampaignStatusSeeder extends Seeder
         foreach ($statuses as $statusId) {
             $projectStatus = new CampaignStatus();
             $projectStatus->id = $statusId;
-            $projectStatus->name = CampaignStatus::string($statusId);
+            $projectStatus->name = CampaignStatus::nameFromId($statusId);
             $projectStatus->save();
         }
     }

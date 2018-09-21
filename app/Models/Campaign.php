@@ -2,10 +2,19 @@
 
 namespace App\Models;
 
+use App\Models\Reference\CampaignStatus;
 use Illuminate\Database\Eloquent\Model;
 
 class Campaign extends Model
 {
+    protected $with = [
+        'status'
+    ];
+
+    public function status() {
+        return $this->belongsTo(CampaignStatus::class);
+    }
+
     public function video() {
         return $this->hasOne(Video::class);
     }
@@ -20,5 +29,18 @@ class Campaign extends Model
 
     public function social_links() {
         return $this->hasMany(SocialLink::class);
+    }
+
+    public function getIsApprovedAttribute() {
+        return $this->status_id == CampaignStatus::APPROVED;
+    }
+
+    public function setIsApprovedAttribute($value) {
+        $this->status_id = $value ? CampaignStatus::APPROVED : CampaignStatus::DRAFT;
+    }
+
+    public function getStatusNameAttribute()
+    {
+        return CampaignStatus::nameFromId($this->status_id);
     }
 }

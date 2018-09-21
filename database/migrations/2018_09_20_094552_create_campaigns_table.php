@@ -19,6 +19,9 @@ class CreateCampaignsTable extends Migration
             $table->increments('id');
             $table->text('details')->nullable();
 
+            $table->unsignedInteger('author_id')->nullable();
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('set null');
+
             $table->unsignedInteger('status_id')->default(CampaignStatus::DRAFT);
             $table->foreign('status_id')->references('id')->on('campaign_statuses');
 

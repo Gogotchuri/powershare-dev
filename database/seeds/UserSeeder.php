@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
                 'name' => 'Contract Zero',
                 'email' => 'info@contractzero.com',
                 'password' => 'qwert123',
+                'role_id' => 1,
             ],
             [
                 'name' => 'Giga Gatenashvili',
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
             $user->name = $userData['name'];
             $user->email = $userData['email'];
             $user->password = bcrypt($userData['password']);
+            $user->role_id = $userData['role_id'] ?? 2;
 
             $user->save();
         }

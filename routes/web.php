@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index', [
+    'user' => Auth::user()
+])->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['admin'])->namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
@@ -28,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('campaigns/{id}/approve', 'CampaignController@approve')->name('campaigns.approve');
         Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove')->name('campaigns.unapprove');
 
-        Route::resource('campaigns', 'CommentController');
+        Route::resource('comments', 'CommentController');
     });
 
     Route::namespace('User')->prefix('user')->name('user.')->group(function () {

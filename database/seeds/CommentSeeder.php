@@ -18,7 +18,7 @@ class CommentSeeder extends Seeder
             industry\'s standard dummy text ever since the';
 
 
-        for($i = 0; $i < 10; $i++) {
+        for($i = 0; $i < 50; $i++) {
             $comment = new \App\Models\Comment();
             $comment->body = $i . $someText;
             $comment->author_id = $ordinaryUser->id;

@@ -83,7 +83,9 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('admin.campaigns.index')}}">Campaigns</a></li>
+                                @auth
+                                <li class="breadcrumb-item active" aria-current="page"><a href="{{Auth::user()->role_id == 1 ? route('admin.campaigns.index') : route('user.campaigns.index')}}">Campaigns</a></li>
+                                @endauth
                             </ol>
                         </nav>
                         @yield('content')

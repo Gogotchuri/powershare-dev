@@ -14,4 +14,12 @@ class Comment extends Model
     public function campaign() {
         return $this->belongsTo(Campaign::class);
     }
+
+    public function getAuthorNameAttribute() {
+        return $this->author->name;
+    }
+
+    public function getCampaignNameAttribute() {
+        return $this->campaign->name;
+    }
 }

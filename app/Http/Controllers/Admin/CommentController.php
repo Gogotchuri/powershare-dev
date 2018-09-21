@@ -15,7 +15,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //$comments = Comment::paginate(20)->with(['author', 'campaign']);
+        $comments = Comment::with(['author', 'campaign'])->paginate(20);
+
+        return view('admin.comments.index', compact('comments'));
     }
 
     /**

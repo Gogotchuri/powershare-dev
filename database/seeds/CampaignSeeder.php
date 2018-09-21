@@ -13,10 +13,12 @@ class CampaignSeeder extends Seeder
     {
         $user = \App\User::first();
 
+        $someName = 'Sample Campaign';
         $someText = 'This is campaign details';
 
         for($i = 0; $i < 10; $i++) {
             $campaign = new \App\Models\Campaign();
+            $campaign->name = $i . $someName;
             $campaign->details = $i . $someText;
             $campaign->author_id = $user->id;
             $campaign->status_id = \App\Models\Reference\CampaignStatus::APPROVED;

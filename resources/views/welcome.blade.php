@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{action('CampaignController@index')}}">Campaigns</a>
+                    <a href="{{route('admin.campaigns.index')}}">Campaigns</a>
                 </div>
             </div>
         </div>

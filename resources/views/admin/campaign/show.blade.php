@@ -6,8 +6,8 @@
 
     <p>{{$campaign->details}}</p>
 
-    <a class="btn btn-dark" href="{{action('CampaignController@edit', [$campaign->id])}}">Edit</a>
-    <a class="btn btn-dark" href="{{action('CampaignController@create')}}">Create other one</a>
+    <a class="btn btn-dark" href="{{route('admin.campaigns.edit', [$campaign->id])}}">Edit</a>
+    <a class="btn btn-dark" href="{{route('admin.campaigns.create')}}">Create other one</a>
 
     {{--<form method="post" action="{{action('CampaignController@store')}}">
 

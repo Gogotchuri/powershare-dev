@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,7 @@ class CampaignController extends Controller
 
         $campaign->save();
 
-        return redirect(action('CampaignController@show', $campaign->id));
+        return redirect(route('admin.campaigns.show', $campaign->id));
     }
 
     /**
@@ -85,7 +86,7 @@ class CampaignController extends Controller
 
         $campaign->save();
 
-        return redirect(action('CampaignController@show', $campaign->id));
+        return redirect(route('admin.campaigns.show', $campaign->id));
     }
 
     /**
@@ -111,7 +112,7 @@ class CampaignController extends Controller
         $campaign->is_approved = true;
         $campaign->save();
 
-        return redirect(action('CampaignController@edit', $campaign));
+        return redirect(route('admin.campaigns.edit', $campaign));
     }
 
     /**
@@ -126,7 +127,7 @@ class CampaignController extends Controller
         $campaign->is_approved = false;
         $campaign->save();
 
-        return redirect(action('CampaignController@edit', $campaign));
+        return redirect(route('admin.campaigns.edit', $campaign));
     }
 
 }

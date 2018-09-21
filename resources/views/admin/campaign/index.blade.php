@@ -14,7 +14,7 @@
         @foreach($campaigns as $campaign)
         <tr>
             <th scope="row"> {{$campaign->id}}</th>
-            <td><a href="{{action('CampaignController@show', ['id' => $campaign->id])}}">{{'Sample Name'}}</a></td>
+            <td><a href="{{route('admin.campaigns.show', ['id' => $campaign->id])}}">{{'Sample Name'}}</a></td>
             <td>{{mb_strimwidth($campaign->details, 0, 10, "...")}}</td>
             <td><span class="badge badge-pill badge-{{$campaign->is_approved ? 'success' : 'secondary'}}">{{$campaign->status_name}}</span></td>
         </tr>

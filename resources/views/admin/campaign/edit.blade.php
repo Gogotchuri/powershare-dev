@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form method="post" action="{{action('CampaignController@update', ['id' => $campaign->id])}}">
+    <form method="post" action="{{route('admin.campaigns.update', ['id' => $campaign->id])}}">
 
         {{method_field('PUT')}}
 
@@ -37,11 +37,11 @@
 
 
         @if($campaign->is_approved)
-            <a class="btn btn-primary" href="{{action('CampaignController@unapprove', ['id' => $campaign->id])}}">
+            <a class="btn btn-primary" href="{{route('admin.campaigns.unapprove', ['id' => $campaign->id])}}">
                 Unapprove
             </a>
         @else
-            <a class="btn btn-primary" href="{{action('CampaignController@approve', ['id' => $campaign->id])}}">
+            <a class="btn btn-primary" href="{{route('admin.campaigns.approve', ['id' => $campaign->id])}}">
                 Approve
             </a>
         @endif

@@ -10,7 +10,10 @@
             'required' => true
         ])
 
-        {{-- Featured image input here --}}
+        @include('components.form.input', [
+            'type' => 'image',
+            'name' => 'Video'
+        ])
 
         @include('components.form.input', [
             'name' => 'Video'
@@ -20,7 +23,7 @@
         @include('components.form.select', [
             'name' => 'Image',
             'required' => true,
-            'options' => $images,
+            'options' => [],
             'title' => 'name',
         ])
 

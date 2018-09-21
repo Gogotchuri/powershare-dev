@@ -19,9 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('campaigns', 'CampaignController');
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('campaigns/{id}/approve', 'CampaignController@approve');
-    Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove');
+    Route::resource('campaigns', 'CampaignController');
+
+    Route::middleware(['admin'])->prefix('admin')->group(function () {
+        Route::get('campaigns/{id}/approve', 'CampaignController@approve')->name('campaigns.approve');
+        Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove')->name('campaigns.unapprove');
+    });
 });

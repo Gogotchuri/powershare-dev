@@ -2,6 +2,6 @@
 
 @section('content')
     @include('shared.campaign.index-table', [
-        'row_route_name' => 'admin.campaigns.edit'
+        'row_route_name' => 'user.campaigns.edit'
     ])
 @endsection

@@ -2,6 +2,6 @@
 
 @section('content')
     @include('shared.campaign.create-form', [
-        'route' => route('admin.campaigns.store')
+        'route' => route('user.campaigns.store')
     ])
 @endsection

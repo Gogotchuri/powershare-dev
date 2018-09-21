@@ -81,9 +81,15 @@
                     Laravel
                 </div>
 
-                <div class="links">
-                    <a href="{{route('admin.campaigns.index')}}">Campaigns</a>
-                </div>
+                @if(Auth::check())
+                    <div class="links">
+                        <a href="{{$user->role_id == 1 ? route('admin.campaigns.index') : route('user.campaigns.index')}}">Campaigns</a>
+                    </div>
+                @else
+                    <div class="links">
+                        <a href="{{route('login')}}">Login</a>
+                    </div>
+                @endif
             </div>
         </div>
     </body>

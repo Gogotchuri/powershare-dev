@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('campaigns', 'CampaignController');
         Route::get('campaigns/{id}/approve', 'CampaignController@approve')->name('campaigns.approve');
         Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove')->name('campaigns.unapprove');
+
+        Route::resource('campaigns', 'CommentController');
     });
 
     Route::namespace('User')->prefix('user')->name('user.')->group(function () {

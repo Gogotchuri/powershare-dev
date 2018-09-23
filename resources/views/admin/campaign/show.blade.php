@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('admin.main')
 
-@section('content')
+@section('body')
     @include('shared.campaign.show', [
         'edit_route_name' => 'admin.campaigns.edit'
     ])

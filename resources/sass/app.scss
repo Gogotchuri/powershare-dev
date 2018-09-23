@@ -5,6 +5,8 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import 'datatables';
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -12,4 +14,8 @@
 
 .badge-pill {
   padding: 0.3em 0.7em;
+}
+
+.clickable {
+  cursor: pointer;
 }

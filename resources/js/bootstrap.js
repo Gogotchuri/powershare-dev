@@ -1,4 +1,7 @@
 
+window.$ = require('jquery');
+window.$ = require('datatables.net');
+window.$ = require('datatables.net-bs');
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 

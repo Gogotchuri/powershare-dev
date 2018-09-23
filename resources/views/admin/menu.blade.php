@@ -9,6 +9,11 @@
                     Campaigns
                 </a>
             </p>
+            <p>
+                <a href="{{ route('admin.comments.index') }}">
+                    Comments
+                </a>
+            </p>
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('admin.main')
 
-@section('content')
-    <table class="table">
+@section('body')
+    <table class="table datatables" style="width: 100%;">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -12,18 +12,13 @@
         </thead>
         <tbody>
         @foreach($comments as $comment)
-            <tr>
-                <a href="{{route('admin.comments.edit', ['id' => $comment->id])}}">
-                    <th scope="row"> {{$comment->id}}</th>
-                    <td scope="row"> {{$comment->author_name}}</td>
-                    <td scope="row"> {{$comment->campaign_name}}</td>
-                    <td scope="row"> {{mb_strimwidth($comment->body, 0, 100, "...")}}</td>
-                </a>
+            <tr class="clickable" onclick="location.href = '{{ route('admin.comments.edit', ['id' => $comment->id]) }}'">
+                <th scope="row"> {{$comment->id}}</th>
+                <td scope="row"> {{$comment->author_name}}</td>
+                <td scope="row"> {{$comment->campaign_name}}</td>
+                <td scope="row"> {{mb_strimwidth($comment->body, 0, 100, "...")}}</td>
             </tr>
         @endforeach
         </tbody>
     </table>
-
-    {{ $comments->links() }}
-
 @endsection

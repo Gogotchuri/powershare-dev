@@ -1,6 +1,14 @@
-@extends('layouts.app')
+@extends('user.main')
 
-@section('content')
+@section('header', 'Create a new Campaign')
+
+@section('buttons')
+    <a class="btn btn-primary" href="{{ route('user.campaigns.index') }}">
+        Back
+    </a>
+@endsection
+
+@section('body')
     @include('shared.campaign.create-form', [
         'route' => route('user.campaigns.store')
     ])

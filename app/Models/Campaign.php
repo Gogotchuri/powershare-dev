@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Reference\CampaignStatus;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Campaign extends Model
@@ -10,6 +11,10 @@ class Campaign extends Model
     protected $with = [
         'status'
     ];
+
+    public function author() {
+        return $this->belongsTo(User::class);
+    }
 
     public function status() {
         return $this->belongsTo(CampaignStatus::class);

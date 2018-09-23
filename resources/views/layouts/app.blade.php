@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -80,17 +81,12 @@
                     </div>
 
                     <div class="card-body">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('admin.campaigns.index')}}">Campaigns</a></li>
-                            </ol>
-                        </nav>
                         @yield('content')
                     </div>
                 </div>
             </div>
         </main>
     </div>
+    @yield('scripts')
 </body>
 </html>

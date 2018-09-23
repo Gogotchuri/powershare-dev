@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index', [
 ])->name('home');
 
 Route::middleware(['auth'])->group(function () {
+
     Route::middleware(['admin'])->namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
         Route::resource('campaigns', 'CampaignController');

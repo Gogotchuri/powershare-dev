@@ -23,6 +23,7 @@ class CommentSeeder extends Seeder
             $comment->body = $i . $someText;
             $comment->author_id = $ordinaryUser->id;
             $comment->campaign_id = $sampleCampaign->id;
+            $comment->date = \Carbon\Carbon::now();
 
             $comment->save();
         }

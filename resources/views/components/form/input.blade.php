@@ -7,7 +7,8 @@
         class="form-control{{ $errors->has(snake_case($name)) ? ' is-invalid' : '' }}"
         name="{{ snake_case($name) }}"
         value="{{ isset($value) ? $value : old(snake_case($name)) }}"
-        {{ isset($required) ? 'required' : '' }}
+        {{ isset($required) && $required ? 'required' : '' }}
+        {{ isset($checked) && $checked ? 'checked' : '' }}
         autofocus
     />
 

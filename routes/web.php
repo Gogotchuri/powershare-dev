@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove')->name('campaigns.unapprove');
 
         Route::resource('comments', 'CommentController');
+        Route::get('comments/{id}/delete', 'CommentController@delete')->name('comments.delete');
     });
 
     Route::namespace('User')->prefix('user')->name('user.')->group(function () {

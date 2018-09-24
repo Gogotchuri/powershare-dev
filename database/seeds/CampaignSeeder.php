@@ -17,7 +17,7 @@ class CampaignSeeder extends Seeder
         $someName = 'Sample Campaign';
         $someText = 'This is campaigns details';
 
-        for($i = 0; $i < 10; $i++) {
+        for($i = 0; $i < 1; $i++) {
             $campaign = new \App\Models\Campaign();
             $campaign->name = $i . $someName;
             $campaign->details = $i . $someText;

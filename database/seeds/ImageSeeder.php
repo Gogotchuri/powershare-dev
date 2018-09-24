@@ -13,7 +13,7 @@ class ImageSeeder extends Seeder
     {
         $image = new \App\Models\Image();
         $image->name = "Sample Campaign";
-        $image->url = 'sample-campaign.png';
+        $image->url = 'sample-campaigns.png';
 
         $image->save();
     }

@@ -9,7 +9,7 @@
 @endsection
 
 @section('body')
-    @include('shared.campaign.index-table', [
+    @include('shared.campaigns.index-table', [
         'row_route_name' => 'user.campaigns.edit'
     ])
 @endsection

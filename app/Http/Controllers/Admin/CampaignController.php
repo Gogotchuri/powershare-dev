@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\HandlesImages;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreCampaign;
+use App\Http\Requests\Admin\UpdateCampaign;
 use App\Models\Campaign;
 use App\Models\Image;
 use Illuminate\Http\Request;
@@ -21,7 +23,7 @@ class CampaignController extends Controller
     {
         $campaigns = Campaign::all();
 
-        return view('admin.campaign.index', compact('campaigns'));
+        return view('admin.campaigns.index', compact('campaigns'));
     }
 
     /**
@@ -31,7 +33,7 @@ class CampaignController extends Controller
      */
     public function create()
     {
-        return view('admin.campaign.create');
+        return view('admin.campaigns.create');
     }
 
     /**
@@ -40,17 +42,13 @@ class CampaignController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCampaign $request)
     {
         $campaign =  new Campaign();
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
 
-        $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $image = $this->createImage($request->file('image'));
+        $image = $this->createImage($request->file('featured_image'));
 
         $campaign->featured_image()->associate($image);
         $campaign->save();
@@ -68,7 +66,7 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::findOrFail($id);
 
-        return view('admin.campaign.show', compact('campaign'));
+        return view('admin.campaigns.show', compact('campaign'));
     }
 
     /**
@@ -81,7 +79,7 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::findOrFail($id);
 
-        return view('admin.campaign.edit', compact('campaign'));
+        return view('admin.campaigns.edit', compact('campaign'));
     }
 
     /**
@@ -91,19 +89,18 @@ class CampaignController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCampaign $request, $id)
     {
         $campaign =  Campaign::findOrFail($id);
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
 
-        $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        if($request->featured_image) {
+            $image = $this->createImage($request->file('featured_image'), $request->input('name'));
+            $campaign->featured_image()->delete();
+            $campaign->featured_image()->associate($image);
+        }
 
-        $image = $this->createImage($request->file('image'), $request->input('name'));
-
-        $campaign->featured_image()->associate($image);
         $campaign->save();
 
         return redirect(route('admin.campaigns.show', $campaign->id));

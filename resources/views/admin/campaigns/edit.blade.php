@@ -18,7 +18,7 @@
 @endsection
 
 @section('body')
-    @include('shared.campaign.edit-form', [
+    @include('shared.campaigns.edit-form', [
         'route' => route('admin.campaigns.update', ['id' => $campaign->id])
     ])
 @endsection

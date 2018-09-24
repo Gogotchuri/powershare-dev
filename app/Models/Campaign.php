@@ -12,6 +12,13 @@ class Campaign extends Model
         'status'
     ];
 
+    public static function baseRules() {
+        return [
+            'name' => 'required|string',
+            'details' => 'required|string',
+        ];
+    }
+
     public function author() {
         return $this->belongsTo(User::class);
     }

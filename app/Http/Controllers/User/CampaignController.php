@@ -17,7 +17,7 @@ class CampaignController extends Controller
     {
         $campaigns = Campaign::all();
 
-        return view('user.campaign.index', compact('campaigns'));
+        return view('user.campaigns.index', compact('campaigns'));
     }
 
     /**
@@ -27,7 +27,7 @@ class CampaignController extends Controller
      */
     public function create()
     {
-        return view('user.campaign.create');
+        return view('user.campaigns.create');
     }
 
     /**
@@ -56,7 +56,7 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::findOrFail($id);
 
-        return view('user.campaign.show', compact('campaign'));
+        return view('user.campaigns.show', compact('campaign'));
     }
 
     /**
@@ -69,7 +69,7 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::findOrFail($id);
 
-        return view('user.campaign.edit', compact('campaign'));
+        return view('user.campaigns.edit', compact('campaign'));
     }
 
     /**

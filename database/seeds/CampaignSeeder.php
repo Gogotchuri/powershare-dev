@@ -15,7 +15,7 @@ class CampaignSeeder extends Seeder
         $image = \App\Models\Image::first();
 
         $someName = 'Sample Campaign';
-        $someText = 'This is campaign details';
+        $someText = 'This is campaigns details';
 
         for($i = 0; $i < 10; $i++) {
             $campaign = new \App\Models\Campaign();

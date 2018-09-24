@@ -9,7 +9,7 @@
 @endsection
 
 @section('body')
-    @include('shared.campaign.create-form', [
+    @include('shared.campaigns.create-form', [
         'route' => route('admin.campaigns.store')
     ])
 @endsection

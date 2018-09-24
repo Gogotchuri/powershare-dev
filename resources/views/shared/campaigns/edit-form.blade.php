@@ -1,18 +1,29 @@
 <form method="post" action="{{$route}}" enctype="multipart/form-data">
 
+    {{method_field('PUT')}}
+
     @csrf
 
     @include('components.form.input', [
         'name' => 'Name',
-        'required' => true
+        'required' => true,
+        'value' => $campaign->name,
     ])
 
     @include('components.form.textarea', [
         'name' => 'Details',
-        'required' => true
+        'required' => true,
+        'value' => $campaign->details,
     ])
 
-    <div class="form-group">
+    <div>
+        <img class="campaign-image" src="{{asset($campaign->featured_image->url)}}" />
+    </div>
+    @include('components.form.input', [
+        'type' => 'file',
+        'name' => 'Featured Image',
+    ])
+    {{--<div class="form-group">
         <label for="image">Featured image</label>
         <input type="file" class="form-control-file" name="image">
         @if ($errors->has('image'))
@@ -20,7 +31,7 @@
             <strong>{{ $errors->first('image') }}</strong>
         </span>
         @endif
-    </div>
+    </div>--}}
 
     @include('components.form.input', [
         'name' => 'Video'
@@ -38,6 +49,7 @@
         Submit
     </button>
 
+    @yield('additional-controls')
     {{-- TODO: Add remaining fields --}}
 
 </form>

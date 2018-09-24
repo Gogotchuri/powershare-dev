@@ -24,6 +24,10 @@ class Campaign extends Model
         return $this->hasOne(Video::class);
     }
 
+    public function featured_image() {
+        return $this->belongsTo(Image::class);
+    }
+
     public function images() {
         return $this->hasMany(Image::class);
     }

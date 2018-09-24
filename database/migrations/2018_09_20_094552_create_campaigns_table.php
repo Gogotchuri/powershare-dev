@@ -26,6 +26,9 @@ class CreateCampaignsTable extends Migration
             $table->unsignedInteger('status_id')->default(CampaignStatus::DRAFT);
             $table->foreign('status_id')->references('id')->on('campaign_statuses');
 
+            $table->unsignedInteger('featured_image_id');
+            //$table->foreign('featured_image_id')->references('id')->on('images');
+
             $table->timestamps();
         });
     }

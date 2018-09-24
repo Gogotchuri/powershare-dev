@@ -6,7 +6,6 @@ use App\Http\Requests\Admin\StoreComment;
 use App\Models\Campaign;
 use App\Models\Comment;
 use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CommentController extends Controller

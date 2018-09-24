@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\HandlesImages;
 use App\Http\Controllers\Controller;
 use App\Models\Campaign;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class CampaignController extends Controller
 {
+    use HandlesImages;
+
     /**
      * Display a listing of the resource.
      *
@@ -39,8 +43,16 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
         $campaign =  new Campaign();
+        $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
 
+        $this->validate($request, [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $image = $this->createImage($request->file('image'));
+
+        $campaign->featured_image()->associate($image);
         $campaign->save();
 
         return redirect(route('admin.campaigns.show', $campaign->id));
@@ -82,8 +94,16 @@ class CampaignController extends Controller
     public function update(Request $request, $id)
     {
         $campaign =  Campaign::findOrFail($id);
+        $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
 
+        $this->validate($request, [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $image = $this->createImage($request->file('image'), $request->input('name'));
+
+        $campaign->featured_image()->associate($image);
         $campaign->save();
 
         return redirect(route('admin.campaigns.show', $campaign->id));

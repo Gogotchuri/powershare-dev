@@ -12,6 +12,7 @@ class CampaignSeeder extends Seeder
     public function run()
     {
         $user = \App\User::first();
+        $image = \App\Models\Image::first();
 
         $someName = 'Sample Campaign';
         $someText = 'This is campaign details';
@@ -22,6 +23,7 @@ class CampaignSeeder extends Seeder
             $campaign->details = $i . $someText;
             $campaign->author_id = $user->id;
             $campaign->status_id = \App\Models\Reference\CampaignStatus::APPROVED;
+            $campaign->featured_image_id = $image->id;
             $campaign->save();
         }
     }

@@ -55,6 +55,10 @@ class Campaign extends Model
         $this->status_id = $value ? CampaignStatus::APPROVED : CampaignStatus::DRAFT;
     }
 
+    public function getIsDraftAttribute() {
+        return $this->status_id == CampaignStatus::DRAFT;
+    }
+
     public function getStatusNameAttribute()
     {
         return CampaignStatus::nameFromId($this->status_id);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\HandlesImages;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class CampaignController extends Controller
 {
+    use HandlesImages;
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +19,9 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        $campaigns = Campaign::all();
+        $user = Auth::user();
+
+        $campaigns = $user->campaigns;
 
         return view('user.campaigns.index', compact('campaigns'));
     }
@@ -60,7 +65,8 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
-        $campaign = Campaign::findOrFail($id);
+        $user = Auth::user();
+        $campaign = $user->campaigns()->findOrFail($id);
 
         return view('user.campaigns.show', compact('campaign'));
     }
@@ -73,7 +79,8 @@ class CampaignController extends Controller
      */
     public function edit($id)
     {
-        $campaign = Campaign::findOrFail($id);
+        $user = Auth::user();
+        $campaign = $user->campaigns()->findOrFail($id);
 
         return view('user.campaigns.edit', compact('campaign'));
     }
@@ -88,7 +95,15 @@ class CampaignController extends Controller
     public function update(Request $request, $id)
     {
         $campaign =  Campaign::findOrFail($id);
+        $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
+        $campaign->author_id = Auth::user()->id;
+
+        if($request->featured_image) {
+            $image = $this->createImage($request->file('featured_image'), $request->input('name'));
+            $campaign->featured_image()->delete();
+            $campaign->featured_image()->associate($image);
+        }
 
         $campaign->save();
 

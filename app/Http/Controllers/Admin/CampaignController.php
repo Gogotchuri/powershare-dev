@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\UpdateCampaign;
 use App\Models\Campaign;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CampaignController extends Controller
 {
@@ -47,6 +48,7 @@ class CampaignController extends Controller
         $campaign =  new Campaign();
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
+        $campaign->author_id = Auth::user()->id;
 
         $image = $this->createImage($request->file('featured_image'));
 
@@ -94,6 +96,7 @@ class CampaignController extends Controller
         $campaign =  Campaign::findOrFail($id);
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
+        $campaign->author_id = Auth::user()->id;
 
         if($request->featured_image) {
             $image = $this->createImage($request->file('featured_image'), $request->input('name'));

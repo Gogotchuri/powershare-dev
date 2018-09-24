@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CampaignController extends Controller
 {
@@ -39,8 +40,13 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
         $campaign =  new Campaign();
+        $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
+        $campaign->author_id = Auth::user()->id;
 
+        $image = $this->createImage($request->file('featured_image'));
+
+        $campaign->featured_image()->associate($image);
         $campaign->save();
 
         return redirect(route('user.campaigns.show', $campaign->id));

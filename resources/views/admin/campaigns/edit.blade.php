@@ -15,6 +15,9 @@
     <a class="btn btn-primary" href="{{ route('admin.campaigns.index') }}">
         Back
     </a>
+    <a style="float: left" class="btn btn-danger" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
+        Delete
+    </a>
 @endsection
 
 @section('body')

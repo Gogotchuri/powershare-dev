@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('campaigns', 'CampaignController');
         Route::get('campaigns/{id}/approve', 'CampaignController@approve')->name('campaigns.approve');
         Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove')->name('campaigns.unapprove');
+        Route::get('campaigns/{id}/delete', 'CampaignController@delete')->name('campaigns.delete');
 
         Route::resource('comments', 'CommentController');
         Route::get('comments/{id}/delete', 'CommentController@delete')->name('comments.delete');

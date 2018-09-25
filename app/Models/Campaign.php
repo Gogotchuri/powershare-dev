@@ -64,6 +64,10 @@ class Campaign extends Model
         return $this->status_id == CampaignStatus::DRAFT;
     }
 
+    public function getIsProposalAttribute() {
+        return $this->status_id == CampaignStatus::PROPOSAL;
+    }
+
     public function getStatusNameAttribute()
     {
         return CampaignStatus::nameFromId($this->status_id);

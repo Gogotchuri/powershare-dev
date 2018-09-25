@@ -76,6 +76,12 @@ class CampaignController extends Controller
     public function update(UpdateCampaign $request, $id)
     {
         $campaign =  Campaign::findOrFail($id);
+
+        //User can update Drafts only
+        if(!$campaign->is_draft) {
+            return back(403)->withErrors(['user', 'You cannot change campaign that is not draft']);
+        }
+
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->author_id = Auth::user()->id;

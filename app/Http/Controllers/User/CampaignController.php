@@ -103,7 +103,7 @@ class CampaignController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $campaign = $user->campaigns()->findOrFail($id);
+        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail($id);
 
         return view('user.campaigns.edit', compact('campaign'));
     }
@@ -117,7 +117,8 @@ class CampaignController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $campaign =  Campaign::findOrFail($id);
+        $user = Auth::user();
+        $campaign = $user->campaigns()->findOrFail($id);
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->author_id = Auth::user()->id;
@@ -131,5 +132,15 @@ class CampaignController extends Controller
         $campaign->save();
 
         return redirect(route('user.campaigns.show', $campaign->id));
+    }
+
+    public function delete($id)
+    {
+        $user = Auth::user();
+
+        //User can delete only campaigns that have status -> Draft
+        $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail()->delete();
+
+        return redirect(route('admin.campaigns.index'));
     }
 }

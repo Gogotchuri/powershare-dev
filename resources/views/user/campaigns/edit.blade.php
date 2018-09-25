@@ -22,6 +22,11 @@
 @endsection
 
 @section('buttons')
+    @if($campaign->is_draft)
+    <a style="float: left" class="btn btn-danger" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
+        Delete
+    </a>
+    @endif
     <a class="btn btn-primary" href="{{ route('user.campaigns.index') }}">
         Back
     </a>

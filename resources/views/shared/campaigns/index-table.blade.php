@@ -12,7 +12,7 @@
         <tr class="clickable" onclick="location.href = '{{ route($row_route_name, ['id' => $campaign->id]) }}'">
             <td scope="row"> {{$campaign->id}}</td>
             <td>{{$campaign->name}}</td>
-            <td>{{mb_strimwidth($campaign->details, 0, 10, "...")}}</td>
+            <td>{{mb_strimwidth($campaign->details, 0, 150, "...")}}</td>
             <td>
                 <span class="badge badge-pill badge-{{$campaign->is_approved ? 'success' : 'secondary'}}">{{$campaign->status_name}}</span>
             </td>

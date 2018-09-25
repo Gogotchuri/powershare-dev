@@ -8,6 +8,12 @@
     </a>
 @endsection
 
+@section('additional-controls')
+    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::APPROVED)}}')" type="button" class="btn btn-primary">
+        Publish
+    </button>
+@endsection
+
 @section('body')
     @include('shared.campaigns.create-form', [
         'route' => route('admin.campaigns.store')

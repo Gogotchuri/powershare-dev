@@ -1,5 +1,11 @@
 <form id="campaignCreateForm" method="post" action="{{$route}}" enctype="multipart/form-data">
 
+    @if ($errors->has('status'))
+        <div class="alert alert-danger" role="alert">
+            <strong>{{ $errors->first('status') }}</strong>
+        </div>
+    @endif
+
     @csrf
 
     @include('components.form.input', [
@@ -58,7 +64,5 @@
     <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)}}')" type="button" class="btn btn-primary">
         Submit for review
     </button>
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::APPROVED)}}')" type="button" class="btn btn-primary">
-        Publish
-    </button>
+    @yield('additional-controls')
 </form>

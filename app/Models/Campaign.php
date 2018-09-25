@@ -20,7 +20,6 @@ class Campaign extends Model
             'ethereum_address' => 'required|string|max:255',
             'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status' => 'required|exists:campaign_statuses,name',
         ];
     }
 

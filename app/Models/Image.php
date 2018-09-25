@@ -18,6 +18,6 @@ class Image extends Model
     }
 
     public function campaign() {
-
+        $this->belongsTo(Campaign::class);
     }
 }

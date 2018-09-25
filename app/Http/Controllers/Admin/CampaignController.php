@@ -7,7 +7,9 @@ use App\Http\Requests\Admin\StoreCampaign;
 use App\Http\Requests\Admin\UpdateCampaign;
 use App\Models\Campaign;
 use App\Models\Image;
+use App\Models\Reference\CampaignStatus;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CampaignController extends Controller
 {
@@ -26,14 +28,33 @@ class CampaignController extends Controller
     public function store(StoreCampaign $request)
     {
         $campaign =  new Campaign();
+        $campaign->status_id = CampaignStatus::idFromName($request->status);
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->author_id = Auth::user()->id;
+        $campaign->video_url = $request->video;
+        $campaign->ethereum_address = $request->ethereum_address;
+
+        $featured_images = $request->featured_images;
+        $featured_image_entities = [];
+
+        if($featured_images != null) {
+            foreach ($featured_images as $featured_image) {
+                $image = Image::fromFile($featured_image, 'Featured Image');
+                Storage::disk('s3')->url($image->url);
+
+                $featured_image_entities[] = $image;
+            }
+        }
 
         $image = Image::fromFile($request->file('featured_image'), 'Featured Image');
 
         $campaign->featured_image()->associate($image);
         $campaign->save();
+
+        foreach ($featured_image_entities as $featured_image_entity) {
+            $campaign->images()->save($featured_image_entity);
+        }
 
         return redirect(route('admin.campaigns.show', $campaign->id));
     }

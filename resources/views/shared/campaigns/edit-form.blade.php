@@ -23,23 +23,21 @@
         'type' => 'file',
         'name' => 'Featured Image',
     ])
-    {{--<div class="form-group">
-        <label for="image">Featured image</label>
-        <input type="file" class="form-control-file" name="image">
-        @if ($errors->has('image'))
-            <span class="invalid-feedback" role="alert">
-            <strong>{{ $errors->first('image') }}</strong>
-        </span>
-        @endif
-    </div>--}}
 
     @include('components.form.input', [
         'name' => 'Video'
     ])
 
+    <span>Having ({{ $campaign->images === null ? 0 : count($campaign->images) }})</span>
+    @include('components.form.input', [
+        'type' => 'file',
+        'name' => 'Featured Images',
+        'multiple' => true
+    ])
+
     {{-- TODO: make this multi selection 1 to 20 --}}
     {{--@include('components.form.select', [
-        'name' => 'Image',
+        'name' => 'Image',s
         //'required' => true,
         'options' => [],
         'title' => 'name',

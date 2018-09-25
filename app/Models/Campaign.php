@@ -16,6 +16,7 @@ class Campaign extends Model
         return [
             'name' => 'required|string',
             'details' => 'required|string',
+            'status' => 'required|exists:campaign_statuses,name',
         ];
     }
 

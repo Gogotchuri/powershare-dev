@@ -88,5 +88,6 @@
         </main>
     </div>
     @yield('scripts')
+    @stack('scripts-stack')
 </body>
 </html>

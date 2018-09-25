@@ -3,14 +3,19 @@
 namespace App\Http\Controllers\User;
 
 use App\HandlesImages;
+use App\Http\Requests\User\StoreCampaign;
 use App\Models\Campaign;
+use App\Models\Image;
+use App\Models\Reference\CampaignStatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 
 class CampaignController extends Controller
 {
-    use HandlesImages;
 
     /**
      * Display a listing of the resource.
@@ -42,17 +47,35 @@ class CampaignController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCampaign $request)
     {
         $campaign =  new Campaign();
+        $campaign->status_id = CampaignStatus::idFromName($request->status);
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->author_id = Auth::user()->id;
+        $campaign->video_url = $request->video;
+        $campaign->ethereum_address = $request->ethereum_address;
 
-        $image = $this->createImage($request->file('featured_image'));
+        $featured_images = $request->featured_images;
+        $featured_image_entities = [];
+
+        if($featured_images != null) {
+            foreach ($featured_images as $featured_image) {
+                $image = Image::fromFile($featured_image, 'Featured Image');
+
+                $featured_image_entities[] = $image;
+            }
+        }
+
+        $image = Image::fromFile($request->file('featured_image'), 'Featured Image');
 
         $campaign->featured_image()->associate($image);
         $campaign->save();
+
+        foreach ($featured_image_entities as $featured_image_entity) {
+            $campaign->images()->save($featured_image_entity);
+        }
 
         return redirect(route('user.campaigns.show', $campaign->id));
     }
@@ -80,7 +103,7 @@ class CampaignController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $campaign = $user->campaigns()->findOrFail($id);
+        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail($id);
 
         return view('user.campaigns.edit', compact('campaign'));
     }
@@ -94,7 +117,8 @@ class CampaignController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $campaign =  Campaign::findOrFail($id);
+        $user = Auth::user();
+        $campaign = $user->campaigns()->findOrFail($id);
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->author_id = Auth::user()->id;
@@ -108,5 +132,15 @@ class CampaignController extends Controller
         $campaign->save();
 
         return redirect(route('user.campaigns.show', $campaign->id));
+    }
+
+    public function delete($id)
+    {
+        $user = Auth::user();
+
+        //User can delete only campaigns that have status -> Draft
+        $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail()->delete();
+
+        return redirect(route('admin.campaigns.index'));
     }
 }

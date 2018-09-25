@@ -14,8 +14,13 @@ class Campaign extends Model
 
     public static function baseRules() {
         return [
-            'name' => 'required|string',
+            'name' => 'required|string|max:255',
             'details' => 'required|string',
+            'video_url' => 'url',
+            'ethereum_address' => 'required|string|max:255',
+            'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'status' => 'required|exists:campaign_statuses,name',
         ];
     }
 
@@ -57,6 +62,10 @@ class Campaign extends Model
 
     public function getIsDraftAttribute() {
         return $this->status_id == CampaignStatus::DRAFT;
+    }
+
+    public function getIsProposalAttribute() {
+        return $this->status_id == CampaignStatus::PROPOSAL;
     }
 
     public function getStatusNameAttribute()

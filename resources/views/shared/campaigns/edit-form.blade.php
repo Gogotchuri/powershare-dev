@@ -1,5 +1,15 @@
 <form method="post" action="{{$route}}" enctype="multipart/form-data">
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     {{method_field('PUT')}}
 
     @csrf

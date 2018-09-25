@@ -1,8 +1,12 @@
 <form id="campaignCreateForm" method="post" action="{{$route}}" enctype="multipart/form-data">
 
-    @if ($errors->has('status'))
-        <div class="alert alert-danger" role="alert">
-            <strong>{{ $errors->first('status') }}</strong>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
 

@@ -34,6 +34,9 @@ class CreateCampaignsTable extends Migration
             //Cannot add it here cause images table does not exist yet and there is reason for that.
             //$table->foreign('featured_image_id')->references('id')->on('images');
 
+            $table->string('video_url')->nullable();
+            $table->string('ethereum_address')->nullable();
+
             $table->timestamps();
         });
     }

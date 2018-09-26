@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/campaign/{id}', 'HomeController@show')->name('campaign.show');
 
 Auth::routes();
 

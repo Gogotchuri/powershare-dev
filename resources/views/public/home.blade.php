@@ -22,7 +22,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        {{$campaign->name}}
+                        <a href="{{ route('campaign.show', ['id' => $campaign->id]) }}">{{$campaign->name}}</a>
                     </div>
                     <div class="card-body">
                         {{$campaign->details}}

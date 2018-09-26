@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class SocialLink extends Model
 {
-    public static const FACEBOOK = 'FACEBOOK';
-    public static const TWITTER = 'TWITTER';
-    public static const LINKEDIN = 'LINKEDIN';
-    public static const OTHER = 'OTHER';
+    public const FACEBOOK = 'FACEBOOK';
+    public const TWITTER = 'TWITTER';
+    public const LINKEDIN = 'LINKEDIN';
+    public const OTHER = 'OTHER';
 
     public static function platforms() {
         return [
@@ -18,5 +18,13 @@ class SocialLink extends Model
             self::LINKEDIN,
             self::OTHER,
         ];
+    }
+
+    public function platform() {
+        return $this->belongsTo(SocialPlatform::class);
+    }
+
+    public function getPlatformNameAttribute() {
+        return optional($this->platform)->name;
     }
 }

@@ -71,4 +71,16 @@ class Campaign extends Model
     {
         return CampaignStatus::nameFromId($this->status_id);
     }
+
+    public function getYoutubeIdAttribute()
+    {
+        if(!$this->video_url) {
+            return null;
+        }
+
+        $parts = parse_url($this->video_url);
+        parse_str($parts['query'], $query);
+
+        return array_get($query, 'v');
+    }
 }

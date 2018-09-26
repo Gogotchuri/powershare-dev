@@ -1,4 +1,4 @@
-<form method="post" action="{{$route}}" enctype="multipart/form-data">
+<form id="campaignEditForm" method="post" action="{{$route}}" enctype="multipart/form-data">
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -53,14 +53,20 @@
         'value' => $campaign->ethereum_address,
     ])
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    {{-- Admin may want to save--}}
-    {{--<button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button" class="btn btn-primary">
-        Save as Draft
-    </button>
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)}}')" type="button" class="btn btn-primary">
-        Submit for review
-    </button>--}}
+    {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
+    @push('scripts-stack')
+        <script>
+            function onClick(statusName) {
+
+                var form = $('#campaignEditForm');
+                var input = $('<input />').attr('type', 'hidden')
+                    .attr('name', "status")
+                    .attr('value', statusName);
+
+                form.append(input).submit();
+            }
+        </script>
+    @endpush
 
     @yield('additional-controls')
 

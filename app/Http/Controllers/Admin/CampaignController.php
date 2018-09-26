@@ -80,7 +80,7 @@ class CampaignController extends Controller
         $campaign->details = $request->input('details');
         $campaign->video_url = $request->video;
         $campaign->ethereum_address = $request->ethereum_address;
-        //$campaign->status_id = CampaignStatus::idFromName($request->status);
+        $campaign->status_id = CampaignStatus::idFromName($request->status);
         //$campaign->author_id = Auth::user()->id;
 
         $featured_images = $request->featured_images;

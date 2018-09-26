@@ -20,4 +20,8 @@ class Image extends Model
     public function campaign() {
         $this->belongsTo(Campaign::class);
     }
+
+    public function getPublicUrlAttribute() {
+        return "https://s3.amazonaws.com/cz-public-images-test/" . $this->url;
+    }
 }

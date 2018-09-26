@@ -28,7 +28,7 @@ miner.start();
                 <div class="row">
                     <div class="col-md-12">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75"
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75"
                                  aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
@@ -41,6 +41,12 @@ miner.start();
                             <strong>Donate at </strong> {{$campaign->ethereum_address}}
                             </span>
                         </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button style="width: 100%" onclick="alert('How it works, coming soon!')" class="btn btn-success btn-lg">How it works?</button>
                     </div>
                 </div>
             </div>
@@ -95,9 +101,17 @@ miner.start();
                 No comments yet...
             </div>
         @endforelse
-
-        <button onclick="alert('How it works, coming soon!')" class="btn btn-info">How it works?</button>
-
+        <br/>
+        @auth
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"><strong>Leave your comment</strong></label>
+                    <textarea class="form-control" id="exampleInputEmail1" aria-describedby="commentHelp" placeholder="Enter your comment"></textarea>
+                    <small id="emailHelp" class="form-text text-muted">Comments are subject of review</small>
+                </div>
+            </form>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        @endauth
         <br/>
         <br/>
         <br/>

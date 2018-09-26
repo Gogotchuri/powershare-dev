@@ -26,6 +26,7 @@ class UpdateCampaign extends FormRequest
     {
         return array_merge(Campaign::baseRules(), [
             'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'status' => 'required|exists:campaign_statuses,name',
         ]);
     }
 }

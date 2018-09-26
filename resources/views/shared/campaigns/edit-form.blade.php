@@ -1,4 +1,4 @@
-<form method="post" action="{{$route}}" enctype="multipart/form-data">
+<form id="campaignEditForm" method="post" action="{{$route}}" enctype="multipart/form-data">
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -27,7 +27,7 @@
     ])
 
     <div>
-        <img class="campaign-image" src="{{asset($campaign->featured_image->url)}}" />
+        <img class="campaign-image" src="{{asset($campaign->featured_image->url)}}"/>
     </div>
     @include('components.form.input', [
         'type' => 'file',
@@ -35,7 +35,8 @@
     ])
 
     @include('components.form.input', [
-        'name' => 'Video'
+        'name' => 'Video',
+        'value' => $campaign->video_url,
     ])
 
     <span>Having ({{ $campaign->images === null ? 0 : count($campaign->images) }})</span>
@@ -45,19 +46,28 @@
         'multiple' => true
     ])
 
-    {{-- TODO: make this multi selection 1 to 20 --}}
-    {{--@include('components.form.select', [
-        'name' => 'Image',s
-        //'required' => true,
-        'options' => [],
-        'title' => 'name',
-    ])--}}
+    {{-- Place for fields that will be determined --}}
 
-    <button type="submit" class="btn btn-primary">
-        Submit
-    </button>
+    @include('components.form.input', [
+        'name' => 'Ethereum address',
+        'value' => $campaign->ethereum_address,
+    ])
+
+    {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
+    @push('scripts-stack')
+        <script>
+            function onClick(statusName) {
+
+                var form = $('#campaignEditForm');
+                var input = $('<input />').attr('type', 'hidden')
+                    .attr('name', "status")
+                    .attr('value', statusName);
+
+                form.append(input).submit();
+            }
+        </script>
+    @endpush
 
     @yield('additional-controls')
-    {{-- TODO: Add remaining fields --}}
 
 </form>

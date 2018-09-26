@@ -76,20 +76,38 @@ class CampaignController extends Controller
     public function update(UpdateCampaign $request, $id)
     {
         $campaign =  Campaign::findOrFail($id);
-
-        //User can update Drafts only
-        if(!$campaign->is_draft) {
-            return back(403)->withErrors(['user', 'You cannot change campaign that is not draft']);
-        }
-
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
-        $campaign->author_id = Auth::user()->id;
+        $campaign->video_url = $request->video;
+        $campaign->ethereum_address = $request->ethereum_address;
+        $campaign->status_id = CampaignStatus::idFromName($request->status);
+        //$campaign->author_id = Auth::user()->id;
 
-        if($request->featured_image) {
-            $image = Image::fromFile($request->file('featured_image'), 'Featured Image');
+        $featured_images = $request->featured_images;
+        $featured_image_entities = [];
+
+        if($featured_images != null) {
+            foreach ($featured_images as $featured_image) {
+                $image = Image::fromFile($featured_image, 'Featured Image');
+                Storage::disk('s3')->url($image->url);
+
+                $featured_image_entities[] = $image;
+            }
+        }
+
+        $featured_image = $request->featured_image;
+
+        if($featured_image !== null) {
+            $image = Image::fromFile($featured_image, 'Featured Image');
+
             $campaign->featured_image()->delete();
             $campaign->featured_image()->associate($image);
+        }
+
+        //TODO: We replace old featured pictures should we append?
+        $campaign->images()->delete();
+        foreach ($featured_image_entities as $featured_image_entity) {
+            $campaign->images()->save($featured_image_entity);
         }
 
         $campaign->save();

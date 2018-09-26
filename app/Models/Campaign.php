@@ -17,10 +17,9 @@ class Campaign extends Model
             'name' => 'required|string|max:255',
             'details' => 'required|string',
             'video_url' => 'url',
-            'ethereum_address' => 'required|string|max:255',
+            'ethereum_address' => 'nullable|string|max:255',
             'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status' => 'required|exists:campaign_statuses,name',
         ];
     }
 
@@ -57,7 +56,7 @@ class Campaign extends Model
     }
 
     public function setIsApprovedAttribute($value) {
-        $this->status_id = $value ? CampaignStatus::APPROVED : CampaignStatus::DRAFT;
+        $this->status_id = $value ? CampaignStatus::APPROVED : CampaignStatus::PROPOSAL;
     }
 
     public function getIsDraftAttribute() {

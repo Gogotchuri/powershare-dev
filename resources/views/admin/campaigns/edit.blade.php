@@ -20,6 +20,17 @@
     </a>
 @endsection
 
+@section('additional-controls')
+    <button onclick="onClick('{{CampaignStatus::nameFromId($campaign->status_id)}}')" type="button"
+            class="btn btn-primary">
+        Update
+    </button>
+    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button"
+            class="btn btn-primary">
+        Save as Draft
+    </button>
+@endsection
+
 @section('body')
     @include('shared.campaigns.edit-form', [
         'route' => route('admin.campaigns.update', ['id' => $campaign->id])

@@ -32,4 +32,8 @@ class User extends Authenticatable
     public function campaigns() {
         return $this->hasMany(Campaign::class, 'author_id');
     }
+
+    public function getIsAdminAttribute() {
+        return $this->role_id === 1;
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Campaign;
+use App\Models\Reference\CampaignStatus;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $campaigns = Campaign::where('status_id', CampaignStatus::APPROVED)->take(4)->get();
+
+        return view('public.home', ['campaigns' => $campaigns]);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $campaign = Campaign::where('status_id', CampaignStatus::APPROVED)->findOrFail($id);
+
+        return view('public.details', compact('campaign'));
     }
 }

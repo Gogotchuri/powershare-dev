@@ -11,17 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
-        'user' => Auth::user()
-    ]);
-});
+Route::get('/', 'HomeController@index');
+Route::get('/campaign/{id}', 'HomeController@show')->name('campaign.show');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index', [
-    'user' => Auth::user()
-])->name('home');
+Route::get('/home', function () {
+    return redirect('/');
+})->name('home');
 
 Route::middleware(['auth'])->group(function () {
 

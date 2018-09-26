@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('skeleton')
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        </div>
-    </div>
     <div class="container">
+        <br/>
+        <br/>
+        <h1>{{$campaign->name}}</h1>
+        <br/>
+        <br/>
         <div class="row">
             <div class="col-md-6">
                 <img class="img-fluid" alt="{{optional($campaign->featured_image)->name}}"
@@ -51,10 +50,13 @@ miner.start();
         <br/>
         <div class="row">
             <div class="col-md-12">
-                <h1>{{$campaign->name}}</h1>
+                <h1>Help us with - details</h1>
                 <p>{!! $campaign->details !!}</p>
             </div>
         </div>
+        <br/>
+        <br/>
+        <br/>
         @if($campaign->youtube_id !== null)
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -63,6 +65,8 @@ miner.start();
                 </div>
             </div>
         @endif
+        <br/>
+        <br/>
         @if($campaign->images()->count() > 0)
             <div class="row">
                 <div class="col-md-12 text-center">

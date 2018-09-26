@@ -25,7 +25,8 @@
                         <a href="{{ route('campaign.show', ['id' => $campaign->id]) }}">{{$campaign->name}}</a>
                     </div>
                     <div class="card-body">
-                        {{$campaign->details}}
+                        {{-- FIXME: This width function can break html comming from WYSIWYG --}}
+                        <p>{!! mb_strimwidth($campaign->details, 0, 100, "...") !!}</p>
                     </div>
                 </div>
             </div>

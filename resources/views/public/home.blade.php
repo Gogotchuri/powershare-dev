@@ -22,7 +22,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('campaign.show', ['id' => $campaign->id]) }}">{{$campaign->name}}</a>
+                        <a href="{{ route('public.campaign.show', ['id' => $campaign->id]) }}">{{$campaign->name}}</a>
                     </div>
                     <div class="card-body">
                         {{-- FIXME: This width function can break html comming from WYSIWYG --}}

@@ -11,8 +11,18 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/campaign/{id}', 'HomeController@show')->name('campaign.show');
+Route::namespace('Front')->name('public.')->group(function () {
+
+    Route::get('/', 'HomeController@index');
+
+    Route::prefix('campaigns')->group(function () {
+        Route::get('{id}', 'CampaignController@show')->name('campaign.show');
+        Route::post('{id}/add-comment', 'CampaignController@addComment')->name('campaign.add-comment');
+    });
+});
+
+
+
 
 Auth::routes();
 

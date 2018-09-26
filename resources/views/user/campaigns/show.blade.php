@@ -10,7 +10,7 @@
             </div>
         @else
             <div class="alert alert-success" role="alert">
-                <a href="#{{--TODO: Public link--}}">Public</a>
+                <a href="#{{--TODO: Front link--}}">Public</a>
             </div>
         @endif
     @endsection

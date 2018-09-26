@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
+use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 use App\Models\Reference\CampaignStatus;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -28,17 +28,5 @@ class HomeController extends Controller
         $campaigns = Campaign::where('status_id', CampaignStatus::APPROVED)->take(4)->get();
 
         return view('public.home', ['campaigns' => $campaigns]);
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $campaign = Campaign::where('status_id', CampaignStatus::APPROVED)->findOrFail($id);
-
-        return view('public.details', compact('campaign'));
     }
 }

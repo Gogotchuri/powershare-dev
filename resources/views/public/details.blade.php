@@ -93,7 +93,8 @@ miner.start();
             </div>
         @endif
 
-        @forelse($campaign->comments as $comment)
+        {{-- TODO: Move this query in controller or somewhere else not here!--}}
+        @forelse($campaign->comments()->where('is_public', true)->get() as $comment)
             <a href="#"><h6>{{$comment->author_name}}</h6></a>
             <p>{{$comment->body}}</p>
         @empty
@@ -103,14 +104,15 @@ miner.start();
         @endforelse
         <br/>
         @auth
-            <form>
+            <form method="post" action="{{route('public.campaign.add-comment', ['id' => $campaign->id])}}">
+                @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail1"><strong>Leave your comment</strong></label>
-                    <textarea class="form-control" id="exampleInputEmail1" aria-describedby="commentHelp" placeholder="Enter your comment"></textarea>
+                    <textarea required name="body" class="form-control" id="exampleInputEmail1" aria-describedby="commentHelp" placeholder="Enter your comment"></textarea>
                     <small id="emailHelp" class="form-text text-muted">Comments are subject of review</small>
                 </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-            <button type="submit" class="btn btn-primary">Submit</button>
         @endauth
         <br/>
         <br/>

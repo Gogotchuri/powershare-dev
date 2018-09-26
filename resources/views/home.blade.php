@@ -1,23 +1,35 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+@section('skeleton')
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Fluid jumbotron</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
         </div>
     </div>
-</div>
+    <div class="container">
+        <form class="form-inline">
+            <div class="form-group mb-2">
+                <label for="staticEmail2" class="sr-only">Email</label>
+                <input class="form-control" type="text" placeholder="Search" id="staticEmail2">
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <hr>
+        <div class="row">
+            @foreach($campaigns as $campaign)
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        {{$campaign->name}}
+                    </div>
+                    <div class="card-body">
+                        {{$campaign->details}}
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
 @endsection

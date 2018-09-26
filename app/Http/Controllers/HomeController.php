@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', ['campaigns' => \App\Models\Campaign::take(4)->get()]);
     }
 }

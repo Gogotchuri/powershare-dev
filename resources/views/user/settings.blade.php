@@ -1,15 +1,15 @@
-@extends('admin.main')
+@extends('user.main')
 
 @section('header', 'Settings')
 
 @section('buttons')
-    <a class="btn btn-primary" href="{{ route('admin.campaigns.index') }}">
+    <a class="btn btn-primary" href="{{ route('user.campaigns.index') }}">
         Back
     </a>
 @endsection
 
 @section('body')
     @include('shared.settings-form', [
-        'update_route' => route('admin.settings.update')
+        'update_route' => route('user.settings.update')
     ])
 @endsection

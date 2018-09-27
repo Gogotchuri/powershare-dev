@@ -64,7 +64,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                     {{-- TODO: add link for user too--}}
-                                    <a class="dropdown-item" href="{{ Auth::user()->is_admin ? route('admin.settings.edit') : "#" }}">Settings</a>
+                                    <a class="dropdown-item" href="{{ Auth::user()->is_admin ? route('admin.settings.edit') : route('user.settings.edit') }}">Settings</a>
 
                                     <div class="dropdown-divider"></div>
 

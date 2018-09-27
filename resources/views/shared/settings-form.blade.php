@@ -1,5 +1,9 @@
 <form method="post" action="{{$update_route}}">
 
+    {{-- TODO: Can ve use this: https://www.chromium.org/developers/design-documents/form-styles-that-chromium-understands
+        To make chrome password update propt show right user after form submit success
+    --}}
+
     <h3>Change password</h3>
     <hr/>
     @csrf

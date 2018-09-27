@@ -48,5 +48,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::namespace('User')->prefix('user')->name('user.')->group(function () {
         Route::resource('campaigns', 'CampaignController');
+
+        Route::get('settings', 'SettingsController@edit')->name('settings.edit');
+        Route::post('settings', 'SettingsController@update')->name('settings.update');
     });
 });

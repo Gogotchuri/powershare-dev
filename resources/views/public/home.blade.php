@@ -18,19 +18,24 @@
     <div class="container">
         <hr>
         <div class="row">
-            @foreach($campaigns as $campaign)
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        <a href="{{ route('public.campaign.show', ['id' => $campaign->id]) }}">{{$campaign->name}}</a>
-                    </div>
-                    <div class="card-body">
-                        {{-- FIXME: This width function can break html comming from WYSIWYG --}}
-                        <p>{!! mb_strimwidth($campaign->details, 0, 100, "...") !!}</p>
-                    </div>
+            <div class="col-md-12">
+                <div class="card-columns">
+                    @foreach($campaigns as $campaign)
+                        <div class="card">
+                            <div class="card-header">
+                                <a href="{{ route('public.campaign.show', ['id' => $campaign->id]) }}">{{$campaign->name}}</a>
+                                <br/>
+                                <br/>
+                                <img class="img-fluid" src="{{$campaign->featured_image_url}}">
+                            </div>
+                            <div class="card-body">
+                                {{-- FIXME: This width function can break html comming from WYSIWYG --}}
+                                <p>{!! mb_strimwidth($campaign->details, 0, 100, "...") !!}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
         </div>
     </div>
 @endsection

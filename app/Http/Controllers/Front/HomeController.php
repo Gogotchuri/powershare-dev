@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $campaigns = Campaign::where('status_id', CampaignStatus::APPROVED)->take(4)->get();
+        $campaigns = Campaign::where('status_id', CampaignStatus::APPROVED)->take(30)->get();
 
         return view('public.home', ['campaigns' => $campaigns]);
     }

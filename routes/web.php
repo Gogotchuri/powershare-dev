@@ -41,9 +41,15 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('comments', 'CommentController');
         Route::get('comments/{id}/delete', 'CommentController@delete')->name('comments.delete');
+
+        Route::get('settings', 'SettingsController@edit')->name('settings.edit');
+        Route::post('settings', 'SettingsController@update')->name('settings.update');
     });
 
     Route::namespace('User')->prefix('user')->name('user.')->group(function () {
         Route::resource('campaigns', 'CampaignController');
+
+        Route::get('settings', 'SettingsController@edit')->name('settings.edit');
+        Route::post('settings', 'SettingsController@update')->name('settings.update');
     });
 });

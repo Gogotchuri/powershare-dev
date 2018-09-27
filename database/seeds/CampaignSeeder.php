@@ -11,20 +11,8 @@ class CampaignSeeder extends Seeder
      */
     public function run()
     {
-        $user = \App\User::first();
-        $image = \App\Models\Image::first();
-
-        $someName = 'Sample Campaign';
-        $someText = 'This is campaigns details';
-
-        for($i = 0; $i < 1; $i++) {
-            $campaign = new \App\Models\Campaign();
-            $campaign->name = $i . $someName;
-            $campaign->details = $i . $someText;
-            $campaign->author_id = $user->id;
-            $campaign->status_id = \App\Models\Reference\CampaignStatus::APPROVED;
-            $campaign->featured_image_id = $image->id;
-            $campaign->save();
-        }
+        $campaigns = factory(App\Models\Campaign::class, 50)->create()->each(function ($campaign) {
+            $campaign->comments()->saveMany(factory(App\Models\Comment::class, rand(1,5))->make());
+        });
     }
 }

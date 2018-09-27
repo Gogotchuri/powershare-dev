@@ -6,7 +6,7 @@
         <div class="card-body">
             <p>
                 <a href="{{ route('user.campaigns.index') }}">
-                    Campaigns
+                    My Campaigns
                 </a>
             </p>
         </div>

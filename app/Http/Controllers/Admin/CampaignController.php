@@ -3,109 +3,125 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreCampaign;
+use App\Http\Requests\Admin\UpdateCampaign;
 use App\Models\Campaign;
-use Illuminate\Http\Request;
+use App\Models\Image;
+use App\Models\Reference\CampaignStatus;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CampaignController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $campaigns = Campaign::all();
 
-        return view('admin.campaign.index', compact('campaigns'));
+        return view('admin.campaigns.index', compact('campaigns'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('admin.campaign.create');
+        return view('admin.campaigns.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(StoreCampaign $request)
     {
         $campaign =  new Campaign();
+        $campaign->status_id = CampaignStatus::idFromName($request->status);
+        $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
+        $campaign->author_id = Auth::user()->id;
+        $campaign->video_url = $request->video;
+        $campaign->ethereum_address = $request->ethereum_address;
 
+        $featured_images = $request->featured_images;
+        $featured_image_entities = [];
+
+        if($featured_images != null) {
+            foreach ($featured_images as $featured_image) {
+                $image = Image::fromFile($featured_image, 'Featured Image');
+                Storage::disk('s3')->url($image->url);
+
+                $featured_image_entities[] = $image;
+            }
+        }
+
+        $image = Image::fromFile($request->file('featured_image'), 'Featured Image');
+
+        $campaign->featured_image()->associate($image);
         $campaign->save();
+
+        foreach ($featured_image_entities as $featured_image_entity) {
+            $campaign->images()->save($featured_image_entity);
+        }
 
         return redirect(route('admin.campaigns.show', $campaign->id));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $campaign = Campaign::findOrFail($id);
 
-        return view('admin.campaign.show', compact('campaign'));
+        return view('admin.campaigns.show', compact('campaign'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $campaign = Campaign::findOrFail($id);
 
-        return view('admin.campaign.edit', compact('campaign'));
+        return view('admin.campaigns.edit', compact('campaign'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(UpdateCampaign $request, $id)
     {
         $campaign =  Campaign::findOrFail($id);
+        $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
+        $campaign->video_url = $request->video;
+        $campaign->ethereum_address = $request->ethereum_address;
+        $campaign->status_id = CampaignStatus::idFromName($request->status);
+        //$campaign->author_id = Auth::user()->id;
+
+        $featured_images = $request->featured_images;
+        $featured_image_entities = [];
+
+        if($featured_images != null) {
+            foreach ($featured_images as $featured_image) {
+                $image = Image::fromFile($featured_image, 'Featured Image');
+                Storage::disk('s3')->url($image->url);
+
+                $featured_image_entities[] = $image;
+            }
+        }
+
+        $featured_image = $request->featured_image;
+
+        if($featured_image !== null) {
+            $image = Image::fromFile($featured_image, 'Featured Image');
+
+            $campaign->featured_image()->delete();
+            $campaign->featured_image()->associate($image);
+        }
+
+        //TODO: We replace old featured pictures should we append?
+        $campaign->images()->delete();
+        foreach ($featured_image_entities as $featured_image_entity) {
+            $campaign->images()->save($featured_image_entity);
+        }
 
         $campaign->save();
 
         return redirect(route('admin.campaigns.show', $campaign->id));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        Campaign::findOrFail($id)->delete();
+
+        return redirect(route('admin.campaigns.index'));
     }
 
-    /**
-     * Approve the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function approve($id)
     {
         $campaign = Campaign::findOrFail($id);
@@ -115,12 +131,6 @@ class CampaignController extends Controller
         return redirect(route('admin.campaigns.edit', $campaign));
     }
 
-    /**
-     * Unapprove the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function unapprove($id)
     {
         $campaign = Campaign::findOrFail($id);

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Campaign;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,4 +28,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function campaigns() {
+        return $this->hasMany(Campaign::class, 'author_id');
+    }
+
+    public function getIsAdminAttribute() {
+        return $this->role_id === 1;
+    }
 }

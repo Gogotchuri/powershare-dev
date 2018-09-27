@@ -15,10 +15,24 @@
     <a class="btn btn-primary" href="{{ route('admin.campaigns.index') }}">
         Back
     </a>
+    <a style="float: left" class="btn btn-danger" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
+        Delete
+    </a>
+@endsection
+
+@section('additional-controls')
+    <button onclick="onClick('{{CampaignStatus::nameFromId($campaign->status_id)}}')" type="button"
+            class="btn btn-primary">
+        Update
+    </button>
+    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button"
+            class="btn btn-primary">
+        Save as Draft
+    </button>
 @endsection
 
 @section('body')
-    @include('shared.campaign.edit-form', [
+    @include('shared.campaigns.edit-form', [
         'route' => route('admin.campaigns.update', ['id' => $campaign->id])
     ])
 @endsection

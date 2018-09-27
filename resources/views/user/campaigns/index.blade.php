@@ -9,7 +9,8 @@
 @endsection
 
 @section('body')
-    @include('shared.campaign.index-table', [
-        'row_route_name' => 'user.campaigns.edit'
+    @include('shared.campaigns.index-table', [
+        'row_route_name' => 'user.campaigns.show',
+        'continue_route_name' => 'user.campaigns.edit'
     ])
 @endsection

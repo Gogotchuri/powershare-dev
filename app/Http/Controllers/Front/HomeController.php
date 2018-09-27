@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Campaign;
+use App\Models\Reference\CampaignStatus;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $campaigns = Campaign::where('status_id', CampaignStatus::APPROVED)->take(4)->get();
+
+        return view('public.home', ['campaigns' => $campaigns]);
     }
 }

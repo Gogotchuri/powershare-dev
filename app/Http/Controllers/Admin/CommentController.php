@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\StoreComment;
+use App\Models\Campaign;
 use App\Models\Comment;
-use Illuminate\Http\Request;
+use App\User;
 use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
@@ -21,38 +23,6 @@ class CommentController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -60,7 +30,13 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+
+        //FIXME: We are using these for select boxes but they may become very long lists.
+        $users = User::all();
+        $campaigns = Campaign::all();
+
+        return view('admin.comments.edit', compact('comment', 'users', 'campaigns'));
     }
 
     /**
@@ -70,9 +46,19 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreComment $request, $id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+
+        $comment->body = $request->body;
+        $comment->campaign_id = $request->campaign;
+        $comment->author_id = $request->author;
+        $comment->date = $request->date;
+        $comment->is_public = (bool)$request->status;
+
+        $comment->save();
+
+        return redirect(route('admin.comments.edit', ['id' => $comment->id]));
     }
 
     /**
@@ -81,8 +67,10 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        Comment::findOrFail($id)->delete();
+
+        return redirect(route('admin.comments.index'));
     }
 }

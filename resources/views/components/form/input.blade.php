@@ -5,9 +5,13 @@
         id="{{ snake_case($name) }}"
         type="{{ isset($type) ? $type : 'text' }}"
         class="form-control{{ $errors->has(snake_case($name)) ? ' is-invalid' : '' }}"
-        name="{{ snake_case($name) }}"
+        name="{{ snake_case($name) . (isset($multiple) && $multiple ? '[]' : '') }}"
+        @unless( isset($multiple) && $multiple)
         value="{{ isset($value) ? $value : old(snake_case($name)) }}"
-        {{ isset($required) ? 'required' : '' }}
+        @endunless
+        {{ isset($required) && $required ? 'required' : '' }}
+        {{ isset($checked) && $checked ? 'checked' : '' }}
+        {{ isset($multiple) && $multiple ? 'multiple' : '' }}
         autofocus
     />
 

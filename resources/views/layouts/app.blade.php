@@ -34,7 +34,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ Auth::user()->is_admin ? route('admin.campaigns.create') : route('user.campaigns.create') }}">Register Campaign</a>
+                            </li>
+                        @else
 
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,20 +79,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <div class="container">
-                <div class="card">
-                    <div class="card-header">
-                        @yield('header')
-                    </div>
-
-                    <div class="card-body">
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
-        </main>
+        @yield('skeleton')
     </div>
     @yield('scripts')
+    @stack('scripts-stack')
 </body>
 </html>

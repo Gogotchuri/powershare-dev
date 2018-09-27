@@ -27,7 +27,7 @@
     ])
 
     <div>
-        <img class="campaign-image" src="{{asset($campaign->featured_image->public_url)}}"/>
+        <img class="campaign-image" src="{{asset($campaign->featured_image_url)}}"/>
     </div>
     @include('components.form.input', [
         'type' => 'file',

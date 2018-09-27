@@ -10,7 +10,7 @@
             </div>
         @else
             <div class="alert alert-success" role="alert">
-                <a href="#{{--TODO: Front link--}}">Public</a>
+                <a href="{{route('public.campaign.show', ['id' => $campaign->id])}}" target="_blank">Public</a>
             </div>
         @endif
     @endsection

@@ -14,6 +14,11 @@
                     Comments
                 </a>
             </p>
+            <p>
+                <a href="{{ route('admin.settings.edit') }}">
+                    Settings
+                </a>
+            </p>
         </div>
     </div>
 </div>

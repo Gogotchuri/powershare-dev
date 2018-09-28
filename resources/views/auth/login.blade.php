@@ -64,10 +64,9 @@
                         </div>
                         <hr>
                         <div class="form-group row text-center">
-                            <div class="col-md-12 col-md-offset-4">
-                                <a href="{{ url('/auth/github') }}" class="btn btn-github"><i class="fa fa-github"></i> Github</a>
-                                <a href="{{ url('/auth/twitter') }}" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
-                                <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+                            <div class="col-md-4 offset-md-4">
+                                <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
+                                <a href="{{ url('/auth/google') }}" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
                             </div>
                         </div>
                     </form>

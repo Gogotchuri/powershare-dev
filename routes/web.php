@@ -11,6 +11,8 @@
 |
 */
 
+// Public
+
 Route::namespace('Front')->name('public.')->group(function () {
 
     Route::get('/', 'HomeController@index');
@@ -21,14 +23,14 @@ Route::namespace('Front')->name('public.')->group(function () {
     });
 });
 
+// Auth routes
+
 Auth::routes();
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('/home', function () {
-    return redirect('/');
-})->name('home');
+// Authenticated people
 
 Route::middleware(['auth'])->group(function () {
 

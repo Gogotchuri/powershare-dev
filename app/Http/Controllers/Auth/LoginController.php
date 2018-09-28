@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -87,18 +87,5 @@ class LoginController extends Controller
             'provider' => $provider,
             'provider_id' => $user->id
         ]);
-    }
-
-    public function showLoginForm()
-    {
-        session(['link' => url()->previous()]);
-        return view('auth.login');
-    }
-
-    protected function authenticated(Request $request, $user)
-    {
-        dd('asdasdasd');
-
-        return redirect(session('link'));
     }
 }

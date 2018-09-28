@@ -39,6 +39,9 @@
                                 <a class="nav-link" href="{{ Auth::user()->is_admin ? route('admin.campaigns.create') : route('user.campaigns.create') }}">Register Campaign</a>
                             </li>
                         @else
+                            {{-- FIXME: If admin clicks on this link it will redirect to users management route not admins after successfult login
+                                This is true for all similar link
+                             --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.campaigns.create') }}">Register Campaign</a>
                             </li>

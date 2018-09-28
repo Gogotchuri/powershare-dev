@@ -64,7 +64,8 @@ class LoginController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
-        return redirect($this->redirectTo);
+
+        return redirect()->intended('defaultpage');
     }
 
     /**
@@ -86,5 +87,18 @@ class LoginController extends Controller
             'provider' => $provider,
             'provider_id' => $user->id
         ]);
+    }
+
+    public function showLoginForm()
+    {
+        session(['link' => url()->previous()]);
+        return view('auth.login');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        dd('asdasdasd');
+
+        return redirect(session('link'));
     }
 }

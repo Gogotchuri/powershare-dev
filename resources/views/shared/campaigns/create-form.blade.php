@@ -15,13 +15,11 @@
     @include('components.form.input', [
         'name' => 'Name',
         'required' => true,
-        'value' => 'Featured images test' . \Carbon\Carbon::now(),
     ])
 
     @include('components.form.textarea', [
         'name' => 'Details',
         'required' => true,
-        'value' => 'Featured images test asdasdasdsadasdasdasdasdsadsad' . \Carbon\Carbon::now(),
     ])
 
     @include('components.form.input', [
@@ -31,7 +29,6 @@
 
     @include('components.form.input', [
         'name' => 'Video',
-        'value' => 'https://www.youtube.com/watch?v=RSDqSjTO9fs' . \Carbon\Carbon::now(),
     ])
 
     @include('components.form.input', [
@@ -44,7 +41,6 @@
 
     @include('components.form.input', [
         'name' => 'Ethereum address',
-        'value' => '0x7614e80bE7E0C1e5aFce4E8e35627dEEc461d2bD',
     ])
 
     {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}

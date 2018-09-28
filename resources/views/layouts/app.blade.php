@@ -39,7 +39,9 @@
                                 <a class="nav-link" href="{{ Auth::user()->is_admin ? route('admin.campaigns.create') : route('user.campaigns.create') }}">Register Campaign</a>
                             </li>
                         @else
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user.campaigns.create') }}">Register Campaign</a>
+                            </li>
                         @endauth
                     </ul>
 

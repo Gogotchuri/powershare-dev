@@ -21,9 +21,6 @@ Route::namespace('Front')->name('public.')->group(function () {
     });
 });
 
-
-
-
 Auth::routes();
 
 Route::get('/home', function () {

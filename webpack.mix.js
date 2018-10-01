@@ -12,4 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .scripts([
+        'resources/js/vendor/jquery.ui.widget.js',
+        'resources/js/vendor/blueimp/jquery.fileupload.js',
+        'resources/js/vendor/blueimp/jquery.iframe-transport.js',
+    ], 'public/js/file-upload.js')
    .sass('resources/sass/app.scss', 'public/css');

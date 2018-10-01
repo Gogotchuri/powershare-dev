@@ -58,4 +58,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('settings/notifications', 'SettingsController@updateNotifications')
             ->name('settings.updateNotifications');
     });
+
+    Route::post('upload', 'ImageController@upload')->name('images.upload');
 });

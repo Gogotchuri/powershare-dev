@@ -12,7 +12,8 @@ class Image extends Model
     {
         $image = new static();
         $image->name = $name;
-        $image->url = Storage::disk('s3')->url($file->storePublicly('', 's3'));
+        $image->path = $file->storePublicly('', 's3');
+        $image->url = Storage::disk('s3')->url($image->path);
         $image->save();
 
         return $image;

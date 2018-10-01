@@ -31,11 +31,16 @@
         'name' => 'Video',
     ])
 
-    @include('components.form.input', [
+    {{--@include('components.form.input', [
         'type' => 'file',
         'name' => 'Featured Images',
         'multiple' => true,
-    ])
+    ])--}}
+
+    <input type="file" id="fileupload" name="featured_images[]" data-url="/upload" multiple/>
+    <div id="files_list"></div>
+    <p id="loading"></p>
+    <input type="hidden" name="file_ids" id="file_ids" value=""/>
 
     {{-- Place for fields that will be determined --}}
 
@@ -45,6 +50,31 @@
 
     {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
     @push('scripts-stack')
+        <script src="{{ asset('js/file-upload.js') }}" defer></script>
+        <script>
+
+            // FIXME: Temporary added this timout just to wait for jQuery/$ do get defined, ti should not be needed
+            setTimeout(function() {
+                $('#fileupload').fileupload({
+                    dataType: 'json',
+                    add: function (e, data) {
+                        $('#loading').text('Uploading...');
+                        data.submit();
+                    },
+                    done: function (e, data) {
+                        $.each(data.result.files, function (index, file) {
+                            $('<p/>').html(file.name + ' (' + file.size + ' KB)').appendTo($('#files_list'));
+                            if ($('#file_ids').val() != '') {
+                                $('#file_ids').val($('#file_ids').val() + ',');
+                            }
+                            $('#file_ids').val($('#file_ids').val() + file.fileID);
+                        });
+                        $('#loading').text('');
+                    }
+                });
+            }, 5000);
+
+        </script>
         <script>
             function onClick(statusName) {
 
@@ -58,11 +88,17 @@
         </script>
     @endpush
 
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button" class="btn btn-primary">
+    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button"
+            class="btn btn-primary">
         Save as Draft
     </button>
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)}}')" type="button" class="btn btn-primary">
+    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)}}')" type="button"
+            class="btn btn-primary">
         Submit for review
     </button>
     @yield('additional-controls')
 </form>
+
+@push('scripts-stack')
+
+@endpush

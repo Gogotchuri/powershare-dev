@@ -36,4 +36,17 @@ class SettingsController extends Controller
 
         return redirect(route(  'user.settings.edit'));
     }
+
+
+    public function updateNotifications(Request $request) {
+        $user = Auth::user();
+
+        $notifications_value = $request->input('receive_notifications', false) === 'Yes';
+
+        $settings = $user->settings;
+        $settings->receive_notifications = $notifications_value;
+        $settings->save();
+
+        return redirect(route(  'user.settings.edit'));
+    }
 }

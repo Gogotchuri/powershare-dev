@@ -45,13 +45,17 @@ Route::middleware(['auth'])->group(function () {
         Route::get('comments/{id}/delete', 'CommentController@delete')->name('comments.delete');
 
         Route::get('settings', 'SettingsController@edit')->name('settings.edit');
-        Route::post('settings', 'SettingsController@update')->name('settings.update');
+        Route::post('settings/password', 'SettingsController@updatePassword')->name('settings.updatePassword');
+        Route::post('settings/notifications', 'SettingsController@updateNotifications')
+            ->name('settings.updateNotifications');
     });
 
     Route::namespace('User')->prefix('user')->name('user.')->group(function () {
         Route::resource('campaigns', 'CampaignController');
 
         Route::get('settings', 'SettingsController@edit')->name('settings.edit');
-        Route::post('settings', 'SettingsController@update')->name('settings.update');
+        Route::post('settings/password', 'SettingsController@updatePassword')->name('settings.updatePassword');
+        Route::post('settings/notifications', 'SettingsController@updateNotifications')
+            ->name('settings.updateNotifications');
     });
 });

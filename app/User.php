@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Campaign;
+use App\Models\UserSettings;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,7 +34,15 @@ class User extends Authenticatable
         return $this->hasMany(Campaign::class, 'author_id');
     }
 
+    public function settings() {
+        return $this->hasOne(UserSettings::class)->withDefault();
+    }
+
     public function getIsAdminAttribute() {
         return $this->role_id === 1;
+    }
+
+    public function getNotificationsOnAttribute() {
+        return optional($this->settings)->receive_notifications;
     }
 }

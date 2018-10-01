@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Storage;
 class ImageController extends Controller
 {
     public function upload(Request $request) {
-
         $image_descriptors = [];
         foreach ($request->featured_images as $featured_image) {
 

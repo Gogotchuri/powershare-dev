@@ -24,6 +24,14 @@
     max-width: 200px;
 }
 
+.comment-container {
+    padding: 12px 18px; border-radius: 0.25rem;
+
+    &.non-public {
+        background-color: #fff5d1;
+    }
+}
+
 /*TMP*/
 .card-columns {
     @include media-breakpoint-only(sm) {

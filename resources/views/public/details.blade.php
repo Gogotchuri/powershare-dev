@@ -36,7 +36,7 @@ miner.start();
                 <br/>
                 <div class="row">
                     <div class="col-md-12">
-                        <div style=" background-color: #ececec; padding: 10px; border-radius: 0.25rem;"
+                        <div style="background-color: #ececec; padding: 10px; border-radius: 0.25rem;"
                              class="highlight">
                             <strong>Donate at </strong> {{$campaign->ethereum_address}}
                             </span>
@@ -94,9 +94,14 @@ miner.start();
         @endif
 
         {{-- TODO: Move this query in controller or somewhere else not here!--}}
-        @forelse($campaign->comments()->where('is_public', true)->get() as $comment)
-            <a href="#"><h6>{{$comment->author_name}}</h6></a>
-            <p>{{$comment->body}}</p>
+        @forelse($comments as $comment)
+            <div class="comment-container @if(!$comment->is_public) non-public @endif">
+                <a class="comment-author" href="#"><h6>{{$comment->author_name}}</h6></a>
+                <div>
+                    <span class="comment-body">{{$comment->body}}</span>
+                    <small id="emailHelp" class="form-text text-muted">Only you can see this comment until it gets published.</small>
+                </div>
+            </div>
         @empty
             <div class="alert alert-light" role="alert">
                 No comments yet...

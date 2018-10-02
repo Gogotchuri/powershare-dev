@@ -50,32 +50,9 @@
 
     {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
     @push('scripts-stack')
-        <script src="{{ asset('js/file-upload.js') }}" defer></script>
         <script>
+            alert(window.a);
 
-            // FIXME: Temporary added this timout just to wait for jQuery/$ do get defined, ti should not be needed
-            setTimeout(function() {
-                $('#fileupload').fileupload({
-                    dataType: 'json',
-                    add: function (e, data) {
-                        $('#loading').text('Uploading...');
-                        data.submit();
-                    },
-                    done: function (e, data) {
-                        $.each(data.result.files, function (index, file) {
-                            $('<p/>').html(file.name + ' (' + file.size + ' KB)').appendTo($('#files_list'));
-                            if ($('#file_ids').val() != '') {
-                                $('#file_ids').val($('#file_ids').val() + ',');
-                            }
-                            $('#file_ids').val($('#file_ids').val() + file.fileID);
-                        });
-                        $('#loading').text('');
-                    }
-                });
-            }, 5000);
-
-        </script>
-        <script>
             function onClick(statusName) {
 
                 var form = $('#campaignCreateForm');

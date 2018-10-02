@@ -76,11 +76,11 @@ class CampaignController extends Controller
     public function update(UpdateCampaign $request, $id)
     {
         //FIXME: TMP
-
+        //FIXME: This parameter can be easily changed by user on front-end.
+        // User can assign whichever images he wants to this campaign.
         $imageIds = $request->image_ids;
 
         //FIXME: END TMP
-
 
         $campaign =  Campaign::findOrFail($id);
         $campaign->name = $request->input('name');

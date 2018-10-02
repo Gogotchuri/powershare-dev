@@ -10,6 +10,6 @@
     </div>
 
     <div class="text-right">
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-secondary">Update</button>
     </div>
 </form>

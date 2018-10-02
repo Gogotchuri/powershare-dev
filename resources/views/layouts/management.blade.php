@@ -6,7 +6,15 @@
         <div class="container">
             <div class="card mb-3">
                 <div class="card-header">
-                    @yield('header')
+                    <div class="d-flex">
+                        <div class="mr-auto">
+                            @yield('header')
+                        </div>
+                        @hasSection('buttons')
+                            @yield('buttons')
+                        @endif
+                    </div>
+
                 </div>
 
                 <div class="card-body">

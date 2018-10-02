@@ -9,12 +9,5 @@
 @endsection
 
 @section('content')
-
-    @hasSection('buttons')
-    <div class="text-right mb-3">
-        @yield('buttons')
-    </div>
-    @endif
-
     @yield('body')
 @endsection

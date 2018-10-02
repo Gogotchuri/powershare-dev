@@ -3,13 +3,13 @@
 @section('header', 'Create a new Campaign')
 
 @section('buttons')
-    <a class="btn btn-primary" href="{{ route('admin.campaigns.index') }}">
+    <a class="btn btn-secondary" href="{{ route('admin.campaigns.index') }}">
         Back
     </a>
 @endsection
 
 @section('additional-controls')
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::APPROVED)}}')" type="button" class="btn btn-primary">
+    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::APPROVED)}}')" type="button" class="btn btn-secondary">
         Publish
     </button>
 @endsection

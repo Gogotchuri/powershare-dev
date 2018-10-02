@@ -19,7 +19,14 @@ $(function () {
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
         url: '/image/upload',
-        paramName: 'featured_images[]'
+        paramName: 'featured_images[]',
+        //autoUpload: true
+    });
+
+    // Css class correction for Bootstrap 4
+    $('#fileupload').bind('fileuploadadd', function (e, data) {
+        var uploadItemList = $(e.currentTarget).find('.files .template-upload');
+        uploadItemList.removeClass('in').addClass('show');
     });
 
     // Enable iframe cross-domain access via redirect option:

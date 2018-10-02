@@ -1,7 +1,7 @@
 <div class="container">
     <br>
     <!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" action="/image/upload" method="POST" enctype="multipart/form-data">
+    <div id="fileupload" action="/image/upload" method="POST" enctype="multipart/form-data">
 
     @csrf
 
@@ -44,7 +44,7 @@
         </div>
         <!-- The table listing the files available for upload/download -->
         <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
-    </form>
+    </div>
     <br>
 </div>
 <!-- The blueimp Gallery widget -->

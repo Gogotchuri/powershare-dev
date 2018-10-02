@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('skeleton')
-    <main class="py-4">
-        <div class="container-fluid">
+    @yield('menu')
+    <main class="py-4 secondary-light-bg">
+        <div class="container">
             <div class="card">
                 <div class="card-header">
                     @yield('header')

@@ -1,8 +1,16 @@
 @extends('layouts.management')
 
+@section('menu')
+    <div class="sub-navbar">
+        <div class="container">
+            @include('admin.menu')
+        </div>
+    </div>
+@endsection
+
 @section('content')
     <div class="row justify-content-center">
-        @include('admin.menu')
+
         <div class="col-md-9">
             @hasSection('buttons')
             <div class="text-right mb-3">

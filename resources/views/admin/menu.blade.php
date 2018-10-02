@@ -1,24 +1,17 @@
-<div class="col-md-3">
-    <div class="card">
-        <div class="card-header">
-            Menu
-        </div>
-        <div class="card-body">
-            <p>
-                <a href="{{ route('admin.campaigns.index') }}">
-                    Campaigns
-                </a>
-            </p>
-            <p>
-                <a href="{{ route('admin.comments.index') }}">
-                    Comments
-                </a>
-            </p>
-            <p>
-                <a href="{{ route('admin.settings.edit') }}">
-                    Settings
-                </a>
-            </p>
-        </div>
-    </div>
-</div>
+<ul class="nav nav-cz">
+    <li class="nav-item {{ request()->is('admin/campaigns*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.campaigns.index') }}">
+            Campaigns
+        </a>
+    </li>
+    <li class="nav-item {{ request()->is('admin/comments*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.comments.index') }}">
+            Comments
+        </a>
+    </li>
+    <li class="nav-item {{ request()->is('admin/settings*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.settings.edit') }}">
+            Settings
+        </a>
+    </li>
+</ul>

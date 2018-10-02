@@ -10,6 +10,7 @@
   .navbar-nav {
     .nav-link {
       color: $navbar-primary-color;
+      font-size: $font-size-lg;
 
       @include hover-focus {
         color: $navbar-primary-color;
@@ -47,4 +48,67 @@
       }
     }
   }
+}
+
+.nav-cz {
+  .nav-item {
+    font-size: $font-size-lg;
+    margin-bottom: -$nav-tabs-border-width;
+
+    @include hover-focus {
+      .nav-link {
+        border-bottom: $nav-tabs-border-width solid $gray-600;
+      }
+    }
+  }
+
+  .nav-item.active {
+    @include hover-focus .nav-link {
+      border-bottom: $nav-tabs-border-width solid $nav-cz-color;
+    }
+  }
+
+  .nav-link {
+    border: $nav-tabs-border-width solid transparent;
+    color: $gray-600;
+    line-height: $header-height - $spacer;
+    padding: $nav-link-padding-y 0;
+    margin-right: $spacer * 1.5;
+    @include border-top-radius($nav-tabs-border-radius);
+
+    @include hover-focus {
+      //border-color: $nav-tabs-link-hover-border-color;
+    }
+
+    &.disabled {
+      color: $nav-link-disabled-color;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .active .nav-link {
+    border-bottom: $nav-tabs-border-width solid $nav-cz-color;
+    color: $nav-cz-color !important;
+  }
+
+  .dropdown-menu {
+    // Make dropdown border overlap tab border
+    margin-top: -$nav-tabs-border-width;
+    // Remove the top rounded corners here since there is a hard edge above the menu
+    @include border-top-radius(0);
+  }
+}
+
+.sub-navbar {
+  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+}
+
+main {
+  background-color: lighten($gray-200, 3%);
+}
+
+.card-header {
+  font-size: $font-size-lg;
+  line-height: $font-size-lg * 2;
 }

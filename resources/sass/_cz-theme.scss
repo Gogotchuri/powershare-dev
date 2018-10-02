@@ -1,0 +1,50 @@
+.navbar-primary {
+  .navbar-brand {
+    color: $navbar-dark-active-color;
+
+    @include hover-focus {
+      color: $navbar-dark-active-color;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-primary-color;
+
+      @include hover-focus {
+        color: $navbar-primary-color;
+      }
+
+      &.disabled {
+        color: $navbar-dark-disabled-color;
+      }
+    }
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      color: $navbar-primary-color;
+    }
+  }
+
+  .navbar-toggler {
+    color: $navbar-primary-color;
+    border-color: $navbar-dark-toggler-border-color;
+  }
+
+  .navbar-toggler-icon {
+    background-image: $navbar-dark-toggler-icon-bg;
+  }
+
+  .navbar-text {
+    color: $navbar-primary-color;
+    a {
+      color: $navbar-primary-color;
+
+      @include hover-focus {
+        color: $navbar-primary-color;
+      }
+    }
+  }
+}

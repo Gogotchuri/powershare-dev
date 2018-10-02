@@ -16,8 +16,11 @@ class ImageController extends Controller
 
             $descriptor = [
                 'name' => $featured_image->getClientOriginalName(),
-                'size' => round(Storage::disk('s3')->size($image->path) / 1024, 2),
+                'size' => Storage::disk('s3')->size($image->path),
                 'url' => $image->url,
+                'thumbnailUrl' => $image->url,
+                'deleteUrl' => route('image.delete', ['id' => $image->id]),
+                'deleteType' => 'DELETE',
                 'id' => $image->id,
             ];
 
@@ -25,5 +28,28 @@ class ImageController extends Controller
         }
 
         return response()->json(array('files' => $image_descriptors), 200);
+    }
+
+    public function delete($id) {
+        $image = Image::findOrFail($id);
+
+        Storage::disk('s3')->delete($image->path);
+        $image->delete();
+
+        $descriptor = [
+            'name' => basename($image->path),
+            'size' => Storage::disk('s3')->size($image->path),
+            'url' => $image->url,
+            'thumbnailUrl' => $image->url,
+            'deleteUrl' => route('image.delete', ['id' => $image->id]),
+            'deleteType' => 'DELETE',
+            'id' => $image->id,
+        ];
+
+        return [
+            'files' => [
+                $descriptor
+            ]
+        ];
     }
 }

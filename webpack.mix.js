@@ -16,6 +16,7 @@ mix.webpackConfig({
         extensions: ['.js'],
         alias: {
             'load-image': 'blueimp-load-image/js/load-image.js',
+            'load-image-scale': 'blueimp-load-image/js/load-image-scale.js',
             'load-image-meta': 'blueimp-load-image/js/load-image-meta.js',
             'load-image-exif': 'blueimp-load-image/js/load-image-exif.js',
             'canvas-to-blob': 'blueimp-canvas-to-blob/js/canvas-to-blob.js',
@@ -30,4 +31,9 @@ mix.js('resources/js/app.js', 'public/js')/*
         'resources/js/vendor/blueimp/jquery.fileupload.js',
         'resources/js/vendor/blueimp/jquery.iframe-transport.js',
     ], 'public/js/file-upload.js')*/
+    .styles([
+        'resources/css/vendor/blueimp/jquery.fileupload.css',
+        'resources/css/vendor/blueimp/jquery.fileupload-ui.css',
+        'resources/css/vendor/blueimp/style.css',
+    ], 'public/css/vendor.css')
    .sass('resources/sass/app.scss', 'public/css');

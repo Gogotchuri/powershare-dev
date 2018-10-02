@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./image-upload-ui-main');
 
 $(document).ready(function() {
     $('.datatables').DataTable({
@@ -13,7 +14,7 @@ $(document).ready(function() {
     });
 } );
 
-$('#fileupload').fileupload({
+/*$('#fileupload').fileupload({
     dataType: 'json',
     add: function (e, data) {
         $('#loading').text('Uploading...');
@@ -29,4 +30,4 @@ $('#fileupload').fileupload({
         });
         $('#loading').text('');
     }
-});
+});*/

@@ -20,6 +20,12 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+    {{--TODO: Add this to styles webpack--}}
+    <link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+
+    {{--TODO: vendor.css here is only fileupload stuff needs better organisation--}}
+    <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -96,8 +102,5 @@
     </div>
     @yield('scripts')
     @stack('scripts-stack')
-    <script>
-        console.log($);
-    </script>
 </body>
 </html>

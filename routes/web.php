@@ -59,5 +59,8 @@ Route::middleware(['auth'])->group(function () {
             ->name('settings.updateNotifications');
     });
 
-    Route::post('upload', 'ImageController@upload')->name('images.upload');
+    Route::prefix('image')->name('image.')->group(function () {
+        Route::post('upload', 'ImageController@upload')->name('upload');
+        Route::delete('delete/{id}', 'ImageController@delete')->name('delete');
+    });
 });

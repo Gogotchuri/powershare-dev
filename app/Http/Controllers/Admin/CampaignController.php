@@ -22,7 +22,7 @@ class CampaignController extends Controller
 
     public function create()
     {
-        return view('admin.campaigns.create');
+        return view('admin.campaigns.image');
     }
 
     public function store(StoreCampaign $request)

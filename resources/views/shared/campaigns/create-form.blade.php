@@ -65,12 +65,10 @@
         </script>
     @endpush
 
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button"
-            class="btn btn-primary">
+    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button" class="btn btn-secondary">
         Save as Draft
     </button>
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)}}')" type="button"
-            class="btn btn-primary">
+    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)}}')" type="button" class="btn btn-secondary">
         Submit for review
     </button>
     @yield('additional-controls')

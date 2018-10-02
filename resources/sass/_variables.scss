@@ -4,8 +4,12 @@ $body-bg: #f8fafc;
 
 // Typography
 $font-family-sans-serif: "Nunito", sans-serif;
-$font-size-base: 0.9rem;
+$font-size-base: 0.875rem;
+$font-size-lg: 1rem;
 $line-height-base: 1.6;
+
+$primary: #652d90;
+$secondary: #f05523;
 
 // Colors
 $blue: #3490dc;
@@ -18,3 +22,6 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+// CZ Theme Setup
+$nav-cz-color: $secondary;

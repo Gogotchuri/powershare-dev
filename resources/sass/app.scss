@@ -1,11 +1,15 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+
 // Variables
 @import 'variables';
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
 @import 'datatables';
+
+// Bootstrap
+@import 'cz-variables';
+@import '~bootstrap/scss/bootstrap';
+@import 'cz-theme';
+
 
 @import "bootstrap-switch-checkbox";
 

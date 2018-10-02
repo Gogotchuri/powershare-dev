@@ -1,5 +1,7 @@
 @extends('admin.main')
 
+@section('header', 'All Comments')
+
 @section('body')
     <table class="table datatables" style="width: 100%;">
         <thead>

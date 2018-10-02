@@ -1,37 +1,29 @@
-@extends('shared.settings.form-layout')
+<form method="post" action="{{$update_route}}" class="col-sm-6">
 
-@section('name')
-    Change password
-@endsection
+    {{-- TODO: Can ve use this: https://www.chromium.org/developers/design-documents/form-styles-that-chromium-understands
+        To make chrome password update propt show right user after form submit success
+    --}}
 
-@section('form')
-    <form method="post" action="{{$update_route}}">
+    @csrf
 
-        {{-- TODO: Can ve use this: https://www.chromium.org/developers/design-documents/form-styles-that-chromium-understands
-            To make chrome password update propt show right user after form submit success
-        --}}
+    @include('components.form.input', [
+        'name' => 'Current Password',
+        'type' => 'password',
+    ])
 
-        @csrf
+    <hr/>
 
-        @include('components.form.input', [
-            'name' => 'Current Password',
-            'type' => 'password',
-        ])
+    @include('components.form.input', [
+        'name' => 'Password',
+        'type' => 'password',
+    ])
 
-        <hr/>
-
-        @include('components.form.input', [
-            'name' => 'Password',
-            'type' => 'password',
-        ])
-
-        @include('components.form.input', [
-            'name' => 'Password Confirmation',
-            'type' => 'password',
-        ])
-        <br/>
-
-        <button type="submit" class="btn btn-primary">Update</button>
-    </form>
-
-@overwrite
+    @include('components.form.input', [
+        'name' => 'Password Confirmation',
+        'type' => 'password',
+    ])
+    <br/>
+    <div class="text-right">
+        <button type="submit" class="btn btn-secondary">Update</button>
+    </div>
+</form>

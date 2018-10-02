@@ -3,7 +3,7 @@
 @section('header', 'All Campaigns')
 
 @section('buttons')
-    <a class="btn btn-primary" href="{{ route('admin.campaigns.create') }}">
+    <a class="btn btn-secondary" href="{{ route('admin.campaigns.create') }}">
         Create
     </a>
 @endsection

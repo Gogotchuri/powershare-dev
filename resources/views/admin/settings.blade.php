@@ -1,19 +1,23 @@
 @extends('admin.main')
 
-@section('header', 'Settings')
-
-@section('buttons')
-    <a class="btn btn-primary" href="{{ route('admin.campaigns.index') }}">
-        Back
-    </a>
-@endsection
+@section('header', 'Change Password')
 
 @section('body')
     @include('shared.settings.password-form', [
         'update_route' => route('admin.settings.updatePassword')
     ])
-    <br/><br/><br/>
-    @include('shared.settings.notifications-form', [
-        'update_route' => route('admin.settings.updateNotifications')
-    ])
+@endsection
+
+@section('other')
+    <div class="card">
+        <div class="card-header">
+            Notifications
+        </div>
+
+        <div class="card-body">
+            @include('shared.settings.notifications-form', [
+                'update_route' => route('admin.settings.updateNotifications')
+            ])
+        </div>
+    </div>
 @endsection

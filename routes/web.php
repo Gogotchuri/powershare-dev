@@ -61,6 +61,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('image')->name('image.')->group(function () {
         Route::post('upload', 'ImageController@upload')->name('upload');
-        Route::delete('delete/{id}', 'ImageController@delete')->name('delete');
+
+        //TODO: jQuery plugin we are using uses same url to get initial list of images, maybe we can configure otherwise
+        Route::get('upload', 'ImageController@existing')->name('existing');
+        Route::delete('delete', 'ImageController@delete')->name('delete');
     });
 });

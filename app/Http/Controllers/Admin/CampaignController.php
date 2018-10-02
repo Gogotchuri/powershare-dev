@@ -75,6 +75,13 @@ class CampaignController extends Controller
 
     public function update(UpdateCampaign $request, $id)
     {
+        //FIXME: TMP
+
+        $imageIds = $request->image_ids;
+
+        //FIXME: END TMP
+
+
         $campaign =  Campaign::findOrFail($id);
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
@@ -95,20 +102,39 @@ class CampaignController extends Controller
             }
         }
 
-        $featured_image = $request->featured_image;
+
+        //FIXME: TMP disable
+        /*$featured_image = $request->featured_image;
 
         if($featured_image !== null) {
             $image = Image::fromFile($featured_image, 'Featured Image');
 
             $campaign->featured_image()->delete();
             $campaign->featured_image()->associate($image);
+        }*/
+
+        //FIXME: TMP
+        if($imageIds !== null && is_array($imageIds)) {
+
+
+            $campaign->images()->delete();
+
+            foreach ($imageIds as $imageId) {
+                $image = Image::find($imageId);
+                $image->campaign_id = $campaign->id;
+                $image->save();
+            }
+
+            //dd('we are here', $campaign->images);
         }
+        //FIXME: END TMP
 
         //TODO: We replace old featured pictures should we append?
-        $campaign->images()->delete();
+        //FIXME: TMP disable
+        /*$campaign->images()->delete();
         foreach ($featured_image_entities as $featured_image_entity) {
             $campaign->images()->save($featured_image_entity);
-        }
+        }*/
 
         $campaign->save();
 

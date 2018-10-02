@@ -49,3 +49,8 @@
         column-count: 4;
     }
 }
+
+//FIXME: TMP fix for image upload ui
+.fade:not(.show) {
+    opacity: 1;
+}

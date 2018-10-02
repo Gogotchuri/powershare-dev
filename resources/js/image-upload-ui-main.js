@@ -14,19 +14,91 @@
 $(function () {
     'use strict';
 
+    // FIXME: Following script is very page specific.
+
+    let ajaxSetupData = {
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    };
+
+    // FIXME: This is just a temporary solution to, send additional parameter on
+    // fileupload-ui initial GET image list request
+    if(campaignId) {
+        ajaxSetupData.data = {
+            campaignId : campaignId
+        };
+    }
+
+    $.ajaxSetup(ajaxSetupData);
+
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
         url: '/image/upload',
         paramName: 'featured_images[]',
+        singleFileUploads:false
+        //FIXME: This does not work for initial fileupload-ui GET image list request
+        // but probably it shhould not for loading existing images
+        /*formData: [{
+            'campaignId': campaignId
+        }]*/
         //autoUpload: true
     });
 
     // Css class correction for Bootstrap 4
-    $('#fileupload').bind('fileuploadadd', function (e, data) {
+    let swapClassHandler = function (e, data) {
         var uploadItemList = $(e.currentTarget).find('.files .template-upload');
-        uploadItemList.removeClass('in').addClass('show');
+        swapClass(uploadItemList);
+    };
+
+    let swapClass = function (target) {
+        console.log('swapClass run');
+        target.removeClass('in').addClass('show');
+    };
+
+    swapClass($('#fileupload'));
+
+    // FIXME: Use required callbacks only.
+    $('#fileupload').bind('fileuploadadd', swapClassHandler)
+        .bind('fileuploadsubmit', swapClassHandler)
+        .bind('fileuploadsend', swapClassHandler)
+        .bind('fileuploaddone', swapClassHandler)
+        .bind('fileuploadfail', swapClassHandler)
+        .bind('fileuploadalways', swapClassHandler)
+        .bind('fileuploadprogress', swapClassHandler)
+        .bind('fileuploadprogressall', swapClassHandler)
+        .bind('fileuploadstart', swapClassHandler)
+        .bind('fileuploadstop', swapClassHandler)
+        .bind('fileuploadchange', swapClassHandler)
+        .bind('fileuploadpaste', swapClassHandler)
+        .bind('fileuploaddrop', swapClassHandler)
+        .bind('fileuploaddragover', swapClassHandler)
+        .bind('fileuploadchunksend', swapClassHandler)
+        .bind('fileuploadchunkdone', swapClassHandler)
+        .bind('fileuploadchunkfail', swapClassHandler)
+        .bind('fileuploadchunkalways', swapClassHandler);
+
+    // Get image ids to
+    $('#fileupload').bind('fileuploaddone', function (e, data) {
+        var form = $('#campaignEditForm');
+
+        form.remove('.imageIds');
+
+        var imageIdHolder = $('<span/>').addClass('imageIds');
+
+        for(let index in data.result.files) {
+
+            let file = data.result.files[index];
+
+            imageIdHolder.append($('<input />').attr('type', 'hidden')
+                .attr('name', "image_ids[]").attr('value', file.id));
+        }
+
+        form.append(imageIdHolder);
+
+        console.log('fileuploaddone data.result', data.result);
     });
 
     // Enable iframe cross-domain access via redirect option:

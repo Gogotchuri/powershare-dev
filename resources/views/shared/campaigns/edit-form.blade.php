@@ -1,3 +1,5 @@
+@include('components.form.image-upload')
+
 <form id="campaignEditForm" method="post" action="{{$route}}" enctype="multipart/form-data">
 
     @if ($errors->any())
@@ -55,6 +57,10 @@
 
     {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
     @push('scripts-stack')
+
+        <script>
+            var campaignId = {!! $campaign->id !!};
+        </script>
         <script>
             function onClick(statusName) {
 

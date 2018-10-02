@@ -1,14 +1,12 @@
-<div class="col-md-3">
-    <div class="card">
-        <div class="card-header">
-            Menu
-        </div>
-        <div class="card-body">
-            <p>
-                <a href="{{ route('user.campaigns.index') }}">
-                    My Campaigns
-                </a>
-            </p>
-        </div>
-    </div>
-</div>
+<ul class="nav nav-cz">
+    <li class="nav-item {{ request()->is('user/campaigns*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('user.campaigns.index') }}">
+            Campaigns
+        </a>
+    </li>
+    <li class="nav-item {{ request()->is('user/settings*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('user.settings.edit') }}">
+            Settings
+        </a>
+    </li>
+</ul>

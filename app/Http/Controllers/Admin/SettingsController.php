@@ -16,7 +16,7 @@ class SettingsController extends Controller
         return view('admin.settings', compact('user'));
     }
 
-    public function update(Request $request) {
+    public function updatePassword(Request $request) {
         $user = Auth::user();
 
         $this->validate($request, [
@@ -33,6 +33,18 @@ class SettingsController extends Controller
 
         $user->password = bcrypt($request->input('password'));
         $user->save();
+
+        return redirect(route(  'admin.settings.edit'));
+    }
+
+    public function updateNotifications(Request $request) {
+        $user = Auth::user();
+
+        $notifications_value = $request->input('receive_notifications', false) === 'Yes';
+
+        $settings = $user->settings;
+        $settings->receive_notifications = $notifications_value;
+        $settings->save();
 
         return redirect(route(  'admin.settings.edit'));
     }

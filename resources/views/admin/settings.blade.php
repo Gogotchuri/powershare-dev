@@ -9,7 +9,11 @@
 @endsection
 
 @section('body')
-    @include('shared.settings-form', [
-        'update_route' => route('admin.settings.update')
+    @include('shared.settings.password-form', [
+        'update_route' => route('admin.settings.updatePassword')
+    ])
+    <br/><br/><br/>
+    @include('shared.settings.notifications-form', [
+        'update_route' => route('admin.settings.updateNotifications')
     ])
 @endsection

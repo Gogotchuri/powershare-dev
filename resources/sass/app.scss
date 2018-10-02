@@ -11,6 +11,8 @@
 @import 'cz-theme';
 
 
+@import "bootstrap-switch-checkbox";
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -26,6 +28,14 @@
 
 .campaign-image {
     max-width: 200px;
+}
+
+.comment-container {
+    padding: 12px 18px; border-radius: 0.25rem;
+
+    &.non-public {
+        background-color: #fff5d1;
+    }
 }
 
 /*TMP*/

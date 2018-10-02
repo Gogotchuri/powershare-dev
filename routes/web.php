@@ -11,6 +11,8 @@
 |
 */
 
+// Public
+
 Route::namespace('Front')->name('public.')->group(function () {
 
     Route::get('/', 'HomeController@index');
@@ -21,14 +23,14 @@ Route::namespace('Front')->name('public.')->group(function () {
     });
 });
 
-
-
+// Auth routes
 
 Auth::routes();
 
-Route::get('/home', function () {
-    return redirect('/');
-})->name('home');
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
+// Authenticated people
 
 Route::middleware(['auth'])->group(function () {
 
@@ -43,13 +45,17 @@ Route::middleware(['auth'])->group(function () {
         Route::get('comments/{id}/delete', 'CommentController@delete')->name('comments.delete');
 
         Route::get('settings', 'SettingsController@edit')->name('settings.edit');
-        Route::post('settings', 'SettingsController@update')->name('settings.update');
+        Route::post('settings/password', 'SettingsController@updatePassword')->name('settings.updatePassword');
+        Route::post('settings/notifications', 'SettingsController@updateNotifications')
+            ->name('settings.updateNotifications');
     });
 
     Route::namespace('User')->prefix('user')->name('user.')->group(function () {
         Route::resource('campaigns', 'CampaignController');
 
         Route::get('settings', 'SettingsController@edit')->name('settings.edit');
-        Route::post('settings', 'SettingsController@update')->name('settings.update');
+        Route::post('settings/password', 'SettingsController@updatePassword')->name('settings.updatePassword');
+        Route::post('settings/notifications', 'SettingsController@updateNotifications')
+            ->name('settings.updateNotifications');
     });
 });

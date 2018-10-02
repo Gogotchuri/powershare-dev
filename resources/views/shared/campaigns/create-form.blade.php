@@ -194,7 +194,6 @@
 
     {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
     @push('scripts-stack')
-
         <script>
             function onClick(statusName) {
 

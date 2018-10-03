@@ -35,7 +35,7 @@ $(function () {
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: '/image/upload',
+        url: uploadRoute,//'/image/upload',
         paramName: 'featured_images[]',
         singleFileUploads:false
         //FIXME: This does not work for initial fileupload-ui GET image list request

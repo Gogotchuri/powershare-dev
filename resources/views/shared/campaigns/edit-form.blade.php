@@ -60,6 +60,7 @@
 
         <script>
             var campaignId = {!! $campaign->id !!};
+            var uploadRoute = "{!! route('admin.campaigns.images.upload', ['id' => $campaign->id]) !!}";
         </script>
         <script>
             function onClick(statusName) {

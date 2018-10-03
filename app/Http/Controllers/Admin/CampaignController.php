@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\UpdateCampaign;
 use App\Models\Campaign;
 use App\Models\Image;
 use App\Models\Reference\CampaignStatus;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,10 +33,10 @@ class CampaignController extends Controller
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->author_id = Auth::user()->id;
-        $campaign->video_url = $request->video;
-        $campaign->ethereum_address = $request->ethereum_address;
+        //$campaign->video_url = $request->video;
+        //$campaign->ethereum_address = $request->ethereum_address;
 
-        $featured_images = $request->featured_images;
+        /*$featured_images = $request->featured_images;
         $featured_image_entities = [];
 
         if($featured_images != null) {
@@ -45,18 +46,26 @@ class CampaignController extends Controller
 
                 $featured_image_entities[] = $image;
             }
-        }
+        }*/
 
-        $image = Image::fromFile($request->file('featured_image'), 'Featured Image');
+        //$image = Image::fromFile($request->file('featured_image'), 'Featured Image');
+
+        //TODO: Temporary associating empty image, need to decide if create form should have featured image and what
+        // kind of input should we use for it jQuery ajax or just input[type=file]
+
+        $image = new Image();
+        $image->name = 'Empty image';
+        $image->url = 'http://sssa.com';
+        $image->save();
 
         $campaign->featured_image()->associate($image);
         $campaign->save();
 
-        foreach ($featured_image_entities as $featured_image_entity) {
+        /*foreach ($featured_image_entities as $featured_image_entity) {
             $campaign->images()->save($featured_image_entity);
-        }
+        }*/
 
-        return redirect(route('admin.campaigns.show', $campaign->id));
+        return redirect(route('admin.campaigns.edit', $campaign->id));
     }
 
     public function show($id)
@@ -136,6 +145,53 @@ class CampaignController extends Controller
         $campaign->save();
 
         return redirect(route('admin.campaigns.show', $campaign->id));
+    }
+
+    public function handleFeaturedImages($id, Request $request) {
+
+        $campaign = Campaign::findOrFail($id);
+
+        $this->validate($request, [
+            //'featured_images' => 'required'
+        ]);
+
+        $image_descriptors = [];
+        foreach ($request->featured_images as $featured_image) {
+
+            $image = Image::fromFile($featured_image, 'Featured Image', [
+                'fit' => [640, 480],
+                'thumbnailFit' => [80, 59]
+            ]);
+
+            $campaign->images()->save($image);
+
+            $descriptor = $this->getImageDescriptor($image);
+
+            $image_descriptors[] = $descriptor;
+        }
+
+        return response()->json(array('files' => $image_descriptors), 200);
+    }
+
+    private function getImageDescriptor(Image $image, $uploaded_image=null) {
+
+        return [
+            'name' => $uploaded_image !== null ? $uploaded_image->getClientOriginalName() : basename($image->path),
+            'size' => Storage::disk('s3')->size($image->path),
+            'url' => $image->url,
+            'thumbnailUrl' => $image->thumbnail_url,
+            'deleteUrl' => route('image.delete', ['id' => $image->id]),
+            'deleteType' => 'DELETE',
+            'id' => $image->id,
+        ];
+    }
+
+    public function featuredImageList($id) {
+        $campaign = Campaign::findOrFail($id);
+
+        return $campaign->images->map(function ($image, $key) {
+            return $this->getImageDescriptor($image);
+        });
     }
 
     public function delete($id)

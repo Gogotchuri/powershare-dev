@@ -116,9 +116,6 @@ class CampaignController extends Controller
         //FIXME: TMP
         if($imageIds !== null && is_array($imageIds)) {
 
-
-            $campaign->images()->delete();
-
             foreach ($imageIds as $imageId) {
                 $image = Image::find($imageId);
                 $image->campaign_id = $campaign->id;

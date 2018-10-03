@@ -15,7 +15,6 @@ $(function () {
     'use strict';
 
     // FIXME: Following script is very page specific.
-
     let ajaxSetupData = {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -46,39 +45,6 @@ $(function () {
         }]*/
         //autoUpload: true
     });
-
-    // Css class correction for Bootstrap 4
-    let swapClassHandler = function (e, data) {
-        var uploadItemList = $(e.currentTarget).find('.files .template-upload');
-        swapClass(uploadItemList);
-    };
-
-    let swapClass = function (target) {
-        console.log('swapClass run');
-        target.removeClass('in').addClass('show');
-    };
-
-    swapClass($('#fileupload'));
-
-    // FIXME: Use required callbacks only.
-    $('#fileupload').bind('fileuploadadd', swapClassHandler)
-        .bind('fileuploadsubmit', swapClassHandler)
-        .bind('fileuploadsend', swapClassHandler)
-        .bind('fileuploaddone', swapClassHandler)
-        .bind('fileuploadfail', swapClassHandler)
-        .bind('fileuploadalways', swapClassHandler)
-        .bind('fileuploadprogress', swapClassHandler)
-        .bind('fileuploadprogressall', swapClassHandler)
-        .bind('fileuploadstart', swapClassHandler)
-        .bind('fileuploadstop', swapClassHandler)
-        .bind('fileuploadchange', swapClassHandler)
-        .bind('fileuploadpaste', swapClassHandler)
-        .bind('fileuploaddrop', swapClassHandler)
-        .bind('fileuploaddragover', swapClassHandler)
-        .bind('fileuploadchunksend', swapClassHandler)
-        .bind('fileuploadchunkdone', swapClassHandler)
-        .bind('fileuploadchunkfail', swapClassHandler)
-        .bind('fileuploadchunkalways', swapClassHandler);
 
     // Get image ids to
     $('#fileupload').bind('fileuploaddone', function (e, data) {

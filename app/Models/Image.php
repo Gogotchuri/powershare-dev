@@ -3,11 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\FileHelpers;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Psr\Http\Message\StreamInterface;
 
 class Image extends Model
 {
+    use FileHelpers;
+
     public static function fromFile(UploadedFile $file, $name)
     {
         $image = new static();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Campaign;
 use App\Models\Image;
+use Illuminate\Http\FileHelpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,13 +14,16 @@ class ImageController extends Controller
         $image_descriptors = [];
         foreach ($request->featured_images as $featured_image) {
 
-            $image = Image::fromFile($featured_image, 'Featured Image');
+            $image = Image::fromFile($featured_image, 'Featured Image', [
+                'fit' => [640, 480],
+                'thumbnailFit' => [80, 59]
+            ]);
 
             $descriptor = [
                 'name' => $featured_image->getClientOriginalName(),
                 'size' => Storage::disk('s3')->size($image->path),
                 'url' => $image->url,
-                'thumbnailUrl' => $image->url,
+                'thumbnailUrl' => $image->thumbnail_url,
                 'deleteUrl' => route('image.delete', ['id' => $image->id]),
                 'deleteType' => 'DELETE',
                 'id' => $image->id,
@@ -29,6 +33,10 @@ class ImageController extends Controller
         }
 
         return response()->json(array('files' => $image_descriptors), 200);
+    }
+
+    public function createThumbnail(Image $image) {
+
     }
 
     public function existing(Request $request) {
@@ -48,21 +56,20 @@ class ImageController extends Controller
         return response()->json(array('files' => $image_descriptors), 200);
     }
 
-    public function delete($id) {
-        $image = Image::findOrFail($id);
+    public function delete(Request $request) {
+
+        $this->validate($request, [
+            'id' => 'required'
+        ]);
+
+        $image = Image::findOrFail($request->id);
+
+        $descriptor = $this->getImageDescriptor($image);
 
         Storage::disk('s3')->delete($image->path);
-        $image->delete();
+        Storage::disk('s3')->delete($image->thumbnail_path);
 
-        $descriptor = [
-            'name' => basename($image->path),
-            'size' => Storage::disk('s3')->size($image->path),
-            'url' => $image->url,
-            'thumbnailUrl' => $image->url,
-            'deleteUrl' => route('image.delete', ['id' => $image->id]),
-            'deleteType' => 'DELETE',
-            'id' => $image->id,
-        ];
+        $image->delete();
 
         return [
             'files' => [
@@ -77,7 +84,7 @@ class ImageController extends Controller
             'name' => $uploaded_image !== null ? $uploaded_image->getClientOriginalName() : basename($image->path),
             'size' => Storage::disk('s3')->size($image->path),
             'url' => $image->url,
-            'thumbnailUrl' => $image->url,
+            'thumbnailUrl' => $image->thumbnail_url,
             'deleteUrl' => route('image.delete', ['id' => $image->id]),
             'deleteType' => 'DELETE',
             'id' => $image->id,

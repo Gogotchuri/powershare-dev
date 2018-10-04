@@ -28,7 +28,10 @@ class UpdateCampaign extends FormRequest
             'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => 'required|exists:campaign_statuses,name',
             //FIXME: Not sure if I should leave it here
-            'image_ids' => 'array'
+            //'image_ids' => 'array',
+            'video_url' => 'url',
+            'ethereum_address' => 'nullable|string|max:255',
+            'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
     }
 }

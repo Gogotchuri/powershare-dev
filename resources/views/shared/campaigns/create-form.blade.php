@@ -1,5 +1,3 @@
-@include('components.form.image-upload')
-
 <form id="campaignCreateForm" method="post" action="{{$route}}" enctype="multipart/form-data">
 
     @if ($errors->any())
@@ -24,14 +22,14 @@
         'required' => true,
     ])
 
-    @include('components.form.input', [
+    {{--@include('components.form.input', [
         'type' => 'file',
         'name' => 'Featured Image',
-    ])
+    ])--}}
 
-    @include('components.form.input', [
+    {{--@include('components.form.input', [
         'name' => 'Video',
-    ])
+    ])--}}
 
     {{--@include('components.form.input', [
         'type' => 'file',
@@ -46,9 +44,9 @@
 
     {{-- Place for fields that will be determined --}}
 
-    @include('components.form.input', [
+    {{--@include('components.form.input', [
         'name' => 'Ethereum address',
-    ])
+    ])--}}
 
     {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
     @push('scripts-stack')

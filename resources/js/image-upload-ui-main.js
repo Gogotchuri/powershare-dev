@@ -14,142 +14,97 @@
 $(function () {
     'use strict';
 
-    // FIXME: Following script is very page specific.
+    let fileupload = $('#fileupload');
 
-    let ajaxSetupData = {
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    };
-
-    // FIXME: This is just a temporary solution to, send additional parameter on
-    // fileupload-ui initial GET image list request
-    if(campaignId) {
-        ajaxSetupData.data = {
-            campaignId : campaignId
+    if(fileupload.length) {
+        let ajaxSetupData = {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         };
-    }
 
-    $.ajaxSetup(ajaxSetupData);
+        $.ajaxSetup(ajaxSetupData);
 
-    // Initialize the jQuery File Upload widget:
-    $('#fileupload').fileupload({
-        // Uncomment the following to send cross-domain cookies:
-        //xhrFields: {withCredentials: true},
-        url: '/image/upload',
-        paramName: 'featured_images[]',
-        singleFileUploads:false
-        //FIXME: This does not work for initial fileupload-ui GET image list request
-        // but probably it shhould not for loading existing images
-        /*formData: [{
-            'campaignId': campaignId
-        }]*/
-        //autoUpload: true
-    });
+        // Overrides toplevel fileupload config values like 'url', 'dataType' so on.
+        let data = _(fileupload.data()).pickBy(function (value, key) {
+            return _.startsWith(key, "config");
+        }).mapKeys(function(value, key) {
+            return _.lowerFirst(key.substring(6, key.length));
+        }).value();
 
-    // Css class correction for Bootstrap 4
-    let swapClassHandler = function (e, data) {
-        var uploadItemList = $(e.currentTarget).find('.files .template-upload');
-        swapClass(uploadItemList);
-    };
+        // Get all data attibutes that start with form, e.g. form-user-id="1"
+        let formData = _(fileupload.data()).pickBy(function (value, key) {
+            return _.startsWith(key, "form");
+        }).map(function(value, key) {
+            return {
+                'name' : _.lowerFirst(key.substring(4, key.length)),
+                'value' : value
+            }
+        }).value();
 
-    let swapClass = function (target) {
-        console.log('swapClass run');
-        target.removeClass('in').addClass('show');
-    };
-
-    swapClass($('#fileupload'));
-
-    // FIXME: Use required callbacks only.
-    $('#fileupload').bind('fileuploadadd', swapClassHandler)
-        .bind('fileuploadsubmit', swapClassHandler)
-        .bind('fileuploadsend', swapClassHandler)
-        .bind('fileuploaddone', swapClassHandler)
-        .bind('fileuploadfail', swapClassHandler)
-        .bind('fileuploadalways', swapClassHandler)
-        .bind('fileuploadprogress', swapClassHandler)
-        .bind('fileuploadprogressall', swapClassHandler)
-        .bind('fileuploadstart', swapClassHandler)
-        .bind('fileuploadstop', swapClassHandler)
-        .bind('fileuploadchange', swapClassHandler)
-        .bind('fileuploadpaste', swapClassHandler)
-        .bind('fileuploaddrop', swapClassHandler)
-        .bind('fileuploaddragover', swapClassHandler)
-        .bind('fileuploadchunksend', swapClassHandler)
-        .bind('fileuploadchunkdone', swapClassHandler)
-        .bind('fileuploadchunkfail', swapClassHandler)
-        .bind('fileuploadchunkalways', swapClassHandler);
-
-    // Get image ids to
-    $('#fileupload').bind('fileuploaddone', function (e, data) {
-        var form = $('#campaignEditForm');
-
-        form.remove('.imageIds');
-
-        var imageIdHolder = $('<span/>').addClass('imageIds');
-
-        for(let index in data.result.files) {
-
-            let file = data.result.files[index];
-
-            imageIdHolder.append($('<input />').attr('type', 'hidden')
-                .attr('name', "image_ids[]").attr('value', file.id));
-        }
-
-        form.append(imageIdHolder);
-
-        console.log('fileuploaddone data.result', data.result);
-    });
-
-    // Enable iframe cross-domain access via redirect option:
-    $('#fileupload').fileupload(
-        'option',
-        'redirect',
-        window.location.href.replace(
-            /\/[^\/]*$/,
-            '/cors/result.html?%s'
-        )
-    );
-
-    if (window.location.hostname === 'blueimp.github.io') {
-        // Demo settings:
-        $('#fileupload').fileupload('option', {
-            url: '//jquery-file-upload.appspot.com/',
-            // Enable image resizing, except for Android and Opera,
-            // which actually support image resizing, but fail to
-            // send Blob objects via XHR requests:
-            disableImageResize: /Android(?!.*Chrome)|Opera/
-                .test(window.navigator.userAgent),
-            maxFileSize: 999000,
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
-        });
-        // Upload server status check for browsers with CORS support:
-        if ($.support.cors) {
-            $.ajax({
-                url: '//jquery-file-upload.appspot.com/',
-                type: 'HEAD'
-            }).fail(function () {
-                $('<div class="alert alert-danger"/>')
-                    .text('Upload server currently unavailable - ' +
-                        new Date())
-                    .appendTo('#fileupload');
-            });
-        }
-    } else {
-        // Load existing files:
-        $('#fileupload').addClass('fileupload-processing');
-        $.ajax({
+        var uploadConf = _.merge({
             // Uncomment the following to send cross-domain cookies:
             //xhrFields: {withCredentials: true},
-            url: $('#fileupload').fileupload('option', 'url'),
+            paramName: 'featured_images[]',
+            //This does not help to override _method input on laravel HTML form
+            //type: 'POST',
             dataType: 'json',
-            context: $('#fileupload')[0]
+            singleFileUploads: false,
+            //TODO: Make use of this option to limit number of files to be uploaded, currently we are
+            // managing that on server side handler. Which replaces old image with new one.
+            //maxNumberOfFiles:1,
+            autoUpload: true,
+            //Singles END
+            formData: _.concat(formData, [{
+                name: '_method',
+                value: 'POST'
+            }])
+        }, data);
+
+        // Append or Override _method parameter to form data passed to component
+        formData = _.concat(formData, [{
+            //This is mandatory too when file upload form is used inside laravel form that uses hidden '_method' input
+            // FIXME: Not sure if this will work for all versions
+            name: '_method',
+            value: 'POST'
+        }]);
+
+        // Force formData to new one, no matter what was its value before.
+        uploadConf = _.merge(uploadConf, {
+            'formData' : formData
+        });
+
+        // Initialize the jQuery File Upload widget:
+        fileupload.fileupload(uploadConf);
+
+        let isSingle = true;
+
+        // Load existing files:
+        fileupload.addClass('fileupload-processing');
+        let request = $.ajax({
+            // Uncomment the following to send cross-domain cookies:
+            //xhrFields: {withCredentials: true},
+            url: fileupload.fileupload('option', 'url'),
+            dataType: 'json',
+            context: fileupload[0]
         }).always(function () {
             $(this).removeClass('fileupload-processing');
-        }).done(function (result) {
+        });
+
+        if(isSingle) {
+            request.done(function (result) {
+                fileupload.find('.present').attr('src', result.files[0].url);
+            });
+        } else {
+            request.done(function (result) {
+                $(this).fileupload('option', 'done')
+                    .call(this, $.Event('done'), {result: result});
+            });
+        }
+
+        /*.done(function (result) {
             $(this).fileupload('option', 'done')
                 .call(this, $.Event('done'), {result: result});
-        });
+        })*/;
     }
-
 });

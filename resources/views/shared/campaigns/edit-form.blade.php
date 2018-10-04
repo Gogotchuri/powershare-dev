@@ -1,5 +1,3 @@
-@include('components.form.image-upload')
-
 <form id="campaignEditForm" method="post" action="{{$route}}" enctype="multipart/form-data">
 
     @if ($errors->any())
@@ -41,12 +39,25 @@
         'value' => $campaign->video_url,
     ])
 
-    <span>Having ({{ $campaign->images === null ? 0 : count($campaign->images) }})</span>
-    @include('components.form.input', [
-        'type' => 'file',
-        'name' => 'Featured Images',
-        'multiple' => true
-    ])
+        {{--<span>Having ({{ $campaign->images === null ? 0 : count($campaign->images) }})</span>
+        @include('components.form.input', [
+            'type' => 'file',
+            'name' => 'Featured Images',
+            'multiple' => true
+        ])--}}
+        <br/>
+    <h5>Featured images</h5>
+        @include('components.form.image-upload', [
+            'multiple' => false,
+            'config' => [
+                /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
+                'url' => route('admin.campaigns.images.upload-main', ['id' => $campaign->id]),
+                'paramName' => 'featured_image',
+            ],
+            'data' => [
+                'campaignId' => $campaign->id,
+            ],
+        ])
 
     {{-- Place for fields that will be determined --}}
 
@@ -60,6 +71,7 @@
 
         <script>
             var campaignId = {!! $campaign->id !!};
+            var uploadRoute = "{!! route('admin.campaigns.images.upload', ['id' => $campaign->id]) !!}";
         </script>
         <script>
             function onClick(statusName) {

@@ -36,4 +36,5 @@ mix.js('resources/js/app.js', 'public/js')/*
         'resources/css/vendor/blueimp/jquery.fileupload-ui.css',
         'resources/css/vendor/blueimp/style.css',
     ], 'public/css/vendor.css')
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/css')
+    .copyDirectory('resources/img', 'public/img');;

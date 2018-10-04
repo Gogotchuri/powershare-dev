@@ -41,6 +41,22 @@ Route::middleware(['auth'])->group(function () {
         Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove')->name('campaigns.unapprove');
         Route::get('campaigns/{id}/delete', 'CampaignController@delete')->name('campaigns.delete');
 
+        //Campaign image handling
+        Route::post('campaigns/{id}/images/upload', 'CampaignController@handleFeaturedImages')
+            ->name('campaigns.images.upload');
+
+        Route::get('campaigns/{id}/images/upload', 'CampaignController@featuredImageList')->name('existing');
+
+        Route::get('campaigns/{id}/images/upload-main', 'CampaignController@getMainFeaturedImage')
+            ->name('campaigns.images.main');
+
+        Route::post('campaigns/{id}/images/upload-main', 'CampaignController@handleMainFeaturedImage')
+            ->name('campaigns.images.upload-main');
+        //Campaign image handling END
+
+        /*Route::post('campaigns/{id}/images/delete', 'CampaignController@handleFeaturedImages')
+            ->name('campaigns.images.delete');*/
+
         Route::resource('comments', 'CommentController');
         Route::get('comments/{id}/delete', 'CommentController@delete')->name('comments.delete');
 

@@ -1,7 +1,15 @@
 <div class="container">
     <br>
     <!-- The file upload form used as target for the file upload widget -->
-    <div id="fileupload" action="/image/upload" method="POST" enctype="multipart/form-data">
+    <div id="fileupload"
+         data-sample="5"
+         data-url="{{$url}}"
+         @if(isset($data) && is_array($data))
+             @foreach($data as $key => $value)
+         data-form-{{kebab_case($key)}}="{!! $value !!}"
+             @endforeach
+        @endif
+         >
 
     @csrf
 

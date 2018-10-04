@@ -48,10 +48,13 @@
         <br/>
     <h5>Featured images</h5>
         @include('components.form.image-upload', [
-            'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),
+            'multiple' => false,
+            'config' => [
+                'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),
+            ],
             'data' => [
                 'campaignId' => $campaign->id,
-            ]
+            ],
         ])
 
     {{-- Place for fields that will be determined --}}

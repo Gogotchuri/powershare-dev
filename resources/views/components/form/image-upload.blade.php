@@ -3,55 +3,64 @@
     <!-- The file upload form used as target for the file upload widget -->
     <div id="fileupload"
          data-sample="5"
-         data-url="{{$url}}"
+         data-url="{{$config['url']}}"
+
+         @if(isset($config) && is_array($config))
+         @foreach($config as $key => $value)
+         data-config-{{kebab_case($key)}}="{!! $value !!}"
+         @endforeach
+         @endif
+
          @if(isset($data) && is_array($data))
-             @foreach($data as $key => $value)
+         @foreach($data as $key => $value)
          data-form-{{kebab_case($key)}}="{!! $value !!}"
-             @endforeach
+        @endforeach
         @endif
-         >
+    >
 
     @csrf
 
-    <!-- Redirect browsers with JavaScript disabled to the origin page -->
-        <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
+    @if($multiple)
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-        <div class="row fileupload-buttonbar">
-            <div class="col-lg-7">
-                <!-- The fileinput-button span is used to style the file input field as button -->
-                <span class="btn btn-success fileinput-button">
+            <div class="row fileupload-buttonbar">
+                <div class="col-lg-7">
+                    <!-- The fileinput-button span is used to style the file input field as button -->
+                    <span class="btn btn-success fileinput-button">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>Add files...</span>
                     <input type="file" name="files[]" multiple>
                 </span>
-                <button type="submit" class="btn btn-primary start">
-                    <i class="glyphicon glyphicon-upload"></i>
-                    <span>Start upload</span>
-                </button>
-                <button type="reset" class="btn btn-warning cancel">
-                    <i class="glyphicon glyphicon-ban-circle"></i>
-                    <span>Cancel upload</span>
-                </button>
-                <button type="button" class="btn btn-danger delete">
-                    <i class="glyphicon glyphicon-trash"></i>
-                    <span>Delete</span>
-                </button>
-                <input type="checkbox" class="toggle">
-                <!-- The global file processing state -->
-                <span class="fileupload-process"></span>
-            </div>
-            <!-- The global progress state -->
-            <div class="col-lg-5 fileupload-progress fade">
-                <!-- The global progress bar -->
-                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                    <button type="submit" class="btn btn-primary start">
+                        <i class="glyphicon glyphicon-upload"></i>
+                        <span>Start upload</span>
+                    </button>
+                    <button type="reset" class="btn btn-warning cancel">
+                        <i class="glyphicon glyphicon-ban-circle"></i>
+                        <span>Cancel upload</span>
+                    </button>
+                    <button type="button" class="btn btn-danger delete">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        <span>Delete</span>
+                    </button>
+                    <input type="checkbox" class="toggle">
+                    <!-- The global file processing state -->
+                    <span class="fileupload-process"></span>
                 </div>
-                <!-- The extended global progress state -->
-                <div class="progress-extended">&nbsp;</div>
+                <!-- The global progress state -->
+                <div class="col-lg-5 fileupload-progress fade">
+                    <!-- The global progress bar -->
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                         aria-valuemax="100">
+                        <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                    </div>
+                    <!-- The extended global progress state -->
+                    <div class="progress-extended">&nbsp;</div>
+                </div>
             </div>
-        </div>
-        <!-- The table listing the files available for upload/download -->
-        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+            <!-- The table listing the files available for upload/download -->
+            <table role="presentation" class="table table-striped">
+                <tbody class="files"></tbody>
+            </table>
     </div>
     <br>
 </div>
@@ -96,6 +105,8 @@
         </td>
     </tr>
 {% } %}
+
+
 </script>
 <!-- The template to display files available for download -->
 <script id="template-download" type="text/x-tmpl">
@@ -139,4 +150,46 @@
         </td>
     </tr>
 {% } %}
+
+
 </script>
+@else
+    <!-- The table listing the files available for upload/download -->
+    <table role="presentation" class="table table-striped">
+        <div class="files"></div>
+    </table>
+    <div class="row fileupload-buttonbar">
+        <div class="col-lg-1">
+            <!-- The fileinput-button span is used to style the file input field as button -->
+            <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>Upload</span>
+                    <input type="file" name="files">
+                </span>
+            <!-- The global file processing state -->
+            <span class="fileupload-process"></span>
+        </div>
+        <!-- The global progress state -->
+        <div class="col-lg-11 fileupload-progress fade">
+            <!-- The global progress bar -->
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                 aria-valuemax="100">
+                <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+            </div>
+            <!-- The extended global progress state -->
+            <div class="progress-extended">&nbsp;</div>
+        </div>
+    </div>
+    <script id="template-upload" type="text/x-tmpl">
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+        <img src="{%=file.url%}"/>
+    {% } %}
+
+    </script>
+    <script id="template-download" type="text/x-tmpl">
+        {% for (var i=0, file; file=o.files[i]; i++) { %}
+        <img src="{%=file.url%}"/>
+        {% } %}
+
+    </script>
+@endif

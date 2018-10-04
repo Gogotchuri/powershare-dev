@@ -17,7 +17,6 @@ $(function () {
     let fileupload = $('#fileupload');
 
     if(fileupload.length) {
-        // FIXME: Following script is very page specific.
         let ajaxSetupData = {
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -28,7 +27,9 @@ $(function () {
 
         // Overrides toplevel fileupload config values like 'url', 'dataType' so on.
         let data = _(fileupload.data()).pickBy(function (value, key) {
-            return !_.startsWith(key, "form");
+            return _.startsWith(key, "config");
+        }).mapKeys(function(value, key) {
+            return _.lowerFirst(key.substring(6, key.length));
         }).value();
 
         // Get all data attibutes that start with form, e.g. form-user-id="1"
@@ -49,11 +50,14 @@ $(function () {
             //type: 'POST',
             dataType: 'json',
             singleFileUploads: false,
+            //Singles
+            maxNumberOfFiles:1,
+            autoUpload: true,
+            //Singles END
             formData: _.concat(formData, [{
                 name: '_method',
                 value: 'POST'
             }])
-            // autoUpload: true
         }, data);
 
         // Append or Override _method parameter to form data passed to component
@@ -68,6 +72,8 @@ $(function () {
         uploadConf = _.merge(uploadConf, {
             'formData' : formData
         });
+
+        console.log('uploadConf', uploadConf);
 
         // Initialize the jQuery File Upload widget:
         fileupload.fileupload(uploadConf);

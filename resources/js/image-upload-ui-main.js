@@ -25,10 +25,12 @@ $(function () {
 
     $.ajaxSetup(ajaxSetupData);
 
+    // Overrides toplevel fileupload config values like 'url', 'dataType' so on.
     let data = _(fileupload.data()).pickBy(function (value, key) {
         return !_.startsWith(key, "form");
     }).value();
 
+    // Get all data attibutes that start with form, e.g. form-user-id="1"
     let formData = _(fileupload.data()).pickBy(function (value, key) {
         return _.startsWith(key, "form");
     }).map(function(value, key) {
@@ -47,8 +49,6 @@ $(function () {
         //type: 'POST',
         dataType: 'json',
         singleFileUploads: false,
-        //This is mandatory too when file upload form is used inside laravel form that uses hidden '_method' input
-        // FIXME: Not sure if this will work for all versions
         formData: _.concat(formData, [{
             name: '_method',
             value: 'POST'
@@ -56,16 +56,18 @@ $(function () {
         // autoUpload: true
     }, data);
 
+    // Append or Override _method parameter to form data passed to component
     formData = _.concat(formData, [{
+        //This is mandatory too when file upload form is used inside laravel form that uses hidden '_method' input
+        // FIXME: Not sure if this will work for all versions
         name: '_method',
         value: 'POST'
     }]);
 
+    // Force formData to new one, no matter what was its value before.
     uploadConf = _.merge(uploadConf, {
         'formData' : formData
     });
-
-    console.log(uploadConf);
 
     // Initialize the jQuery File Upload widget:
     fileupload.fileupload(uploadConf);
@@ -75,9 +77,9 @@ $(function () {
     $.ajax({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: $('#fileupload').fileupload('option', 'url'),
+        url: fileupload.fileupload('option', 'url'),
         dataType: 'json',
-        context: $('#fileupload')[0]
+        context: fileupload[0]
     }).always(function () {
         $(this).removeClass('fileupload-processing');
     }).done(function (result) {

@@ -75,6 +75,31 @@ class CampaignController extends Controller
         return redirect(route('admin.campaigns.show', $campaign->id));
     }
 
+    public function getMainFeaturedImage($id) {
+        $campaign = Campaign::findOrFail($id);
+        $image = $campaign->featured_image;
+
+        return response()->json(array('files' => $image ? [$this->getImageDescriptor($campaign->featured_image)] : []), 200);
+    }
+
+    public function handleMainFeaturedImage($id, Request $request) {
+        $campaign = Campaign::findOrFail($id);
+
+        $this->validate($request, [
+            //'featured_images' => 'required'
+        ]);
+
+        $image = Image::fromFile($request->featured_image, 'Featured Image', [
+            'fit' => [640, 480],
+            'thumbnailFit' => [80, 59]
+        ]);
+
+        $campaign->featured_image()->associate($image);
+        $campaign->save();
+
+        return response()->json(array('files' => [$this->getImageDescriptor($image)]), 200);
+    }
+
     public function handleFeaturedImages($id, Request $request) {
 
         $campaign = Campaign::findOrFail($id);

@@ -50,8 +50,9 @@ $(function () {
             //type: 'POST',
             dataType: 'json',
             singleFileUploads: false,
-            //Singles
-            maxNumberOfFiles:1,
+            //TODO: Make use of this option to limit number of files to be uploaded, currently we are
+            // managing that on server side handler. Which replaces old image with new one.
+            //maxNumberOfFiles:1,
             autoUpload: true,
             //Singles END
             formData: _.concat(formData, [{
@@ -73,14 +74,14 @@ $(function () {
             'formData' : formData
         });
 
-        console.log('uploadConf', uploadConf);
-
         // Initialize the jQuery File Upload widget:
         fileupload.fileupload(uploadConf);
 
+        let isSingle = true;
+
         // Load existing files:
         fileupload.addClass('fileupload-processing');
-        $.ajax({
+        let request = $.ajax({
             // Uncomment the following to send cross-domain cookies:
             //xhrFields: {withCredentials: true},
             url: fileupload.fileupload('option', 'url'),
@@ -88,9 +89,22 @@ $(function () {
             context: fileupload[0]
         }).always(function () {
             $(this).removeClass('fileupload-processing');
-        }).done(function (result) {
+        });
+
+        if(isSingle) {
+            request.done(function (result) {
+                fileupload.find('.present').attr('src', result.files[0].url);
+            });
+        } else {
+            request.done(function (result) {
+                $(this).fileupload('option', 'done')
+                    .call(this, $.Event('done'), {result: result});
+            });
+        }
+
+        /*.done(function (result) {
             $(this).fileupload('option', 'done')
                 .call(this, $.Event('done'), {result: result});
-        });
+        })*/;
     }
 });

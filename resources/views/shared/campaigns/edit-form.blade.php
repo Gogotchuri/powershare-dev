@@ -50,7 +50,9 @@
         @include('components.form.image-upload', [
             'multiple' => false,
             'config' => [
-                'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),
+                /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
+                'url' => route('admin.campaigns.images.upload-main', ['id' => $campaign->id]),
+                'paramName' => 'featured_image',
             ],
             'data' => [
                 'campaignId' => $campaign->id,

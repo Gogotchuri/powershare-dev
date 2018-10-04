@@ -164,7 +164,7 @@
             <span class="btn btn-success fileinput-button">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>Upload</span>
-                    <input type="file" name="files">
+                    <input type="file" name="files[]" multiple>
                 </span>
             <!-- The global file processing state -->
             <span class="fileupload-process"></span>
@@ -180,16 +180,18 @@
             <div class="progress-extended">&nbsp;</div>
         </div>
     </div>
-    <script id="template-upload" type="text/x-tmpl">
+    <div>
+        <img class="present" src=""/>
+    </div>
+    {{--<script id="template-upload" type="text/x-tmpl">
     {% for (var i=0, file; file=o.files[i]; i++) { %}
         <img src="{%=file.url%}"/>
     {% } %}
 
-    </script>
-    <script id="template-download" type="text/x-tmpl">
+    </script>--}}
+    {{--<script id="template-download" type="text/x-tmpl">
         {% for (var i=0, file; file=o.files[i]; i++) { %}
         <img src="{%=file.url%}"/>
         {% } %}
-
-    </script>
+    </script>--}}
 @endif

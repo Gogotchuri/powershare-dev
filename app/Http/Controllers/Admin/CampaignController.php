@@ -117,9 +117,11 @@ class CampaignController extends Controller
     public function featuredImageList($id) {
         $campaign = Campaign::findOrFail($id);
 
-        return $campaign->images->map(function ($image, $key) {
-            return $this->getImageDescriptor($image);
-        });
+        return [
+            'files' => $campaign->images->map(function ($image, $key) {
+                return $this->getImageDescriptor($image);
+            })
+        ];
     }
 
     public function delete($id)

@@ -66,7 +66,7 @@ $(function () {
             /**
              * Create upload plugin config defaults and override it with values coming from blade component.
              *
-             * NOTE: Only form data is currently handled slight
+             * NOTE: Only form data is currently handled
              *
              */
 

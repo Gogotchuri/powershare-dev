@@ -54,7 +54,43 @@
     }
 }
 
+//
+// Image upload gui
+//
+
 //FIXME: TMP fix for image upload ui
 .fade:not(.show) {
     opacity: 1;
+}
+
+.single-image-upload {
+
+    /*margin: 20px 0;*/
+
+    .img-preview {
+        width: 100%;
+    }
+
+    .progress {
+        height: 100%;
+    }
+
+    .fileupload-buttonbar {
+
+        .btn.fileinput-button {
+            margin: 0;
+            width: 100%;
+        }
+    }
+
+    .fileupload-process {
+        position: relative;
+    }
+}
+
+.multiple-image-upload {
+
+    .fileupload-buttonbar {
+        margin-bottom: 1.25rem;
+    }
 }

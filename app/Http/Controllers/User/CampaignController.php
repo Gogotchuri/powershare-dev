@@ -129,7 +129,10 @@ class CampaignController extends Controller
     }
 
     public function handleMainFeaturedImage($id, Request $request) {
-        $campaign = Campaign::findOrFail($id);
+
+        $user = Auth::user();
+
+        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail();
 
         $this->validate($request, [
             //'featured_images' => 'required'
@@ -148,7 +151,9 @@ class CampaignController extends Controller
 
     public function handleFeaturedImages($id, Request $request) {
 
-        $campaign = Campaign::findOrFail($id);
+        $user = Auth::user();
+
+        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail();
 
         $this->validate($request, [
             //'featured_images' => 'required'
@@ -186,7 +191,10 @@ class CampaignController extends Controller
     }
 
     public function featuredImageList($id) {
-        $campaign = Campaign::findOrFail($id);
+
+        $user = Auth::user();
+
+        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail();
 
         return [
             'files' => $campaign->images->map(function ($image, $key) {

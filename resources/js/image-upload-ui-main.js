@@ -141,11 +141,17 @@ $(function () {
                 let previewElem = $('#' + fileupload.data('singlePreviewId'));
 
                 fileupload.bind('fileuploaddone', function (e, data) {
-                    previewElem.attr('src', data.result.files[0].url);
+                    let image = data.result.files[0];
+                    if(image) {
+                        previewElem.attr('src', image.url);
+                    }
                 });
 
                 request.done(function (result) {
-                    previewElem.attr('src', result.files[0].url);
+                    let image = result.files[0];
+                    if(image) {
+                        previewElem.attr('src', image.url);
+                    }
                 });
             } else {
                 request.done(function (result) {

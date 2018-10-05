@@ -132,7 +132,7 @@ class CampaignController extends Controller
 
         $user = Auth::user();
 
-        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail();
+        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->firstOrFail();
 
         $this->validate($request, [
             //'featured_images' => 'required'
@@ -153,7 +153,7 @@ class CampaignController extends Controller
 
         $user = Auth::user();
 
-        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail();
+        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->firstOrFail();
 
         $this->validate($request, [
             //'featured_images' => 'required'
@@ -194,7 +194,7 @@ class CampaignController extends Controller
 
         $user = Auth::user();
 
-        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail();
+        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->firstOrFail();
 
         return [
             'files' => $campaign->images->map(function ($image, $key) {

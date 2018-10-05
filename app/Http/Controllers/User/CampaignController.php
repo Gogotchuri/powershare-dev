@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-use App\HandlesImages;
 use App\Http\Requests\User\StoreCampaign;
 use App\Http\Requests\User\UpdateCampaign;
 use App\Models\Campaign;

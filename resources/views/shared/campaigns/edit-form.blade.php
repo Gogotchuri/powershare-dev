@@ -29,7 +29,7 @@
             'multiple' => false,
             'config' => [
                 /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
-                'url' => route('admin.campaigns.images.upload-main', ['id' => $campaign->id]),
+                'url' => $mainImageRoute,
                 'paramName' => 'featured_image',
             ],
             'data' => [
@@ -46,7 +46,7 @@
         'multiple' => true,
         'config' => [
             /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
-            'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),
+            'url' => $imagesRoute,
             'paramName' => 'featured_images[]',
         ],
         'data' => [

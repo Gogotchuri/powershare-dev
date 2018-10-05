@@ -120,4 +120,78 @@ class CampaignController extends Controller
 
         return redirect(route('admin.campaigns.index'));
     }
+
+    public function getMainFeaturedImage($id) {
+        $campaign = Campaign::findOrFail($id);
+        $image = $campaign->featured_image;
+
+        return response()->json(array('files' => $image ? [$this->getImageDescriptor($image)] : []), 200);
+    }
+
+    public function handleMainFeaturedImage($id, Request $request) {
+        $campaign = Campaign::findOrFail($id);
+
+        $this->validate($request, [
+            //'featured_images' => 'required'
+        ]);
+
+        $image = Image::fromFile($request->featured_image, 'Featured Image', [
+            'fit' => [640, 480],
+            'thumbnailFit' => [80, 59]
+        ]);
+
+        $campaign->featured_image()->associate($image);
+        $campaign->save();
+
+        return response()->json(array('files' => [$this->getImageDescriptor($image)]), 200);
+    }
+
+    public function handleFeaturedImages($id, Request $request) {
+
+        $campaign = Campaign::findOrFail($id);
+
+        $this->validate($request, [
+            //'featured_images' => 'required'
+        ]);
+
+        $image_descriptors = [];
+        foreach ($request->featured_images as $featured_image) {
+
+            $image = Image::fromFile($featured_image, 'Featured Image', [
+                'fit' => [640, 480],
+                'thumbnailFit' => [80, 59]
+            ]);
+
+            $campaign->images()->save($image);
+
+            $descriptor = $this->getImageDescriptor($image);
+
+            $image_descriptors[] = $descriptor;
+        }
+
+        return response()->json(array('files' => $image_descriptors), 200);
+    }
+
+    private function getImageDescriptor(Image $image, $uploaded_image=null) {
+
+        return [
+            'name' => $uploaded_image !== null ? $uploaded_image->getClientOriginalName() : basename($image->path),
+            'size' => Storage::disk('s3')->size($image->path),
+            'url' => $image->url,
+            'thumbnailUrl' => $image->thumbnail_url,
+            'deleteUrl' => route('image.delete', ['id' => $image->id]),
+            'deleteType' => 'DELETE',
+            'id' => $image->id,
+        ];
+    }
+
+    public function featuredImageList($id) {
+        $campaign = Campaign::findOrFail($id);
+
+        return [
+            'files' => $campaign->images->map(function ($image, $key) {
+                return $this->getImageDescriptor($image);
+            })
+        ];
+    }
 }

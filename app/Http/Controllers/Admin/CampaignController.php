@@ -61,17 +61,6 @@ class CampaignController extends Controller
         $campaign->ethereum_address = $request->ethereum_address;
         $campaign->status_id = CampaignStatus::idFromName($request->status);
 
-
-        $featured_image = $request->featured_image;
-        if($featured_image !== null) {
-            $image = Image::fromFile($featured_image, 'Featured Image');
-
-            $campaign->featured_image()->delete();
-            $campaign->featured_image()->associate($image);
-        }
-
-        $campaign->save();
-
         return redirect(route('admin.campaigns.show', $campaign->id));
     }
 

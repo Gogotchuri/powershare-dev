@@ -33,6 +33,8 @@
 
 @section('body')
     @include('shared.campaigns.edit-form', [
-        'route' => route('admin.campaigns.update', ['id' => $campaign->id])
+        'route' => route('admin.campaigns.update', ['id' => $campaign->id]),
+        'mainImageRoute' => route('admin.campaigns.images.upload-main', ['id' => $campaign->id]),
+        'imagesRoute' => route('admin.campaigns.images.upload', ['id' => $campaign->id])
     ])
 @endsection

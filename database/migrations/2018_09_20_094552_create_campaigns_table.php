@@ -26,7 +26,7 @@ class CreateCampaignsTable extends Migration
             $table->unsignedInteger('status_id')->default(CampaignStatus::DRAFT);
             $table->foreign('status_id')->references('id')->on('campaign_statuses');
 
-            $table->unsignedInteger('featured_image_id');
+            $table->unsignedInteger('featured_image_id')->nullable();
 
             //Make sure two or more campaigns does not point on the same featured_image
             $table->unique('featured_image_id');

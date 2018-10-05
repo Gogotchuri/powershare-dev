@@ -5,6 +5,11 @@ window.$ = require('datatables.net-bs');
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 
+require('blueimp-file-upload/js/vendor/jquery.ui.widget');
+require('blueimp-file-upload/js/jquery.iframe-transport');
+require('blueimp-file-upload/js/jquery.fileupload');
+require('blueimp-file-upload/js/jquery.fileupload-ui');
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This

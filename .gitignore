@@ -2,7 +2,9 @@
 /public/hot
 /public/css
 /public/js
+/public/img
 /public/storage
+/public/mix-manifest.json
 /storage/*.key
 /vendor
 /.idea

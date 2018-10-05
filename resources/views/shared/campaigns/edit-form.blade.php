@@ -29,10 +29,17 @@
     <div>
         <img class="campaign-image" src="{{asset($campaign->featured_image_url)}}"/>
     </div>
-    @include('components.form.input', [
-        'type' => 'file',
-        'name' => 'Featured Image',
-    ])
+        @include('components.form.image-upload', [
+                'multiple' => false,
+                'config' => [
+                    /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
+                    'url' => route('admin.campaigns.images.upload-main', ['id' => $campaign->id]),
+                    'paramName' => 'featured_image',
+                ],
+                'data' => [
+                    'campaignId' => $campaign->id,
+                ],
+            ])
 
     @include('components.form.input', [
         'name' => 'Video',
@@ -48,11 +55,11 @@
         <br/>
     <h5>Featured images</h5>
         @include('components.form.image-upload', [
-            'multiple' => false,
+            'multiple' => true,
             'config' => [
                 /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
-                'url' => route('admin.campaigns.images.upload-main', ['id' => $campaign->id]),
-                'paramName' => 'featured_image',
+                'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),
+                'paramName' => 'featured_images[]',
             ],
             'data' => [
                 'campaignId' => $campaign->id,

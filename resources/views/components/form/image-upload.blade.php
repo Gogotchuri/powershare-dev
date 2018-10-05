@@ -1,9 +1,21 @@
+@php
+
+$random = str_random();
+$uploadTemplateId = "template-upload-" . $random;
+$downloadTemplateId = "template-download-" . $random;
+@endphp
+
 <div class="container">
     <br>
     <!-- The file upload form used as target for the file upload widget -->
-    <div id="fileupload"
+    <div class="fileupload"
+
+         data-upload-template-id="{{$uploadTemplateId}}"
+         data-download-template-id="{{$downloadTemplateId}}"
+
          data-sample="5"
          data-url="{{$config['url']}}"
+         data-is-single="{{(!$multiple)}}"
 
          @if(isset($config) && is_array($config))
          @foreach($config as $key => $value)
@@ -75,7 +87,7 @@
     <ol class="indicator"></ol>
 </div>
 <!-- The template to display files available for upload -->
-<script id="template-upload" type="text/x-tmpl">
+<script id="{{$uploadTemplateId}}" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-upload fade">
         <td>
@@ -109,7 +121,7 @@
 
 </script>
 <!-- The template to display files available for download -->
-<script id="template-download" type="text/x-tmpl">
+<script id="{{$downloadTemplateId}}" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-download fade">
         <td>
@@ -183,15 +195,15 @@
     <div>
         <img class="present" src=""/>
     </div>
-    {{--<script id="template-upload" type="text/x-tmpl">
+        <script id="{{$uploadTemplateId}}" type="text/x-tmpl">
     {% for (var i=0, file; file=o.files[i]; i++) { %}
-        <img src="{%=file.url%}"/>
+        <img style="display:none" src="{%=file.url%}"/>
     {% } %}
 
-    </script>--}}
-    {{--<script id="template-download" type="text/x-tmpl">
+    </script>
+    <script id="{{$downloadTemplateId}}" type="text/x-tmpl">
         {% for (var i=0, file; file=o.files[i]; i++) { %}
-        <img src="{%=file.url%}"/>
+        <img style="display:none" src="{%=file.url%}"/>
         {% } %}
-    </script>--}}
+    </script>
 @endif

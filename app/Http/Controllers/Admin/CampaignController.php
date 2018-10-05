@@ -79,7 +79,7 @@ class CampaignController extends Controller
         $campaign = Campaign::findOrFail($id);
         $image = $campaign->featured_image;
 
-        return response()->json(array('files' => $image ? [$this->getImageDescriptor($campaign->featured_image)] : []), 200);
+        return response()->json(array('files' => $image ? [$this->getImageDescriptor($image)] : []), 200);
     }
 
     public function handleMainFeaturedImage($id, Request $request) {

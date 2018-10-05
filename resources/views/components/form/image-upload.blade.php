@@ -168,6 +168,7 @@
             <div>
                 <!-- The global file processing state -->
                 <span class="fileupload-process"></span>
+                {{-- TODO: Add placeholred to show upload errors--}}
                 <img class="img-preview" id="{{$singlePreviewId}}" src=""/>
             </div>
             <table role="presentation" class="table table-striped">

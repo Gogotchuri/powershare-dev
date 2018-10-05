@@ -44,7 +44,7 @@ class Image extends Model
 
             //TODO: Quality of images are getting very low after fit() call.
             $thumbnailImageData = (string) ImageProcessor::make($file)->fit($cursor[0], $cursor[1])->stream();
-            $thumbnailImagePath = $file->hashName();
+            $thumbnailImagePath = 'thumbnails/' . $file->hashName();
             Storage::disk('s3')->put($thumbnailImagePath, $thumbnailImageData, ['visibility' => 'public']);
 
             $image->thumbnail_url = Storage::disk('s3')->url($thumbnailImagePath);

@@ -1,8 +1,9 @@
 @php
 
-$random = str_random();
-$uploadTemplateId = "template-upload-" . $random;
-$downloadTemplateId = "template-download-" . $random;
+    $random = str_random();
+    $uploadTemplateId = "template-upload-" . $random;
+    $downloadTemplateId = "template-download-" . $random;
+    $singlePreviewId = "single-preview-" . $random;
 @endphp
 
 <div class="container">
@@ -12,10 +13,11 @@ $downloadTemplateId = "template-download-" . $random;
 
          data-upload-template-id="{{$uploadTemplateId}}"
          data-download-template-id="{{$downloadTemplateId}}"
+         data-single-preview-id="{{$singlePreviewId}}"
 
          data-sample="5"
          data-url="{{$config['url']}}"
-         data-is-single="{{(!$multiple)}}"
+         data-is-single="{{!$multiple}}"
 
          @if(isset($config) && is_array($config))
          @foreach($config as $key => $value)
@@ -40,7 +42,7 @@ $downloadTemplateId = "template-download-" . $random;
                     <span class="btn btn-success fileinput-button">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>Add files...</span>
-                    <input type="file" name="files[]" multiple>
+                    <input type="file" name="{{$config['paramName']}}" @if($multiple) multiple @endif>
                 </span>
                     <button type="submit" class="btn btn-primary start">
                         <i class="glyphicon glyphicon-upload"></i>
@@ -73,21 +75,10 @@ $downloadTemplateId = "template-download-" . $random;
             <table role="presentation" class="table table-striped">
                 <tbody class="files"></tbody>
             </table>
-    </div>
-    <br>
-</div>
-<!-- The blueimp Gallery widget -->
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
-</div>
-<!-- The template to display files available for upload -->
-<script id="{{$uploadTemplateId}}" type="text/x-tmpl">
+
+
+            <!-- The template to display files available for upload -->
+            <script id="{{$uploadTemplateId}}" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-upload fade">
         <td>
@@ -119,9 +110,10 @@ $downloadTemplateId = "template-download-" . $random;
 {% } %}
 
 
-</script>
-<!-- The template to display files available for download -->
-<script id="{{$downloadTemplateId}}" type="text/x-tmpl">
+
+            </script>
+            <!-- The template to display files available for download -->
+            <script id="{{$downloadTemplateId}}" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-download fade">
         <td>
@@ -164,46 +156,52 @@ $downloadTemplateId = "template-download-" . $random;
 {% } %}
 
 
-</script>
-@else
-    <!-- The table listing the files available for upload/download -->
-    <table role="presentation" class="table table-striped">
-        <div class="files"></div>
-    </table>
-    <div class="row fileupload-buttonbar">
-        <div class="col-lg-1">
-            <!-- The fileinput-button span is used to style the file input field as button -->
-            <span class="btn btn-success fileinput-button">
+
+            </script>
+    @else
+        <!-- The table listing the files available for upload/download -->
+            <div>
+                <img id="{{$singlePreviewId}}" src=""/>
+            </div>
+            <table role="presentation" class="table table-striped">
+                <div class="files"></div>
+            </table>
+            <div class="row fileupload-buttonbar">
+                <div class="col-lg-1">
+                    <!-- The fileinput-button span is used to style the file input field as button -->
+                    <span class="btn btn-success fileinput-button">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>Upload</span>
-                    <input type="file" name="files[]" multiple>
+                    <input type="file" name="{{$config['paramName']}}" @if($multiple) multiple @endif>
                 </span>
-            <!-- The global file processing state -->
-            <span class="fileupload-process"></span>
-        </div>
-        <!-- The global progress state -->
-        <div class="col-lg-11 fileupload-progress fade">
-            <!-- The global progress bar -->
-            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
-                 aria-valuemax="100">
-                <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                    <!-- The global file processing state -->
+                    <span class="fileupload-process"></span>
+                </div>
+                <!-- The global progress state -->
+                <div class="col-lg-11 fileupload-progress fade">
+                    <!-- The global progress bar -->
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                         aria-valuemax="100">
+                        <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                    </div>
+                    <!-- The extended global progress state -->
+                    <div class="progress-extended">&nbsp;</div>
+                </div>
             </div>
-            <!-- The extended global progress state -->
-            <div class="progress-extended">&nbsp;</div>
-        </div>
-    </div>
-    <div>
-        <img class="present" src=""/>
-    </div>
-        <script id="{{$uploadTemplateId}}" type="text/x-tmpl">
+            <script id="{{$uploadTemplateId}}" type="text/x-tmpl">
     {% for (var i=0, file; file=o.files[i]; i++) { %}
         <img style="display:none" src="{%=file.url%}"/>
     {% } %}
 
-    </script>
-    <script id="{{$downloadTemplateId}}" type="text/x-tmpl">
+
+            </script>
+            <script id="{{$downloadTemplateId}}" type="text/x-tmpl">
         {% for (var i=0, file; file=o.files[i]; i++) { %}
         <img style="display:none" src="{%=file.url%}"/>
         {% } %}
-    </script>
-@endif
+
+            </script>
+        @endif
+    </div>
+    <br>
+</div>

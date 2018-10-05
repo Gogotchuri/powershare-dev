@@ -138,12 +138,14 @@ $(function () {
 
             // Image preview handled differently for multiple and single file uploads, existing image(s) and fresh upload(s)
             if (data['isSingle']) {
+                let previewElem = $('#' + fileupload.data('singlePreviewId'));
+
                 fileupload.bind('fileuploaddone', function (e, data) {
-                    fileupload.find('.present').attr('src', data.result.files[0].url);
+                    previewElem.attr('src', data.result.files[0].url);
                 });
 
                 request.done(function (result) {
-                    fileupload.find('.present').attr('src', result.files[0].url);
+                    previewElem.attr('src', result.files[0].url);
                 });
             } else {
                 request.done(function (result) {

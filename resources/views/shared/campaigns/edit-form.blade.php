@@ -25,46 +25,34 @@
         'required' => true,
         'value' => $campaign->details,
     ])
-
-    <div>
-        <img class="campaign-image" src="{{asset($campaign->featured_image_url)}}"/>
-    </div>
-        @include('components.form.image-upload', [
-                'multiple' => false,
-                'config' => [
-                    /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
-                    'url' => route('admin.campaigns.images.upload-main', ['id' => $campaign->id]),
-                    'paramName' => 'featured_image',
-                ],
-                'data' => [
-                    'campaignId' => $campaign->id,
-                ],
-            ])
+    @include('components.form.image-upload', [
+            'multiple' => false,
+            'config' => [
+                /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
+                'url' => route('admin.campaigns.images.upload-main', ['id' => $campaign->id]),
+                'paramName' => 'featured_image',
+            ],
+            'data' => [
+                'campaignId' => $campaign->id,
+            ],
+        ])
 
     @include('components.form.input', [
         'name' => 'Video',
         'value' => $campaign->video_url,
     ])
 
-        {{--<span>Having ({{ $campaign->images === null ? 0 : count($campaign->images) }})</span>
-        @include('components.form.input', [
-            'type' => 'file',
-            'name' => 'Featured Images',
-            'multiple' => true
-        ])--}}
-        <br/>
-    <h5>Featured images</h5>
-        @include('components.form.image-upload', [
-            'multiple' => true,
-            'config' => [
-                /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
-                'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),
-                'paramName' => 'featured_images[]',
-            ],
-            'data' => [
-                'campaignId' => $campaign->id,
-            ],
-        ])
+    @include('components.form.image-upload', [
+        'multiple' => true,
+        'config' => [
+            /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
+            'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),
+            'paramName' => 'featured_images[]',
+        ],
+        'data' => [
+            'campaignId' => $campaign->id,
+        ],
+    ])
 
     {{-- Place for fields that will be determined --}}
 

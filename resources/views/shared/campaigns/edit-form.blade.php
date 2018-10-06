@@ -45,11 +45,11 @@
                 </div>
                 <div class="card-body">
                     <img id="featured-image" src="{{ optional($campaign->featured_image)->thumbnail_url }}" class="w-100 mb-3"
-                        @if(!$campaign->featured_image_id) style="visibility: hidden;" @endif
+                        @if(!$campaign->featured_image_id) style="display: none;" @endif
                     />
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" name="featured-image" class="custom-file-input" id="imgInp" aria-describedby="inputGroupFileAddon01">
+                            <input type="file" name="featured-image" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                     </div>
@@ -74,7 +74,8 @@
                 }
             }
 
-            $("#featured-image").change(function() {
+            $("#image-input").change(function() {
+                console.log('changing');
                 $("#featured-image").show();
                 readURL(this);
             });

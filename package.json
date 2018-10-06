@@ -25,6 +25,7 @@
         "blueimp-load-image": "^2.19.0",
         "blueimp-tmpl": "^3.11.0",
         "datatables.net": "^1.10.19",
-        "datatables.net-bs": "^1.10.19"
+        "datatables.net-bs": "^1.10.19",
+        "dropzone": "^5.5.1"
     }
 }

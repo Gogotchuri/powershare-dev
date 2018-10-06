@@ -1,7 +1,5 @@
-@if($campaign->url)
-<div class="w-50">
-    <img class="campaign-image" src="{{asset($campaign->url)}}"/>
-</div>
+@if($campaign->featured_image_id)
+    <img class="campaign-image w-50 d-block mb-3" src="{{ $campaign->featured_image_url }}"/>
 @endif
 
 <p>{{$campaign->details}}</p>

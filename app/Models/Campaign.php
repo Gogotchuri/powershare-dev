@@ -84,8 +84,13 @@ class Campaign extends Model
         return array_get($query, 'v');
     }
 
+    public function getFeaturedImageThumbnailUrlAttribute()
+    {
+        return optional($this->featured_image)->thumbnail_url;
+    }
+
     public function getFeaturedImageUrlAttribute()
     {
-        return optional($this->featured_image)->public_url;
+        return optional($this->featured_image)->url;
     }
 }

@@ -14,73 +14,68 @@
 
     @csrf
 
-    @include('components.form.input', [
-        'name' => 'Name',
-        'required' => true,
-        'value' => $campaign->name,
-    ])
-
-    @include('components.form.textarea', [
-        'name' => 'Details',
-        'required' => true,
-        'value' => $campaign->details,
-    ])
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-sm-8">
+            @include('components.form.input', [
+                'name' => 'Name',
+                'required' => true,
+                'value' => $campaign->name,
+            ])
+
+            @include('components.form.textarea', [
+                'name' => 'Details',
+                'required' => true,
+                'value' => $campaign->details,
+            ])
+
+            @include('components.form.input', [
+               'name' => 'Video',
+               'value' => $campaign->video_url,
+            ])
+
+            @include('components.form.input', [
+                'name' => 'Ethereum address',
+                'value' => $campaign->ethereum_address,
+            ])
+        </div>
+        <div class="col-sm-4">
             <div class="card mb-3">
                 <div class="card-header">
                     Main featured image
                 </div>
                 <div class="card-body">
-                    @include('components.form.image-upload', [
-                        'multiple' => false,
-                        'config' => [
-                            /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
-                            'url' => $mainImageRoute,
-                            'paramName' => 'featured_image',
-                        ],
-                        'data' => [
-                            'campaignId' => $campaign->id,
-                        ],
-                    ])
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Additional featured images
-                </div>
-                <div class="card-body">
-                    @include('components.form.image-upload', [
-                        'multiple' => true,
-                        'config' => [
-                            /*'url' => route('admin.campaigns.images.upload', ['id' => $campaign->id]),*/
-                            'url' => $imagesRoute,
-                            'paramName' => 'featured_images[]',
-                        ],
-                        'data' => [
-                            'campaignId' => $campaign->id,
-                        ],
-                    ])
+                    <img id="blah" src="#" class="w-100 mb-3" />
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="imgInp" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    @include('components.form.input', [
-        'name' => 'Video',
-        'value' => $campaign->video_url,
-    ])
-
-    {{-- Place for fields that will be determined --}}
-
-    @include('components.form.input', [
-        'name' => 'Ethereum address',
-        'value' => $campaign->ethereum_address,
-    ])
 
     {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
     @push('scripts-stack')
+        <script>
+            function readURL(input) {
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#blah').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#imgInp").change(function() {
+                readURL(this);
+            });
+        </script>
 
         <script>
             var campaignId = {!! $campaign->id !!};

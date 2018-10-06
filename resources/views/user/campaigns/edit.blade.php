@@ -31,3 +31,14 @@
         'imagesRoute' => route('user.campaigns.images.upload', ['id' => $campaign->id])
     ])
 @endsection
+
+@section('other')
+    <div class="card">
+        <div class="card-header">
+            Image gallery
+        </div>
+        <div class="card-body">
+            @include('components.dropzone', ['url' => route('images.campaigns', $campaign->id)])
+        </div>
+    </div>
+@endsection

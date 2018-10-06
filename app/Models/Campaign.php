@@ -16,10 +16,10 @@ class Campaign extends Model
         return [
             'name' => 'required|string|max:255',
             'details' => 'required|string',
-            'video_url' => 'url',
+            /*'video_url' => 'url',
             'ethereum_address' => 'nullable|string|max:255',
             'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',*/
         ];
     }
 

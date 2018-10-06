@@ -39,3 +39,7 @@
         </div>
     </div>
 @endsection
+
+@push('scripts-stack')
+
+@endpush

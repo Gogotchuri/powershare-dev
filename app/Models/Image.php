@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\FileHelpers;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use ImageProcessor;
+use Intervention\Image\Facades\Image as IntImage;
+
 
 class Image extends Model
 {
@@ -27,7 +28,7 @@ class Image extends Model
             }
 
             //TODO: Quality of images are getting very low after fit() call.
-            $processedImageData = (string) ImageProcessor::make($file)->fit($cursor[0], $cursor[1])->stream();
+            $processedImageData = (string) IntImage::make($file)->fit($cursor[0], $cursor[1])->stream()->detach();
             $processedImagePath = $file->hashName();
             Storage::disk('s3')->put($processedImagePath, $processedImageData, ['visibility' => 'public']);
 
@@ -43,7 +44,7 @@ class Image extends Model
             }
 
             //TODO: Quality of images are getting very low after fit() call.
-            $thumbnailImageData = (string) ImageProcessor::make($file)->fit($cursor[0], $cursor[1])->stream();
+            $thumbnailImageData = (string) IntImage::make($file)->fit($cursor[0], $cursor[1])->stream()->detach();
             $thumbnailImagePath = 'thumbnails/' . $file->hashName();
             Storage::disk('s3')->put($thumbnailImagePath, $thumbnailImageData, ['visibility' => 'public']);
 

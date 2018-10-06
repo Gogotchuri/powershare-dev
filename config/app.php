@@ -211,11 +211,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         /*
-         * Package aliases
-         */
-        'ImageProcessor' => Intervention\Image\ImageManagerStatic::class,
-
-        /*
          * App aliases
          */
         'CampaignStatus' => App\Models\Reference\CampaignStatus::class,

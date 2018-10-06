@@ -12,10 +12,11 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        $image = new \App\Models\Image();
-        $image->name = "Sample Campaign";
-        $image->url = 'sample-campaigns.png';
-        $image->campaign_id = Campaign::all()->random()->id;
-        $image->save();
+        for ($i = 0; $i < 7; $i++) {
+            $image = new \App\Models\Image();
+            $image->name = "Featured Image";
+            $image->url = '/img/samples/sample-' . ($i + 1) . '.jpeg';
+            $image->save();
+        }
     }
 }

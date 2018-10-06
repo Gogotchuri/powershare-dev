@@ -47,5 +47,6 @@ $factory->define(\App\Models\Campaign::class, function (Faker $faker) {
         'status_id' => array_random($campaignStatuses),
         'video_url' => 'https://www.youtube.com/watch?v=RSDqSjTO9fs',
         'ethereum_address' => '0x7614e80bE7E0C1e5aFce4E8e35627dEEc461d2bD',
+        'featured_image_id' => rand(1, 7),
     ];
 });

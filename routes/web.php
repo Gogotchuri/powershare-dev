@@ -75,6 +75,8 @@ Route::middleware(['auth'])->group(function () {
             ->name('campaigns.images.upload-main');
     });
 
+    Route::post('images/campaigns/{id}', 'ImageController@store')->name('images.campaigns');
+
     Route::prefix('image')->name('image.')->group(function () {
         Route::post('upload', 'ImageController@upload')->name('upload');
 

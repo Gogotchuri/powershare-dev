@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Campaign;
 use App\Models\Image;
-use Illuminate\Http\FileHelpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
+    public function store(Request $request, $id)
+    {
+        $campaign = Campaign::findOrFail($id);
+
+        $image = Image::forCampaign($request->file('file'), $campaign);
+
+        return response()->json(['data' => $image->toArray()]);
+    }
+
     public function upload(Request $request) {
         $image_descriptors = [];
         foreach ($request->featured_images as $featured_image) {

@@ -75,7 +75,6 @@
             }
 
             $("#image-input").change(function() {
-                console.log('changing');
                 $("#featured-image").show();
                 readURL(this);
             });

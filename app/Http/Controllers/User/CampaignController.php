@@ -112,7 +112,7 @@ class CampaignController extends Controller
         $campaign->status_id = $request->input('action') === 'save'
             ? CampaignStatus::DRAFT
             : CampaignStatus::PROPOSAL;
-        $campaign->featured_image_id = isset($image) && $image ? $image->id : null;
+        $campaign->featured_image_id = isset($image) && $image ? $image->id : $campaign->featured_image_id;
 
         $campaign->save();
 

@@ -14,7 +14,7 @@
 @endsection
 
 @section('additional-controls')
-    <button type="submit" name="action" value="save" class="btn btn-primary">
+    <button type="submit" name="action" value="3" class="btn btn-primary">
         Save
     </button>
     <button type="submit" name="action" value="submit" class="btn btn-primary">
@@ -25,8 +25,6 @@
 @section('body')
     @include('shared.campaigns.edit-form', [
         'route' => route('user.campaigns.update', ['id' => $campaign->id]),
-        'mainImageRoute' => route('user.campaigns.images.upload-main', ['id' => $campaign->id]),
-        'imagesRoute' => route('user.campaigns.images.upload', ['id' => $campaign->id])
     ])
 @endsection
 

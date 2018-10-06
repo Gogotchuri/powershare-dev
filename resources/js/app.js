@@ -65,10 +65,6 @@ $(document).ready(function() {
 
                         dze_info.find('tfoot td').html('<span class="label label-success">' + status.uploaded + ' uploaded</span> <span class="label label-danger">' + status.errors + ' not uploaded</span>');
 
-                        // toastr.success('Your File Uploaded Successfully!!', 'Success Alert', {
-                        //     timeOut: 50000000
-                        // });
-
                     })
                         .on('error', function (file) {
                             var _$f = $f.clone();

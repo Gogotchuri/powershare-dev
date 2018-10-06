@@ -49,7 +49,7 @@ class CampaignController extends Controller
     public function edit($id)
     {
         $campaign = Campaign::where('id', $id)
-            ->with(['image', 'images'])
+            ->with(['featured_image', 'images'])
             ->firstOrFail();
 
         return view('admin.campaigns.edit', compact('campaign'));
@@ -57,12 +57,17 @@ class CampaignController extends Controller
 
     public function update(UpdateCampaign $request, $id)
     {
+        if ($request->file('featured-image'))
+            $image = Image::forFeatured($request->file('featured-image'), 'Featured Image');
+
         $campaign =  Campaign::findOrFail($id);
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->video_url = $request->video;
         $campaign->ethereum_address = $request->ethereum_address;
-        $campaign->status_id = CampaignStatus::idFromName($request->status);
+        $campaign->status_id = intVal($request->status_id);
+        $campaign->featured_image_id = isset($image) && $image ? $image->id : $campaign->featured_image_id;
+        $campaign->save();
 
         return redirect(route('admin.campaigns.show', $campaign->id));
     }

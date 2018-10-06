@@ -25,13 +25,10 @@ class UpdateCampaign extends FormRequest
     public function rules()
     {
         return array_merge(Campaign::baseRules(), [
-            'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status' => 'required|exists:campaign_statuses,name',
-            //FIXME: Not sure if I should leave it here
-            //'image_ids' => 'array',
+            'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'status_id' => 'required|exists:campaign_statuses,id',
             'video_url' => 'url',
             'ethereum_address' => 'nullable|string|max:255',
-            'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
     }
 }

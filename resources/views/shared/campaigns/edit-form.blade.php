@@ -44,10 +44,12 @@
                     Main featured image
                 </div>
                 <div class="card-body">
-                    <img id="blah" src="#" class="w-100 mb-3" />
+                    <img id="featured-image" src="{{ optional($campaign->featured_image)->thumbnail_url }}" class="w-100 mb-3"
+                        @if(!$campaign->featured_image_id) style="visibility: hidden;" @endif
+                    />
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="imgInp" aria-describedby="inputGroupFileAddon01">
+                            <input type="file" name="featured-image" class="custom-file-input" id="imgInp" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                     </div>
@@ -65,32 +67,17 @@
                     var reader = new FileReader();
 
                     reader.onload = function(e) {
-                        $('#blah').attr('src', e.target.result);
+                        $('#featured-image').attr('src', e.target.result);
                     }
 
                     reader.readAsDataURL(input.files[0]);
                 }
             }
 
-            $("#imgInp").change(function() {
+            $("#featured-image").change(function() {
+                $("#featured-image").show();
                 readURL(this);
             });
-        </script>
-
-        <script>
-            var campaignId = {!! $campaign->id !!};
-            var uploadRoute = "{!! route('admin.campaigns.images.upload', ['id' => $campaign->id]) !!}";
-        </script>
-        <script>
-            function onClick(statusName) {
-
-                var form = $('#campaignEditForm');
-                var input = $('<input />').attr('type', 'hidden')
-                    .attr('name', "status")
-                    .attr('value', statusName);
-
-                form.append(input).submit();
-            }
         </script>
     @endpush
 

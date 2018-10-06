@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->string('name');
             $table->string('url');
             $table->string('thumbnail_url')->nullable();
-            $table->unsignedInteger('campaign_id');
+            $table->unsignedInteger('campaign_id')->nullable();
             $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');
             $table->timestamps();
         });

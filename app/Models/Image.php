@@ -25,6 +25,17 @@ class Image extends Model
         return $image;
     }
 
+    public static function forFeatured(UploadedFile $file, $name)
+    {
+        $image = new static();
+        $image->name = $name;
+        $image->storeNormal($file);
+        $image->storeThumbnail($file);
+        $image->save();
+
+        return $image;
+    }
+
     public function campaign() {
         $this->belongsTo(Campaign::class);
     }

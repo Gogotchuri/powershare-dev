@@ -14,12 +14,10 @@
 @endsection
 
 @section('additional-controls')
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button"
-            class="btn btn-primary">
-        Save as draft
+    <button type="submit" name="action" value="save" class="btn btn-primary">
+        Save
     </button>
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)}}')" type="button"
-            class="btn btn-primary">
+    <button type="submit" name="action" value="submit" class="btn btn-primary">
         Submit for review
     </button>
 @endsection

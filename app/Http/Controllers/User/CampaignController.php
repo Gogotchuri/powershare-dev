@@ -80,8 +80,10 @@ class CampaignController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user();
-        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail($id);
+        $campaign = Auth::user()
+            ->campaigns()
+            ->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])
+            ->findOrFail($id);
 
         return view('user.campaigns.edit', compact('campaign'));
     }
@@ -89,20 +91,28 @@ class CampaignController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param UpdateCampaign $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateCampaign $request, $id)
     {
-        $user = Auth::user();
-        $campaign = $user->campaigns()->where('status_id', CampaignStatus::DRAFT)->findOrFail($id);
+        $campaign = Auth::user()
+            ->campaigns()
+            ->where('status_id', CampaignStatus::DRAFT)
+            ->findOrFail($id);
+
+        if ($request->file('featured-image'))
+            $image = Image::forFeatured($request->file('featured-image'), 'Featured Image');
 
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->video_url = $request->video;
         $campaign->ethereum_address = $request->ethereum_address;
-        $campaign->status_id = CampaignStatus::idFromName($request->status);
+        $campaign->status_id = $request->input('action') === 'save'
+            ? CampaignStatus::DRAFT
+            : CampaignStatus::PROPOSAL;
+        $campaign->featured_image_id = isset($image) && $image ? $image->id : null;
 
         $campaign->save();
 

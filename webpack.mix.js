@@ -25,6 +25,8 @@ mix.webpackConfig({
     }
 });
 
+
+//FIXME: Should we call version for each? or one call is enoug for everything?
 mix.js('resources/js/app.js', 'public/js')/*
     .scripts([
         'resources/js/vendor/jquery.ui.widget.js',
@@ -35,6 +37,6 @@ mix.js('resources/js/app.js', 'public/js')/*
         'resources/css/vendor/blueimp/jquery.fileupload.css',
         'resources/css/vendor/blueimp/jquery.fileupload-ui.css',
         'resources/css/vendor/blueimp/style.css',
-    ], 'public/css/vendor.css')
-   .sass('resources/sass/app.scss', 'public/css')
-    .copyDirectory('resources/img', 'public/img');;
+    ], 'public/css/vendor.css').version()
+   .sass('resources/sass/app.scss', 'public/css').version()
+    .copyDirectory('resources/img', 'public/img')

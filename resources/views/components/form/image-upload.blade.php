@@ -1,34 +1,47 @@
-<div class="container">
-    <br>
-    <!-- The file upload form used as target for the file upload widget -->
-    <div id="fileupload"
-         data-sample="5"
-         data-url="{{$config['url']}}"
+@php
 
-         @if(isset($config) && is_array($config))
-         @foreach($config as $key => $value)
-         data-config-{{kebab_case($key)}}="{!! $value !!}"
+    $random = str_random();
+    $uploadTemplateId = "template-upload-" . $random;
+    $downloadTemplateId = "template-download-" . $random;
+    $singlePreviewId = "single-preview-" . $random;
+@endphp
+
+<!-- The file upload form used as target for the file upload widget -->
+<div class="fileupload"
+
+     data-upload-template-id="{{$uploadTemplateId}}"
+     data-download-template-id="{{$downloadTemplateId}}"
+     data-single-preview-id="{{$singlePreviewId}}"
+
+     data-sample="5"
+     data-url="{{$config['url']}}"
+     data-is-single="{{!$multiple}}"
+
+     @if(isset($config) && is_array($config))
+         @foreach($config as $key=> $value)
+            data-config-{{kebab_case($key)}}="{!! $value !!}"
          @endforeach
-         @endif
+     @endif
 
-         @if(isset($data) && is_array($data))
-         @foreach($data as $key => $value)
-         data-form-{{kebab_case($key)}}="{!! $value !!}"
+     @if(isset($data) && is_array($data))
+        @foreach($data as $key => $value)
+            data-form-{{kebab_case($key)}}="{!! $value !!}"
         @endforeach
-        @endif
-    >
+    @endif
+>
 
     @csrf
 
     @if($multiple)
-        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+        <div class="multiple-image-upload">
+            <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
             <div class="row fileupload-buttonbar">
                 <div class="col-lg-7">
                     <!-- The fileinput-button span is used to style the file input field as button -->
                     <span class="btn btn-success fileinput-button">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>Add files...</span>
-                    <input type="file" name="files[]" multiple>
+                    <input type="file" name="{{$config['paramName']}}" @if($multiple) multiple @endif>
                 </span>
                     <button type="submit" class="btn btn-primary start">
                         <i class="glyphicon glyphicon-upload"></i>
@@ -61,21 +74,10 @@
             <table role="presentation" class="table table-striped">
                 <tbody class="files"></tbody>
             </table>
-    </div>
-    <br>
-</div>
-<!-- The blueimp Gallery widget -->
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
-</div>
-<!-- The template to display files available for upload -->
-<script id="template-upload" type="text/x-tmpl">
+
+
+            <!-- The template to display files available for upload -->
+            <script id="{{$uploadTemplateId}}" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-upload fade">
         <td>
@@ -107,9 +109,12 @@
 {% } %}
 
 
-</script>
-<!-- The template to display files available for download -->
-<script id="template-download" type="text/x-tmpl">
+
+
+
+            </script>
+            <!-- The template to display files available for download -->
+            <script id="{{$downloadTemplateId}}" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-download fade">
         <td>
@@ -152,46 +157,59 @@
 {% } %}
 
 
-</script>
-@else
+
+
+
+            </script>
+        </div>
+    @else
     <!-- The table listing the files available for upload/download -->
-    <table role="presentation" class="table table-striped">
-        <div class="files"></div>
-    </table>
-    <div class="row fileupload-buttonbar">
-        <div class="col-lg-1">
-            <!-- The fileinput-button span is used to style the file input field as button -->
-            <span class="btn btn-success fileinput-button">
+        <div class="single-image-upload">
+            <div>
+                <!-- The global file processing state -->
+                <span class="fileupload-process"></span>
+                {{-- TODO: Add placeholred to show upload errors--}}
+                <img class="img-preview" id="{{$singlePreviewId}}" src=""/>
+            </div>
+            <table role="presentation" class="table table-striped">
+                <div class="files"></div>
+            </table>
+            <div class="row fileupload-buttonbar">
+                <div class="col-lg-6">
+                    <!-- The fileinput-button span is used to style the file input field as button -->
+                    <span class="btn btn-success fileinput-button">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>Upload</span>
-                    <input type="file" name="files[]" multiple>
+                    <input type="file" name="{{$config['paramName']}}" @if($multiple) multiple @endif>
                 </span>
-            <!-- The global file processing state -->
-            <span class="fileupload-process"></span>
-        </div>
-        <!-- The global progress state -->
-        <div class="col-lg-11 fileupload-progress fade">
-            <!-- The global progress bar -->
-            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
-                 aria-valuemax="100">
-                <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+
+                </div>
+                <!-- The global progress state -->
+                <div class="col-lg-6 fileupload-progress fade">
+                    <!-- The global progress bar -->
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                         aria-valuemax="100">
+                        <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                    </div>
+                </div>
             </div>
-            <!-- The extended global progress state -->
-            <div class="progress-extended">&nbsp;</div>
-        </div>
-    </div>
-    <div>
-        <img class="present" src=""/>
-    </div>
-    {{--<script id="template-upload" type="text/x-tmpl">
+            <script id="{{$uploadTemplateId}}" type="text/x-tmpl">
     {% for (var i=0, file; file=o.files[i]; i++) { %}
-        <img src="{%=file.url%}"/>
+        <img style="display:none" src="{%=file.url%}"/>
     {% } %}
 
-    </script>--}}
-    {{--<script id="template-download" type="text/x-tmpl">
+
+
+
+            </script>
+            <script id="{{$downloadTemplateId}}" type="text/x-tmpl">
         {% for (var i=0, file; file=o.files[i]; i++) { %}
-        <img src="{%=file.url%}"/>
+        <img style="display:none" src="{%=file.url%}"/>
         {% } %}
-    </script>--}}
-@endif
+
+
+
+            </script>
+        </div>
+    @endif
+</div>

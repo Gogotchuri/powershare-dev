@@ -11,6 +11,7 @@ use App\Models\Reference\CampaignStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class CampaignController extends Controller
 {
@@ -61,17 +62,6 @@ class CampaignController extends Controller
         $campaign->ethereum_address = $request->ethereum_address;
         $campaign->status_id = CampaignStatus::idFromName($request->status);
 
-
-        $featured_image = $request->featured_image;
-        if($featured_image !== null) {
-            $image = Image::fromFile($featured_image, 'Featured Image');
-
-            $campaign->featured_image()->delete();
-            $campaign->featured_image()->associate($image);
-        }
-
-        $campaign->save();
-
         return redirect(route('admin.campaigns.show', $campaign->id));
     }
 
@@ -79,14 +69,14 @@ class CampaignController extends Controller
         $campaign = Campaign::findOrFail($id);
         $image = $campaign->featured_image;
 
-        return response()->json(array('files' => $image ? [$this->getImageDescriptor($campaign->featured_image)] : []), 200);
+        return response()->json(array('files' => $image ? [$this->getImageDescriptor($image)] : []), 200);
     }
 
     public function handleMainFeaturedImage($id, Request $request) {
         $campaign = Campaign::findOrFail($id);
 
         $this->validate($request, [
-            //'featured_images' => 'required'
+            'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $image = Image::fromFile($request->featured_image, 'Featured Image', [
@@ -104,9 +94,19 @@ class CampaignController extends Controller
 
         $campaign = Campaign::findOrFail($id);
 
-        $this->validate($request, [
-            //'featured_images' => 'required'
+        $validator = Validator::make($request->all(), [
+            'featured_images' => 'required|array',
+            'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+
+        if ($validator->fails()) {
+            $fileSpecificErrors = $validator->errors()->get('featured_images.*');
+
+            if(count($fileSpecificErrors) > 0) {
+                $formattedErrors = $this->createImageErrorResponseArray($fileSpecificErrors, $request->featured_images);
+                return response()->json($formattedErrors, 200);
+            }
+        }
 
         $image_descriptors = [];
         foreach ($request->featured_images as $featured_image) {
@@ -124,6 +124,26 @@ class CampaignController extends Controller
         }
 
         return response()->json(array('files' => $image_descriptors), 200);
+    }
+
+    private function createImageErrorResponseArray(array $errors, array $uploadedFiles) {
+
+        $fileMessages = [];
+        $i = 0;
+        foreach ($errors as $message) {
+
+            $file = $uploadedFiles[$i];
+
+            $fileMessages[] = [
+                'error' => $message[0],
+                'name' => $file->getClientOriginalName(),
+                'size' => $file->getClientSize()
+            ];
+
+            $i++;
+        }
+
+        return ['files' => $fileMessages];
     }
 
     private function getImageDescriptor(Image $image, $uploaded_image=null) {

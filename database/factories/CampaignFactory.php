@@ -13,11 +13,6 @@ $factory->define(\App\Models\Campaign::class, function (Faker $faker) {
         'details' => $faker->realText(),
         'author_id' => \App\User::inRandomOrder()->first()->id,
         'status_id' => array_random($campaignStatuses),
-
-        'featured_image_id' => function () {
-            return factory(App\Models\Image::class)->create()->id;
-        },
-
         'video_url' => 'https://www.youtube.com/watch?v=RSDqSjTO9fs',
         'ethereum_address' => '0x7614e80bE7E0C1e5aFce4E8e35627dEEc461d2bD',
     ];

@@ -43,19 +43,19 @@ class CampaignController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param StoreCampaign $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreCampaign $request)
     {
         $campaign =  new Campaign();
-        $campaign->status_id = CampaignStatus::idFromName($request->status);
+        $campaign->status_id = CampaignStatus::DRAFT;
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->author_id = Auth::user()->id;
         $campaign->save();
 
-        return redirect(route('user.campaigns.show', $campaign->id));
+        return redirect(route('user.campaigns.edit', $campaign->id));
     }
 
     /**

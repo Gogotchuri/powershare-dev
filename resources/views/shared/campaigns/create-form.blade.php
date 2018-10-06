@@ -22,33 +22,6 @@
         'required' => true,
     ])
 
-    {{--@include('components.form.input', [
-        'type' => 'file',
-        'name' => 'Featured Image',
-    ])--}}
-
-    {{--@include('components.form.input', [
-        'name' => 'Video',
-    ])--}}
-
-    {{--@include('components.form.input', [
-        'type' => 'file',
-        'name' => 'Featured Images',
-        'multiple' => true,
-    ])--}}
-
-    {{--<input type="file" id="fileupload" name="featured_images[]" data-url="/upload" multiple/>
-    <div id="files_list"></div>
-    <p id="loading"></p>
-    <input type="hidden" name="file_ids" id="file_ids" value=""/>--}}
-
-    {{-- Place for fields that will be determined --}}
-
-    {{--@include('components.form.input', [
-        'name' => 'Ethereum address',
-    ])--}}
-
-    {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
     @push('scripts-stack')
         <script>
             function onClick(statusName) {
@@ -64,12 +37,10 @@
     @endpush
 
 
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button" class="btn btn-secondary">
-        Save as Draft
+    <button type="submit" class="btn btn-secondary">
+        Continue
     </button>
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)}}')" type="button" class="btn btn-secondary">
-        Submit for review
-    </button>
+
     @yield('additional-controls')
 
     <script defer>

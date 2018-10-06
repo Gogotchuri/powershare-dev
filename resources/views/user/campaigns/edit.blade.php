@@ -38,7 +38,10 @@
             Image gallery
         </div>
         <div class="card-body">
-            @include('components.dropzone', ['url' => route('images.campaigns', $campaign->id)])
+            @include('components.dropzone', [
+                'images' => $campaign->images,
+                'url' => route('images.campaigns', $campaign->id)
+            ])
         </div>
     </div>
 @endsection

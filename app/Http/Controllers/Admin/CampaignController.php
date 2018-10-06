@@ -48,7 +48,9 @@ class CampaignController extends Controller
 
     public function edit($id)
     {
-        $campaign = Campaign::findOrFail($id);
+        $campaign = Campaign::where('id', $id)
+            ->with(['image', 'images'])
+            ->firstOrFail();
 
         return view('admin.campaigns.edit', compact('campaign'));
     }

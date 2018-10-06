@@ -10,7 +10,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
@@ -34,6 +33,7 @@
 
         @yield('skeleton')
     </div>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     @yield('scripts')
     @stack('scripts-stack')
 </body>

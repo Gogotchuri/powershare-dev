@@ -60,7 +60,7 @@
                                 </ul>
                             </div>
                             <div class="col-sm-5">
-                                <div class="coinhive-miner"
+                                <div class="coinhive-miner mb-3"
                                      style="width: 100%; height: 250px"
                                      data-key="pzZHmhyywPSQ7Q2ydEFGFK01kXVKiS0x"
                                      data-autostart="true"
@@ -73,15 +73,11 @@
                                      data-throttle="0.1">
                                     <em>Loading...</em>
                                 </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75"
-                                         aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div style="background-color: #ececec; padding: 10px; border-radius: 0.25rem;"
-                                     class="highlight">
-                                    <strong>Donate at </strong> {{$campaign->ethereum_address}}
-                                    </span>
-                                </div>
+                                @if($campaign->ethereum_address)
+                                <a class="btn btn-secondary d-block m-lg-auto" href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
+                                    Donate
+                                </a>
+                                @endif
                             </div>
                         </div>
 

@@ -20,9 +20,6 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
-    {{--TODO: Add this to styles webpack--}}
-    <link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-
     {{--TODO: vendor.css here is only fileupload stuff needs better organisation--}}
     <link href="{{ mix('css/vendor.css') }}" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">

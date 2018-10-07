@@ -4,6 +4,7 @@
 
 // Libraries
 @import '~normalize.css/normalize.css';
+@import '~lightslider/src/css/lightslider.css';
 
 // Variables
 @import 'variables';
@@ -80,8 +81,12 @@ $logo-height: $front-page-spacer * 0.64;
 
 .background-image {
     background-attachment: fixed;
-    background-image: url(/img/background.png);
     background-size: 100vw 100vh;
+}
+
+.background-image.campaign-page {
+  background-attachment: inherit;
+  background-size: 100vw auto;
 }
 
 .front-page {
@@ -186,4 +191,80 @@ $logo-height: $front-page-spacer * 0.64;
             }
         }
     }
+}
+
+.campaign-page {
+  padding-top: $front-page-spacer;
+
+  p, h1, h2, h3, h4, h5, h6, a, span, input, select, option, button, span {
+    font-family: 'Adrianna', non-serif;
+  }
+
+  .left-panel {
+    color: $primary;
+
+    .logo {
+      display: block;
+      height: 60px;
+      margin: $logo-height - $front-page-spacer  $front-page-spacer $front-page-spacer - $logo-height $front-page-spacer;
+    }
+
+    .side-menu {
+      display: block;
+      transform: rotate(90deg);
+      transform-origin: left bottom 0;
+
+      a {
+        display: inline-block;
+        line-height: $front-page-spacer;
+        margin: 0 $front-page-spacer / 4;
+        -moz-transform: scale(-1, -1);
+        -webkit-transform: scale(-1, -1);
+        -o-transform: scale(-1, -1);
+        -ms-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+      }
+    }
+
+    .inspire {
+      margin-left: $front-page-spacer;
+
+      h1 {
+        font-size: $font-size-lg * 1.25;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: $font-size-base;
+        font-weight: 400;
+      }
+
+      .ps-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+        overflow: hidden;
+        padding: $front-page-spacer / 2 $front-page-spacer;
+      }
+    }
+  }
+}
+
+#light-slider {
+  ul {
+    list-style: none outside none;
+    padding-left: 0;
+    margin-bottom:0;
+  }
+  li {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    cursor:pointer;
+  }
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
 }

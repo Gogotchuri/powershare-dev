@@ -13,6 +13,23 @@ $(document).ready(function() {
         stateSave: true,
     });
 
+    $(document).ready(function() {
+        $("#light-slider").lightSlider({
+            gallery: true,
+            item: 1,
+            loop: true,
+            slideMargin: 0,
+            thumbItem: 9,
+
+            onBeforeStart: function (el) {},
+            onSliderLoad: function (el) {},
+            onBeforeSlide: function (el) {},
+            onAfterSlide: function (el) {},
+            onBeforeNextSlide: function (el) {},
+            onBeforePrevSlide: function (el) {}
+        });
+    });
+
     if (typeof Dropzone != 'undefined') {
         Dropzone.options.fileupload = {
             accept: function (file, done) {

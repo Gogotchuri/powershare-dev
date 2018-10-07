@@ -1,7 +1,10 @@
 
-window.$ = require('jquery');
-window.$ = require('datatables.net');
-window.$ = require('datatables.net-bs');
+window.$ = window.jQuery = require('jquery');
+
+require('datatables.net');
+require('datatables.net-bs');
+require('lightslider');
+
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 window.Dropzone = require('dropzone');

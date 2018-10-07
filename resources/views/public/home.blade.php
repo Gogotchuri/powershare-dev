@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 <body>
-<div id="app" class="background-image front-page">
+<div id="app" class="background-image front-page" style="background-image: url(/img/background.png);">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-5 left-panel">

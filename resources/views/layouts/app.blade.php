@@ -27,14 +27,5 @@
     <link href="{{ mix('css/vendor.css') }}" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
-        @include('partials.navbar')
-
-        @yield('skeleton')
-    </div>
-    <script src="{{ mix('js/app.js') }}" defer></script>
-    @yield('scripts')
-    @stack('scripts-stack')
-</body>
+    @yield('html-body')
 </html>

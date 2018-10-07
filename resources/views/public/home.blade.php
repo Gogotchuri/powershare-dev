@@ -27,10 +27,8 @@
                             <option selected="true" value="0">Filter by Category</option>
                         </select>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="authentication-buttons">
-                            <a class="login" href="/login">Login</a><a class="register" href="/register">Register</a>
-                        </div>
+                    <div class="col-sm-6 text-right">
+                        @include('partials.auth-buttons')
                     </div>
                 </div>
                 <div class="row campaigns-list">

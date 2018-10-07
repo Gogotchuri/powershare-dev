@@ -81,6 +81,7 @@ $logo-height: $front-page-spacer * 0.64;
 
 .background-image {
     background-attachment: fixed;
+    background-repeat: no-repeat;
     background-size: 100vw 100vh;
 }
 
@@ -128,7 +129,7 @@ $logo-height: $front-page-spacer * 0.64;
     }
 
     .right-panel {
-        input, select, .authentication-buttons {
+        input, select {
             -webkit-appearance: none;
             background: transparent;
             border: 1px solid $primary;
@@ -144,23 +145,6 @@ $logo-height: $front-page-spacer * 0.64;
 
         input::placeholder {
             color: $primary;
-        }
-
-        .authentication-buttons {
-            padding: 0;
-
-            .login {
-                padding: 0 $logo-height / 2;
-            }
-
-            .register {
-                background-color: $primary;
-                border-radius: $logo-height / 2;
-                color: white;
-                display: inline-block;
-                padding: 0 $logo-height / 2;
-                margin-right: -1px;
-            }
         }
 
         .campaigns-list {
@@ -203,6 +187,16 @@ $logo-height: $front-page-spacer * 0.64;
   .left-panel {
     color: $primary;
 
+    h1 {
+      font-size: $font-size-lg * 1.25;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: $font-size-base;
+      font-weight: 400;
+    }
+
     .logo {
       display: block;
       height: 60px;
@@ -229,16 +223,6 @@ $logo-height: $front-page-spacer * 0.64;
     .inspire {
       margin-left: $front-page-spacer;
 
-      h1 {
-        font-size: $font-size-lg * 1.25;
-        font-weight: 500;
-      }
-
-      p {
-        font-size: $font-size-base;
-        font-weight: 400;
-      }
-
       .ps-card {
         background: white;
         border-radius: 8px;
@@ -252,6 +236,17 @@ $logo-height: $front-page-spacer * 0.64;
           line-height: $logo-height;
           padding: 0 $logo-height;
           width: 150px;
+        }
+      }
+
+      .comments {
+        margin: $front-page-spacer;
+
+        textarea {
+          background: transparent;
+          border-radius: 8px;
+          border: 1px solid $primary;
+          padding: $front-page-spacer / 2;
         }
       }
     }
@@ -274,5 +269,31 @@ $logo-height: $front-page-spacer * 0.64;
     display: block;
     height: auto;
     width: 100%;
+  }
+}
+
+.authentication-buttons {
+  background: transparent;
+  border: 1px solid $primary;
+  border-radius: $logo-height / 2;
+  color: $primary;
+  display: inline-block;
+  font-weight: 500;
+  line-height: $logo-height;
+  padding: 0;
+  max-width: 100%;
+  margin-bottom: $front-page-spacer - $logo-height;
+
+  .login {
+    padding: 0 $logo-height / 2;
+  }
+
+  .register {
+    background-color: $primary;
+    border-radius: $logo-height / 2;
+    color: white;
+    display: inline-block;
+    padding: 0 $logo-height / 2;
+    margin-right: -1px;
   }
 }

@@ -28,6 +28,7 @@ $(document).ready(function() {
             onBeforeNextSlide: function (el) {},
             onBeforePrevSlide: function (el) {}
         });
+        $("#light-slider-wrapper").removeClass('d-none');
     });
 
     if (typeof Dropzone != 'undefined') {

@@ -20,49 +20,54 @@
 
                         <div class="row">
                             <div class="col-sm-7">
-                                <ul id="light-slider">
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-2.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-2.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-3.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-3.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-4.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-4.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-5.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-5.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-6.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-6.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-7.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-7.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-8.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-8.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-9.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-9.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-10.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-10.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-11.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-12.jpg" />
-                                    </li>
-                                    <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-13.jpg">
-                                        <img src="http://sachinchoolur.github.io/lightslider/img/cS-13.jpg" />
-                                    </li>
-                                </ul>
+                                <div id="light-slider-wrapper">
+                                    <ul id="light-slider">
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-1.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-2.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-2.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-3.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-3.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-4.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-4.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-5.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-5.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-6.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-6.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-7.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-7.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-8.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-8.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-9.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-9.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-10.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-10.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-11.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-12.jpg" />
+                                        </li>
+                                        <li data-thumb="http://sachinchoolur.github.io/lightslider/img/thumb/cS-13.jpg">
+                                            <img src="http://sachinchoolur.github.io/lightslider/img/cS-13.jpg" />
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="col-sm-5">
                                 <div class="coinhive-miner mb-3"
                                      style="width: 100%; height: 250px"
                                      data-key="pzZHmhyywPSQ7Q2ydEFGFK01kXVKiS0x"
+                                     data-user="{{ Auth::user()
+                                      ? $campaign->id . '-' . Auth::id()
+                                      : $campaign->id . '-' . 0 }}"
                                      data-autostart="true"
                                      data-whitelabel="false"
                                      data-background="#ffffff"
@@ -82,36 +87,33 @@
                         </div>
 
                     </div>
+                    <div class="comments">
+                        <h1 class="mb-3">Comments</h1>
+                        @forelse($comments as $comment)
+                            <div class="comment mb-3 w-75">
+                                <h5>{{ $comment->author_name }}</h5>
+                                <p>{{ $comment->body }}</p>
+                            </div>
+                        @empty
+                            <div class="comment mb-3 w-75">
+                                <p>No comments yet ...</p>
+                            </div>
+                        @endforelse
+                        @auth
+                            <h5 class="mt-5 mb-3">Add a comment</h5>
+                            <form method="post" action="{{route('public.campaign.add-comment', ['id' => $campaign->id])}}">
+                                @csrf
+                                <textarea name="body" class="w-75 mb-3" rows="5"></textarea>
+                                <div class="text-right w-75">
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        @endauth
+                    </div>
 
                     <div class="container">
-
-                        <div class="row">
-                            <div class="col-md-6">
-
-                                <br/>
-                                <div class="row">
-                                    <div class="col-md-12">
-
-                                    </div>
-                                </div>
-                                <br/>
-                                <div class="row">
-                                    <div class="col-md-12">
-
-                                    </div>
-                                </div>
-                                <br/>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <button style="width: 100%" onclick="alert('How it works, coming soon!')" class="btn btn-success btn-lg">How it works?</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <br/>
-                        <br/>
-                        <br/>
                         {{--@if($campaign->youtube_id !== null)--}}
                             {{--<div class="row">--}}
                                 {{--<div class="col-md-12 text-center">--}}
@@ -120,62 +122,37 @@
                                 {{--</div>--}}
                             {{--</div>--}}
                         {{--@endif--}}
-                        <br/>
-                        <br/>
-                        @if($campaign->images()->count() > 0)
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    @foreach($campaign->images as $image)
-                                        <img style="max-width: 25%; padding: 5px;" class="img-fluid" alt="{{$image->name}}"
-                                             src="{{$image->public_url}}">
-                                    @endforeach
-                                </div>
-                            </div>
-                        @endif
-                        @if($campaign->social_links()->count() > 0)
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    @foreach($campaign->social_links as $link)
-                                        <strong>{{$link->platform_name}} </strong> {{$link->url}}
-                                    @endforeach
-                                </div>
-                            </div>
-                        @endif
 
-                        {{-- TODO: Move this query in controller or somewhere else not here!--}}
-                        @forelse($comments as $comment)
-                            <div class="comment-container @if(!$comment->is_public) non-public @endif">
-                                <a class="comment-author" href="#"><h6>{{$comment->author_name}}</h6></a>
-                                <div>
-                                    <span class="comment-body">{{$comment->body}}</span>
-                                    <small id="emailHelp" class="form-text text-muted">Only you can see this comment until it gets published.</small>
-                                </div>
-                            </div>
-                        @empty
-                            <div class="alert alert-light" role="alert">
-                                No comments yet...
-                            </div>
-                        @endforelse
-                        <br/>
-                        @auth
-                            <form method="post" action="{{route('public.campaign.add-comment', ['id' => $campaign->id])}}">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1"><strong>Leave your comment</strong></label>
-                                    <textarea required name="body" class="form-control" id="exampleInputEmail1" aria-describedby="commentHelp" placeholder="Enter your comment"></textarea>
-                                    <small id="emailHelp" class="form-text text-muted">Comments are subject of review</small>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        @endauth
-                        <br/>
-                        <br/>
-                        <br/>
-                    </div>
+                        {{--@if($campaign->images()->count() > 0)--}}
+                            {{--<div class="row">--}}
+                                {{--<div class="col-md-12 text-center">--}}
+                                    {{--@foreach($campaign->images as $image)--}}
+                                        {{--<img style="max-width: 25%; padding: 5px;" class="img-fluid" alt="{{$image->name}}"--}}
+                                             {{--src="{{$image->public_url}}">--}}
+                                    {{--@endforeach--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--@endif--}}
+                        {{--@if($campaign->social_links()->count() > 0)--}}
+                            {{--<div class="row">--}}
+                                {{--<div class="col-md-12 text-center">--}}
+                                    {{--@foreach($campaign->social_links as $link)--}}
+                                        {{--<strong>{{$link->platform_name}} </strong> {{$link->url}}--}}
+                                    {{--@endforeach--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--@endif--}}
+
+
+
                 </div>
-
+                </div>
             </div>
-            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="text-right">
+                    @include('partials.auth-buttons')
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -183,11 +160,12 @@
 <script src="{{ mix('js/app.js') }}" defer></script>
 <script>
     var onCoinHiveSimpleUIReady = function() {
-        CoinHive.Miner.on('authed', function(params) {
-            console.log('Simple UI has authed with the pool');
-        });
         CoinHive.Miner.on('job', function(params) {
-            console.log('New job received from pool');
+            $.post('/api/sessions', {
+                campaign_id: {{ $campaign->id }},
+                job: params,
+                user_id: {{ Auth::id() }},
+            });
         });
     }
 </script>

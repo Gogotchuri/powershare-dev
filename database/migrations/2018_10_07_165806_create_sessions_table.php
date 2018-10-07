@@ -20,6 +20,8 @@ class CreateSessionsTable extends Migration
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->text('raw_session');
+            $table->integer('hashes')->nullable();
+            $table->integer('value')->nullable();
             $table->timestamps();
         });
     }

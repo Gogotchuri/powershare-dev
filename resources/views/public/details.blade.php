@@ -5,12 +5,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-8 left-panel">
-                <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
-                <div class="side-menu">
-                    <a href="#">About us</a>
-                    <a href="#">Register Campaign</a>
-                    <a href="#">FAQ</a>
-                </div>
+                <a href="/">
+                    <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
+                </a>
+                @include('public.partials.nav')
                 <div class="inspire">
                     <div class="ps-card">
                         <h1>{{ $campaign->name }}</h1>
@@ -150,7 +148,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="text-right">
-                    @include('partials.auth-buttons')
+                    @include('public.partials.auth-buttons')
                 </div>
             </div>
         </div>

@@ -5,12 +5,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-5 left-panel">
-                <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
-                <div class="side-menu">
-                    <a href="#">About us</a>
-                    <a href="#">Register Campaign</a>
-                    <a href="#">FAQ</a>
-                </div>
+                <a href="/">
+                    <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
+                </a>
+                @include('public.partials.nav')
                 <div class="inspire">
                     <h1>You have the power to...</h1>
                     <h2>... become a supporting hero simply by keeping the browser tab open and fuel these important causes:</h2>
@@ -28,7 +26,7 @@
                         </select>
                     </div>
                     <div class="col-sm-6 text-right">
-                        @include('partials.auth-buttons')
+                        @include('public.partials.auth-buttons')
                     </div>
                 </div>
                 <div class="row campaigns-list">

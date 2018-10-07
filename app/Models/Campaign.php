@@ -5,12 +5,20 @@ namespace App\Models;
 use App\Models\Reference\CampaignStatus;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Campaign extends Model
 {
     protected $with = [
         'status'
     ];
+
+    public static function createPath()
+    {
+        return Auth::user() && Auth::user()->role_id === 1
+            ? route('admin.campaigns.create')
+            : route('user.campaigns.create');
+    }
 
     public static function baseRules() {
         return [

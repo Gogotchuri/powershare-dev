@@ -55,6 +55,11 @@ class Campaign extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function public_comments()
+    {
+        return $this->comments()->where('is_public', 1);
+    }
+
     public function social_links() {
         return $this->hasMany(SocialLink::class);
     }

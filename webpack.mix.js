@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+let mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,32 +11,5 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.webpackConfig({
-    resolve: {
-        extensions: ['.js'],
-        alias: {
-            'load-image': 'blueimp-load-image/js/load-image.js',
-            'load-image-scale': 'blueimp-load-image/js/load-image-scale.js',
-            'load-image-meta': 'blueimp-load-image/js/load-image-meta.js',
-            'load-image-exif': 'blueimp-load-image/js/load-image-exif.js',
-            'canvas-to-blob': 'blueimp-canvas-to-blob/js/canvas-to-blob.js',
-            'jquery-ui/ui/widget': 'blueimp-file-upload/js/vendor/jquery.ui.widget.js'
-        }
-    }
-});
-
-
-//FIXME: Should we call version for each? or one call is enoug for everything?
-mix.js('resources/js/app.js', 'public/js')/*
-    .scripts([
-        'resources/js/vendor/jquery.ui.widget.js',
-        'resources/js/vendor/blueimp/jquery.fileupload.js',
-        'resources/js/vendor/blueimp/jquery.iframe-transport.js',
-    ], 'public/js/file-upload.js')*/
-    .styles([
-        'resources/css/vendor/blueimp/jquery.fileupload.css',
-        'resources/css/vendor/blueimp/jquery.fileupload-ui.css',
-        'resources/css/vendor/blueimp/style.css',
-    ], 'public/css/vendor.css').version()
-   .sass('resources/sass/app.scss', 'public/css').version()
-    .copyDirectory('resources/img', 'public/img')
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css');

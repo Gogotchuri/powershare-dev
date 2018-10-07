@@ -6,7 +6,6 @@
  */
 
 require('./bootstrap');
-require('./image-upload-ui-main');
 
 $(document).ready(function() {
     $('.datatables').DataTable({

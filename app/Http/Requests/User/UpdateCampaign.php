@@ -27,7 +27,7 @@ class UpdateCampaign extends FormRequest
     public function rules()
     {
         return array_merge(Campaign::baseRules(), [
-            'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'featured-image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'status'         => Rule::in([
                 CampaignStatus::nameFromId(CampaignStatus::DRAFT),
                 CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)

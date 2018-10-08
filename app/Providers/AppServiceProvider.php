@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
+        //FIXME: Do we still need this?
         // Configure Invention Image
         ImageManagerStatic::configure([
             'driver' => 'imagick'

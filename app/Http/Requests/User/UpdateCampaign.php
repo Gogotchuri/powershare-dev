@@ -32,6 +32,8 @@ class UpdateCampaign extends FormRequest
                 CampaignStatus::nameFromId(CampaignStatus::DRAFT),
                 CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)
             ]),
+            'video_url' => 'url',
+            'ethereum_address' => 'nullable|string|max:255',
         ]);
     }
 }

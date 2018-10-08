@@ -25,7 +25,7 @@ class UpdateCampaign extends FormRequest
     public function rules()
     {
         return array_merge(Campaign::baseRules(), [
-            'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'featured-image' => 'image|mimes:jpeg,png,jpg,gif,svg',
             'status_id' => 'required|exists:campaign_statuses,id',
             'video_url' => 'url',
             'ethereum_address' => 'nullable|string|max:255',

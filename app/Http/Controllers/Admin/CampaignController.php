@@ -30,7 +30,7 @@ class CampaignController extends Controller
     public function store(StoreCampaign $request)
     {
         $campaign =  new Campaign();
-        $campaign->status_id = CampaignStatus::idFromName($request->status);
+        $campaign->status_id = CampaignStatus::DRAFT;
         $campaign->name = $request->input('name');
         $campaign->details = $request->input('details');
         $campaign->author_id = Auth::user()->id;

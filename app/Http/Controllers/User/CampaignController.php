@@ -109,9 +109,7 @@ class CampaignController extends Controller
         $campaign->details = $request->input('details');
         $campaign->video_url = $request->video;
         $campaign->ethereum_address = $request->ethereum_address;
-        $campaign->status_id = $request->input('action') === 'save'
-            ? CampaignStatus::DRAFT
-            : CampaignStatus::PROPOSAL;
+        $campaign->status_id = $request->input('status_id');
         $campaign->featured_image_id = isset($image) && $image ? $image->id : $campaign->featured_image_id;
 
         $campaign->save();

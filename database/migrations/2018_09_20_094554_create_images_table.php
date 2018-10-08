@@ -15,19 +15,17 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->unsignedInteger('campaign_id')->nullable();
-            $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');
-
             $table->string('name');
             $table->string('url');
+            $table->string('thumbnail_url')->nullable();
+            $table->unsignedInteger('campaign_id')->nullable();
+            $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');
             $table->timestamps();
+        });
 
-            //TODO: Add foreign key constraint to campaigns, once images table is created
-            //Add foreign key constraint to campaigns referencing images table
-            /*\Illuminate\Support\Facades\DB::statement(
-                'ALTER TABLE campaigns ADD FOREIGN KEY (featured_image_id) REFERENCES images(id)'
-            );*/
+        Schema::table('campaigns', function (Blueprint $table) {
+            $table->unsignedInteger('featured_image_id')->nullable();
+            $table->foreign('featured_image_id')->references('id')->on('images')->onDelete('cascade');
         });
     }
 
@@ -38,7 +36,11 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        //TODO: Remove foreign key constraint from campaigns, before images table is dropped
+        Schema::table('campaigns', function (Blueprint $table) {
+            $table->dropForeign('campaigns_featured_image_id_foreign');
+            $table->dropColumn('featured_image_id');
+        });
+
         Schema::dropIfExists('images');
     }
 }

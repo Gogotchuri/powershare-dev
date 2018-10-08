@@ -1,9 +1,15 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import 'fonts';
+
+// Libraries
+@import '~normalize.css/normalize.css';
+@import '~lightslider/src/css/lightslider.css';
 
 // Variables
 @import 'variables';
 @import 'datatables';
+@import 'dropzone';
 
 // Bootstrap
 @import 'cz-variables';
@@ -24,10 +30,6 @@
 
 .clickable {
   cursor: pointer;
-}
-
-.campaign-image {
-    max-width: 200px;
 }
 
 .comment-container {
@@ -52,4 +54,246 @@
     @include media-breakpoint-only(xl) {
         column-count: 4;
     }
+}
+
+//
+// Image upload gui
+//
+
+//FIXME: TMP fix for image upload ui
+.fade:not(.show) {
+    opacity: 1;
+}
+
+.campaign-image {
+    max-height: 200px;
+    max-width: 100%;
+}
+
+$front-page-spacer: 60px;
+$logo-height: $front-page-spacer * 0.64;
+
+@media (min-width: 1400px) {
+    .front-page .container {
+        max-width: 1340px;
+    }
+}
+
+.background-image {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+}
+
+.background-image.campaign-page {
+  background-attachment: inherit;
+  background-size: 100vw auto;
+}
+
+.front-page {
+    p, h1, h2, h3, h4, h5, h6, a, span, input, select, option, button, span {
+        font-family: 'Adrianna', non-serif;
+    }
+
+    padding-top: $front-page-spacer;
+
+    .left-panel {
+        color: $primary;
+
+        .logo {
+            display: block;
+            height: 60px;
+            margin: $logo-height - $front-page-spacer  $front-page-spacer $front-page-spacer - $logo-height $front-page-spacer;
+        }
+
+        .side-menu {
+            display: block;
+            transform: rotate(90deg);
+            transform-origin: left bottom 0;
+
+            a {
+                display: inline-block;
+                line-height: $front-page-spacer;
+                margin: 0 $front-page-spacer / 4;
+                -moz-transform: scale(-1, -1);
+                -webkit-transform: scale(-1, -1);
+                -o-transform: scale(-1, -1);
+                -ms-transform: scale(-1, -1);
+                transform: scale(-1, -1);
+            }
+        }
+
+        .inspire {
+            margin: 0 $front-page-spacer * 2;
+        }
+    }
+
+    .right-panel {
+        input, select {
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid $primary;
+            border-radius: $logo-height / 2;
+            color: $primary;
+            display: inline-block;
+            font-weight: 500;
+            line-height: $logo-height;
+            padding: 0 $logo-height / 2;
+            max-width: 100%;
+            margin-bottom: $front-page-spacer - $logo-height;
+        }
+
+        input::placeholder {
+            color: $primary;
+        }
+
+        .campaigns-list {
+            margin-top: $front-page-spacer;
+
+            .ps-card {
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+                display: block;
+                margin-bottom: $front-page-spacer * 0.3;
+                overflow: hidden;
+
+                .ps-card-image {
+                    background-size: cover;
+                    height: $front-page-spacer * 2.2;
+                }
+
+                .ps-card-description {
+                    padding: $front-page-spacer * 0.3 $front-page-spacer * 0.3 $front-page-spacer * 0.1;
+
+                    h4 {
+                        font-size: $font-size-lg;
+                        font-weight: 400;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.campaign-page {
+  padding-top: $front-page-spacer;
+
+  p, h1, h2, h3, h4, h5, h6, a, span, input, select, option, button, span {
+    font-family: 'Adrianna', non-serif;
+  }
+
+  .left-panel {
+    color: $primary;
+
+    h1 {
+      font-size: $font-size-lg * 1.25;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: $font-size-base;
+      font-weight: 400;
+    }
+
+    .logo {
+      display: block;
+      height: 60px;
+      margin: $logo-height - $front-page-spacer  $front-page-spacer $front-page-spacer - $logo-height $front-page-spacer;
+    }
+
+    .side-menu {
+      display: block;
+      transform: rotate(90deg);
+      transform-origin: left bottom 0;
+
+      a {
+        display: inline-block;
+        line-height: $front-page-spacer;
+        margin: 0 $front-page-spacer / 4;
+        -moz-transform: scale(-1, -1);
+        -webkit-transform: scale(-1, -1);
+        -o-transform: scale(-1, -1);
+        -ms-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+      }
+    }
+
+    .inspire {
+      margin-left: $front-page-spacer;
+
+      .ps-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+        overflow: hidden;
+        padding: $front-page-spacer / 2 $front-page-spacer;
+
+        a.btn {
+          border-radius: $logo-height / 2;
+          height: $logo-height;
+          line-height: $logo-height;
+          padding: 0 $logo-height;
+          width: 150px;
+        }
+      }
+
+      .comments {
+        margin: $front-page-spacer;
+
+        textarea {
+          background: transparent;
+          border-radius: 8px;
+          border: 1px solid $primary;
+          padding: $front-page-spacer / 2;
+        }
+      }
+    }
+  }
+}
+
+#light-slider {
+  ul {
+    list-style: none outside none;
+    padding-left: 0;
+    margin-bottom:0;
+  }
+  li {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    cursor:pointer;
+  }
+  img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.authentication-buttons {
+  background: transparent;
+  border: 1px solid $primary;
+  border-radius: $logo-height / 2;
+  color: $primary;
+  display: inline-block;
+  font-weight: 500;
+  line-height: $logo-height;
+  padding: 0;
+  max-width: 100%;
+  margin-bottom: $front-page-spacer - $logo-height;
+
+  .login {
+    padding: 0 $logo-height / 2;
+  }
+
+  .register {
+    background-color: $primary;
+    border-radius: $logo-height / 2;
+    color: white;
+    display: inline-block;
+    padding: 0 $logo-height / 2;
+    margin-right: -1px;
+  }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Campaign;
 use Illuminate\Database\Seeder;
 
 class ImageSeeder extends Seeder
@@ -11,10 +12,11 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        $image = new \App\Models\Image();
-        $image->name = "Sample Campaign";
-        $image->url = 'sample-campaigns.png';
-
-        $image->save();
+        for ($i = 0; $i < 7; $i++) {
+            $image = new \App\Models\Image();
+            $image->name = "Featured Image";
+            $image->url = '/img/samples/sample-' . ($i + 1) . '.jpeg';
+            $image->save();
+        }
     }
 }

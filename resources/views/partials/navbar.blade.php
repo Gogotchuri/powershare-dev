@@ -8,16 +8,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                @auth
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ Auth::user()->is_admin ? route('admin.campaigns.create') : route('user.campaigns.create') }}">Register Campaign</a>
-                    </li>
-                @else
 
-                @endauth
-            </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -38,12 +29,6 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                            {{-- TODO: add link for user too--}}
-                            <a class="dropdown-item" href="{{ Auth::user()->is_admin ? route('admin.settings.edit') : route('user.settings.edit') }}">Settings</a>
-
-                            <div class="dropdown-divider"></div>
-
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

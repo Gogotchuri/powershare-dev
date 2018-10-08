@@ -1,5 +1,7 @@
 @extends('user.main')
 
+@section('header', $campaign->name)
+
 @section('body')
     @section('controls')
         @if($campaign->is_draft)

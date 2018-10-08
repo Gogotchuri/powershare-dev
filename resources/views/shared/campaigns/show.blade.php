@@ -1,8 +1,7 @@
-<h2>{{$campaign->name}}</h2>
+@if($campaign->featured_image_id)
+    <img class="campaign-image d-block mb-3" src="{{ $campaign->featured_image_url }}"/>
+@endif
 
-<div>
-    <img class="campaign-image" src="{{asset($campaign->featured_image_url)}}"/>
-</div>
 <p>{{$campaign->details}}</p>
 
 @yield('controls')

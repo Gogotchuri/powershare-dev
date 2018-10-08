@@ -41,6 +41,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove')->name('campaigns.unapprove');
         Route::get('campaigns/{id}/delete', 'CampaignController@delete')->name('campaigns.delete');
 
+        Route::post('campaigns/{id}/images/upload', 'CampaignController@handleFeaturedImages')->name('campaigns.images.upload');
+        Route::get('campaigns/{id}/images/upload', 'CampaignController@featuredImageList')->name('existing');
+        Route::get('campaigns/{id}/images/upload-main', 'CampaignController@getMainFeaturedImage')->name('campaigns.images.main');
+        Route::post('campaigns/{id}/images/upload-main', 'CampaignController@handleMainFeaturedImage')->name('campaigns.images.upload-main');
+
         Route::resource('comments', 'CommentController');
         Route::get('comments/{id}/delete', 'CommentController@delete')->name('comments.delete');
 
@@ -57,5 +62,26 @@ Route::middleware(['auth'])->group(function () {
         Route::post('settings/password', 'SettingsController@updatePassword')->name('settings.updatePassword');
         Route::post('settings/notifications', 'SettingsController@updateNotifications')
             ->name('settings.updateNotifications');
+
+        Route::post('campaigns/{id}/images/upload', 'CampaignController@handleFeaturedImages')
+            ->name('campaigns.images.upload');
+
+        Route::get('campaigns/{id}/images/upload', 'CampaignController@featuredImageList')->name('existing');
+
+        Route::get('campaigns/{id}/images/upload-main', 'CampaignController@getMainFeaturedImage')
+            ->name('campaigns.images.main');
+
+        Route::post('campaigns/{id}/images/upload-main', 'CampaignController@handleMainFeaturedImage')
+            ->name('campaigns.images.upload-main');
+    });
+
+    Route::post('images/campaigns/{id}', 'ImageController@store')->name('images.campaigns');
+
+    Route::prefix('image')->name('image.')->group(function () {
+        Route::post('upload', 'ImageController@upload')->name('upload');
+
+        //TODO: jQuery plugin we are using uses same url to get initial list of images, maybe we can configure otherwise
+        Route::get('upload', 'ImageController@existing')->name('existing');
+        Route::delete('delete', 'ImageController@delete')->name('delete');
     });
 });

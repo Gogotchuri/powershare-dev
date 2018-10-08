@@ -27,7 +27,8 @@ class StoreCampaign extends FormRequest
     public function rules()
     {
         return array_merge(Campaign::baseRules(), [
-            'featured_image'    => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //TODO: Completely remove
+            //'featured_image'    => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status'         => Rule::in([
                 CampaignStatus::nameFromId(CampaignStatus::DRAFT),
                 CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)

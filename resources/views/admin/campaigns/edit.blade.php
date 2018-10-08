@@ -21,18 +21,30 @@
 @endsection
 
 @section('additional-controls')
-    <button onclick="onClick('{{CampaignStatus::nameFromId($campaign->status_id)}}')" type="button"
-            class="btn btn-primary">
+    <button type="submit" name="status_id" value="{{ $campaign->status_id }}" class="btn btn-primary">
         Update
     </button>
-    <button onclick="onClick('{{CampaignStatus::nameFromId(CampaignStatus::DRAFT)}}')" type="button"
-            class="btn btn-primary">
+    <button type="submit" name="status_id" value="{{ CampaignStatus::DRAFT }}" class="btn btn-primary">
         Save as Draft
     </button>
 @endsection
 
 @section('body')
     @include('shared.campaigns.edit-form', [
-        'route' => route('admin.campaigns.update', ['id' => $campaign->id])
+        'route' => route('admin.campaigns.update', ['id' => $campaign->id]),
     ])
+@endsection
+
+@section('other')
+    <div class="card">
+        <div class="card-header">
+            Image gallery
+        </div>
+        <div class="card-body">
+            @include('components.dropzone', [
+                'images' => $campaign->images,
+                'url' => route('images.campaigns', $campaign->id)
+            ])
+        </div>
+    </div>
 @endsection

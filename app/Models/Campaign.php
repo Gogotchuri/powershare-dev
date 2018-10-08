@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Reference\CampaignStatus;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Campaign extends Model
 {
@@ -12,14 +13,21 @@ class Campaign extends Model
         'status'
     ];
 
+    public static function createPath()
+    {
+        return Auth::user() && Auth::user()->role_id === 1
+            ? route('admin.campaigns.create')
+            : route('user.campaigns.create');
+    }
+
     public static function baseRules() {
         return [
             'name' => 'required|string|max:255',
             'details' => 'required|string',
-            'video_url' => 'url',
+            /*'video_url' => 'url',
             'ethereum_address' => 'nullable|string|max:255',
             'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',*/
         ];
     }
 
@@ -45,6 +53,11 @@ class Campaign extends Model
 
     public function comments() {
         return $this->hasMany(Comment::class);
+    }
+
+    public function public_comments()
+    {
+        return $this->comments()->where('is_public', 1);
     }
 
     public function social_links() {
@@ -84,8 +97,13 @@ class Campaign extends Model
         return array_get($query, 'v');
     }
 
+    public function getFeaturedImageThumbnailUrlAttribute()
+    {
+        return optional($this->featured_image)->thumbnail_url;
+    }
+
     public function getFeaturedImageUrlAttribute()
     {
-        return optional($this->featured_image)->public_url;
+        return optional($this->featured_image)->url;
     }
 }

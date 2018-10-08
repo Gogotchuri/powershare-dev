@@ -25,9 +25,7 @@ class StoreCampaign extends FormRequest
     public function rules()
     {
         return array_merge(Campaign::baseRules(), [
-            'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => 'required|exists:campaign_statuses,name',
-            //'featured_images' => 'array|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     }
 }

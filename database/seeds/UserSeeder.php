@@ -13,14 +13,14 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'name' => 'Contract Zero',
-                'email' => 'info@contractzero.com',
+                'name' => 'Example Admin',
+                'email' => 'admin@contractzero.com',
                 'password' => 'qwert123',
                 'role_id' => 1,
             ],
             [
-                'name' => 'Giga Gatenashvili',
-                'email' => 'gg@contractzero.com',
+                'name' => 'Example user',
+                'email' => 'user@contractzero.com',
                 'password' => 'qwert123',
             ],
         ];

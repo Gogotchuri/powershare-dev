@@ -21,11 +21,15 @@
                                 <div class="col-sm-7">
                                     <div id="light-slider-wrapper">
                                         <ul id="light-slider">
-                                            @foreach($campaign->images as $image)
+                                            @forelse($campaign->images as $image)
                                                 <li data-thumb="{{$image->thumbnail_url}}">
                                                     <img src="{{$image->url}}"/>
                                                 </li>
-                                            @endforeach
+                                            @empty
+                                                <li data-thumb="{{$campaign->featured_image_url}}">
+                                                    <img src="{{$campaign->featured_image_url}}"/>
+                                                </li>
+                                            @endforelse
                                         </ul>
                                     </div>
                                 </div>

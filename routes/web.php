@@ -27,8 +27,9 @@ Route::namespace('Front')->name('public.')->group(function () {
 
 Auth::routes();
 
-Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('to.provider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('exists', 'Auth\LoginController@showExists')->name('exists.show');
 Route::get('terms', 'Auth\RegisterController@showTermsForm')->name('terms.show');
 Route::post('terms', 'Auth\RegisterController@handleTerms')->name('terms.handle');
 

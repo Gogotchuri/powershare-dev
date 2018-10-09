@@ -51,6 +51,16 @@ class LoginController extends Controller
     }
 
     /**
+     * Show screen to notify user that hes account exists and he can continue
+     *
+     * @return Response
+     */
+    public function showExists()
+    {
+        return view('auth.exists');
+    }
+
+    /**
      * Obtain the user information from provider.  Check if the user already exists in our
      * database by looking up their provider_id in the database.
      * If the user exists, log them in. Otherwise, create a new user then log them in. After that
@@ -62,7 +72,24 @@ class LoginController extends Controller
     {
         $user = Socialite::driver($provider)->user();
 
-        $authUser = $this->findOrCreateUser($user, $provider);
+        $authUser = User::where('provider_id', $user->id)->first();
+
+        // If user already exists for this provider simply redirect it to login page and suggest login
+        if($authUser) {
+            Auth::login($authUser, true);
+
+            return view('auth.exists', [
+                'continue' => session()->pull('url.intended', $this->redirectTo)
+            ]);
+        }
+
+        $authUser = User::create([
+            'name'     => $user->name,
+            'email'    => $user->email,
+            'provider' => $provider,
+            'provider_id' => $user->id
+        ]);
+
         Auth::login($authUser, true);
 
         return redirect()->intended($this->redirectTo);

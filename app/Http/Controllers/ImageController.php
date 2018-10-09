@@ -18,6 +18,28 @@ class ImageController extends Controller
         return response()->json(['data' => $image->toArray()]);
     }
 
+    public function getList($id) {
+        return Campaign::findOrFail($id)->images;
+    }
+
+    public function destroy($id, Request $request) {
+
+        $this->validate($request, [
+            'file_id' => 'required'
+        ]);
+
+        $image = Image::where([
+            'campaign_id' => $id,
+            'id' => $request->file_id
+        ])->first();
+
+        Storage::disk('s3')->delete(parse_url($image->url, PHP_URL_PATH));
+        Storage::disk('s3')->delete(parse_url($image->thumbnail_url, PHP_URL_PATH));
+        $image->delete();
+
+        return ['status' => 'OK'];
+    }
+
     public function upload(Request $request) {
         $image_descriptors = [];
         foreach ($request->featured_images as $featured_image) {

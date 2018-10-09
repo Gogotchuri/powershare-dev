@@ -53,7 +53,26 @@ $(document).ready(function() {
             if (typeof Dropzone != 'undefined') {
                 if ($("#fileupload").length) {
                     var dz = new Dropzone("#fileupload", {
-                            addRemoveLinks: true
+                            addRemoveLinks: true,
+                            init: function () {
+                                let thisDropzone = this;
+                                // 6
+                                $.get(thisDropzone.options.url, function (data) {
+                                    if (data == null) {
+                                        return;
+                                    }
+                                    console.log('got data: ', data);
+
+                                    // 7
+                                    $.each(data, function (key, value) {
+                                        var mockFile = { name: value.name, size: value.size, id : value.id };
+                                        thisDropzone.emit("addedfile", mockFile);
+                                        thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.thumbnail_url);
+                                        // Make sure that there is no progress bar, etc...
+                                        thisDropzone.emit("complete", mockFile);
+                                    });
+                                });
+                            }
                         }),
                         dze_info = $("#dze_info"),
                         status = {
@@ -104,7 +123,24 @@ $(document).ready(function() {
                             toastr.error('Your File Uploaded Not Successfully!!', 'Error Alert', {
                                 timeOut: 5000
                             });
-                        });
+                        }).on('removedfile', function(file) {
+
+                            console.log('removed file');
+
+                            $.ajax({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                },
+                                url: dz.options.url,
+                                type: 'DELETE',
+                                data: {
+                                    'file_id' : file.id,
+                                },
+                                success: function() {
+                                    console.log('File removed');
+                                }
+                            });
+                    });
 
                     $('.dropzone-img').each(function() {
                         var file = {

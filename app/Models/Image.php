@@ -11,7 +11,7 @@ use Intervention\Image\Facades\Image as IntImage;
 
 class Image extends Model
 {
-    public $visible = ['url'];
+    public $visible = ['id', 'url', 'thumbnail_url', 'name'];
 
     public static function forCampaign(UploadedFile $file, Campaign $campaign)
     {

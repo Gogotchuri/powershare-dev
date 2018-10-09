@@ -76,6 +76,8 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::post('images/campaigns/{id}', 'ImageController@store')->name('images.campaigns');
+    Route::get('images/campaigns/{id}', 'ImageController@getList')->name('images.campaigns.list');
+    Route::delete('images/campaigns/{id}', 'ImageController@destroy')->name('images.campaigns.destroy');
 
     Route::prefix('image')->name('image.')->group(function () {
         Route::post('upload', 'ImageController@upload')->name('upload');

@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
             ->name('settings.updateNotifications');
     });
 
-    Route::namespace('User')->prefix('user')->name('user.')->group(function () {
+    Route::namespace('User')->middleware('redirect.admin')->prefix('user')->name('user.')->group(function () {
         Route::resource('campaigns', 'CampaignController');
 
         Route::get('settings', 'SettingsController@edit')->name('settings.edit');

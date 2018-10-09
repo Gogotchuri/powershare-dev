@@ -91,6 +91,10 @@ $(document).ready(function () {
                     var $f = $('<tr><td class="name"></td><td class="size"></td><td class="type"></td><td class="status"></td></tr>');
                     dz.on("success", function (file, responseText) {
 
+                        if(responseText.data !== null) {
+                            file.id = responseText.data.id;
+                        }
+
                         var _$f = $f.clone();
 
                         _$f.addClass('success');

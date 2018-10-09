@@ -29,6 +29,8 @@ Auth::routes();
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('terms', 'Auth\RegisterController@showTermsForm')->name('terms.show');
+Route::post('terms', 'Auth\RegisterController@handleTerms')->name('terms.handle');
 
 // Authenticated people
 

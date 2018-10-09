@@ -4,7 +4,7 @@
 
 @section('buttons')
     @if($campaign->is_draft)
-    <a style="float: left" class="btn btn-danger" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
+    <a class="btn btn-danger mr-1" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
         Delete
     </a>
     @endif

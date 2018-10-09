@@ -10,13 +10,12 @@
                         <div class="mr-auto">
                             @yield('header')
                         </div>
-                        @hasSection('buttons')
-                            @yield('buttons')
-                        @endif
+                            @hasSection('buttons')
+                                @yield('buttons')
+                            @endif
+
                     </div>
-
                 </div>
-
                 <div class="card-body">
                     @yield('content')
                 </div>

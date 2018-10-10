@@ -61,6 +61,10 @@
                             </div>
                         </div>
 
+                        <hr/>
+
+                        @include('auth.shared.terms')
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -69,13 +73,13 @@
                             </div>
                         </div>
                         <hr/>
-                        <div class="form-group row text-center">
-                            <div class="col-md-4 offset-md-4">
-                                <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign up with <b>Facebook</b></a>
-                                <a href="{{ url('/auth/google') }}" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign up with <b>Google</b></a>
-                            </div>
-                        </div>
                     </form>
+                    <div class="form-group row text-center">
+                        <div class="col-md-4 offset-md-4">
+                            <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign up with <b>Facebook</b></a>
+                            <a href="{{ url('/auth/google') }}" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign up with <b>Google</b></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

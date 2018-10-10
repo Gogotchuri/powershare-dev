@@ -43,21 +43,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-
-        if(!session('agree')) {
-            return back()->with('should_agree', true);
-        }
-
         return view('auth.register');
-    }
-
-    public function showTermsForm() {
-        return view('auth.terms');
-    }
-
-    public function handleTerms(Request $request) {
-
-        return redirect('/register')->with('agree', $request->agree);
     }
 
     /**

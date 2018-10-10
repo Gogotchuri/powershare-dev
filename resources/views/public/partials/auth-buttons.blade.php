@@ -1,6 +1,6 @@
 <div class="authentication-buttons">
     @guest
-        <a class="login" href="/login">Login</a><a class="register" href="{{route('terms.show')}}">Register</a>
+        <a class="login" href="/login">Login</a><a class="register" href="/register">Register</a>
     @endguest
 
     @auth

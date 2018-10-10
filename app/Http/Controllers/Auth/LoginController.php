@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -70,7 +71,19 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
+        try {
+            $user = Socialite::driver($provider)->user();
+        } catch (\Exception $e) {
+            //TODO: Return social-fail view.
+        }
+
+        // 1 If user exists for this provider login user
+
+        // 2 If user does not exist
+        //   Save provider data in session variables
+        //   return view social-create, this view should take variables from session like 'email' and 'provider'
+        //     also initial indented page
+
 
         $authUser = User::where('provider_id', $user->id)->first();
 
@@ -93,6 +106,21 @@ class LoginController extends Controller
         Auth::login($authUser, true);
 
         return redirect()->intended($this->redirectTo);
+    }
+
+    // Called from create-social view
+    public function socialRegister(Request $request) {
+        // Called from create-social view
+
+        // Check if 'agree' parameter received
+        //   Create new user, using provider data saved in session
+        //      if we fail to retrieve required data from session
+        //         return back with message that unresolvable error ocurred and ask user to contact administrator
+        //   Login new user
+        //   redirect to 'initial-indented'
+
+        // if 'agree' parameter did not arrive
+        //   return back with message that we cannot register without agreement
     }
 
     /**

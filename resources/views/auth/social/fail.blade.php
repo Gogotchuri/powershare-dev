@@ -9,8 +9,9 @@
 
                 <div class="card-body">
                         <div class="alert alert-danger">
-                            <strong>We were unable to sign you in</strong> <br/> If it wasn't your decision, please contact us, use
-                            contact information available on our website.
+                            <strong>Social authentication failed  </strong>
+                            <br/>
+                            {{$message or ''}}
                         </div>
                 </div>
             </div>

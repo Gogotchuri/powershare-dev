@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -74,73 +75,68 @@ class LoginController extends Controller
         try {
             $user = Socialite::driver($provider)->user();
         } catch (\Exception $e) {
-            //TODO: Return social-fail view.
+            return view('auth.social.fail', ['message' => 'If it wasn\'t your decision, please contact us, use
+                            contact information available on our website.']);
         }
-
-        // 1 If user exists for this provider login user
-
-        // 2 If user does not exist
-        //   Save provider data in session variables
-        //   return view social-create, this view should take variables from session like 'email' and 'provider'
-        //     also initial indented page
-
 
         $authUser = User::where('provider_id', $user->id)->first();
 
-        // If user already exists for this provider simply redirect it to login page and suggest login
         if($authUser) {
             Auth::login($authUser, true);
 
-            return view('auth.exists', [
-                'continue' => session()->pull('url.intended', $this->redirectTo)
-            ]);
+            return redirect()->intended($this->redirectTo);
         }
 
-        $authUser = User::create([
-            'name'     => $user->name,
-            'email'    => $user->email,
+        return redirect()->route('social.register-confirmation')->with('providerData', [
+            'name' => $user->name,
+            'email' => $user->email,
             'provider' => $provider,
-            'provider_id' => $user->id
+            'provider_id' => $user->id,
+            'intended' => session()->get('url.intended', url($this->redirectTo)),
         ]);
-
-        Auth::login($authUser, true);
-
-        return redirect()->intended($this->redirectTo);
-    }
-
-    // Called from create-social view
-    public function socialRegister(Request $request) {
-        // Called from create-social view
-
-        // Check if 'agree' parameter received
-        //   Create new user, using provider data saved in session
-        //      if we fail to retrieve required data from session
-        //         return back with message that unresolvable error ocurred and ask user to contact administrator
-        //   Login new user
-        //   redirect to 'initial-indented'
-
-        // if 'agree' parameter did not arrive
-        //   return back with message that we cannot register without agreement
     }
 
     /**
-     * If a user has registered before using social auth, return the user
-     * else, create a new user object.
-     * @param  $user Socialite user object
-     * @param $provider Social auth provider
-     * @return  User
+     * Show form where user can agree with terms and accept creation of user using social/provider account.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    protected function findOrCreateUser($user, $provider)
-    {
-        $authUser = User::where('provider_id', $user->id)->first();
-        if ($authUser) {
-            return $authUser;
+    public function showSocialConfirmation() {
+        session()->reflash();
+        return view('auth.social.create');
+    }
+
+    /**
+     * Creates and authenticates user using data received from provider like Facebook or Google
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|Illuminate\View\View
+     */
+    public function socialRegister(Request $request) {
+        if(!$request->agree) {
+            session()->reflash();
+            return back()->with('should_agree', true);
         }
-        return User::create([
-            'name'     => $user->name,
-            'email'    => $user->email,
-            'provider' => $provider,
-            'provider_id' => $user->id
+
+        $providerData = session()->get('providerData');
+
+        $validator = Validator::make($providerData, [
+            'name'     => 'required',
+            'email'    => 'required',
+            'provider' => 'required',
+            'provider_id' => 'required'
         ]);
+
+        if($validator->fails()) {
+            return view('auth.social.fail', [
+                'message' => 'Unexpected problem please contact us, using contact 
+                information available on our website'
+            ]);
+        }
+
+        $user = User::create($providerData);
+        Auth::login($user);
+
+        return redirect(array_get($providerData, 'intended', $this->redirectTo));
     }
 }

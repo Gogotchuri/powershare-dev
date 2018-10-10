@@ -13,11 +13,6 @@
 
 // Public
 
-//FIXME: Temporary route to check views
-Route::get('test-view', function() {
-    return view('auth.social-fail');
-});
-
 Route::namespace('Front')->name('public.')->group(function () {
 
     Route::get('/', 'HomeController@index');
@@ -34,6 +29,8 @@ Auth::routes();
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('to.provider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('auth/social/register', 'Auth\LoginController@showSocialConfirmation')->name('social.register-confirmation');
+Route::post('auth/social/register', 'Auth\LoginController@socialRegister')->name('social.register');
 
 // Authenticated people
 

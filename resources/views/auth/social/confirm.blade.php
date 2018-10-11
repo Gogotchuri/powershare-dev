@@ -21,6 +21,7 @@
                         <form method="POST" action="{{route('social.register')}}">
                             @csrf
 
+                            <label class="col-xs-3 control-label">Terms of use</label>
                             @include('auth.shared.terms')
                             <div class="form-group">
                                 <div class="form-check">

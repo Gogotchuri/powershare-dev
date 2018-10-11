@@ -1,5 +1,4 @@
 <div class="form-group">
-    <label class="col-xs-3 control-label">Terms of use</label>
     <div class="col-xs-9">
         <div style="border: 1px solid #e5e5e5; height: 200px; overflow: auto; padding: 10px;">
             <p>Lorem ipsum dolor sit amet, veniam numquam has te. No suas nonumes recusabo mea, est ut graeci

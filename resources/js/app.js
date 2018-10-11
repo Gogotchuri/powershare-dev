@@ -173,4 +173,27 @@ $(document).ready(function () {
         });
     })(jQuery, window);
 
+    // Registration form
+    let terms = $('#registerForm .terms');
+    terms.collapse({
+        toggle : false
+    });
+
+    let mainInputs = $('#registerForm .main-inputs input');
+
+    let filledAny = mainInputs.is(function(i, elem) {
+        return elem.value;
+    });
+
+    if(filledAny) {
+        terms.collapse('show');
+    }
+
+    mainInputs.keypress(function (e) {
+        terms.collapse('show');
+    });
+
+    mainInputs.change(function (e) {
+        terms.collapse('show');
+    });
 });

@@ -151,33 +151,51 @@ $logo-height: $front-page-spacer * 0.64;
             margin-top: $front-page-spacer;
 
             .ps-card {
-                padding: 22px;
                 border-radius: 8px;
 
                 display: block;
                 margin-bottom: $front-page-spacer * 0.3;
-                overflow: hidden;
+                overflow: visible;
 
-                .ps-card-image {
-                    box-shadow: 0px 28px 105px -35px rgba(0,0,0,0.75);
+                .ps-card-image-container {
+                    padding: 0 6px;
 
-                    position: relative;
-                    border-radius: 50%;
-                    width: 100%;
-                    height: auto;
-                    padding-top: 100%;
-                    background-size: cover;
-                    background-position: center center;
-                    background-repeat: no-repeat;
+                    .ps-card-image {
+                        box-shadow: 0px 18px 61px -27px rgba(0,0,0,0.73);
+
+                        position: relative;
+                        border-radius: 50%;
+                        width: 100%;
+                        height: auto;
+                        padding-top: 100%;
+                        background-size: cover;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+
+                        .ps-card-icon {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            width: 46px;
+                            height: 46px;
+                        }
+                    }
                 }
 
                 .ps-card-description {
-                    padding: $front-page-spacer * 0.3 $front-page-spacer * 0.3 $front-page-spacer * 0.1;
+
+                    text-align: center;
+                    padding: $front-page-spacer * 0.3 0;
 
                     h4 {
-                        font-size: $font-size-lg;
+                        font-size: $font-size-lg * 0.9;
                         font-weight: 400;
                         margin: 0;
+                    }
+
+                    .ps-card-excerpt {
+                        color: $secondary;
+                        font-size: $font-size-base 0.8;
                     }
                 }
             }

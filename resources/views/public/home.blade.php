@@ -33,15 +33,21 @@
                     </div>
                     <div class="row campaigns-list">
                         @foreach($campaigns as $campaign)
-                            <div class="col-xl-4 col-sm-6">
+                            <div class="col-xl-3 col-sm-6">
                                 <a href="{{ route('public.campaign.show', ['id' => $campaign->id]) }}" class="ps-card">
-                                    <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});">
+                                    <div class="ps-card-image-container">
+                                        <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});">
+                                        <span class="ps-card-icon">
+                                            <img class="" src="img/icons/icon_1.png">
+                                        </span>
+                                        </div>
                                     </div>
+
                                     <div class="ps-card-description">
                                         <h4>
-                                            {{ $campaign->name }}
+                                            {{ str_limit($campaign->name, 15) }}
                                         </h4>
-                                        <p>
+                                        <p class="ps-card-excerpt">
                                             {{ $campaign->excerpt }}
                                         </p>
                                     </div>

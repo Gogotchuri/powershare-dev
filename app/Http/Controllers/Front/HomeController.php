@@ -19,4 +19,9 @@ class HomeController extends Controller
 
         return view('public.home', ['campaigns' => $campaigns]);
     }
+
+    public function terms()
+    {
+        return view('auth.terms');
+    }
 }

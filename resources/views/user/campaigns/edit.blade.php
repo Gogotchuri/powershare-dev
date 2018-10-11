@@ -4,7 +4,7 @@
 
 @section('buttons')
     @if($campaign->is_draft)
-    <a style="float: left" class="btn btn-danger" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
+    <a class="btn btn-danger mr-1" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
         Delete
     </a>
     @endif
@@ -14,10 +14,10 @@
 @endsection
 
 @section('additional-controls')
-    <button type="submit" name="action" value="3" class="btn btn-primary">
-        Save
+    <button type="submit" name="status_id" value="{{CampaignStatus::DRAFT}}" class="btn btn-primary">
+        Update
     </button>
-    <button type="submit" name="action" value="submit" class="btn btn-primary">
+    <button type="submit" name="status_id" value="{{CampaignStatus::PROPOSAL}}" class="btn btn-primary">
         Submit for review
     </button>
 @endsection

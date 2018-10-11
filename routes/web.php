@@ -21,18 +21,22 @@ Route::namespace('Front')->name('public.')->group(function () {
         Route::get('{id}', 'CampaignController@show')->name('campaign.show');
         Route::post('{id}/add-comment', 'CampaignController@addComment')->name('campaign.add-comment');
     });
+
+    Route::get('terms', 'HomeController@terms')->name('terms');
 });
 
 // Auth routes
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('to.provider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('auth/social/register', 'Auth\LoginController@showSocialConfirmation')->name('social.register-confirmation');
+Route::post('auth/social/register', 'Auth\LoginController@socialRegister')->name('social.register');
 
 // Authenticated people
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware(['admin'])->namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
@@ -55,7 +59,7 @@ Route::middleware(['auth'])->group(function () {
             ->name('settings.updateNotifications');
     });
 
-    Route::namespace('User')->prefix('user')->name('user.')->group(function () {
+    Route::namespace('User')->middleware('redirect.admin')->prefix('user')->name('user.')->group(function () {
         Route::resource('campaigns', 'CampaignController');
 
         Route::get('settings', 'SettingsController@edit')->name('settings.edit');
@@ -76,6 +80,8 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::post('images/campaigns/{id}', 'ImageController@store')->name('images.campaigns');
+    Route::get('images/campaigns/{id}', 'ImageController@getList')->name('images.campaigns.list');
+    Route::delete('images/campaigns/{id}', 'ImageController@destroy')->name('images.campaigns.destroy');
 
     Route::prefix('image')->name('image.')->group(function () {
         Route::post('upload', 'ImageController@upload')->name('upload');

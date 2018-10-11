@@ -109,9 +109,7 @@ class CampaignController extends Controller
         $campaign->details = $request->input('details');
         $campaign->video_url = $request->video;
         $campaign->ethereum_address = $request->ethereum_address;
-        $campaign->status_id = $request->input('action') === 'save'
-            ? CampaignStatus::DRAFT
-            : CampaignStatus::PROPOSAL;
+        $campaign->status_id = $request->input('status_id');
         $campaign->featured_image_id = isset($image) && $image ? $image->id : $campaign->featured_image_id;
 
         $campaign->save();
@@ -127,117 +125,5 @@ class CampaignController extends Controller
         $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->findOrFail()->delete();
 
         return redirect(route('admin.campaigns.index'));
-    }
-
-    public function getMainFeaturedImage($id) {
-        $campaign = Campaign::findOrFail($id);
-        $image = $campaign->featured_image;
-
-        return response()->json(array('files' => $image ? [$this->getImageDescriptor($image)] : []), 200);
-    }
-
-    public function handleMainFeaturedImage($id, Request $request) {
-
-        $user = Auth::user();
-
-        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->firstOrFail();
-
-        $this->validate($request, [
-            'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
-
-        $image = Image::fromFile($request->featured_image, 'Featured Image', [
-            'fit' => [640, 480],
-            'thumbnailFit' => [80, 59]
-        ]);
-
-        $campaign->featured_image()->associate($image);
-        $campaign->save();
-
-        return response()->json(array('files' => [$this->getImageDescriptor($image)]), 200);
-    }
-
-    public function handleFeaturedImages($id, Request $request) {
-
-        $user = Auth::user();
-
-        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->firstOrFail();
-
-        $validator = Validator::make($request->all(), [
-            'featured_images' => 'required|array',
-            'featured_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
-
-        if ($validator->fails()) {
-            $fileSpecificErrors = $validator->errors()->get('featured_images.*');
-
-            if(count($fileSpecificErrors) > 0) {
-                $formattedErrors = $this->createImageErrorResponseArray($fileSpecificErrors, $request->featured_images);
-                return response()->json($formattedErrors, 200);
-            }
-        }
-
-        $image_descriptors = [];
-        foreach ($request->featured_images as $featured_image) {
-
-            $image = Image::fromFile($featured_image, 'Featured Image', [
-                'fit' => [640, 480],
-                'thumbnailFit' => [80, 59]
-            ]);
-
-            $campaign->images()->save($image);
-
-            $descriptor = $this->getImageDescriptor($image);
-
-            $image_descriptors[] = $descriptor;
-        }
-
-        return response()->json(array('files' => $image_descriptors), 200);
-    }
-
-    private function createImageErrorResponseArray(array $errors, array $uploadedFiles) {
-
-        $fileMessages = [];
-        $i = 0;
-        foreach ($errors as $message) {
-
-            $file = $uploadedFiles[$i];
-
-            $fileMessages[] = [
-                'error' => $message[0],
-                'name' => $file->getClientOriginalName(),
-                'size' => $file->getClientSize()
-            ];
-
-            $i++;
-        }
-
-        return ['files' => $fileMessages];
-    }
-
-    private function getImageDescriptor(Image $image, $uploaded_image=null) {
-
-        return [
-            'name' => $uploaded_image !== null ? $uploaded_image->getClientOriginalName() : basename($image->path),
-            'size' => Storage::disk('s3')->size($image->path),
-            'url' => $image->url,
-            'thumbnailUrl' => $image->thumbnail_url,
-            'deleteUrl' => route('image.delete', ['id' => $image->id]),
-            'deleteType' => 'DELETE',
-            'id' => $image->id,
-        ];
-    }
-
-    public function featuredImageList($id) {
-
-        $user = Auth::user();
-
-        $campaign = $user->campaigns()->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])->firstOrFail();
-
-        return [
-            'files' => $campaign->images->map(function ($image, $key) {
-                return $this->getImageDescriptor($image);
-            })
-        ];
     }
 }

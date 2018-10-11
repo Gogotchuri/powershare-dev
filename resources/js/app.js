@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -7,12 +6,12 @@
 
 require('./bootstrap');
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('.datatables').DataTable({
         stateSave: true,
     });
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#light-slider").lightSlider({
             gallery: true,
             item: 1,
@@ -20,12 +19,18 @@ $(document).ready(function() {
             slideMargin: 0,
             thumbItem: 9,
 
-            onBeforeStart: function (el) {},
-            onSliderLoad: function (el) {},
-            onBeforeSlide: function (el) {},
-            onAfterSlide: function (el) {},
-            onBeforeNextSlide: function (el) {},
-            onBeforePrevSlide: function (el) {}
+            onBeforeStart: function (el) {
+            },
+            onSliderLoad: function (el) {
+            },
+            onBeforeSlide: function (el) {
+            },
+            onAfterSlide: function (el) {
+            },
+            onBeforeNextSlide: function (el) {
+            },
+            onBeforePrevSlide: function (el) {
+            }
         });
         $("#light-slider-wrapper").removeClass('d-none');
     });
@@ -53,7 +58,30 @@ $(document).ready(function() {
             if (typeof Dropzone != 'undefined') {
                 if ($("#fileupload").length) {
                     var dz = new Dropzone("#fileupload", {
-                            addRemoveLinks: true
+                            addRemoveLinks: true,
+                            //Handle existing images
+                            init: function () {
+                                let thisDropzone = this;
+
+                                $.get(thisDropzone.options.url, function (data) {
+                                    if (data == null) {
+                                        return;
+                                    }
+
+                                    $.each(data, function (key, value) {
+                                        var mockFile = {
+                                            name: value.name,
+                                            size: value.size,
+                                            id: value.id,
+                                            thumbnail_url: value.thumbnail_url
+                                        };
+                                        thisDropzone.emit("addedfile", mockFile);
+                                        thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.thumbnail_url);
+                                        // Make sure that there is no progress bar, etc...
+                                        thisDropzone.emit("complete", mockFile);
+                                    });
+                                });
+                            }
                         }),
                         dze_info = $("#dze_info"),
                         status = {
@@ -62,6 +90,10 @@ $(document).ready(function() {
                         };
                     var $f = $('<tr><td class="name"></td><td class="size"></td><td class="type"></td><td class="status"></td></tr>');
                     dz.on("success", function (file, responseText) {
+
+                        if(responseText.data !== null) {
+                            file.id = responseText.data.id;
+                        }
 
                         var _$f = $f.clone();
 
@@ -104,9 +136,30 @@ $(document).ready(function() {
                             toastr.error('Your File Uploaded Not Successfully!!', 'Error Alert', {
                                 timeOut: 5000
                             });
-                        });
+                        }).on('removedfile', function (file) {
 
-                    $('.dropzone-img').each(function() {
+                        //Remove file from server
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            url: dz.options.url,
+                            type: 'DELETE',
+                            data: {
+                                'file_id': file.id,
+                            },
+                            complete: function (response) {
+
+                                if (response.status !== 200 || response.responseJSON.status !== 'OK') {
+                                    dz.emit("addedfile", file);
+                                    dz.options.thumbnail.call(dz, file, file.thumbnail_url);
+                                    dz.emit("complete", file);
+                                }
+                            }
+                        });
+                    });
+
+                    $('.dropzone-img').each(function () {
                         var file = {
                             name: $(this).attr('alt'),
                             size: null,
@@ -120,4 +173,27 @@ $(document).ready(function() {
         });
     })(jQuery, window);
 
+    // Registration form
+    let terms = $('#registerForm .terms');
+    terms.collapse({
+        toggle : false
+    });
+
+    let mainInputs = $('#registerForm .main-inputs input');
+
+    let filledAny = mainInputs.is(function(i, elem) {
+        return elem.value;
+    });
+
+    if(filledAny) {
+        terms.collapse('show');
+    }
+
+    mainInputs.keypress(function (e) {
+        terms.collapse('show');
+    });
+
+    mainInputs.change(function (e) {
+        terms.collapse('show');
+    });
 });

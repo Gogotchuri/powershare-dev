@@ -27,11 +27,13 @@ class UpdateCampaign extends FormRequest
     public function rules()
     {
         return array_merge(Campaign::baseRules(), [
-            'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status'         => Rule::in([
+            'featured-image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status_id'         => Rule::in([
                 CampaignStatus::nameFromId(CampaignStatus::DRAFT),
                 CampaignStatus::nameFromId(CampaignStatus::PROPOSAL)
             ]),
+            'video_url' => 'url',
+            'ethereum_address' => 'nullable|string|max:255',
         ]);
     }
 }

@@ -24,8 +24,6 @@ class StoreCampaign extends FormRequest
      */
     public function rules()
     {
-        return array_merge(Campaign::baseRules(), [
-            'status' => 'required|exists:campaign_statuses,name',
-        ]);
+        return array_merge(Campaign::baseRules());
     }
 }

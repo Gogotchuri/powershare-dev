@@ -4,7 +4,7 @@
 
 @section('buttons')
     @if($campaign->is_approved)
-        <a class="btn btn-danger" href="{{route('admin.campaigns.unapprove', ['id' => $campaign->id])}}">
+        <a role="button" class="btn btn-danger mr-1" href="{{route('admin.campaigns.unapprove', ['id' => $campaign->id])}}">
             Unapprove
         </a>
     @else
@@ -12,10 +12,10 @@
             Approve
         </a>
     @endif
-    <a class="btn btn-primary" href="{{ route('admin.campaigns.index') }}">
+    <a role="button" class="btn btn-primary mr-1" href="{{ route('admin.campaigns.index') }}">
         Back
     </a>
-    <a style="float: left" class="btn btn-danger" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
+    <a role="button" style="float: left" class="btn btn-danger mr-1" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
         Delete
     </a>
 @endsection

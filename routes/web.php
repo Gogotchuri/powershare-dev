@@ -21,11 +21,13 @@ Route::namespace('Front')->name('public.')->group(function () {
         Route::get('{id}', 'CampaignController@show')->name('campaign.show');
         Route::post('{id}/add-comment', 'CampaignController@addComment')->name('campaign.add-comment');
     });
+
+    Route::get('terms', 'HomeController@terms')->name('terms');
 });
 
 // Auth routes
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('to.provider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
@@ -34,7 +36,7 @@ Route::post('auth/social/register', 'Auth\LoginController@socialRegister')->name
 
 // Authenticated people
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware(['admin'])->namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 

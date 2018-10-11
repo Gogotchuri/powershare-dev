@@ -13,11 +13,9 @@
 
                             <div class="main-inputs">
                                 <div class="form-group row">
-                                    <label for="name"
-                                           class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                                    <div class="col-md-6">
-                                        <input id="name" type="text"
+                                    <div class="col-md-8 offset-md-2">
+                                        <input placeholder="{{ __('Name') }}" id="name" type="text"
                                                class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                                                name="name" value="{{ old('name') }}" required >
 
@@ -30,11 +28,9 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email"
-                                           class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                                    <div class="col-md-6">
-                                        <input id="email" type="email"
+                                    <div class="col-md-8 offset-md-2">
+                                        <input placeholder="{{ __('E-Mail Address') }}" id="email" type="email"
                                                class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                                name="email" value="{{ old('email') }}" required>
 
@@ -47,11 +43,9 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password"
-                                           class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                                    <div class="col-md-6">
-                                        <input id="password" type="password"
+                                    <div class="col-md-8 offset-md-2">
+                                        <input placeholder="{{ __('Password') }}" id="password" type="password"
                                                class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                                name="password" required>
 
@@ -64,24 +58,34 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password-confirm"
-                                           class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                                    <div class="col-md-6">
-                                        <input id="password-confirm" type="password" class="form-control"
+                                    <div class="col-md-8 offset-md-2">
+                                        <input placeholder="{{ __('Confirm Password') }}" id="password-confirm" type="password" class="form-control"
                                                name="password_confirmation" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="offset-md-2 col-md-8">
+                                        <div class="form-check">
+                                            <input name="agree" class="form-check-input @if($errors->has('agree')) is-invalid @endif" type="checkbox" value="agree"
+                                                   id="agree">
+                                            <label class="form-check-label" for="agree">
+                                                Agree to <a target="_blank" href="{{route('public.terms')}}">Terms and Conditions</a>
+                                            </label>
+                                            @if ($errors->has('agree'))
+                                                <div class="invalid-feedback">
+                                                    You should agree before submitting.
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="terms collapse hide">
-                                @include('auth.shared.terms')
-                            </div>
-
                             <div class="form-group row mb-0">
-                                <div class="col-md-4 offset-md-4">
+                                <div class="col-md-8 offset-md-2">
                                     <button type="submit" class="btn btn-primary btn-block">
-                                        Sign up with <b>Email</b>
+                                        Sign up
                                     </button>
                                 </div>
                             </div>
@@ -90,7 +94,7 @@
                         <hr/>
                         <div class="form-group row text-center">
 
-                            <div class="col-md-4 offset-md-4">
+                            <div class="col-md-8 offset-md-2">
                                 <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-block"><i
                                         class="fa fa-facebook"></i> Sign up with <b>Facebook</b></a>
                                 <a href="{{ url('/auth/google') }}" class="btn btn-danger btn-block"><i

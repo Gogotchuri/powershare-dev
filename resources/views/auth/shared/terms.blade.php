@@ -1,5 +1,4 @@
 <div class="form-group">
-    <label class="col-xs-3 control-label">Terms of use</label>
     <div class="col-xs-9">
         <div style="border: 1px solid #e5e5e5; height: 200px; overflow: auto; padding: 10px;">
             <p>Lorem ipsum dolor sit amet, veniam numquam has te. No suas nonumes recusabo mea, est ut graeci
@@ -26,19 +25,6 @@
 
 <div class="form-group">
     <div class="col-xs-6 col-xs-offset-3">
-        <div class="form-group">
-            <div class="form-check">
-                <input name="agree" class="form-check-input @if($errors->has('agree')) is-invalid @endif" type="checkbox" value="agree"
-                       id="agree">
-                <label class="form-check-label" for="agree">
-                    Agree to terms and conditions
-                </label>
-                @if ($errors->has('agree'))
-                    <div class="invalid-feedback">
-                        You should agree before submitting.
-                    </div>
-                @endif
-            </div>
-        </div>
+
     </div>
 </div>

@@ -151,16 +151,24 @@ $logo-height: $front-page-spacer * 0.64;
             margin-top: $front-page-spacer;
 
             .ps-card {
-                background: white;
+                padding: 22px;
                 border-radius: 8px;
-                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+
                 display: block;
                 margin-bottom: $front-page-spacer * 0.3;
                 overflow: hidden;
 
                 .ps-card-image {
+                    box-shadow: 0px 28px 105px -35px rgba(0,0,0,0.75);
+
+                    position: relative;
+                    border-radius: 50%;
+                    width: 100%;
+                    height: auto;
+                    padding-top: 100%;
                     background-size: cover;
-                    height: $front-page-spacer * 2.2;
+                    background-position: center center;
+                    background-repeat: no-repeat;
                 }
 
                 .ps-card-description {

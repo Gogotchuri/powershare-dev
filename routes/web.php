@@ -21,6 +21,8 @@ Route::namespace('Front')->name('public.')->group(function () {
         Route::get('{id}', 'CampaignController@show')->name('campaign.show');
         Route::post('{id}/add-comment', 'CampaignController@addComment')->name('campaign.add-comment');
     });
+
+    Route::get('terms', 'HomeController@terms')->name('terms');
 });
 
 // Auth routes

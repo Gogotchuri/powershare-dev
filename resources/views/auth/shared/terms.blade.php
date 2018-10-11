@@ -26,19 +26,6 @@
 
 <div class="form-group">
     <div class="col-xs-6 col-xs-offset-3">
-        <div class="form-group">
-            <div class="form-check">
-                <input name="agree" class="form-check-input @if($errors->has('agree')) is-invalid @endif" type="checkbox" value="agree"
-                       id="agree">
-                <label class="form-check-label" for="agree">
-                    Agree to terms and conditions
-                </label>
-                @if ($errors->has('agree'))
-                    <div class="invalid-feedback">
-                        You should agree before submitting.
-                    </div>
-                @endif
-            </div>
-        </div>
+
     </div>
 </div>

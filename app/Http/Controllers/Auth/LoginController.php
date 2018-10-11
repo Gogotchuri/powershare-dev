@@ -103,7 +103,7 @@ class LoginController extends Controller
      */
     public function showSocialConfirmation() {
         session()->reflash();
-        return view('auth.social.create');
+        return view('auth.social.confirm');
     }
 
     /**

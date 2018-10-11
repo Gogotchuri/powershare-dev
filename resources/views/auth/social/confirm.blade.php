@@ -15,13 +15,28 @@
                     @if($data)
                         @if (session()->has('should_agree'))
                             <div class="alert alert-danger">
-                                You should accept accept <strong>Terms & Conditions</strong>, otherwise we cannot register you.
+                                You should accept <strong>Terms & Conditions</strong>, otherwise we cannot register you.
                             </div>
                         @endif
                         <form method="POST" action="{{route('social.register')}}">
                             @csrf
 
+                            <label class="col-xs-3 control-label">Terms of use</label>
                             @include('auth.shared.terms')
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input name="agree" class="form-check-input @if($errors->has('agree')) is-invalid @endif" type="checkbox" value="agree"
+                                           id="agree">
+                                    <label class="form-check-label" for="agree">
+                                        Agree to terms and conditions
+                                    </label>
+                                    @if ($errors->has('agree'))
+                                        <div class="invalid-feedback">
+                                            You should agree before submitting.
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
 
                             <div class="alert alert-primary">
                                 {{--TODO: Replace provider name with actual variable here--}}

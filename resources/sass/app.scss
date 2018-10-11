@@ -80,9 +80,9 @@ $logo-height: $front-page-spacer * 0.64;
 }
 
 .background-image {
-    background-attachment: fixed;
+    //background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+    background-size: 100vw;
 }
 
 .background-image.campaign-page {
@@ -97,8 +97,16 @@ $logo-height: $front-page-spacer * 0.64;
 
     padding-top: $front-page-spacer;
 
-    .left-panel {
-        color: $primary;
+    .inspiring-section {
+
+        &.inspiring-section-first {
+            color: $primary;
+        }
+
+        &.inspiring-section-second {
+            margin-top: 30rem;
+            color: $secondary;
+        }
 
         .logo {
             display: block;
@@ -107,6 +115,8 @@ $logo-height: $front-page-spacer * 0.64;
         }
 
         .side-menu {
+            position: fixed;
+            z-index: 999;
             display: block;
             transform: rotate(90deg);
             transform-origin: left bottom 0;
@@ -120,15 +130,19 @@ $logo-height: $front-page-spacer * 0.64;
                 -o-transform: scale(-1, -1);
                 -ms-transform: scale(-1, -1);
                 transform: scale(-1, -1);
+                color: $secondary;
             }
         }
 
         .inspire {
             margin: 0 $front-page-spacer * 2;
-        }
-    }
 
-    .right-panel {
+            .inspire-second {
+                font-weight: 200;
+                font-size: 1.3rem;
+            }
+        }
+
         input, select {
             -webkit-appearance: none;
             background: transparent;
@@ -146,6 +160,48 @@ $logo-height: $front-page-spacer * 0.64;
         input::placeholder {
             color: $primary;
         }
+    }
+
+    .left-panel {
+        /*color: $primary;
+
+        .logo {
+            display: block;
+            height: 60px;
+            margin: $logo-height - $front-page-spacer  $front-page-spacer $front-page-spacer - $logo-height $front-page-spacer;
+        }
+
+        .side-menu {
+            position: fixed;
+            z-index: 999;
+            display: block;
+            transform: rotate(90deg);
+            transform-origin: left bottom 0;
+
+            a {
+                display: inline-block;
+                line-height: $front-page-spacer;
+                margin: 0 $front-page-spacer / 4;
+                -moz-transform: scale(-1, -1);
+                -webkit-transform: scale(-1, -1);
+                -o-transform: scale(-1, -1);
+                -ms-transform: scale(-1, -1);
+                transform: scale(-1, -1);
+                color: $secondary;
+            }
+        }
+
+        .inspire {
+            margin: 0 $front-page-spacer * 2;
+
+            .inspire-second {
+                font-weight: 200;
+                font-size: 1.3rem;
+            }
+        }*/
+    }
+
+    .right-panel {
 
         .campaigns-list {
             margin-top: $front-page-spacer;

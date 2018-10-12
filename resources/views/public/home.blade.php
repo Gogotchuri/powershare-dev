@@ -42,7 +42,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <a href="/">
-                                <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
+                                <img src="/img/logo-front-orange.png" alt="Powershare logo" class="logo">
                             </a>
                         </div>
                     </div>

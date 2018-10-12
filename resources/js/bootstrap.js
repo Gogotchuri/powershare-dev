@@ -4,6 +4,7 @@ window.$ = window.jQuery = require('jquery');
 require('datatables.net');
 require('datatables.net-bs');
 require('lightslider');
+require('@fortawesome/fontawesome-free');
 
 window._ = require('lodash');
 window.Popper = require('popper.js').default;

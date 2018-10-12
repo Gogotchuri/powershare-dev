@@ -57,6 +57,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('settings/password', 'SettingsController@updatePassword')->name('settings.updatePassword');
         Route::post('settings/notifications', 'SettingsController@updateNotifications')
             ->name('settings.updateNotifications');
+
+        //Categories
+        Route::resource('categories', 'CampaignCategoryController');
     });
 
     Route::namespace('User')->middleware('redirect.admin')->prefix('user')->name('user.')->group(function () {

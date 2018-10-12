@@ -140,6 +140,10 @@ $logo-height: $front-page-spacer * 0.64;
             -ms-transform: scale(-1, -1);
             transform: scale(-1, -1);
             color: $secondary;
+
+            &:hover {
+                color: darken($secondary, 10%);
+            }
         }
     }
 
@@ -255,10 +259,19 @@ $logo-height: $front-page-spacer * 0.64;
                 margin-bottom: $front-page-spacer * 0.3;
                 overflow: visible;
 
+                &:hover {
+                    .ps-card-image {
+                        transform-origin: center center;
+                        transform: scale(1.03, 1.03);
+                    }
+                }
+
                 .ps-card-image-container {
                     padding: 0 6px;
+                    overflow: visible;
 
                     .ps-card-image {
+                        transition: all 50ms ease-out;
                         box-shadow: 0px 18px 61px -27px rgba(0,0,0,0.73);
 
                         position: relative;
@@ -408,6 +421,10 @@ $logo-height: $front-page-spacer * 0.64;
   max-width: 100%;
   margin-bottom: $front-page-spacer - $logo-height;
 
+    .login, .register {
+        transition: all 400ms ease-out;
+    }
+
   .login {
     padding: 0 $logo-height / 2;
   }
@@ -419,5 +436,9 @@ $logo-height: $front-page-spacer * 0.64;
     display: inline-block;
     padding: 0 $logo-height / 2;
     margin-right: -1px;
+
+      &:hover {
+          background-color: darken($primary, 10%);
+      }
   }
 }

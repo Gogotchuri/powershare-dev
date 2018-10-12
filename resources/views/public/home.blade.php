@@ -61,7 +61,7 @@
                         @foreach($campaigns as $campaign)
                             <div class="col-xl-3 col-sm-6">
                                 <a href="{{ route('public.campaign.show', ['id' => $campaign->id]) }}" class="ps-card">
-                                    <div class="ps-card-image-container">
+                                    <div class="ps-card-image-container fade">
                                         <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});">
                                         <span class="ps-card-icon">
                                             <img class="" src="img/icons/icon_1.png">

@@ -76,6 +76,7 @@ class CampaignCategoryController extends Controller
     {
         CampaignCategory::findOrFail($id)->delete();
 
+        //TODO: Return message too..
         return back();
     }
 

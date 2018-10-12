@@ -24,10 +24,10 @@
                     Main featured image
                 </div>
                 <div class="card-body">
-                    <img id="featured-image" src="" class="w-100 mb-3" />
+                    <img id="icon" src="" class="w-100 mb-3" />
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" name="featured-image" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
+                            <input type="file" name="icon" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                 var reader = new FileReader();
 
                 reader.onload = function(e) {
-                    $('#featured-image').attr('src', e.target.result);
+                    $('#icon').attr('src', e.target.result);
                 }
 
                 reader.readAsDataURL(input.files[0]);
@@ -58,7 +58,7 @@
         }
 
         $("#image-input").change(function() {
-            $("#featured-image").show();
+            $("#icon").show();
             readURL(this);
         });
     </script>

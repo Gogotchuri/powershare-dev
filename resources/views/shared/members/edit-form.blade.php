@@ -19,7 +19,7 @@
             @include('components.form.input', [
                 'name' => 'Name',
                 'required' => true,
-                'value' => $campaign->name,
+                'value' => $member->name,
             ])
         </div>
         <div class="col-sm-4">
@@ -28,8 +28,8 @@
                     Main featured image
                 </div>
                 <div class="card-body">
-                    <img id="featured-image" src="{{ optional($campaign->featured_image)->thumbnail_url }}" class="w-100 mb-3"
-                        @if(!$campaign->featured_image_id) style="display: none;" @endif
+                    <img id="featured-image" src="{{ optional($member->featured_image)->thumbnail_url }}" class="w-100 mb-3"
+                        @if(!$member->featured_image_id) style="display: none;" @endif
                     />
                     <div class="input-group mb-3">
                         <div class="custom-file">

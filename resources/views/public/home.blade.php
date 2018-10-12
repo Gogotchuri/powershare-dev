@@ -39,15 +39,22 @@
 
             <div class="row">
                 <div class="col-sm-5 left-panel">
-                    <a href="/">
-                        <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
-                    </a>
-                    <div class="inspire">
-                        <h1 class="inspire-first mb-5"><strong>You have the power to...</strong></h1>
-                        <h3 class="inspire-second">... become a supporting hero simply by keeping the browser tab open and fuel these important
-                            causes:</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="/">
+                                <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
+                            </a>
+                        </div>
                     </div>
-
+                    <div class="row">
+                        <div class="col-sm-10 left-panel">
+                            <div class="inspire">
+                                <h1 class="inspire-first mb-5"><strong>You have the power to...</strong></h1>
+                                <h3 class="inspire-second">... become a supporting hero simply by keeping the browser tab open and fuel these important
+                                    causes:</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-7 right-panel">
                     <div class="row campaigns-list">

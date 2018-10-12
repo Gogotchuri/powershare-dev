@@ -3,8 +3,13 @@
 @section('html-body')
     <body>
     <div id="app" class="background-image front-page" style="background-image: url(/img/background.png);">
+        <ul class="side-connect-menu">
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-fly"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        </ul>
+        @include('public.partials.nav')
         <div class="container-fluid inspiring-section inspiring-section-first">
-            @include('public.partials.nav')
             <div class="row">
                 <div class="col-md-5">
                     <a href="/">
@@ -23,11 +28,10 @@
             <div class="row mt-4">
                 <div class="col-md-6">
                     <div class="inspire">
-                        <h1 class="inspire-first"><strong>Browser-Based Mining for Charity Crowdfunding </strong></h1>
-                        <h3 class="inspire-second">We remove financial barrier to the spirit of giving</h3>
+                        <h1 class="inspire-first mb-5"><strong>Browser-Based Mining for Charity Crowdfunding </strong></h1>
+                        <h3 class="inspire-second">We remove financial barriers to the spirit of giving</h3>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -39,7 +43,7 @@
                         <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
                     </a>
                     <div class="inspire">
-                        <h1 class="inspire-first"><strong>You have the power to...</strong></h1>
+                        <h1 class="inspire-first mb-5"><strong>You have the power to...</strong></h1>
                         <h3 class="inspire-second">... become a supporting hero simply by keeping the browser tab open and fuel these important
                             causes:</h3>
                     </div>

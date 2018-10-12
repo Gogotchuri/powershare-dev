@@ -102,4 +102,8 @@ class Campaign extends Model
     {
         return optional($this->featured_image)->url;
     }
+
+    public function getExcerptAttribute(){
+        return str_limit($this->details, 13);
+    }
 }

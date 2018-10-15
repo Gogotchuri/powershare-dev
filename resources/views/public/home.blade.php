@@ -2,7 +2,7 @@
 
 @section('html-body')
     <body>
-    <div id="app" class="background-image front-page">
+    <div id="app" class="background-image front-page" style="background-image: url(/img/background-dotted.png)">
         <div class="wrapper-animation-one">
             <ul class="side-connect-menu">
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>

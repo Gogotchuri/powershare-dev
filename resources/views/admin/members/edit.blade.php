@@ -1,5 +1,9 @@
 @extends('admin.main')
 
+@section('header')
+    Edit <a href="#">{{$member->name}}</a> of <a href="{{route('admin.campaigns.edit', ['id' => $member->campaign->id])}}">{{$member->campaign->name}}</a>
+@endsection
+
 @section('header', "Edit {$member->name}")
 
 @section('buttons')

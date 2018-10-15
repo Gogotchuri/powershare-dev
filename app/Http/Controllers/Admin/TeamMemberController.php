@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Campaign;
 use App\Models\Image;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
@@ -18,7 +19,9 @@ class TeamMemberController extends Controller
      */
     public function create($campaignId)
     {
-        return view('admin.members.create', compact('campaignId'));
+        $campaign = Campaign::findOrFail($campaignId);
+
+        return view('admin.members.create', compact('campaign'));
     }
 
     /**

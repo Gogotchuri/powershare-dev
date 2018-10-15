@@ -1,6 +1,8 @@
 @extends('user.main')
 
-@section('header', "Edit {$member->name}")
+@section('header')
+    Edit <a href="#">{{$member->name}}</a> of <a href="{{route('user.campaigns.edit', ['id' => $member->campaign->id])}}">{{$member->campaign->name}}</a>
+@endsection
 
 @section('buttons')
     {{--TODO: ...--}}

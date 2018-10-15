@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Campaign;
 use App\Models\Image;
 use App\Models\Reference\CampaignStatus;
 use App\Models\TeamMember;
@@ -22,7 +23,9 @@ class TeamMemberController extends Controller
         // Check if user can editd this campaign
         $this->canEditCampaignId($campaignId);
 
-        return view('user.members.create', compact('campaignId'));
+        $campaign = Campaign::findOrFail($campaignId);
+
+        return view('user.members.create', compact('campaign'));
     }
 
     /**

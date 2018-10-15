@@ -10,7 +10,7 @@
         <option value=""> {{$name}} </option>
         @foreach($options as $option)
             <option value="{{ $option->id }}" {{ isset($value) && $value === $option->id ? 'selected' : '' }}>
-                <i class="fas fa-ambulance"></i>{{ $option->$title }}
+                {{ $option->$title }}
             </option>
         @endforeach
     </select>

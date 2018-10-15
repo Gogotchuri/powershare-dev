@@ -22,6 +22,14 @@
                 'value' => $campaign->name,
             ])
 
+            @include('components.form.select', [
+                'name' => 'Category',
+                'options' => $categories,
+                'title' => 'name',
+                'required' => true,
+                'value' => $campaign->category_id,
+            ])
+
             @include('components.form.textarea', [
                 'name' => 'Details',
                 'required' => true,

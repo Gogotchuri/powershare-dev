@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\StoreCampaign;
 use App\Http\Requests\Admin\UpdateCampaign;
 use App\Models\Campaign;
 use App\Models\Image;
+use App\Models\Reference\CampaignCategory;
 use App\Models\Reference\CampaignStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,9 @@ class CampaignController extends Controller
 
     public function create()
     {
-        return view('admin.campaigns.create');
+        $categories = CampaignCategory::all();
+
+        return view('admin.campaigns.create', compact('categories'));
     }
 
     public function store(StoreCampaign $request)
@@ -48,11 +51,12 @@ class CampaignController extends Controller
 
     public function edit($id)
     {
+        $categories = CampaignCategory::all();
         $campaign = Campaign::where('id', $id)
             ->with(['featured_image', 'images'])
             ->firstOrFail();
 
-        return view('admin.campaigns.edit', compact('campaign'));
+        return view('admin.campaigns.edit', compact('campaign', 'categories'));
     }
 
     public function update(UpdateCampaign $request, $id)
@@ -62,6 +66,7 @@ class CampaignController extends Controller
 
         $campaign =  Campaign::findOrFail($id);
         $campaign->name = $request->input('name');
+        $campaign->category_id = $request->input('category');
         $campaign->details = $request->input('details');
         $campaign->video_url = $request->video;
         $campaign->ethereum_address = $request->ethereum_address;

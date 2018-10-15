@@ -26,17 +26,19 @@
             'required' => true,
         ])
 
-            <div class="col-sm-4">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        Category icon
-                    </div>
-                    <div class="card-body">
-                        <img id="icon" src="" class="w-100 mb-3"/>
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <input type="file" name="icon" class="custom-file-input" id="icon-input" aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Category icon
+                        </div>
+                        <div class="card-body">
+                            <img id="icon" src="" class="w-100 mb-3"/>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" name="icon" class="custom-file-input" id="icon-input" aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                </div>
                             </div>
                         </div>
                     </div>

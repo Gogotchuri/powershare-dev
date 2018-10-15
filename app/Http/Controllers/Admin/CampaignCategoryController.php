@@ -38,7 +38,17 @@ class CampaignCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'icon' => 'required|image|mimes:jpeg,png,jpg,gif|max:50',
+            'name' => 'required|string'
+        ]);
+
+        $category = new CampaignCategory();
+        $category->name = $request->name;
+        $category->icon = file_get_contents($request->file('icon')->getRealPath());
+        $category->save();
+
+        return back()->with('message', 'New category created');
     }
 
     /**
@@ -51,7 +61,7 @@ class CampaignCategoryController extends Controller
     {
         $category =  CampaignCategory::findOrFail($id);
 
-        return view('admin.categories.index', compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -63,7 +73,22 @@ class CampaignCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = CampaignCategory::findOrFail($id);
+
+        $this->validate($request, [
+            'icon' => 'image|mimes:jpeg,png,jpg,gif|max:50',
+            'name' => 'required|string'
+        ]);
+
+        $category->name = $request->name;
+
+        if($iconFile = $request->file('icon')) {
+            $category->icon = file_get_contents($iconFile->getRealPath());
+        }
+
+        $category->save();
+
+        return back()->with('message', 'Category updated');
     }
 
     /**

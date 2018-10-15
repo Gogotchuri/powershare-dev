@@ -12,11 +12,10 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 7; $i++) {
-            $image = new \App\Models\Image();
-            $image->name = "Featured Image";
-            $image->url = '/img/samples/sample-' . ($i + 1) . '.jpeg';
-            $image->save();
-        }
+        $image = new \App\Models\Image();
+        $image->name = "Featured Image";
+        $image->url = 'https://cz-public-images-test.s3.amazonaws.com/powershare-5YtTOa2JOVkjdl4GvVqOpx23YMsKug1kjg6Y9j50.png';
+        $image->thumbnail_url = 'https://cz-public-images-test.s3.amazonaws.com/powershare-thumbnail-5YtTOa2JOVkjdl4GvVqOpx23YMsKug1kjg6Y9j50.png';
+        $image->save();
     }
 }

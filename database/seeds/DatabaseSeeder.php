@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CampaignStatusSeeder::class);
         $this->call(SocialPlatformSeeder::class);
         $this->call(ImageSeeder::class);
+        $this->call(CampaignCategorySeeder::class);
         $this->call(CampaignSeeder::class);
         $this->call(CommentSeeder::class);
     }

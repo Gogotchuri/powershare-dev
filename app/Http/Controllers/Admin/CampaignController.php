@@ -35,6 +35,7 @@ class CampaignController extends Controller
         $campaign =  new Campaign();
         $campaign->status_id = CampaignStatus::DRAFT;
         $campaign->name = $request->input('name');
+        $campaign->target_audience = $request->input('target_audience');
         $campaign->details = $request->input('details');
         $campaign->author_id = Auth::user()->id;
         $campaign->save();
@@ -66,6 +67,7 @@ class CampaignController extends Controller
 
         $campaign =  Campaign::findOrFail($id);
         $campaign->name = $request->input('name');
+        $campaign->target_audience = $request->input('target_audience');
         $campaign->category_id = $request->input('category');
         $campaign->details = $request->input('details');
         $campaign->video_url = $request->video;

@@ -13,9 +13,14 @@
                     <div class="inspire">
                         <div class="ps-card">
                             <h1>{{ $campaign->name }}</h1>
-                            <p>
+                            <p class="mb-4">
                                 {{ $campaign->details }}
                             </p>
+                            @if($campaign->target_audience)
+                            <p>
+                                Important for: <strong>{{$campaign->target_audience}}</strong>
+                            </p>
+                            @endif
 
                             <div class="row">
                                 <div class="col-sm-7">

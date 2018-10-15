@@ -58,8 +58,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('settings/notifications', 'SettingsController@updateNotifications')
             ->name('settings.updateNotifications');
 
-        //Categories
+        //Campaign Categories
         Route::resource('categories', 'CampaignCategoryController');
+
+        //Campaign TeamMembers
+        Route::get('campaigns/{campaignId}/member', 'TeamMemberController@create')->name('members.create');
+        Route::post('campaigns/{campaignId}/member', 'TeamMemberController@store')->name('members.store');
+        Route::get('members/{id}/edit', 'TeamMemberController@edit')->name('members.edit');
+        Route::put('members/{id}', 'TeamMemberController@update')->name('members.update');
+        Route::delete('members/{id}', 'TeamMemberController@destroy')->name('members.destroy');
     });
 
     Route::namespace('User')->middleware('redirect.admin')->prefix('user')->name('user.')->group(function () {
@@ -80,6 +87,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::post('campaigns/{id}/images/upload-main', 'CampaignController@handleMainFeaturedImage')
             ->name('campaigns.images.upload-main');
+
+        //Campaign Categories
+        //Route::resource('categories', 'CampaignCategoryController');
+
+        //Campaign TeamMembers
+        Route::get('campaigns/{campaignId}/member', 'TeamMemberController@create')->name('members.create');
+        Route::post('campaigns/{campaignId}/member', 'TeamMemberController@store')->name('members.store');
+        Route::get('members/{id}/edit', 'TeamMemberController@edit')->name('members.edit');
+        Route::put('members/{id}', 'TeamMemberController@update')->name('members.update');
+        Route::delete('members/{id}', 'TeamMemberController@destroy')->name('members.destroy');
     });
 
     Route::post('images/campaigns/{id}', 'ImageController@store')->name('images.campaigns');

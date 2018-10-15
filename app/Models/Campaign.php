@@ -25,6 +25,7 @@ class Campaign extends Model
         return [
             'name' => 'required|string|max:255',
             'details' => 'required|string',
+            'target_audience' => 'string',
         ];
     }
 
@@ -63,6 +64,10 @@ class Campaign extends Model
 
     public function category() {
         return $this->belongsTo(CampaignCategory::class);
+    }
+
+    public function members() {
+        return $this->hasMany(TeamMember::class);
     }
 
     public function getIsApprovedAttribute() {

@@ -4,6 +4,11 @@
     @yield('menu')
     <main class="py-4 secondary-light-bg">
         <div class="container">
+            @if(session()->has('message'))
+                <div class="alert alert-primary mb-3" role="alert">
+                    {{session('message')}}
+                </div>
+            @endif
             <div class="card mb-3">
                 <div class="card-header">
                     <div class="d-flex">

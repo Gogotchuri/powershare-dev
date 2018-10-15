@@ -6,6 +6,7 @@ use App\Http\Requests\User\StoreCampaign;
 use App\Http\Requests\User\UpdateCampaign;
 use App\Models\Campaign;
 use App\Models\Image;
+use App\Models\Reference\CampaignCategory;
 use App\Models\Reference\CampaignStatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -80,12 +81,13 @@ class CampaignController extends Controller
      */
     public function edit($id)
     {
+        $categories = CampaignCategory::all();
         $campaign = Auth::user()
             ->campaigns()
             ->where(['id' => $id, 'status_id' => CampaignStatus::DRAFT])
             ->findOrFail($id);
 
-        return view('user.campaigns.edit', compact('campaign'));
+        return view('user.campaigns.edit', compact('campaign', 'categories'));
     }
 
     /**
@@ -106,6 +108,7 @@ class CampaignController extends Controller
             $image = Image::forFeatured($request->file('featured-image'), 'Featured Image');
 
         $campaign->name = $request->input('name');
+        $campaign->category_id = $request->input('category');
         $campaign->details = $request->input('details');
         $campaign->video_url = $request->video;
         $campaign->ethereum_address = $request->ethereum_address;

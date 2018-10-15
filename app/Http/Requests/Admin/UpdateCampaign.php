@@ -29,6 +29,7 @@ class UpdateCampaign extends FormRequest
             'status_id' => 'required|exists:campaign_statuses,id',
             'video_url' => 'url',
             'ethereum_address' => 'nullable|string|max:255',
+            'category' => 'required|exists:campaign_categories,id',
         ]);
     }
 }

@@ -7,6 +7,7 @@
         name="{{ snake_case($name) }}"
         {{ isset($required) ? 'required' : '' }}
         autofocus>
+        <option value=""> {{$name}} </option>
         @foreach($options as $option)
             <option value="{{ $option->id }}" {{ isset($value) && $value === $option->id ? 'selected' : '' }}>
                 {{ $option->$title }}

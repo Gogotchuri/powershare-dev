@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Reference\CampaignCategory;
 use App\Models\Reference\CampaignStatus;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
@@ -60,8 +61,16 @@ class Campaign extends Model
         return $this->hasMany(SocialLink::class);
     }
 
+    public function category() {
+        return $this->belongsTo(CampaignCategory::class);
+    }
+
     public function getIsApprovedAttribute() {
         return $this->status_id == CampaignStatus::APPROVED;
+    }
+
+    public function getCategoryIconAttribute() {
+        return optional($this->category)->icon;
     }
 
     public function setIsApprovedAttribute($value) {

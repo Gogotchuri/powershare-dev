@@ -64,7 +64,7 @@
                                     <div class="ps-card-image-container fade">
                                         <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});">
                                         <span class="ps-card-icon">
-                                            <img class="" src="img/icons/icon_1.png">
+                                            <img style="@if(!$campaign->category_icon) display: none; @endif" class="" src="data:image/png;base64,{{base64_encode($campaign->category_icon)}}">
                                         </span>
                                         </div>
                                     </div>

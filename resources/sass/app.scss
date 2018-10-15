@@ -176,13 +176,33 @@ $logo-height: $front-page-spacer * 0.64;
         .inspire {
             margin: 0 $front-page-spacer;
 
-            .inspire-first {
-                text-transform: uppercase;
+            @include media-breakpoint-down(lg) {
+                margin: 0 20px;
             }
 
-            .inspire-second {
-                font-weight: 200;
-                font-size: 1.35rem;
+            @include media-breakpoint-down(md) {
+
+                .inspire-first {
+                    font-size: 1.7rem;
+                    text-transform: uppercase;
+                }
+
+                .inspire-second {
+                    font-weight: 200;
+                    font-size: 1.15rem;
+                }
+            }
+
+            @include media-breakpoint-up(lg) {
+
+                .inspire-second {
+                    font-weight: 200;
+                    font-size: 1.35rem;
+                }
+            }
+
+            .inspire-first {
+                text-transform: uppercase;
             }
         }
 
@@ -457,4 +477,12 @@ $logo-height: $front-page-spacer * 0.64;
   margin-top: -$front-page-spacer * 3;
   min-height: 50vw;
   padding-top: $front-page-spacer * 2.5;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 0;
+    }
+
+    @include media-breakpoint-up(xl) {
+        background-size: 35vw;
+    }
 }

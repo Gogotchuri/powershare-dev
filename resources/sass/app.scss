@@ -92,8 +92,6 @@ $logo-height: $front-page-spacer * 0.64;
 }
 
 .front-page {
-    padding-top: $front-page-spacer;
-
     p, h1, h2, h3, h4, h5, h6, a, span, input, select, option, button, span {
         font-family: 'Adrianna', non-serif;
     }
@@ -162,7 +160,6 @@ $logo-height: $front-page-spacer * 0.64;
         }
 
         &.inspiring-section-second {
-            margin-top: 25rem;
             color: $secondary;
 
             .inspire {
@@ -441,4 +438,23 @@ $logo-height: $front-page-spacer * 0.64;
           background-color: darken($primary, 10%);
       }
   }
+}
+
+.wrapper-animation-one {
+  background-image: url(/img/animation-one.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: 60vw;
+  min-height: 60vw;
+  padding-top: $front-page-spacer;
+}
+
+.wrapper-animation-two {
+  background-image: url(/img/animation-two.png);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 40vw;
+  margin-top: -$front-page-spacer * 3;
+  min-height: 50vw;
+  padding-top: $front-page-spacer * 2.5;
 }

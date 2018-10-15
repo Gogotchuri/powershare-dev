@@ -37,6 +37,11 @@
             ])
 
             @include('components.form.input', [
+                'name' => 'Target audience',
+                'value' => $campaign->target_audience,
+            ])
+
+            @include('components.form.input', [
                'name' => 'Video',
                'value' => $campaign->video_url,
             ])

@@ -31,6 +31,17 @@
 @section('other')
     <div class="card mb-3">
         <div class="card-header">
+            Image gallery
+        </div>
+        <div class="card-body">
+            @include('components.dropzone', [
+                'images' => $campaign->images,
+                'url' => route('images.campaigns', $campaign->id)
+            ])
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">
             Team members
             <div class="btn-group float-right">
                 <a href="{{route('user.members.create', ['campaignId' => $campaign->id])}}" class="btn btn-success">Add
@@ -71,17 +82,6 @@
                 @endforeach
             </div>
 
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            Image gallery
-        </div>
-        <div class="card-body">
-            @include('components.dropzone', [
-                'images' => $campaign->images,
-                'url' => route('images.campaigns', $campaign->id)
-            ])
         </div>
     </div>
 @endsection

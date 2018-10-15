@@ -20,7 +20,7 @@
                     <div class="col-md-7">
                         <div class="row">
 
-                            <div class="col-sm-6 offset-sm-6 text-right">
+                            <div class="col-sm-6 offset-sm-6 text-sm-right">
                                 @include('public.partials.auth-buttons')
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                     <div class="col-sm-5 left-panel">
                         <div class="row">
                             <div class="col-md-12">
-                                <a href="/">
+                                <a href="/" class="d-block position-relative">
                                     <img src="/img/logo-front-orange.png" alt="Powershare logo" class="logo">
                                 </a>
                             </div>

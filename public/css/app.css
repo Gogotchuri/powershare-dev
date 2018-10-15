@@ -16068,6 +16068,12 @@ input:checked + .slider:before {
   font-size: 2rem;
 }
 
+@media (max-width: 767.98px) {
+  .front-page ul.side-connect-menu {
+    top: 210px;
+  }
+}
+
 .front-page ul.side-connect-menu li {
   padding: 5px;
 }
@@ -16141,6 +16147,21 @@ input:checked + .slider:before {
   .front-page .inspiring-section .inspire .inspire-second {
     font-weight: 200;
     font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .front-page .inspiring-section .inspire {
+    margin: 0 60px;
+  }
+
+  .front-page .inspiring-section .inspire h1.inspire-first {
+    font-size: 1.2em;
+    margin-bottom: 1em !important;
+  }
+
+  .front-page .inspiring-section .inspire h3.inspire-second {
+    font-size: 1.2em;
   }
 }
 
@@ -16436,14 +16457,44 @@ input:checked + .slider:before {
   padding-top: 60px;
 }
 
+@media (max-width: 767.98px) {
+  .wrapper-animation-one .inspiring-section .logo {
+    height: auto;
+    max-width: 40vw;
+  }
+}
+
 .wrapper-animation-two {
-  background-image: url(/img/animation-two.png);
   background-position: left top;
   background-repeat: no-repeat;
   background-size: 40vw;
   margin-top: -180px;
   min-height: 50vw;
   padding-top: 150px;
+}
+
+@media (min-width: 576px) {
+  .wrapper-animation-two {
+    background-image: url(/img/animation-two.png);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .wrapper-animation-two {
+    padding-top: 60px;
+  }
+
+  .wrapper-animation-two .logo {
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 60%;
+  }
+
+  .wrapper-animation-two .campaigns-list {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
 }
 
 @media (max-width: 1199.98px) {
@@ -16455,6 +16506,26 @@ input:checked + .slider:before {
 @media (min-width: 1200px) {
   .wrapper-animation-two {
     background-size: 35vw;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .campaign-page {
+    min-height: 100vh;
+  }
+
+  .campaign-page .left-panel .inspire {
+    margin-left: 0;
+    margin-top: 40vw;
+  }
+
+  .campaign-page .side-menu {
+    display: none !important;
+  }
+
+  .campaign-page .logo {
+    height: auto !important;
+    max-width: 40vw;
   }
 }
 

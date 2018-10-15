@@ -115,6 +115,11 @@ $logo-height: $front-page-spacer * 0.64;
 
         list-style: none;
         font-size: $font-size-lg * 2;
+
+        @include media-breakpoint-down(sm) {
+          top: 210px;
+        }
+
         li {
             padding: 5px;
         }
@@ -191,6 +196,19 @@ $logo-height: $front-page-spacer * 0.64;
                     font-weight: 200;
                     font-size: 1.15rem;
                 }
+            }
+
+            @include media-breakpoint-down(sm) {
+              margin: 0 $front-page-spacer;
+
+              h1.inspire-first {
+                font-size: 1.2em;
+                margin-bottom: 1em !important;
+              }
+
+              h3.inspire-second {
+                font-size: 1.2em;
+              }
             }
 
             @include media-breakpoint-up(lg) {
@@ -467,10 +485,16 @@ $logo-height: $front-page-spacer * 0.64;
   background-size: 60vw;
   min-height: 60vw;
   padding-top: $front-page-spacer;
+
+  @include media-breakpoint-down(sm) {
+    .inspiring-section .logo {
+      height: auto;
+      max-width: 40vw;
+    }
+  }
 }
 
 .wrapper-animation-two {
-  background-image: url(/img/animation-two.png);
   background-position: left top;
   background-repeat: no-repeat;
   background-size: 40vw;
@@ -478,11 +502,51 @@ $logo-height: $front-page-spacer * 0.64;
   min-height: 50vw;
   padding-top: $front-page-spacer * 2.5;
 
-    @include media-breakpoint-down(lg) {
-        margin-top: 0;
+  @include media-breakpoint-up(sm) {
+    background-image: url(/img/animation-two.png);
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-top: $front-page-spacer;
+
+    .logo {
+      height: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      max-width: 60%;
     }
 
-    @include media-breakpoint-up(xl) {
-        background-size: 35vw;
+    .campaigns-list {
+      padding-left: 15%;
+      padding-right: 15%;
     }
+  }
+
+  @include media-breakpoint-down(lg) {
+      margin-top: 0;
+  }
+
+  @include media-breakpoint-up(xl) {
+      background-size: 35vw;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .campaign-page {
+    min-height: 100vh;
+
+    .left-panel .inspire {
+      margin-left: 0;
+      margin-top: 40vw;
+    }
+
+    .side-menu {
+      display: none !important;
+    }
+
+    .logo {
+      height: auto !important;
+      max-width: 40vw;
+    }
+  }
 }

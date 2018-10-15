@@ -17,6 +17,10 @@
         'required' => true,
     ])
 
+    @include('components.form.input', [
+        'name' => 'Target audience',
+    ])
+
     @include('components.form.textarea', [
         'name' => 'Details',
         'required' => true,

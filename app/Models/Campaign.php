@@ -25,6 +25,7 @@ class Campaign extends Model
         return [
             'name' => 'required|string|max:255',
             'details' => 'required|string',
+            'target_audience' => 'string',
         ];
     }
 

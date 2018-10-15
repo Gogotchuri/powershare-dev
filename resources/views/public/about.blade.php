@@ -23,7 +23,7 @@
                                 This platform represents an Alpha version of the final product and utilizes CoinHive scripts, to mine Monero (XMR), POWERSHARE is now on the mission to optimize existing technologies for Fundmining and establish browser-based mining as basic technology for charity crowdfunding.
                             </p>
                             <p>
-                                * For more details, visit <a href="http://www.fire.powershare.fun">www.fire.powershare.fund</a>.
+                                * For more details, visit <a href="http://www.fire.powershare.fund">www.fire.powershare.fund</a>.
                             </p>
 
                             <div class="col-md-12 text-center">

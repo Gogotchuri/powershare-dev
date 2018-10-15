@@ -65,6 +65,10 @@ class Campaign extends Model
         return $this->belongsTo(CampaignCategory::class);
     }
 
+    public function members() {
+        return $this->hasMany(TeamMember::class);
+    }
+
     public function getIsApprovedAttribute() {
         return $this->status_id == CampaignStatus::APPROVED;
     }

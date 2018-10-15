@@ -12,26 +12,32 @@
 
     @csrf
 
-    @include('components.form.input', [
-        'name' => 'Name',
-        'required' => true,
-    ])
-
-
-        <div class="col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Main featured image
-                </div>
-                <div class="card-body">
-                    <img id="icon" src="" class="w-100 mb-3" />
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" name="icon" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Image
+                    </div>
+                    <div class="card-body">
+                        <img id="featured-image" src="" class="w-100 mb-3" />
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" name="image" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                @include('components.form.input', [
+                'name' => 'Name',
+                'required' => true,
+            ])
             </div>
         </div>
 
@@ -50,7 +56,7 @@
                 var reader = new FileReader();
 
                 reader.onload = function(e) {
-                    $('#icon').attr('src', e.target.result);
+                    $('#featured-image').attr('src', e.target.result);
                 }
 
                 reader.readAsDataURL(input.files[0]);
@@ -58,7 +64,7 @@
         }
 
         $("#image-input").change(function() {
-            $("#icon").show();
+            $("#featured-image").show();
             readURL(this);
         });
     </script>

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Image;
+use App\Models\Reference\CampaignStatus;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,10 @@ class TeamMemberController extends Controller
      */
     public function create($campaignId)
     {
-        return view('admin.members.create', compact('campaignId'));
+        // Check if user can editd this campaign
+        $this->canEditCampaignId($campaignId);
+
+        return view('user.members.create', compact('campaignId'));
     }
 
     /**
@@ -39,6 +43,9 @@ class TeamMemberController extends Controller
      */
     public function store($campaignId, Request $request)
     {
+        // Check if user can editd this campaign
+        $this->canEditCampaignId($campaignId);
+
         $this->validate($request, [
             'name' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif',
@@ -77,7 +84,10 @@ class TeamMemberController extends Controller
     {
         $member = TeamMember::findOrFail($id);
 
-        return view('admin.members.edit', compact('member'));
+        // Check if user can editd this campaign
+        $this->canEditCampaignId($member->campaign_id);
+
+        return view('user.members.edit', compact('member'));
     }
 
     /**
@@ -90,6 +100,9 @@ class TeamMemberController extends Controller
     public function update($id, Request $request)
     {
         $member = TeamMember::findOrFail($id);
+
+        // Check if user can editd this campaign
+        $this->canEditCampaignId($member->campaign_id);
 
         $this->validate($request, [
             'name' => 'required',
@@ -115,8 +128,23 @@ class TeamMemberController extends Controller
      */
     public function destroy($id)
     {
-        TeamMember::findOrFail($id)->delete();
+        $member = TeamMember::findOrFail($id);
+
+        // Check if user can editd this campaign
+        $this->canEditCampaignId($member->campaign_id);
+
+        $member->delete();
 
         return back()->with('message', 'Team member deleted');
+    }
+
+    private function canEditCampaignId($campaignId) {
+
+        //If user owns campaign and campaign is draft, user can edit it, otherwise abort
+        if(Auth::user()->campaigns()->where([
+                'id' => $campaignId,
+                'status_id' => CampaignStatus::DRAFT, ])->count() < 1) {
+            abort(404);
+        }
     }
 }

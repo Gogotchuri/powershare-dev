@@ -25,15 +25,15 @@
         <div class="col-sm-4">
             <div class="card mb-3">
                 <div class="card-header">
-                    Main featured image
+                    Image
                 </div>
                 <div class="card-body">
-                    <img id="featured-image" src="{{ optional($member->featured_image)->thumbnail_url }}" class="w-100 mb-3"
-                        @if(!$member->featured_image_id) style="display: none;" @endif
+                    <img id="featured-image" src="{{ $member->image_url }}" class="w-100 mb-3"
+                         @if(!$member->image_url) style="display: none;" @endif
                     />
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" name="featured-image" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
+                            <input type="file" name="image" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                     </div>

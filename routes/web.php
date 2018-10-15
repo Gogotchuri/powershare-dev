@@ -12,6 +12,7 @@
 */
 
 Route::get('about', 'PageController@about')->name('about');
+Route::get('faq', 'PageController@faq')->name('faq');
 
 // Public
 

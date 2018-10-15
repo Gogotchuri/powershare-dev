@@ -10,4 +10,9 @@ class PageController extends Controller
     {
         return view('public.about');
     }
+
+    public function faq()
+    {
+        return view('public.faq');
+    }
 }

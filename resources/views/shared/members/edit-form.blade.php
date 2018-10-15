@@ -13,15 +13,7 @@
     {{method_field('PUT')}}
 
     @csrf
-
     <div class="row">
-        <div class="col-sm-8">
-            @include('components.form.input', [
-                'name' => 'Name',
-                'required' => true,
-                'value' => $member->name,
-            ])
-        </div>
         <div class="col-sm-4">
             <div class="card mb-3">
                 <div class="card-header">
@@ -33,12 +25,23 @@
                     />
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
+                            <input type="file" name="image" class="custom-file-input" id="image-input"
+                                   aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            @include('components.form.input', [
+                'name' => 'Name',
+                'required' => true,
+                'value' => $member->name,
+            ])
         </div>
     </div>
 
@@ -50,7 +53,7 @@
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
 
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         $('#featured-image').attr('src', e.target.result);
                     }
 
@@ -58,7 +61,7 @@
                 }
             }
 
-            $("#image-input").change(function() {
+            $("#image-input").change(function () {
                 $("#featured-image").show();
                 readURL(this);
             });

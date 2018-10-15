@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-5">
                         <a href="/">
-                            <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
+                            <img src="/img/logo-gradient.png" alt="Powershare logo" class="logo">
                         </a>
                     </div>
                     <div class="col-md-7">

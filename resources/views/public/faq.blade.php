@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-sm-8 left-panel">
                     <a href="/">
-                        <img src="/img/logo-front.png" alt="Powershare logo" class="logo">
+                        <img src="/img/logo-gradient.png" alt="Powershare logo" class="logo">
                     </a>
                     @include('public.partials.nav')
                     <div class="inspire">

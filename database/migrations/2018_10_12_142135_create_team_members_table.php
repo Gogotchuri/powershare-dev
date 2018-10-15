@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCampaignCategoriesTable extends Migration
+class CreateTeamMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,15 @@ class CreateCampaignCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('campaign_categories', function (Blueprint $table) {
+        Schema::create('team_members', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->unsignedInteger('campaign_id');
+            $table->foreign('campaign_id')->references('id')->on('campaigns');
+
+            $table->string('name');
+            $table->string('image_url');
+
             $table->timestamps();
         });
     }
@@ -26,6 +33,6 @@ class CreateCampaignCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campaign_categories');
+        Schema::dropIfExists('team_members');
     }
 }

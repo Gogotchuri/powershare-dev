@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('about', 'PageController@about')->name('about');
+
 // Public
 
 Route::namespace('Front')->name('public.')->group(function () {

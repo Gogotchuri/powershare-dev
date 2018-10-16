@@ -40,11 +40,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="text-right">
-                        @include('public.partials.auth-buttons')
-                    </div>
-                </div>
             </div>
         </div>
     </div>

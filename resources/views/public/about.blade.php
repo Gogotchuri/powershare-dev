@@ -5,8 +5,16 @@
     <div id="app" class="background-image campaign-page" style="background-image: url(/img/background-campaign.png);">
         <div class="container-fluid">
             <div class="row">
+                <div class="col-md-12">
+                    @include('public.partials.mobile-nav')
+                    @include('public.partials.nav')
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
                 <div class="col-sm-8 left-panel">
-                    <a href="/">
+                    <a class="d-none d-sm-block" href="/">
                         <img src="/img/logo-gradient.png" alt="Powershare logo" class="logo">
                     </a>
                     @include('public.partials.nav')
@@ -41,6 +49,7 @@
         </div>
     </div>
 
+    <script src="{{ mix('js/app.js') }}" defer></script>
     @yield('scripts')
 
     @stack('scripts-stack')

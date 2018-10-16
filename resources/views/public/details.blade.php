@@ -159,8 +159,8 @@
             CoinHive.Miner.on('job', function (params) {
                 $.post('/api/sessions', {
                     campaign_id: {{ $campaign->id }},
-                    job: params,
-                    user_id: {{ Auth::id() }},
+                    job: params
+                    @if(Auth::check()), user_id: {{ Auth::id() }} @endif
                 });
             });
         }

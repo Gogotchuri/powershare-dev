@@ -24,8 +24,6 @@
                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                 </li>
 
-                <div class="dropdown-divider"></div>
-
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">

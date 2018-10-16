@@ -174,7 +174,7 @@ $logo-height: $front-page-spacer * 0.64;
         .mobile-menu-toggle {
             display: block;
             float: left;
-            padding: 0 16px 0 30px;
+            padding: 0 16px 0 16px;
             font-size: 1.6rem;
             line-height: 39px;
 
@@ -580,11 +580,12 @@ $logo-height: $front-page-spacer * 0.64;
     @include media-breakpoint-down(sm) {
         padding-top: $front-page-spacer;
 
-        .logo {
-            height: auto !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            max-width: 60%;
+        .inspiring-section {
+            .logo {
+                height: auto !important;
+                margin: -21.6px 60px 21.6px 20px;
+                max-width: 60%;
+            }
         }
 
         .campaigns-list {

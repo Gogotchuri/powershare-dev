@@ -16129,7 +16129,7 @@ input:checked + .slider:before {
 .front-page .mobile-menu .mobile-menu-toggle {
   display: block;
   float: left;
-  padding: 0 16px 0 30px;
+  padding: 0 16px 0 16px;
   font-size: 1.6rem;
   line-height: 39px;
 }
@@ -16559,10 +16559,9 @@ input:checked + .slider:before {
     padding-top: 60px;
   }
 
-  .wrapper-animation-two .logo {
+  .wrapper-animation-two .inspiring-section .logo {
     height: auto !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin: -21.6px 60px 21.6px 20px;
     max-width: 60%;
   }
 

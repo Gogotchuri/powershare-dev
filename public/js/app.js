@@ -58262,7 +58262,7 @@ $(document).ready(function () {
         toggleButton.on('click', function (e) {
             e.preventDefault();
 
-            mainMenu.css('max-height', 'none');
+            mainMenu.removeClass('hidden');
         });
 
         $(document).on('click touch', function (e) {
@@ -58270,7 +58270,7 @@ $(document).ready(function () {
             if (!toggleButton.is(e.target) && toggleButton.has(e.target).length === 0 && !mainMenu.is(e.target) // if the target of the click isn't the container...
             && mainMenu.has(e.target).length === 0) // ... nor a descendant of the container
                 {
-                    mainMenu.css('max-height', '0');
+                    mainMenu.addClass('hidden');
                 }
         });
     }

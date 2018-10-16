@@ -159,8 +159,12 @@ $logo-height: $front-page-spacer * 0.64;
             top: 0;
             left: 0;
             width: 100%;
-            max-height: 0;
             overflow: hidden;
+            max-height: none;
+
+            &.hidden {
+                max-height: 0;
+            }
 
             a {
                 background-color: #FFF;

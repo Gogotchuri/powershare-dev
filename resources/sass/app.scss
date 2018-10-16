@@ -637,6 +637,24 @@ $logo-height: $front-page-spacer * 0.64;
     }
 }
 
+.owners {
+    margin: $front-page-spacer $front-page-spacer 0;
+
+    .owner-img {
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto $front-page-spacer / 4;
+        height: 100px;
+        width: 100px;
+    }
+
+    p {
+        text-align: center;
+    }
+}
+
 .about-links {
     img {
         display: block;

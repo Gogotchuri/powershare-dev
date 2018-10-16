@@ -85,6 +85,21 @@
                             </div>
 
                         </div>
+                        @if($campaign->members)
+                        <div class="owners">
+                            <h1 class="mb-3">
+                                Owners
+                            </h1>
+                            <div class="row">
+                                @foreach($campaign->members as $member)
+                                    <div class="col-xs-4 col-sm-3 col-md-2">
+                                        <div class="owner-img" style="background-image: url({{ $member->image_url }})"></div>
+                                        <p>{{ $member->name }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        @endif
                         <div class="comments">
                             <h1 class="mb-3">Comments</h1>
                             @forelse($campaign->public_comments as $comment)

@@ -16680,6 +16680,24 @@ input:checked + .slider:before {
   }
 }
 
+.owners {
+  margin: 60px 60px 0;
+}
+
+.owners .owner-img {
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 15px;
+  height: 100px;
+  width: 100px;
+}
+
+.owners p {
+  text-align: center;
+}
+
 .about-links img {
   display: block;
   max-width: 60px;

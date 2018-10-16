@@ -9,10 +9,11 @@
                 <li><a href="https://web.telegram.org/#/im?p=@powershare"><i class="fab fa-telegram-plane"></i></a></li>
                 <li><a href="https://facebook.com/POWERSHARE.FUND"><i class="fab fa-facebook-f"></i></a></li>
             </ul>
-            @include('public.partials.nav')
             <div class="container-fluid inspiring-section inspiring-section-first">
                 <div class="row">
                     <div class="col-md-5">
+                        <a class="side-menu-toggle" href="#"><i class="fas fa-bars"></i></a>
+                        @include('public.partials.nav')
                         <a href="/">
                             <img src="/img/logo-gradient.png" alt="Powershare logo" class="logo">
                         </a>

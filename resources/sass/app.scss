@@ -125,27 +125,76 @@ $logo-height: $front-page-spacer * 0.64;
         }
     }
 
+    @include media-breakpoint-down(xs) {
+        .side-menu-toggle {
+            display: block;
+            float: left;
+            padding: 0 30px;
+            font-size: 1.6rem;
+            margin: -13px;
+        }
+    }
+
+    @include media-breakpoint-up(sm) {
+        .side-menu-toggle {
+            display: none;
+        }
+    }
+
     .side-menu {
-        position: fixed;
-        top: 120px;
-        z-index: $fixed-menu-z-index;
-        display: block;
-        transform: rotate(90deg);
-        transform-origin: left bottom 0;
 
         a {
-            display: inline-block;
-            line-height: $front-page-spacer;
-            margin: 0 $front-page-spacer / 4;
-            -moz-transform: scale(-1, -1);
-            -webkit-transform: scale(-1, -1);
-            -o-transform: scale(-1, -1);
-            -ms-transform: scale(-1, -1);
-            transform: scale(-1, -1);
             color: $secondary;
 
             &:hover {
                 color: darken($secondary, 10%);
+            }
+        }
+
+        @include media-breakpoint-down(xs) {
+
+            position: fixed;
+            z-index: $fixed-menu-z-index;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+
+            a {
+                background-color: #FFF;
+                width: 100%;
+                display: block;
+                padding: 20px;
+            }
+
+            .logo {
+                display: block;
+            }
+        }
+
+        @include media-breakpoint-up(sm) {
+            position: fixed;
+            top: 120px;
+            z-index: $fixed-menu-z-index;
+            display: block;
+            transform: rotate(90deg);
+            transform-origin: left bottom 0;
+
+            a {
+                display: inline-block;
+                line-height: $front-page-spacer;
+                margin: 0 $front-page-spacer / 4;
+                -moz-transform: scale(-1, -1);
+                -webkit-transform: scale(-1, -1);
+                -o-transform: scale(-1, -1);
+                -ms-transform: scale(-1, -1);
+                transform: scale(-1, -1);
+            }
+
+            .side-menu-toggle {
+                display: none;
             }
         }
     }
@@ -376,6 +425,7 @@ $logo-height: $front-page-spacer * 0.64;
     }
 
     .side-menu {
+
       display: block;
       transform: rotate(90deg);
       transform-origin: left bottom 0;

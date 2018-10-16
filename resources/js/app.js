@@ -196,4 +196,25 @@ $(document).ready(function () {
     mainInputs.change(function (e) {
         terms.collapse('show');
     });
+
+
+    let mainMenu = $('.side-menu');
+    let toggleButton = $('.side-menu-toggle');
+
+    if(mainMenu.length && toggleButton.length) {
+        toggleButton.on('click', function (e) {
+            e.preventDefault();
+
+            mainMenu.css('max-height', 'none');
+        });
+
+        $(document).on('click touch', function (e) {
+
+            if (!toggleButton.is(e.target) && toggleButton.has(e.target).length === 0  && !mainMenu.is(e.target) // if the target of the click isn't the container...
+                && mainMenu.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+                mainMenu.css('max-height', '0');
+            }
+        });
+    }
 });

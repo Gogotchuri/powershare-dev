@@ -25,9 +25,9 @@
                                 {{ $campaign->details }}
                             </p>
                             @if($campaign->target_audience)
-                            <p>
-                                Important for: <strong>{{$campaign->target_audience}}</strong>
-                            </p>
+                                <p>
+                                    Important for: <strong>{{$campaign->target_audience}}</strong>
+                                </p>
                             @endif
 
                             <div class="row">
@@ -47,27 +47,36 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
-                                    <div class="coinhive-miner mb-3"
-                                         style="width: 100%; height: 250px"
-                                         data-key="pzZHmhyywPSQ7Q2ydEFGFK01kXVKiS0x"
-                                         data-user="{{ Auth::user()
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="coinhive-miner mb-3"
+                                                 style="width: 100%; height: 250px"
+                                                 data-key="pzZHmhyywPSQ7Q2ydEFGFK01kXVKiS0x"
+                                                 data-user="{{ Auth::user()
                                       ? $campaign->id . '-' . Auth::id()
                                       : $campaign->id . '-' . 0 }}"
-                                         data-autostart="true"
-                                         data-whitelabel="false"
-                                         data-background="#ffffff"
-                                         data-text="#888888"
-                                         data-action="#ff0000"
-                                         data-graph="#00cc00"
-                                         data-threads="4"
-                                         data-throttle="0.8">
-                                        <em>Loading...</em>
+                                                 data-autostart="true"
+                                                 data-whitelabel="false"
+                                                 data-background="#ffffff"
+                                                 data-text="#888888"
+                                                 data-action="#ff0000"
+                                                 data-graph="#00cc00"
+                                                 data-threads="4"
+                                                 data-throttle="0.8">
+                                                <em>Loading...</em>
+                                            </div>
+                                        </div>
                                     </div>
+
                                     @if($campaign->ethereum_address)
-                                        <a class="btn btn-secondary d-block m-lg-auto"
-                                           href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
-                                            Donate
-                                        </a>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <a class="btn btn-secondary d-block m-lg-auto"
+                                                   href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
+                                                    Donate
+                                                </a>
+                                            </div>
+                                        </div>
                                     @endif
                                 </div>
                             </div>

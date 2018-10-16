@@ -16680,3 +16680,13 @@ input:checked + .slider:before {
   }
 }
 
+.about-links img {
+  display: block;
+  max-width: 60px;
+}
+
+.about-links a {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+

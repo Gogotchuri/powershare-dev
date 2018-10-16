@@ -24,6 +24,9 @@
                     <div class="inspire">
                         <div class="ps-card">
                             <h1>About Us</h1>
+                            <div class="videoWrapper mb-5">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/k5vwG_BofJ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
                             <p>
                                 Our unequal world desperately needs changes, but the power to change is limited by resources, reserved for the privileged few. We are here to level the playing field. We believe that small, personal, local changes lead to bigger shifts in society. That’s why we want to make sure every voice has a chance to be heard, every idea has enough fuel to get off the ground.
                             </p>
@@ -33,12 +36,22 @@
                             <p>
                                 This platform represents an Alpha version of the final product and utilizes CoinHive scripts, to mine Monero (XMR), POWERSHARE is now on the mission to optimize existing technologies for Fundmining and establish browser-based mining as basic technology for charity crowdfunding.
                             </p>
-                            <p>
+                            <p class="mb-5">
                                 * For more details, visit <a href="http://fire.powershare.fund">fire.powershare.fund</a>.
                             </p>
-
-                            <div class="videoWrapper">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/k5vwG_BofJ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <div class="row about-links">
+                                <div class="col-sm-6">
+                                    <a href="http://fire.powershare.fund/whitepaper">
+                                        <img src="/img/whitepaper.png" alt="" class="mb-3">
+                                        Whitepaper
+                                    </a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="http://fire.powershare.fund/crypto-economics">
+                                        <img src="/img/crypto-economic.png" alt="" class="mb-3">
+                                        Crypto Economics
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

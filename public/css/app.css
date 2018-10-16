@@ -16674,3 +16674,7 @@ input:checked + .slider:before {
   }
 }
 
+.dropdown-divider {
+  border-top: 1px solid #8b39ca;
+}
+

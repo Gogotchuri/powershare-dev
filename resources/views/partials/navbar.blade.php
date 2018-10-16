@@ -12,6 +12,20 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+
+                <!-- Main menu items -->
+                <li class="nav-item">
+                    <a class="nav-link"  href="{{ route('about') }}">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ \App\Models\Campaign::createPath() }}">Register Campaign</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
+                </li>
+
+                <div class="dropdown-divider"></div>
+
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">

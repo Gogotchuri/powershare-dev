@@ -11,7 +11,7 @@
 
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto text-center">
 
                 <!-- Main menu items -->
                 <li class="nav-item">

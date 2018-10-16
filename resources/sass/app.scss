@@ -107,7 +107,7 @@ $logo-height: $front-page-spacer * 0.64;
         position: fixed;
         right: 0;
         top: 180px;
-        z-index: $fixed-menu-z-index;
+        z-index: $fixed-menu-z-index -1;
 
         list-style: none;
         font-size: $font-size-lg * 2;
@@ -131,6 +131,7 @@ $logo-height: $front-page-spacer * 0.64;
             width: 100%;
             overflow: hidden;
             max-height: none;
+            background: #FFF;
 
             &.hidden {
                 max-height: 0;
@@ -138,20 +139,18 @@ $logo-height: $front-page-spacer * 0.64;
 
             a {
                 background-color: #FFF;
-                width: 100vw;
+                width: 100%;
                 display: block;
                 padding: 20px 0;
                 text-align: center;
+                color: $primary;
+
             }
 
             .authentication-buttons {
                 border: 0;
-
-                a {
-                    color: $primary;
-                    border: 0;
-                    border-radius: 0;
-                }
+                border-radius: 0;
+                width: 100%;
             }
 
             .logo {

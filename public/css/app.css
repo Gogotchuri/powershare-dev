@@ -16063,7 +16063,7 @@ input:checked + .slider:before {
   position: fixed;
   right: 0;
   top: 180px;
-  z-index: 999;
+  z-index: 999 -1;
   list-style: none;
   font-size: 2rem;
 }
@@ -16087,6 +16087,7 @@ input:checked + .slider:before {
   width: 100%;
   overflow: hidden;
   max-height: none;
+  background: #FFF;
 }
 
 .front-page .mobile-menu .mobile-menu-items.hidden {
@@ -16095,20 +16096,17 @@ input:checked + .slider:before {
 
 .front-page .mobile-menu .mobile-menu-items a {
   background-color: #FFF;
-  width: 100vw;
+  width: 100%;
   display: block;
   padding: 20px 0;
   text-align: center;
+  color: #652d90;
 }
 
 .front-page .mobile-menu .mobile-menu-items .authentication-buttons {
   border: 0;
-}
-
-.front-page .mobile-menu .mobile-menu-items .authentication-buttons a {
-  color: #652d90;
-  border: 0;
   border-radius: 0;
+  width: 100%;
 }
 
 .front-page .mobile-menu .mobile-menu-items .logo {

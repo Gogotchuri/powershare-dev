@@ -4,15 +4,17 @@
     <body>
     <div id="app" class="background-image front-page" style="background-image: url(/img/background-dotted.png)">
         <div class="wrapper-animation-one">
-            <div class="row">
-                <div class="col-md-12">
-                    @include('public.partials.mobile-nav')
-                    @include('public.partials.nav')
-                    <ul class="side-connect-menu">
-                        <li><a href="https://twitter.com/pwrshr"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="https://web.telegram.org/#/im?p=@powershare"><i class="fab fa-telegram-plane"></i></a></li>
-                        <li><a href="https://facebook.com/POWERSHARE.FUND"><i class="fab fa-facebook-f"></i></a></li>
-                    </ul>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        @include('public.partials.mobile-nav')
+                        @include('public.partials.nav')
+                        <ul class="side-connect-menu">
+                            <li><a href="https://twitter.com/pwrshr"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="https://web.telegram.org/#/im?p=@powershare"><i class="fab fa-telegram-plane"></i></a></li>
+                            <li><a href="https://facebook.com/POWERSHARE.FUND"><i class="fab fa-facebook-f"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 

@@ -13,11 +13,6 @@
 
 Route::get('about', 'PageController@about')->name('about');
 Route::get('faq', 'PageController@faq')->name('faq');
-Route::get('.well-known/pki-validation/8C76903276D50B6CAF0D249D5441B48F.txt', function() {
-    return "1D9E61D236BDA72941DC7C92F08D511EE1A339F95D00DD178F01C23B13E0CD30\n
-comodoca.com\n
-02818a28f2";
-});
 
 // Public
 

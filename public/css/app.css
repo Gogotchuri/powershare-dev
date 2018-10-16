@@ -16141,6 +16141,12 @@ input:checked + .slider:before {
           transform-origin: left bottom 0;
 }
 
+@media (max-width: 991.98px) {
+  .front-page .side-menu {
+    left: 10px;
+  }
+}
+
 .front-page .side-menu a {
   color: #f05523;
 }
@@ -16163,6 +16169,12 @@ input:checked + .slider:before {
 
 .front-page .inspiring-section.inspiring-section-first .inspire {
   margin-top: 40px;
+}
+
+@media (max-width: 767.98px) {
+  .front-page .inspiring-section.inspiring-section-first .inspire {
+    margin-top: 120px;
+  }
 }
 
 .front-page .inspiring-section.inspiring-section-first .inspire .inspire-second {
@@ -16207,7 +16219,7 @@ input:checked + .slider:before {
 
 @media (max-width: 767.98px) {
   .front-page .inspiring-section .inspire {
-    margin: 0 60px;
+    margin: 0 20px;
   }
 
   .front-page .inspiring-section .inspire h1.inspire-first {
@@ -16553,6 +16565,13 @@ input:checked + .slider:before {
   .wrapper-animation-two .campaigns-list {
     padding-left: 15%;
     padding-right: 15%;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .wrapper-animation-two {
+    padding-top: 60px;
+    margin-top: 50px;
   }
 }
 

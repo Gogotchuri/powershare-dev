@@ -178,6 +178,10 @@ $logo-height: $front-page-spacer * 0.64;
 
     .side-menu {
 
+        @include media-breakpoint-down(md) {
+            left: 10px;
+        }
+
         a {
             color: $secondary;
 
@@ -212,6 +216,10 @@ $logo-height: $front-page-spacer * 0.64;
 
             .inspire {
                 margin-top: 40px;
+
+                @include media-breakpoint-down(sm) {
+                    margin-top: 120px;
+                }
 
                 .inspire-second {
                     color: $secondary;
@@ -254,7 +262,7 @@ $logo-height: $front-page-spacer * 0.64;
             }
 
             @include media-breakpoint-down(sm) {
-                margin: 0 $front-page-spacer;
+                margin: 0 20px;
 
                 h1.inspire-first {
                     font-size: 1.2em;
@@ -578,6 +586,11 @@ $logo-height: $front-page-spacer * 0.64;
             padding-left: 15%;
             padding-right: 15%;
         }
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-top: 60px;
+        margin-top: 50px;
     }
 
     @include media-breakpoint-down(lg) {

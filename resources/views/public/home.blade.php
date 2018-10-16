@@ -10,10 +10,7 @@
                         @include('public.partials.mobile-nav')
                         @include('public.partials.nav')
                         <ul class="side-connect-menu">
-                            <li><a href="#"><img src="/img/icons/token.png"></img></a></li>
-                            <li><a href="https://twitter.com/pwrshr"><img src="/img/icons/twitter.png"></img></a></li>
-                            <li><a href="https://web.telegram.org/#/im?p=@powershare"><img src="/img/icons/telegram.png"></img></a></li>
-                            <li><a href="https://facebook.com/POWERSHARE.FUND"><img src="/img/icons/facebook.png"></img></a></li>
+                            @include('public.partials.social')
                         </ul>
                     </div>
                 </div>

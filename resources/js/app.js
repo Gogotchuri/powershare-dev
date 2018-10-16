@@ -198,8 +198,8 @@ $(document).ready(function () {
     });
 
 
-    let mainMenu = $('.side-menu');
-    let toggleButton = $('.side-menu-toggle');
+    let mainMenu = $('.mobile-menu-items');
+    let toggleButton = $('.mobile-menu-toggle');
 
     if(mainMenu.length && toggleButton.length) {
         toggleButton.on('click', function (e) {

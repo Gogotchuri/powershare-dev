@@ -4,6 +4,7 @@
     <body>
     <div id="app" class="background-image front-page" style="background-image: url(/img/background-dotted.png)">
         <div class="wrapper-animation-one">
+            @include('public.partials.mobile-nav')
             @include('public.partials.nav')
             <ul class="side-connect-menu">
                 <li><a href="https://twitter.com/pwrshr"><i class="fab fa-twitter"></i></a></li>
@@ -13,7 +14,6 @@
             <div class="container-fluid inspiring-section inspiring-section-first">
                 <div class="row">
                     <div class="col-md-5">
-                        <a class="side-menu-toggle" href="#"><i class="fas fa-bars"></i></a>
                         <a href="/">
                             <img src="/img/logo-gradient.png" alt="Powershare logo" class="logo">
                         </a>
@@ -21,8 +21,10 @@
                     <div class="col-md-7">
                         <div class="row">
 
-                            <div class="col-sm-6 offset-sm-6 text-sm-right">
-                                @include('public.partials.auth-buttons')
+                            <div class="col-sm-6 offset-sm-6 text-sm-right ">
+                                <div class="d-none d-sm-block">
+                                    @include('public.partials.auth-buttons')
+                                </div>
                             </div>
                         </div>
                     </div>

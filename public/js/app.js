@@ -58255,8 +58255,8 @@ $(document).ready(function () {
         terms.collapse('show');
     });
 
-    var mainMenu = $('.side-menu');
-    var toggleButton = $('.side-menu-toggle');
+    var mainMenu = $('.mobile-menu-items');
+    var toggleButton = $('.mobile-menu-toggle');
 
     if (mainMenu.length && toggleButton.length) {
         toggleButton.on('click', function (e) {

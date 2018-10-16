@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
-                                    <div class="row">
+                                    <div class="row mb-sm-5 mb-md-5">
                                         <div class="col-md-12">
                                             <div class="coinhive-miner mb-3"
                                                  style="width: 100%; height: 250px"

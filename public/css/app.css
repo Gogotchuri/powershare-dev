@@ -16164,6 +16164,7 @@ input:checked + .slider:before {
 
 .front-page .side-menu,
 .campaign-page .side-menu {
+  left: 0;
   position: fixed;
   top: 120px;
   z-index: 999;
@@ -16174,30 +16175,19 @@ input:checked + .slider:before {
           transform-origin: left bottom 0;
 }
 
-@media (max-width: 991.98px) {
-  .front-page .side-menu,
-  .campaign-page .side-menu {
-    left: 10px;
-  }
-}
-
 .front-page .side-menu a,
 .campaign-page .side-menu a {
   color: #f05523;
-}
-
-.front-page .side-menu a:hover,
-.campaign-page .side-menu a:hover {
-  color: #d23e0e;
-}
-
-.front-page .side-menu a,
-.campaign-page .side-menu a {
   display: inline-block;
   line-height: 60px;
   margin: 0 15px;
   -webkit-transform: scale(-1, -1);
   transform: scale(-1, -1);
+}
+
+.front-page .side-menu a:hover,
+.campaign-page .side-menu a:hover {
+  color: #d23e0e;
 }
 
 .front-page .inspiring-section.inspiring-section-first,

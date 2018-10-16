@@ -184,18 +184,7 @@ $logo-height: $front-page-spacer * 0.64;
 
     .side-menu {
 
-        @include media-breakpoint-down(md) {
-            left: 10px;
-        }
-
-        a {
-            color: $secondary;
-
-            &:hover {
-                color: darken($secondary, 10%);
-            }
-        }
-
+        left: 0;
         position: fixed;
         top: 120px;
         z-index: $fixed-menu-z-index;
@@ -204,6 +193,7 @@ $logo-height: $front-page-spacer * 0.64;
         transform-origin: left bottom 0;
 
         a {
+            color: $secondary;
             display: inline-block;
             line-height: $front-page-spacer;
             margin: 0 $front-page-spacer / 4;
@@ -212,6 +202,10 @@ $logo-height: $front-page-spacer * 0.64;
             -o-transform: scale(-1, -1);
             -ms-transform: scale(-1, -1);
             transform: scale(-1, -1);
+
+            &:hover {
+                color: darken($secondary, 10%);
+            }
         }
     }
 

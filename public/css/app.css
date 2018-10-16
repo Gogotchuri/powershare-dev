@@ -16095,21 +16095,20 @@ input:checked + .slider:before {
 
 .front-page .mobile-menu .mobile-menu-items a {
   background-color: #FFF;
-  width: 100%;
+  width: 100vw;
   display: block;
-  padding: 20px;
+  padding: 20px 0;
+  text-align: center;
 }
 
 .front-page .mobile-menu .mobile-menu-items .authentication-buttons {
   border: 0;
-  width: 100%;
 }
 
 .front-page .mobile-menu .mobile-menu-items .authentication-buttons a {
   color: #652d90;
   border: 0;
   border-radius: 0;
-  padding-left: 30px;
 }
 
 .front-page .mobile-menu .mobile-menu-items .logo {

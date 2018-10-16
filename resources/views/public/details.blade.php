@@ -52,7 +52,7 @@
                                          data-action="#ff0000"
                                          data-graph="#00cc00"
                                          data-threads="4"
-                                         data-throttle="0.1">
+                                         data-throttle="0.8">
                                         <em>Loading...</em>
                                     </div>
                                     @if($campaign->ethereum_address)

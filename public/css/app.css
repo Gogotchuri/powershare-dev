@@ -16084,7 +16084,7 @@ input:checked + .slider:before {
     float: left;
     padding: 0 30px;
     font-size: 1.6rem;
-    margin: -13px;
+    margin: -20px;
   }
 }
 

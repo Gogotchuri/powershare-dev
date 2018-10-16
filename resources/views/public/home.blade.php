@@ -4,6 +4,7 @@
     <body>
     <div id="app" class="background-image front-page" style="background-image: url(/img/background-dotted.png)">
         <div class="wrapper-animation-one">
+            @include('public.partials.nav')
             <ul class="side-connect-menu">
                 <li><a href="https://twitter.com/pwrshr"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="https://web.telegram.org/#/im?p=@powershare"><i class="fab fa-telegram-plane"></i></a></li>
@@ -13,7 +14,6 @@
                 <div class="row">
                     <div class="col-md-5">
                         <a class="side-menu-toggle" href="#"><i class="fas fa-bars"></i></a>
-                        @include('public.partials.nav')
                         <a href="/">
                             <img src="/img/logo-gradient.png" alt="Powershare logo" class="logo">
                         </a>

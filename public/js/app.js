@@ -58259,20 +58259,22 @@ $(document).ready(function () {
     var toggleButton = $('.mobile-menu-toggle');
 
     if (mainMenu.length && toggleButton.length) {
+        var hideMenu = function hideMenu(e) {
+            if (!toggleButton.is(e.target) && toggleButton.has(e.target).length === 0 && !mainMenu.is(e.target) // if the target of the click isn't the container...
+            && mainMenu.has(e.target).length === 0) // ... nor a descendant of the container
+                {
+                    mainMenu.addClass('hidden');
+                }
+        };
+
         toggleButton.on('click', function (e) {
             e.preventDefault();
 
             mainMenu.removeClass('hidden');
         });
 
-        $(document).on('click touch', function (e) {
-
-            if (!toggleButton.is(e.target) && toggleButton.has(e.target).length === 0 && !mainMenu.is(e.target) // if the target of the click isn't the container...
-            && mainMenu.has(e.target).length === 0) // ... nor a descendant of the container
-                {
-                    mainMenu.addClass('hidden');
-                }
-        });
+        $(document).on('click', hideMenu);
+        $(document).on('touchend', hideMenu);
     }
 });
 

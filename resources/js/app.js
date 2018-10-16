@@ -208,13 +208,15 @@ $(document).ready(function () {
             mainMenu.removeClass('hidden');
         });
 
-        $(document).on('click touch', function (e) {
-
+        function hideMenu(e) {
             if (!toggleButton.is(e.target) && toggleButton.has(e.target).length === 0  && !mainMenu.is(e.target) // if the target of the click isn't the container...
                 && mainMenu.has(e.target).length === 0) // ... nor a descendant of the container
             {
                 mainMenu.addClass('hidden');
             }
-        });
+        }
+
+        $(document).on('click', hideMenu);
+        $(document).on('touchend', hideMenu);
     }
 });

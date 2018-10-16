@@ -28,7 +28,7 @@
                     <div class="col-md-7">
                         <div class="row">
 
-                            <div class="col-sm-6 offset-sm-6 text-sm-right ">
+                            <div class="col-sm-8 offset-sm-4 text-sm-right ">
                                 <div class="d-none d-sm-block">
                                     @include('public.partials.auth-buttons')
                                 </div>

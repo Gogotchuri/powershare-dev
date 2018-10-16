@@ -118,6 +118,10 @@ $logo-height: $front-page-spacer * 0.64;
 
         li {
             padding: 5px;
+
+            .fa-facebook-f {
+                padding-left: 5px;
+            }
         }
     }
 
@@ -163,16 +167,17 @@ $logo-height: $front-page-spacer * 0.64;
             width: 50%;
 
             img {
-                width: 200px;
+                width: 152px;
             }
         }
 
         .mobile-menu-toggle {
             display: block;
             float: left;
-            padding: 0 30px;
+            padding: 0 16px 0 30px;
             font-size: 1.6rem;
-            line-height: 54px;
+            line-height: 39px;
+
         }
     }
 
@@ -262,7 +267,7 @@ $logo-height: $front-page-spacer * 0.64;
             }
 
             @include media-breakpoint-down(sm) {
-                margin: 0 20px;
+                margin: 0 40px 0 20px;
 
                 h1.inspire-first {
                     font-size: 1.2em;

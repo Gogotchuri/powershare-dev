@@ -16078,6 +16078,10 @@ input:checked + .slider:before {
   padding: 5px;
 }
 
+.front-page ul.side-connect-menu li .fa-facebook-f {
+  padding-left: 5px;
+}
+
 .front-page .mobile-menu .mobile-menu-items {
   position: fixed;
   z-index: 999;
@@ -16119,15 +16123,15 @@ input:checked + .slider:before {
 }
 
 .front-page .mobile-menu .logo img {
-  width: 200px;
+  width: 152px;
 }
 
 .front-page .mobile-menu .mobile-menu-toggle {
   display: block;
   float: left;
-  padding: 0 30px;
+  padding: 0 16px 0 30px;
   font-size: 1.6rem;
-  line-height: 54px;
+  line-height: 39px;
 }
 
 .front-page .side-menu {
@@ -16219,7 +16223,7 @@ input:checked + .slider:before {
 
 @media (max-width: 767.98px) {
   .front-page .inspiring-section .inspire {
-    margin: 0 20px;
+    margin: 0 40px 0 20px;
   }
 
   .front-page .inspiring-section .inspire h1.inspire-first {

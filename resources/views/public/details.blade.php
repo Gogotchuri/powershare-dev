@@ -22,6 +22,97 @@
                     </a>
                     @include('public.partials.nav')
                     <div class="inspire">
+
+                        <div class="ps-card">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="ps-card-image-container fade">
+                                        <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h1>{{ $campaign->name }}</h1>
+                                            <h2>Important for: {{$campaign->target_audience}}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                        </div>
+                                        <div class="col-md-6">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1>{{ $campaign->name }}</h1>
+                            <p class="mb-4">
+                                {{ $campaign->details }}
+                            </p>
+                            @if($campaign->target_audience)
+                                <p>
+                                    Important for: <strong>{{$campaign->target_audience}}</strong>
+                                </p>
+                            @endif
+
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <div id="light-slider-wrapper">
+                                        <ul id="light-slider">
+                                            @forelse($campaign->images as $image)
+                                                <li data-thumb="{{$image->thumbnail_url}}">
+                                                    <img src="{{$image->url}}"/>
+                                                </li>
+                                            @empty
+                                                <li data-thumb="{{$campaign->featured_image_url}}">
+                                                    <img src="{{$campaign->featured_image_url}}"/>
+                                                </li>
+                                            @endforelse
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row mb-sm-5 mb-md-5">
+                                        <div class="col-md-12">
+                                            <div class="coinhive-miner mb-3"
+                                                 style="width: 100%; height: 250px"
+                                                 data-key="pzZHmhyywPSQ7Q2ydEFGFK01kXVKiS0x"
+                                                 data-user="{{ Auth::user()
+                                      ? $campaign->id . '-' . Auth::id()
+                                      : $campaign->id . '-' . 0 }}"
+                                                 data-autostart="true"
+                                                 data-whitelabel="false"
+                                                 data-background="#ffffff"
+                                                 data-text="#888888"
+                                                 data-action="#ff0000"
+                                                 data-graph="#00cc00"
+                                                 data-threads="4"
+                                                 data-throttle="0.8">
+                                                <em>Loading...</em>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @if($campaign->ethereum_address)
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <a class="btn btn-secondary d-block m-lg-auto"
+                                                   href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
+                                                    Donate
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+
+                        </div>
+
+                        {{--Old card--}}
+
                         <div class="ps-card">
                             <h1>{{ $campaign->name }}</h1>
                             <p class="mb-4">

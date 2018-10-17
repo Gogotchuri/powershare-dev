@@ -16464,6 +16464,34 @@ input:checked + .slider:before {
   font-weight: 400;
 }
 
+.campaign-page .left-panel .ps-card-image-container {
+  padding: 0 6px;
+  overflow: visible;
+}
+
+.campaign-page .left-panel .ps-card-image-container .ps-card-image {
+  -webkit-transition: all 50ms ease-out;
+  transition: all 50ms ease-out;
+  -webkit-box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
+          box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
+  position: relative;
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.campaign-page .left-panel .ps-card-image-container .ps-card-image .ps-card-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 46px;
+  height: 46px;
+}
+
 .campaign-page .left-panel .logo {
   display: block;
   height: 60px;

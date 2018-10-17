@@ -493,10 +493,15 @@ $logo-height: $front-page-spacer * 0.64;
         }
 
         .inspire {
+
             .ps-card {
 
                 &.ps-card-main {
                     padding: $front-page-spacer / 2 $front-page-spacer / 3 $front-page-spacer / 2 $front-page-spacer;
+
+                    @include media-breakpoint-down(lg) {
+                        padding: $front-page-spacer / 2 $front-page-spacer / 3 $front-page-spacer / 2 $front-page-spacer / 3;
+                    }
 
                     h1 {
                         font-weight: $font-weight-bold;
@@ -552,12 +557,65 @@ $logo-height: $front-page-spacer * 0.64;
                     }
                 }
 
+                .campaign-details {
+                    @include media-breakpoint-down(lg) {
+                        margin-bottom: 140px;
+                    }
+                    @include media-breakpoint-down(sm) {
+                        margin-bottom: 140px;
+                    }
+                }
+
                 .fund-raising {
 
                     position: absolute;
                     width: 100%;
                     min-width: 280px;
                     bottom: 0;
+
+                    @include media-breakpoint-down(lg) {
+                        top: 100px;
+                        .fund-raising-bordered-object {
+
+                            .fire-img {
+                                bottom: 30px;
+                            }
+                        }
+
+                        .required-funding {
+                            display: block;
+                            margin-top: 10px;
+
+                            h6 {
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                    @include media-breakpoint-down(md) {
+                        top: 140px;
+                        .fund-raising-bordered-object {
+
+                            .fire-img {
+                                bottom: 30px;
+                            }
+                        }
+
+                        .required-funding {
+                            display: block;
+                            margin-top: 10px;
+
+                            h6 {
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                    @include media-breakpoint-down(sm) {
+                        top: 124px;
+                        bottom: auto;
+                        width: auto;
+                    }
 
                     .fund-raising-raised {
                         background: transparent;

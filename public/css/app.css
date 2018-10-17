@@ -16527,6 +16527,12 @@ input:checked + .slider:before {
   padding: 30px 20px 30px 60px;
 }
 
+@media (max-width: 1199.98px) {
+  .campaign-page .left-panel .inspire .ps-card.ps-card-main {
+    padding: 30px 20px 30px 20px;
+  }
+}
+
 .campaign-page .left-panel .inspire .ps-card.ps-card-main h1 {
   font-weight: 700;
 }
@@ -16578,11 +16584,69 @@ input:checked + .slider:before {
   font-size: 1rem;
 }
 
+@media (max-width: 1199.98px) {
+  .campaign-page .left-panel .inspire .ps-card .campaign-details {
+    margin-bottom: 140px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .campaign-page .left-panel .inspire .ps-card .campaign-details {
+    margin-bottom: 140px;
+  }
+}
+
 .campaign-page .left-panel .inspire .ps-card .fund-raising {
   position: absolute;
   width: 100%;
   min-width: 280px;
   bottom: 0;
+}
+
+@media (max-width: 1199.98px) {
+  .campaign-page .left-panel .inspire .ps-card .fund-raising {
+    top: 100px;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
+    bottom: 30px;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .campaign-page .left-panel .inspire .ps-card .fund-raising {
+    top: 140px;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
+    bottom: 30px;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .campaign-page .left-panel .inspire .ps-card .fund-raising {
+    top: 124px;
+    bottom: auto;
+    width: auto;
+  }
 }
 
 .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised {

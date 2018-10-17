@@ -16450,6 +16450,10 @@ input:checked + .slider:before {
   font-family: 'Adrianna', non-serif;
 }
 
+.campaign-page h1 {
+  font-weight: 700;
+}
+
 .campaign-page .left-panel {
   color: #652d90;
 }

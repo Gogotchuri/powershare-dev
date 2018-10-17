@@ -419,6 +419,10 @@ $logo-height: $front-page-spacer * 0.64;
         font-family: 'Adrianna', non-serif;
     }
 
+    h1 {
+        font-weight: $font-weight-bold;
+    }
+
     .left-panel {
         color: $primary;
 

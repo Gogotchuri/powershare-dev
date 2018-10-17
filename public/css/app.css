@@ -16495,7 +16495,7 @@ input:checked + .slider:before {
 .campaign-page .left-panel .logo {
   display: block;
   height: 60px;
-  margin: -21.6px 60px 21.6px 60px;
+  margin: -21.6px 60px 21.6px 0;
 }
 
 .campaign-page .left-panel .side-menu {
@@ -16514,25 +16514,104 @@ input:checked + .slider:before {
   transform: scale(-1, -1);
 }
 
-.campaign-page .left-panel .inspire {
-  margin-left: 60px;
-}
-
 .campaign-page .left-panel .inspire .ps-card {
   background: white;
   border-radius: 8px;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  padding: 30px 60px;
+  padding: 20px;
+}
+
+.campaign-page .left-panel .inspire .ps-card.ps-card-main {
+  padding: 30px 20px 30px 60px;
+}
+
+.campaign-page .left-panel .inspire .ps-card.ps-card-main h1 {
+  font-weight: 700;
+}
+
+.campaign-page .left-panel .inspire .ps-card.ps-card-main h2 {
+  color: #f05523;
+  font-weight: 300;
+  text-decoration: underline;
+  font-size: 0.7rem;
 }
 
 .campaign-page .left-panel .inspire .ps-card a.btn {
   border-radius: 19.2px;
+  border: 2px solid #652d90;
   height: 38.4px;
   line-height: 38.4px;
   padding: 0 38.4px;
   width: 150px;
+  color: #f05523;
+  text-transform: uppercase;
+  background: #FFF;
+}
+
+.campaign-page .left-panel .inspire .ps-card a.btn:hover {
+  background-color: #e6e5e5;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark {
+  padding: 15px 0;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark > div {
+  display: inline-block;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-img {
+  vertical-align: middle;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title {
+  vertical-align: middle;
+  padding-left: 7px;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title span {
+  display: block;
+  width: 100%;
+  height: 20px;
+  font-size: 0.7rem;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising {
+  background: transparent;
+  border: 2px solid #652d90;
+  border-radius: 23px;
+  color: #FFF;
+  display: inline-block;
+  font-weight: 700;
+  height: 42px;
+  padding: 0;
+  width: 100%;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .current {
+  background-color: #f05523;
+  border: 2px solid #f05523;
+  border-radius: 23px;
+  line-height: 42px;
+  color: white;
+  display: inline-block;
+  padding: 0 10.5px;
+  margin: -2px 0 0 -3px;
+  position: absolute;
+  min-width: 50%;
+  text-align: center;
+  font-family: 'Adrianna', non-serif;
+  font-weight: 400;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
+  position: absolute;
+  right: 10%;
+  bottom: 12px;
 }
 
 .campaign-page .left-panel .inspire .comments {

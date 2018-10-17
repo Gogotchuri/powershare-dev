@@ -23,8 +23,8 @@
                     @include('public.partials.nav')
                     <div class="inspire">
 
-                        <div class="ps-card">
-                            <div class="row">
+                        <div class="ps-card ps-card-main">
+                            <div class="row mb-3">
                                 <div class="col-md-4">
                                     <div class="ps-card-image-container fade">
                                         <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});">
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="row">
+                                    <div class="row mt-5 pt-4">
                                         <div class="col-md-12">
                                             <h1>{{ $campaign->name }}</h1>
                                             <h2>Important for: {{$campaign->target_audience}}</h2>
@@ -40,156 +40,100 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-
+                                            <div class="campaign-mark">
+                                                <div class="campaign-mark-img">
+                                                    <img src="data:image/png;base64,{{base64_encode(optional($campaign->category)->icon)}}">
+                                                </div>
+                                                <div class="campaign-mark-title">
+                                                    <span>Category</span>
+                                                    <span>{{optional($campaign->category)->name}}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-
+                                            <div class="campaign-mark">
+                                                <div class="campaign-mark-img">
+                                                    <img src="data:image/png;base64,{{base64_encode(optional($campaign->category)->icon)}}">
+                                                </div>
+                                                <div class="campaign-mark-title">
+                                                    <span>Category</span>
+                                                    <span>{{optional($campaign->category)->name}}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <h1>{{ $campaign->name }}</h1>
-                            <p class="mb-4">
-                                {{ $campaign->details }}
-                            </p>
-                            @if($campaign->target_audience)
-                                <p>
-                                    Important for: <strong>{{$campaign->target_audience}}</strong>
-                                </p>
-                            @endif
-
                             <div class="row">
-                                <div class="col-sm-7">
-                                    <div id="light-slider-wrapper">
-                                        <ul id="light-slider">
-                                            @forelse($campaign->images as $image)
-                                                <li data-thumb="{{$image->thumbnail_url}}">
-                                                    <img src="{{$image->url}}"/>
-                                                </li>
-                                            @empty
-                                                <li data-thumb="{{$campaign->featured_image_url}}">
-                                                    <img src="{{$campaign->featured_image_url}}"/>
-                                                </li>
-                                            @endforelse
-                                        </ul>
+                                <div class="col-md-7">
+                                    <p>{{ $campaign->details }}</p>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="fund-raising">
+                                                <div class="fund-raising-bordered-object">
+                                                    <div class="current">855,65 $</div>
+                                                    <img class="fire-img" src="/img/icons/fire.png" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <h6>Required funding</h6>
+                                            <h6>1,500 $</h6>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5">
-                                    <div class="row mb-sm-5 mb-md-5">
-                                        <div class="col-md-12">
-                                            <div class="coinhive-miner mb-3"
-                                                 style="width: 100%; height: 250px"
-                                                 data-key="pzZHmhyywPSQ7Q2ydEFGFK01kXVKiS0x"
-                                                 data-user="{{ Auth::user()
+                                <div class="col-md-5">
+                                    <div class="ps-card">
+                                        <div class="row mb-sm-5 mb-md-5">
+                                            <div class="col-md-12">
+                                                <div class="coinhive-miner mb-3"
+                                                     style="width: 100%; height: 250px"
+                                                     data-key="pzZHmhyywPSQ7Q2ydEFGFK01kXVKiS0x"
+                                                     data-user="{{ Auth::user()
                                       ? $campaign->id . '-' . Auth::id()
                                       : $campaign->id . '-' . 0 }}"
-                                                 data-autostart="true"
-                                                 data-whitelabel="false"
-                                                 data-background="#ffffff"
-                                                 data-text="#888888"
-                                                 data-action="#ff0000"
-                                                 data-graph="#00cc00"
-                                                 data-threads="4"
-                                                 data-throttle="0.8">
-                                                <em>Loading...</em>
+                                                     data-autostart="true"
+                                                     data-whitelabel="false"
+                                                     data-background="#ffffff"
+                                                     data-text="#888888"
+                                                     data-action="#ff0000"
+                                                     data-graph="#00cc00"
+                                                     data-threads="4"
+                                                     data-throttle="0.8">
+                                                    <em>Loading...</em>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    @if($campaign->ethereum_address)
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a class="btn btn-secondary d-block m-lg-auto"
-                                                   href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
-                                                    Donate
-                                                </a>
+                                        @if($campaign->ethereum_address)
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <a class="btn btn-secondary d-block m-lg-auto"
+                                                       href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
+                                                        Donate
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endif
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
-                        {{--Old card--}}
-
-                        <div class="ps-card">
-                            <h1>{{ $campaign->name }}</h1>
-                            <p class="mb-4">
-                                {{ $campaign->details }}
-                            </p>
-                            @if($campaign->target_audience)
-                                <p>
-                                    Important for: <strong>{{$campaign->target_audience}}</strong>
-                                </p>
-                            @endif
-
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <div id="light-slider-wrapper">
-                                        <ul id="light-slider">
-                                            @forelse($campaign->images as $image)
-                                                <li data-thumb="{{$image->thumbnail_url}}">
-                                                    <img src="{{$image->url}}"/>
-                                                </li>
-                                            @empty
-                                                <li data-thumb="{{$campaign->featured_image_url}}">
-                                                    <img src="{{$campaign->featured_image_url}}"/>
-                                                </li>
-                                            @endforelse
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="row mb-sm-5 mb-md-5">
-                                        <div class="col-md-12">
-                                            <div class="coinhive-miner mb-3"
-                                                 style="width: 100%; height: 250px"
-                                                 data-key="pzZHmhyywPSQ7Q2ydEFGFK01kXVKiS0x"
-                                                 data-user="{{ Auth::user()
-                                      ? $campaign->id . '-' . Auth::id()
-                                      : $campaign->id . '-' . 0 }}"
-                                                 data-autostart="true"
-                                                 data-whitelabel="false"
-                                                 data-background="#ffffff"
-                                                 data-text="#888888"
-                                                 data-action="#ff0000"
-                                                 data-graph="#00cc00"
-                                                 data-threads="4"
-                                                 data-throttle="0.8">
-                                                <em>Loading...</em>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    @if($campaign->ethereum_address)
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a target="_blank" class="btn btn-secondary d-block m-lg-auto"
-                                                   href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
-                                                    Donate
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-
-                        </div>
                         @if($campaign->members)
-                        <div class="owners">
-                            <h1 class="mb-3">
-                                Owners
-                            </h1>
-                            <div class="row">
-                                @foreach($campaign->members as $member)
-                                    <div class="col-xs-4 col-sm-3 col-md-2">
-                                        <div class="owner-img" style="background-image: url({{ $member->image_url }})"></div>
-                                        <p>{{ $member->name }}</p>
-                                    </div>
-                                @endforeach
+                            <div class="owners">
+                                <h1 class="mb-3">
+                                    Campaign owners
+                                </h1>
+                                <div class="row">
+                                    @foreach($campaign->members as $member)
+                                        <div class="col-xs-4 col-sm-3 col-md-2">
+                                            <div class="owner-img" style="background-image: url({{ $member->image_url }})"></div>
+                                            <p>{{ $member->name }}</p>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
                         @endif
                         <div class="comments">
                             <h1 class="mb-3">Comments</h1>

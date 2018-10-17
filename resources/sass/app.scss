@@ -428,6 +428,7 @@ $logo-height: $front-page-spacer * 0.64;
         }
 
         p {
+            //TODO: Set proper font here
             font-size: $font-size-base;
             font-weight: 400;
         }
@@ -483,13 +484,16 @@ $logo-height: $front-page-spacer * 0.64;
             }
         }
 
+        .ps-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            padding: $front-page-spacer / 3;
+        }
+
         .inspire {
             .ps-card {
-                background: white;
-                border-radius: 8px;
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-                overflow: hidden;
-                padding: $front-page-spacer / 3;
 
                 &.ps-card-main {
                     padding: $front-page-spacer / 2 $front-page-spacer / 3 $front-page-spacer / 2 $front-page-spacer;
@@ -502,7 +506,7 @@ $logo-height: $front-page-spacer * 0.64;
                         color: $secondary;
                         font-weight: $font-weight-light;
                         text-decoration: underline;
-                        font-size: $font-size-base * 0.8;
+                        font-size: $font-size-base;
                     }
                 }
 
@@ -595,6 +599,31 @@ $logo-height: $front-page-spacer * 0.64;
                     border: 1px solid $primary;
                     padding: $front-page-spacer / 2;
                 }
+            }
+        }
+
+        .gallery {
+            .gallery-item {
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        .owners {
+
+            .owner-img {
+                background-position: center;
+                background-size: cover;
+                border-radius: 50%;
+                display: block;
+                margin: 0 auto $front-page-spacer / 4;
+                height: 100px;
+                width: 100px;
+            }
+
+            p {
+                text-align: center;
             }
         }
     }
@@ -745,24 +774,6 @@ $logo-height: $front-page-spacer * 0.64;
             height: auto !important;
             max-width: 40vw;
         }
-    }
-}
-
-.owners {
-    margin: $front-page-spacer $front-page-spacer 0;
-
-    .owner-img {
-        background-position: center;
-        background-size: cover;
-        border-radius: 50%;
-        display: block;
-        margin: 0 auto $front-page-spacer / 4;
-        height: 100px;
-        width: 100px;
-    }
-
-    p {
-        text-align: center;
     }
 }
 

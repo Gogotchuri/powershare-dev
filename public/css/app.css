@@ -16514,7 +16514,7 @@ input:checked + .slider:before {
   transform: scale(-1, -1);
 }
 
-.campaign-page .left-panel .inspire .ps-card {
+.campaign-page .left-panel .ps-card {
   background: white;
   border-radius: 8px;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -16535,7 +16535,7 @@ input:checked + .slider:before {
   color: #f05523;
   font-weight: 300;
   text-decoration: underline;
-  font-size: 0.7rem;
+  font-size: 0.875rem;
 }
 
 .campaign-page .left-panel .inspire .ps-card a.btn {
@@ -16623,6 +16623,27 @@ input:checked + .slider:before {
   border-radius: 8px;
   border: 1px solid #652d90;
   padding: 30px;
+}
+
+.campaign-page .left-panel .gallery .gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.campaign-page .left-panel .owners .owner-img {
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 15px;
+  height: 100px;
+  width: 100px;
+}
+
+.campaign-page .left-panel .owners p {
+  text-align: center;
 }
 
 .campaign-page .videoWrapper {
@@ -16785,24 +16806,6 @@ input:checked + .slider:before {
     height: auto !important;
     max-width: 40vw;
   }
-}
-
-.owners {
-  margin: 60px 60px 0;
-}
-
-.owners .owner-img {
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 15px;
-  height: 100px;
-  width: 100px;
-}
-
-.owners p {
-  text-align: center;
 }
 
 .about-links img {

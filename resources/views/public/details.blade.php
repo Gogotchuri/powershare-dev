@@ -74,7 +74,7 @@
                                     @if($campaign->ethereum_address)
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <a class="btn btn-secondary d-block m-lg-auto"
+                                                <a target="_blank" class="btn btn-secondary d-block m-lg-auto"
                                                    href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
                                                     Donate
                                                 </a>

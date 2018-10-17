@@ -16592,7 +16592,7 @@ input:checked + .slider:before {
 
 @media (max-width: 767.98px) {
   .campaign-page .left-panel .inspire .ps-card .campaign-details {
-    margin-bottom: 140px;
+    margin-bottom: 180px;
   }
 }
 
@@ -16643,9 +16643,10 @@ input:checked + .slider:before {
 
 @media (max-width: 767.98px) {
   .campaign-page .left-panel .inspire .ps-card .fund-raising {
-    top: 124px;
+    top: 180px;
     bottom: auto;
     width: auto;
+    min-width: auto;
   }
 }
 

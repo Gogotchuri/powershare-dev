@@ -16456,7 +16456,7 @@ input:checked + .slider:before {
 
 .campaign-page .left-panel h1 {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .campaign-page .left-panel p {
@@ -16464,10 +16464,38 @@ input:checked + .slider:before {
   font-weight: 400;
 }
 
+.campaign-page .left-panel .ps-card-image-container {
+  padding: 0 6px;
+  overflow: visible;
+}
+
+.campaign-page .left-panel .ps-card-image-container .ps-card-image {
+  -webkit-transition: all 50ms ease-out;
+  transition: all 50ms ease-out;
+  -webkit-box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
+          box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
+  position: relative;
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.campaign-page .left-panel .ps-card-image-container .ps-card-image .ps-card-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 46px;
+  height: 46px;
+}
+
 .campaign-page .left-panel .logo {
   display: block;
   height: 60px;
-  margin: -21.6px 60px 21.6px 60px;
+  margin: -21.6px 60px 21.6px 0;
 }
 
 .campaign-page .left-panel .side-menu {
@@ -16486,25 +16514,116 @@ input:checked + .slider:before {
   transform: scale(-1, -1);
 }
 
-.campaign-page .left-panel .inspire {
-  margin-left: 60px;
-}
-
-.campaign-page .left-panel .inspire .ps-card {
+.campaign-page .left-panel .ps-card {
   background: white;
   border-radius: 8px;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  padding: 30px 60px;
+  padding: 20px;
+}
+
+.campaign-page .left-panel .inspire .ps-card.ps-card-main {
+  padding: 30px 20px 30px 60px;
+}
+
+.campaign-page .left-panel .inspire .ps-card.ps-card-main h1 {
+  font-weight: 700;
+}
+
+.campaign-page .left-panel .inspire .ps-card.ps-card-main h2 {
+  color: #f05523;
+  font-weight: 300;
+  text-decoration: underline;
+  font-size: 1.2rem;
 }
 
 .campaign-page .left-panel .inspire .ps-card a.btn {
   border-radius: 19.2px;
+  border: 2px solid #652d90;
   height: 38.4px;
   line-height: 38.4px;
   padding: 0 38.4px;
   width: 150px;
+  color: #f05523;
+  text-transform: uppercase;
+  background: #FFF;
+}
+
+.campaign-page .left-panel .inspire .ps-card a.btn:hover {
+  background-color: #e6e5e5;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark {
+  padding: 15px 0;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark > div {
+  display: inline-block;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-img {
+  vertical-align: middle;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title {
+  vertical-align: middle;
+  padding-left: 7px;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title span {
+  display: block;
+  width: 100%;
+  height: 20px;
+  font-size: 1rem;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising {
+  position: absolute;
+  width: 100%;
+  min-width: 280px;
+  bottom: 0;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised {
+  background: transparent;
+  border: 2px solid #652d90;
+  border-radius: 23px;
+  color: #FFF;
+  display: inline-block;
+  font-weight: 700;
+  height: 42px;
+  padding: 0;
+  width: 100%;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .current-funding {
+  background-color: #f05523;
+  border: 2px solid #f05523;
+  border-radius: 23px;
+  line-height: 42px;
+  color: white;
+  display: inline-block;
+  padding: 0 10.5px;
+  margin: -2px 0 0 -3px;
+  position: relative;
+  min-width: 50%;
+  text-align: center;
+  font-family: 'Adrianna', non-serif;
+  font-weight: 400;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .fire-img {
+  position: absolute;
+  right: 9%;
+  bottom: 7px;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .campaign-page .left-panel .inspire .comments {
@@ -16516,6 +16635,44 @@ input:checked + .slider:before {
   border-radius: 8px;
   border: 1px solid #652d90;
   padding: 30px;
+}
+
+.campaign-page .left-panel .gallery .gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  height: 300px;
+}
+
+.campaign-page .left-panel .gallery .gallery-item .gallery-image {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.campaign-page .left-panel .about .ps-card.eth-address-card h6 {
+  margin-bottom: 0;
+}
+
+.campaign-page .left-panel .about .ps-card.eth-address-card span {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.campaign-page .left-panel .owners .owner-img {
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 15px;
+  height: 100px;
+  width: 100px;
+}
+
+.campaign-page .left-panel .owners p.owner-name {
+  text-align: center;
+  font-weight: 700;
 }
 
 .campaign-page .videoWrapper {
@@ -16531,7 +16688,6 @@ input:checked + .slider:before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
 }
 
 #light-slider ul {
@@ -16678,24 +16834,6 @@ input:checked + .slider:before {
     height: auto !important;
     max-width: 40vw;
   }
-}
-
-.owners {
-  margin: 60px 60px 0;
-}
-
-.owners .owner-img {
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 15px;
-  height: 100px;
-  width: 100px;
-}
-
-.owners p {
-  text-align: center;
 }
 
 .about-links img {

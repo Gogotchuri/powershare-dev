@@ -424,18 +424,46 @@ $logo-height: $front-page-spacer * 0.64;
 
         h1 {
             font-size: $font-size-lg * 1.25;
-            font-weight: 500;
+            font-weight: $font-weight-bold;
         }
 
         p {
+            //TODO: Set proper font here
             font-size: $font-size-base;
             font-weight: 400;
+        }
+
+        .ps-card-image-container {
+            padding: 0 6px;
+            overflow: visible;
+
+            .ps-card-image {
+                transition: all 50ms ease-out;
+                box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
+
+                position: relative;
+                border-radius: 50%;
+                width: 100%;
+                height: auto;
+                padding-top: 100%;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+
+                .ps-card-icon {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 46px;
+                    height: 46px;
+                }
+            }
         }
 
         .logo {
             display: block;
             height: 60px;
-            margin: $logo-height - $front-page-spacer $front-page-spacer $front-page-spacer - $logo-height $front-page-spacer;
+            margin: $logo-height - $front-page-spacer $front-page-spacer $front-page-spacer - $logo-height 0;
         }
 
         .side-menu {
@@ -456,22 +484,124 @@ $logo-height: $front-page-spacer * 0.64;
             }
         }
 
-        .inspire {
-            margin-left: $front-page-spacer;
+        .ps-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            padding: $front-page-spacer / 3;
+        }
 
+        .inspire {
             .ps-card {
-                background: white;
-                border-radius: 8px;
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-                overflow: hidden;
-                padding: $front-page-spacer / 2 $front-page-spacer;
+
+                &.ps-card-main {
+                    padding: $front-page-spacer / 2 $front-page-spacer / 3 $front-page-spacer / 2 $front-page-spacer;
+
+                    h1 {
+                        font-weight: $font-weight-bold;
+                    }
+
+                    h2 {
+                        color: $secondary;
+                        font-weight: $font-weight-light;
+                        text-decoration: underline;
+                        font-size: $font-size-lg * 1.2;
+                    }
+                }
 
                 a.btn {
                     border-radius: $logo-height / 2;
+                    border: 2px solid $primary;
                     height: $logo-height;
                     line-height: $logo-height;
                     padding: 0 $logo-height;
                     width: 150px;
+                    color: $secondary;
+                    text-transform: uppercase;
+                    background: #FFF;
+
+                    &:hover {
+                        background-color: darken(#FFF, 10);
+                    }
+                }
+
+                .campaign-mark {
+
+                    padding: 15px 0;
+
+                    & > div {
+                        display: inline-block;
+                    }
+
+                    .campaign-mark-img {
+                        vertical-align: middle;
+                    }
+
+                    .campaign-mark-title {
+
+                        vertical-align: middle;
+                        padding-left: 7px;
+
+                        span {
+                            display: block;
+                            width: 100%;
+                            height: 20px;
+                            font-size: $font-size-lg;
+                        }
+                    }
+                }
+
+                .fund-raising {
+
+                    position: absolute;
+                    width: 100%;
+                    min-width: 280px;
+                    bottom: 0;
+
+                    .fund-raising-raised {
+                        background: transparent;
+                        border: 2px solid $primary;
+                        border-radius: 2px + ($front-page-spacer * 0.7) / 2;
+                        color: #FFF;
+                        display: inline-block;
+                        font-weight: $font-weight-bold;
+                        height: ($front-page-spacer * 0.7);
+                        padding: 0;
+                        width: 100%;
+                        box-sizing: content-box;
+
+                        .fund-raising-bordered-object {
+                            .current-funding {
+                                background-color: $secondary;
+                                border: 2px solid $secondary;
+                                border-radius: 2px + ($front-page-spacer * 0.7) / 2;
+                                line-height: ($front-page-spacer * 0.7);
+                                color: white;
+                                display: inline-block;
+                                padding: 0 ($front-page-spacer * 0.7) / 4;
+                                margin: -2px 0 0 -3px;
+                                position: relative;
+                                min-width: 50%;
+                                text-align: center;
+                                font-family: 'Adrianna', non-serif;
+                                font-weight: $font-weight-normal;
+                            }
+
+                            .fire-img {
+                                position: absolute;
+                                right: 9%;
+                                bottom: 7px;
+                            }
+                        }
+                    }
+
+                    .required-funding {
+                        h6 {
+                            font-size: $font-size-lg;
+                            font-weight: $font-weight-light;
+                        }
+                    }
                 }
             }
 
@@ -484,6 +614,55 @@ $logo-height: $front-page-spacer * 0.64;
                     border: 1px solid $primary;
                     padding: $front-page-spacer / 2;
                 }
+            }
+        }
+
+        .gallery {
+            .gallery-item {
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                height: 300px;
+
+                .gallery-image {
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;
+                }
+            }
+        }
+
+        .about {
+            .ps-card {
+                &.eth-address-card {
+
+                    h6 {
+                        margin-bottom: 0;
+                    }
+
+                    span {
+                        font-size: $font-size-base * 0.8;
+                        font-weight: $font-weight-light;
+                    }
+                }
+            }
+        }
+
+        .owners {
+
+            .owner-img {
+                background-position: center;
+                background-size: cover;
+                border-radius: 50%;
+                display: block;
+                margin: 0 auto $front-page-spacer / 4;
+                height: 100px;
+                width: 100px;
+            }
+
+            p.owner-name {
+                text-align: center;
+                font-weight: $font-weight-bold;
             }
         }
     }
@@ -499,7 +678,6 @@ $logo-height: $front-page-spacer * 0.64;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
     }
 }
 
@@ -634,24 +812,6 @@ $logo-height: $front-page-spacer * 0.64;
             height: auto !important;
             max-width: 40vw;
         }
-    }
-}
-
-.owners {
-    margin: $front-page-spacer $front-page-spacer 0;
-
-    .owner-img {
-        background-position: center;
-        background-size: cover;
-        border-radius: 50%;
-        display: block;
-        margin: 0 auto $front-page-spacer / 4;
-        height: 100px;
-        width: 100px;
-    }
-
-    p {
-        text-align: center;
     }
 }
 

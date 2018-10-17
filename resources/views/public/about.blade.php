@@ -41,13 +41,13 @@
                             </p>
                             <div class="row about-links">
                                 <div class="col-sm-6">
-                                    <a href="http://fire.powershare.fund/whitepaper">
+                                    <a target="_blank" href="http://fire.powershare.fund/whitepaper">
                                         <img src="/img/whitepaper.png" alt="" class="mb-3">
                                         Whitepaper
                                     </a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="http://fire.powershare.fund/crypto-economics">
+                                    <a target="_blank" href="http://fire.powershare.fund/crypto-economics">
                                         <img src="/img/crypto-economic.png" alt="" class="mb-3">
                                         Crypto Economics
                                     </a>

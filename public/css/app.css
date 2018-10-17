@@ -16651,6 +16651,15 @@ input:checked + .slider:before {
   background-position: center;
 }
 
+.campaign-page .left-panel .about .ps-card.eth-address-card h6 {
+  margin-bottom: 0;
+}
+
+.campaign-page .left-panel .about .ps-card.eth-address-card span {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
 .campaign-page .left-panel .owners .owner-img {
   background-position: center;
   background-size: cover;
@@ -16661,8 +16670,9 @@ input:checked + .slider:before {
   width: 100px;
 }
 
-.campaign-page .left-panel .owners p {
+.campaign-page .left-panel .owners p.owner-name {
   text-align: center;
+  font-weight: 700;
 }
 
 .campaign-page .videoWrapper {

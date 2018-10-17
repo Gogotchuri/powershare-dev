@@ -632,6 +632,22 @@ $logo-height: $front-page-spacer * 0.64;
             }
         }
 
+        .about {
+            .ps-card {
+                &.eth-address-card {
+
+                    h6 {
+                        margin-bottom: 0;
+                    }
+
+                    span {
+                        font-size: $font-size-base * 0.8;
+                        font-weight: $font-weight-light;
+                    }
+                }
+            }
+        }
+
         .owners {
 
             .owner-img {
@@ -644,8 +660,9 @@ $logo-height: $front-page-spacer * 0.64;
                 width: 100px;
             }
 
-            p {
+            p.owner-name {
                 text-align: center;
+                font-weight: $font-weight-bold;
             }
         }
     }

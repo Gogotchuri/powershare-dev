@@ -169,7 +169,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         @if($campaign->ethereum_address)
-                                            <div class="ps-card">
+                                            <div class="ps-card eth-address-card">
                                                 <h6>ETH</h6>
                                                 <span>{{$campaign->ethereum_address}}</span>
                                             </div>
@@ -187,7 +187,7 @@
                                         @foreach($campaign->members as $member)
                                             <div class="col-xs-4 col-sm-3 col-md-2">
                                                 <div class="owner-img" style="background-image: url({{ $member->image_url }})"></div>
-                                                <p>{{ $member->name }}</p>
+                                                <p class="owner-name">{{ $member->name }}</p>
                                             </div>
                                         @endforeach
                                     </div>

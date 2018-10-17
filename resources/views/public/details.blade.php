@@ -71,18 +71,22 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <p>{{ $campaign->details }}</p>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="fund-raising">
-                                                        <div class="fund-raising-bordered-object">
-                                                            <div class="current">855,65 $</div>
-                                                            <img class="fire-img" src="/img/icons/fire.png" />
+                                            <div class="fund-raising">
+                                                <div class="row">
+                                                    <div class="col-md-7">
+                                                        <div class="fund-raising-raised">
+                                                            <div class="fund-raising-bordered-object">
+                                                                <div class="current-funding">855,65 $</div>
+                                                                <img class="fire-img" src="/img/icons/fire.png" />
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <h6>Required funding</h6>
-                                                    <h6>1,500 $</h6>
+                                                    <div class="col-md-5">
+                                                        <span class="required-funding">
+                                                            <h6>Required funding</h6>
+                                                            <h6>1,500 $</h6>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

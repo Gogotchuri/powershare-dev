@@ -16450,17 +16450,13 @@ input:checked + .slider:before {
   font-family: 'Adrianna', non-serif;
 }
 
-.campaign-page h1 {
-  font-weight: 700;
-}
-
 .campaign-page .left-panel {
   color: #652d90;
 }
 
 .campaign-page .left-panel h1 {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .campaign-page .left-panel p {
@@ -16539,7 +16535,7 @@ input:checked + .slider:before {
   color: #f05523;
   font-weight: 300;
   text-decoration: underline;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
 }
 
 .campaign-page .left-panel .inspire .ps-card a.btn {
@@ -16579,10 +16575,17 @@ input:checked + .slider:before {
   display: block;
   width: 100%;
   height: 20px;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 
 .campaign-page .left-panel .inspire .ps-card .fund-raising {
+  position: absolute;
+  width: 100%;
+  min-width: 280px;
+  bottom: 0;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised {
   background: transparent;
   border: 2px solid #652d90;
   border-radius: 23px;
@@ -16596,7 +16599,7 @@ input:checked + .slider:before {
           box-sizing: content-box;
 }
 
-.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .current {
+.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .current-funding {
   background-color: #f05523;
   border: 2px solid #f05523;
   border-radius: 23px;
@@ -16605,17 +16608,22 @@ input:checked + .slider:before {
   display: inline-block;
   padding: 0 10.5px;
   margin: -2px 0 0 -3px;
-  position: absolute;
+  position: relative;
   min-width: 50%;
   text-align: center;
   font-family: 'Adrianna', non-serif;
   font-weight: 400;
 }
 
-.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
+.campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .fire-img {
   position: absolute;
-  right: 10%;
-  bottom: 12px;
+  right: 9%;
+  bottom: 7px;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .campaign-page .left-panel .inspire .comments {

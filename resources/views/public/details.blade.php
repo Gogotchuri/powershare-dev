@@ -8,9 +8,7 @@
                 <div class="col-md-12">
                     @include('public.partials.mobile-nav')
                     @include('public.partials.nav')
-                    <ul class="side-connect-menu">
-                        @include('public.partials.social')
-                    </ul>
+                    @include('public.partials.connect-menu')
                 </div>
             </div>
         </div>
@@ -29,21 +27,21 @@
 
                                 <div class="ps-card ps-card-main">
                                     <div class="row mb-3">
-                                        <div class="col-md-4">
+                                        <div class="mb-sm-4 mb-xl-0 col-sm-8 offset-sm-2 offset-xl-0 col-xl-4">
                                             <div class="ps-card-image-container fade">
                                                 <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-8">
-                                            <div class="row mt-5 pt-4">
+                                        <div class="col-xl-8">
+                                            <div class="row mt-xl-5 pt-4">
                                                 <div class="col-md-12">
                                                     <h1>{{ $campaign->name }}</h1>
                                                     <h2>Important for: {{$campaign->target_audience}}</h2>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-sm-6">
                                                     <div class="campaign-mark">
                                                         <div class="campaign-mark-img">
                                                             <img src="data:image/png;base64,{{base64_encode(optional($campaign->category)->icon)}}">
@@ -54,7 +52,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-sm-6">
                                                     <div class="campaign-mark">
                                                         <div class="campaign-mark-img">
                                                             <img src="data:image/png;base64,{{base64_encode(optional($campaign->category)->icon)}}">
@@ -69,28 +67,40 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-7">
-                                            <p>{{ $campaign->details }}</p>
-                                            <div class="fund-raising">
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="fund-raising-raised">
-                                                            <div class="fund-raising-bordered-object">
-                                                                <div class="current-funding">855,65 $</div>
-                                                                <img class="fire-img" src="/img/icons/fire.png" />
-                                                            </div>
+                                        <div class="col-xl-7">
+                                            <div class="campaign-details-area pb-5 pb-md-2">
+                                                <div class="vp-table">
+                                                    <div class="vp-table-row">
+                                                        <div class="vp-table-cell vp-align-top">
+                                                            <p class="campaign-details mb-5">{{ $campaign->details }}</p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-5">
+                                                    <div class="vp-table-row">
+                                                        <div class="vp-table-cell vp-align-bottom">
+                                                            <div class="fund-raising">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-lg-7">
+                                                                        <div class="fund-raising-raised">
+                                                                            <div class="fund-raising-bordered-object">
+                                                                                <div class="current-funding">855,65 $</div>
+                                                                                <img class="fire-img" src="/img/icons/fire.png" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-lg-5">
                                                         <span class="required-funding">
                                                             <h6>Required funding</h6>
                                                             <h6>1,500 $</h6>
                                                         </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-xl-5">
                                             <div class="ps-card">
                                                 <div class="row mb-sm-5 mb-md-5">
                                                     <div class="col-md-12">
@@ -142,15 +152,15 @@
                                                 @if($campaign->video_url && $index === 2 || $index === 3)
                                                     @break
                                                 @endif
-                                                <div class="col-md-4">
-                                                    <div class="gallery-item">
+                                                <div class="col-xl-4">
+                                                    <div class="gallery-item mb-4">
                                                         <div class="gallery-image" style="background-image: url({{$image->url}})"></div>
                                                     </div>
                                                 </div>
                                             @endforeach
                                             @if($campaign->youtube_id)
-                                                        <div class="col-md-4">
-                                                            <div class="gallery-item">
+                                                        <div class="col-xl-4">
+                                                            <div class="gallery-item mb-4">
                                                                 <div class="videoWrapper mb-5">
                                                                     <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$campaign->youtube_id}}?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                                                 </div>
@@ -163,11 +173,11 @@
                             </div>
                             <div class="about mb-5">
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-lg-7 col-lx-8">
                                         <h1>About campaign</h1>
                                         <p>{{$campaign->details}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-5 col-lx-4">
                                         @if($campaign->ethereum_address)
                                             <div class="ps-card eth-address-card">
                                                 <h6>ETH</h6>

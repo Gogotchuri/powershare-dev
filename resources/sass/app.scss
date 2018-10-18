@@ -108,7 +108,7 @@ $logo-height: $front-page-spacer * 0.64;
         position: fixed;
         right: 0;
         top: 180px;
-        z-index: $fixed-menu-z-index -1;
+        z-index: $fixed-menu-z-index - 1;
 
         list-style: none;
         font-size: $font-size-lg * 2;
@@ -160,6 +160,21 @@ $logo-height: $front-page-spacer * 0.64;
 
             .logo {
                 display: block;
+            }
+
+            ul.social-links {
+                text-align: center;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    display: inline;
+                    padding: 10px;
+
+                    a {
+                        display: inline;
+                    }
+                }
             }
         }
 
@@ -493,10 +508,15 @@ $logo-height: $front-page-spacer * 0.64;
         }
 
         .inspire {
+
             .ps-card {
 
                 &.ps-card-main {
                     padding: $front-page-spacer / 2 $front-page-spacer / 3 $front-page-spacer / 2 $front-page-spacer;
+
+                    @include media-breakpoint-down(lg) {
+                        padding: $front-page-spacer / 2 $front-page-spacer / 3 $front-page-spacer / 2 $front-page-spacer / 3;
+                    }
 
                     h1 {
                         font-weight: $font-weight-bold;
@@ -520,6 +540,7 @@ $logo-height: $front-page-spacer * 0.64;
                     color: $secondary;
                     text-transform: uppercase;
                     background: #FFF;
+                    margin: 0 auto;
 
                     &:hover {
                         background-color: darken(#FFF, 10);
@@ -552,12 +573,56 @@ $logo-height: $front-page-spacer * 0.64;
                     }
                 }
 
+                .campaign-details-area {
+
+                    height: 100%;
+
+                    .vp-table {
+                        display : table; width : 100%; height : 100%;
+
+                        .vp-table-row {
+                            display : table-row;
+
+                            .vp-table-cell {
+                                display : table-cell; vertical-align: top;
+
+                                &.vp-align-top {
+                                    vertical-align: top;
+                                }
+
+                                &.vp-align-middle {
+                                    vertical-align: middle;
+                                }
+
+                                &.vp-align-bottom {
+                                    vertical-align: bottom;
+                                }
+                            }
+                        }
+                    }
+                }
+
                 .fund-raising {
 
-                    position: absolute;
-                    width: 100%;
-                    min-width: 280px;
-                    bottom: 0;
+                    @include media-breakpoint-down(sm) {
+
+                        .fund-raising-bordered-object {
+
+                            .fire-img {
+                                bottom: 30px;
+                            }
+                        }
+
+                        .required-funding {
+                            display: block;
+                            margin-top: 10px;
+                            text-align: center;
+
+                            h6 {
+                                display: inline;
+                            }
+                        }
+                    }
 
                     .fund-raising-raised {
                         background: transparent;
@@ -643,6 +708,14 @@ $logo-height: $front-page-spacer * 0.64;
                     span {
                         font-size: $font-size-base * 0.8;
                         font-weight: $font-weight-light;
+
+                        @include media-breakpoint-down(lg) {
+                            font-size: $font-size-base * 0.65;
+                        }
+
+                        @include media-breakpoint-down(sm) {
+                            font-size: $font-size-base * 0.55;
+                        }
                     }
                 }
             }

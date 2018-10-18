@@ -16080,7 +16080,7 @@ input:checked + .slider:before {
   position: fixed;
   right: 0;
   top: 180px;
-  z-index: 999 -1;
+  z-index: 998;
   list-style: none;
   font-size: 2rem;
 }
@@ -16140,6 +16140,24 @@ input:checked + .slider:before {
 .front-page .mobile-menu .mobile-menu-items .logo,
 .campaign-page .mobile-menu .mobile-menu-items .logo {
   display: block;
+}
+
+.front-page .mobile-menu .mobile-menu-items ul.social-links,
+.campaign-page .mobile-menu .mobile-menu-items ul.social-links {
+  text-align: center;
+  padding: 0;
+}
+
+.front-page .mobile-menu .mobile-menu-items ul.social-links li,
+.campaign-page .mobile-menu .mobile-menu-items ul.social-links li {
+  list-style: none;
+  display: inline;
+  padding: 10px;
+}
+
+.front-page .mobile-menu .mobile-menu-items ul.social-links li a,
+.campaign-page .mobile-menu .mobile-menu-items ul.social-links li a {
+  display: inline;
 }
 
 .front-page .mobile-menu .logo,
@@ -16527,6 +16545,12 @@ input:checked + .slider:before {
   padding: 30px 20px 30px 60px;
 }
 
+@media (max-width: 1199.98px) {
+  .campaign-page .left-panel .inspire .ps-card.ps-card-main {
+    padding: 30px 20px 30px 20px;
+  }
+}
+
 .campaign-page .left-panel .inspire .ps-card.ps-card-main h1 {
   font-weight: 700;
 }
@@ -16548,6 +16572,7 @@ input:checked + .slider:before {
   color: #f05523;
   text-transform: uppercase;
   background: #FFF;
+  margin: 0 auto;
 }
 
 .campaign-page .left-panel .inspire .ps-card a.btn:hover {
@@ -16578,11 +16603,51 @@ input:checked + .slider:before {
   font-size: 1rem;
 }
 
-.campaign-page .left-panel .inspire .ps-card .fund-raising {
-  position: absolute;
+.campaign-page .left-panel .inspire .ps-card .campaign-details-area {
+  height: 100%;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table {
+  display: table;
   width: 100%;
-  min-width: 280px;
-  bottom: 0;
+  height: 100%;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row {
+  display: table-row;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-top {
+  vertical-align: top;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-middle {
+  vertical-align: middle;
+}
+
+.campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-bottom {
+  vertical-align: bottom;
+}
+
+@media (max-width: 767.98px) {
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
+    bottom: 30px;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
+    display: inline;
+  }
 }
 
 .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised {
@@ -16658,6 +16723,18 @@ input:checked + .slider:before {
 .campaign-page .left-panel .about .ps-card.eth-address-card span {
   font-size: 0.7rem;
   font-weight: 300;
+}
+
+@media (max-width: 1199.98px) {
+  .campaign-page .left-panel .about .ps-card.eth-address-card span {
+    font-size: 0.56875rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .campaign-page .left-panel .about .ps-card.eth-address-card span {
+    font-size: 0.48125rem;
+  }
 }
 
 .campaign-page .left-panel .owners .owner-img {

@@ -2,7 +2,7 @@
 
 @section('html-body')
     <body>
-    <div id="app" class="background-image about-page" style="background-image: url(/img/background-campaign.png);">
+    <div id="app" class="background-image about-page static-page" style="background-image: url(/img/about_background.png);">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">

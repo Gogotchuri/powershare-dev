@@ -16513,7 +16513,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page,
-.about-page {
+.about-page,
+.faq-page {
   padding-top: 60px;
   /*
       Vertical centering for 16/9 youtube iframes and video elements
@@ -16548,35 +16549,54 @@ input:checked + .slider:before {
 .about-page select,
 .about-page option,
 .about-page button,
-.about-page span {
+.about-page span,
+.faq-page p,
+.faq-page h1,
+.faq-page h2,
+.faq-page h3,
+.faq-page h4,
+.faq-page h5,
+.faq-page h6,
+.faq-page a,
+.faq-page span,
+.faq-page input,
+.faq-page select,
+.faq-page option,
+.faq-page button,
+.faq-page span {
   font-family: 'Adrianna', non-serif;
 }
 
 .campaign-page .left-panel,
-.about-page .left-panel {
+.about-page .left-panel,
+.faq-page .left-panel {
   color: #652d90;
 }
 
 .campaign-page .left-panel h1,
-.about-page .left-panel h1 {
+.about-page .left-panel h1,
+.faq-page .left-panel h1 {
   font-size: 1.25rem;
   font-weight: 700;
 }
 
 .campaign-page .left-panel p,
-.about-page .left-panel p {
+.about-page .left-panel p,
+.faq-page .left-panel p {
   font-size: 0.875rem;
   font-weight: 400;
 }
 
 .campaign-page .left-panel .ps-card-image-container,
-.about-page .left-panel .ps-card-image-container {
+.about-page .left-panel .ps-card-image-container,
+.faq-page .left-panel .ps-card-image-container {
   padding: 0 6px;
   overflow: visible;
 }
 
 .campaign-page .left-panel .ps-card-image-container .ps-card-image,
-.about-page .left-panel .ps-card-image-container .ps-card-image {
+.about-page .left-panel .ps-card-image-container .ps-card-image,
+.faq-page .left-panel .ps-card-image-container .ps-card-image {
   -webkit-transition: all 50ms ease-out;
   transition: all 50ms ease-out;
   -webkit-box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
@@ -16592,7 +16612,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .ps-card-image-container .ps-card-image .ps-card-icon,
-.about-page .left-panel .ps-card-image-container .ps-card-image .ps-card-icon {
+.about-page .left-panel .ps-card-image-container .ps-card-image .ps-card-icon,
+.faq-page .left-panel .ps-card-image-container .ps-card-image .ps-card-icon {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -16601,14 +16622,16 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .logo,
-.about-page .left-panel .logo {
+.about-page .left-panel .logo,
+.faq-page .left-panel .logo {
   display: block;
   height: 60px;
   margin: -21.6px 60px 21.6px 0;
 }
 
 .campaign-page .left-panel .side-menu,
-.about-page .left-panel .side-menu {
+.about-page .left-panel .side-menu,
+.faq-page .left-panel .side-menu {
   display: block;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
@@ -16617,7 +16640,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .side-menu a,
-.about-page .left-panel .side-menu a {
+.about-page .left-panel .side-menu a,
+.faq-page .left-panel .side-menu a {
   display: inline-block;
   line-height: 60px;
   margin: 0 15px;
@@ -16626,7 +16650,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .ps-card,
-.about-page .left-panel .ps-card {
+.about-page .left-panel .ps-card,
+.faq-page .left-panel .ps-card {
   background: white;
   border-radius: 8px;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -16636,24 +16661,28 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .inspire .ps-card.ps-card-main,
-.about-page .left-panel .inspire .ps-card.ps-card-main {
+.about-page .left-panel .inspire .ps-card.ps-card-main,
+.faq-page .left-panel .inspire .ps-card.ps-card-main {
   padding: 30px 20px 30px 60px;
 }
 
 @media (max-width: 1199.98px) {
   .campaign-page .left-panel .inspire .ps-card.ps-card-main,
-  .about-page .left-panel .inspire .ps-card.ps-card-main {
+  .about-page .left-panel .inspire .ps-card.ps-card-main,
+  .faq-page .left-panel .inspire .ps-card.ps-card-main {
     padding: 30px 20px 30px 20px;
   }
 }
 
 .campaign-page .left-panel .inspire .ps-card.ps-card-main h1,
-.about-page .left-panel .inspire .ps-card.ps-card-main h1 {
+.about-page .left-panel .inspire .ps-card.ps-card-main h1,
+.faq-page .left-panel .inspire .ps-card.ps-card-main h1 {
   font-weight: 700;
 }
 
 .campaign-page .left-panel .inspire .ps-card.ps-card-main h2,
-.about-page .left-panel .inspire .ps-card.ps-card-main h2 {
+.about-page .left-panel .inspire .ps-card.ps-card-main h2,
+.faq-page .left-panel .inspire .ps-card.ps-card-main h2 {
   color: #f05523;
   font-weight: 300;
   text-decoration: underline;
@@ -16661,7 +16690,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .inspire .ps-card a.btn,
-.about-page .left-panel .inspire .ps-card a.btn {
+.about-page .left-panel .inspire .ps-card a.btn,
+.faq-page .left-panel .inspire .ps-card a.btn {
   border-radius: 19.2px;
   border: 2px solid #652d90;
   height: 38.4px;
@@ -16675,33 +16705,39 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .inspire .ps-card a.btn:hover,
-.about-page .left-panel .inspire .ps-card a.btn:hover {
+.about-page .left-panel .inspire .ps-card a.btn:hover,
+.faq-page .left-panel .inspire .ps-card a.btn:hover {
   background-color: #e6e5e5;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-mark,
-.about-page .left-panel .inspire .ps-card .campaign-mark {
+.about-page .left-panel .inspire .ps-card .campaign-mark,
+.faq-page .left-panel .inspire .ps-card .campaign-mark {
   padding: 15px 0;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-mark > div,
-.about-page .left-panel .inspire .ps-card .campaign-mark > div {
+.about-page .left-panel .inspire .ps-card .campaign-mark > div,
+.faq-page .left-panel .inspire .ps-card .campaign-mark > div {
   display: inline-block;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-img,
-.about-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-img {
+.about-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-img,
+.faq-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-img {
   vertical-align: middle;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title,
-.about-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title {
+.about-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title,
+.faq-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title {
   vertical-align: middle;
   padding-left: 7px;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title span,
-.about-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title span {
+.about-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title span,
+.faq-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title span {
   display: block;
   width: 100%;
   height: 20px;
@@ -16709,64 +16745,75 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-details-area,
-.about-page .left-panel .inspire .ps-card .campaign-details-area {
+.about-page .left-panel .inspire .ps-card .campaign-details-area,
+.faq-page .left-panel .inspire .ps-card .campaign-details-area {
   height: 100%;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table,
-.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table {
+.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table,
+.faq-page .left-panel .inspire .ps-card .campaign-details-area .vp-table {
   display: table;
   width: 100%;
   height: 100%;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row,
-.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row {
+.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row,
+.faq-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row {
   display: table-row;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell,
-.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell {
+.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell,
+.faq-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell {
   display: table-cell;
   vertical-align: top;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-top,
-.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-top {
+.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-top,
+.faq-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-top {
   vertical-align: top;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-middle,
-.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-middle {
+.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-middle,
+.faq-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-middle {
   vertical-align: middle;
 }
 
 .campaign-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-bottom,
-.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-bottom {
+.about-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-bottom,
+.faq-page .left-panel .inspire .ps-card .campaign-details-area .vp-table .vp-table-row .vp-table-cell.vp-align-bottom {
   vertical-align: bottom;
 }
 
 @media (max-width: 767.98px) {
   .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img,
-  .about-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
+  .about-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img,
+  .faq-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
     bottom: 30px;
   }
 
   .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding,
-  .about-page .left-panel .inspire .ps-card .fund-raising .required-funding {
+  .about-page .left-panel .inspire .ps-card .fund-raising .required-funding,
+  .faq-page .left-panel .inspire .ps-card .fund-raising .required-funding {
     display: block;
     margin-top: 10px;
     text-align: center;
   }
 
   .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6,
-  .about-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
+  .about-page .left-panel .inspire .ps-card .fund-raising .required-funding h6,
+  .faq-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
     display: inline;
   }
 }
 
 .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised,
-.about-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised {
+.about-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised,
+.faq-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised {
   background: transparent;
   border: 2px solid #652d90;
   border-radius: 23px;
@@ -16781,7 +16828,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .current-funding,
-.about-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .current-funding {
+.about-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .current-funding,
+.faq-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .current-funding {
   background-color: #f05523;
   border: 2px solid #f05523;
   border-radius: 23px;
@@ -16798,25 +16846,29 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .fire-img,
-.about-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .fire-img {
+.about-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .fire-img,
+.faq-page .left-panel .inspire .ps-card .fund-raising .fund-raising-raised .fund-raising-bordered-object .fire-img {
   position: absolute;
   right: 9%;
   bottom: 7px;
 }
 
 .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6,
-.about-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
+.about-page .left-panel .inspire .ps-card .fund-raising .required-funding h6,
+.faq-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
   font-size: 1rem;
   font-weight: 300;
 }
 
 .campaign-page .left-panel .inspire .comments,
-.about-page .left-panel .inspire .comments {
+.about-page .left-panel .inspire .comments,
+.faq-page .left-panel .inspire .comments {
   margin: 60px;
 }
 
 .campaign-page .left-panel .inspire .comments textarea,
-.about-page .left-panel .inspire .comments textarea {
+.about-page .left-panel .inspire .comments textarea,
+.faq-page .left-panel .inspire .comments textarea {
   background: transparent;
   border-radius: 8px;
   border: 1px solid #652d90;
@@ -16824,7 +16876,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .gallery .gallery-item,
-.about-page .left-panel .gallery .gallery-item {
+.about-page .left-panel .gallery .gallery-item,
+.faq-page .left-panel .gallery .gallery-item {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -16834,39 +16887,45 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .gallery .gallery-item .gallery-image,
-.about-page .left-panel .gallery .gallery-item .gallery-image {
+.about-page .left-panel .gallery .gallery-item .gallery-image,
+.faq-page .left-panel .gallery .gallery-item .gallery-image {
   height: 100%;
   background-size: cover;
   background-position: center;
 }
 
 .campaign-page .left-panel .about .ps-card.eth-address-card h6,
-.about-page .left-panel .about .ps-card.eth-address-card h6 {
+.about-page .left-panel .about .ps-card.eth-address-card h6,
+.faq-page .left-panel .about .ps-card.eth-address-card h6 {
   margin-bottom: 0;
 }
 
 .campaign-page .left-panel .about .ps-card.eth-address-card span,
-.about-page .left-panel .about .ps-card.eth-address-card span {
+.about-page .left-panel .about .ps-card.eth-address-card span,
+.faq-page .left-panel .about .ps-card.eth-address-card span {
   font-size: 0.7rem;
   font-weight: 300;
 }
 
 @media (max-width: 1199.98px) {
   .campaign-page .left-panel .about .ps-card.eth-address-card span,
-  .about-page .left-panel .about .ps-card.eth-address-card span {
+  .about-page .left-panel .about .ps-card.eth-address-card span,
+  .faq-page .left-panel .about .ps-card.eth-address-card span {
     font-size: 0.56875rem;
   }
 }
 
 @media (max-width: 767.98px) {
   .campaign-page .left-panel .about .ps-card.eth-address-card span,
-  .about-page .left-panel .about .ps-card.eth-address-card span {
+  .about-page .left-panel .about .ps-card.eth-address-card span,
+  .faq-page .left-panel .about .ps-card.eth-address-card span {
     font-size: 0.48125rem;
   }
 }
 
 .campaign-page .left-panel .owners .owner-img,
-.about-page .left-panel .owners .owner-img {
+.about-page .left-panel .owners .owner-img,
+.faq-page .left-panel .owners .owner-img {
   background-position: center;
   background-size: cover;
   border-radius: 50%;
@@ -16877,13 +16936,15 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .owners p.owner-name,
-.about-page .left-panel .owners p.owner-name {
+.about-page .left-panel .owners p.owner-name,
+.faq-page .left-panel .owners p.owner-name {
   text-align: center;
   font-weight: 700;
 }
 
 .campaign-page .youtube-video-aspect,
-.about-page .youtube-video-aspect {
+.about-page .youtube-video-aspect,
+.faq-page .youtube-video-aspect {
   position: relative;
   padding-bottom: 56.25%;
   /* 16:9 */
@@ -16892,7 +16953,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .video-container,
-.about-page .video-container {
+.about-page .video-container,
+.faq-page .video-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -16901,7 +16963,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .video-container:before,
-.about-page .video-container:before {
+.about-page .video-container:before,
+.faq-page .video-container:before {
   content: '';
   z-index: 2;
   position: absolute;
@@ -16911,7 +16974,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .video-bg,
-.about-page .video-bg {
+.about-page .video-bg,
+.faq-page .video-bg {
   background: white;
   position: absolute;
   top: 0;
@@ -16927,7 +16991,10 @@ input:checked + .slider:before {
 .campaign-page .video-bg video,
 .about-page .video-bg .video-fg,
 .about-page .video-bg iframe,
-.about-page .video-bg video {
+.about-page .video-bg video,
+.faq-page .video-bg .video-fg,
+.faq-page .video-bg iframe,
+.faq-page .video-bg video {
   position: absolute;
   top: 0;
   left: 0;
@@ -16937,7 +17004,8 @@ input:checked + .slider:before {
 
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {
   .campaign-page .video-bg.cover .video-fg.supports-cover,
-  .about-page .video-bg.cover .video-fg.supports-cover {
+  .about-page .video-bg.cover .video-fg.supports-cover,
+  .faq-page .video-bg.cover .video-fg.supports-cover {
     width: 100%;
     height: 100%;
     top: 0;
@@ -16945,24 +17013,28 @@ input:checked + .slider:before {
   }
 
   .campaign-page .video-bg.cover video,
-  .about-page .video-bg.cover video {
+  .about-page .video-bg.cover video,
+  .faq-page .video-bg.cover video {
     -o-object-fit: cover;
        object-fit: cover;
   }
 }
 
 .campaign-page .video-bg.contain,
-.about-page .video-bg.contain {
+.about-page .video-bg.contain,
+.faq-page .video-bg.contain {
   font-size: 0;
 }
 
 .campaign-page .video-bg.contain *,
-.about-page .video-bg.contain * {
+.about-page .video-bg.contain *,
+.faq-page .video-bg.contain * {
   font-size: 16px;
 }
 
 .campaign-page .video-bg.contain:before,
-.about-page .video-bg.contain:before {
+.about-page .video-bg.contain:before,
+.faq-page .video-bg.contain:before {
   content: '';
   display: inline-block;
   height: 100%;
@@ -16970,7 +17042,8 @@ input:checked + .slider:before {
 }
 
 .campaign-page .video-bg.contain .video-fg,
-.about-page .video-bg.contain .video-fg {
+.about-page .video-bg.contain .video-fg,
+.faq-page .video-bg.contain .video-fg {
   display: inline-block;
   vertical-align: middle;
   position: relative;
@@ -16984,13 +17057,16 @@ input:checked + .slider:before {
 .campaign-page .video-bg.contain iframe,
 .campaign-page .video-bg.contain video,
 .about-page .video-bg.contain iframe,
-.about-page .video-bg.contain video {
+.about-page .video-bg.contain video,
+.faq-page .video-bg.contain iframe,
+.faq-page .video-bg.contain video {
   pointer-events: auto;
 }
 
 @media (min-aspect-ratio: 16 / 9) {
   .campaign-page .video-bg.contain .video-fg,
-  .about-page .video-bg.contain .video-fg {
+  .about-page .video-bg.contain .video-fg,
+  .faq-page .video-bg.contain .video-fg {
     height: 100%;
     padding-bottom: 0;
     max-width: 53.333333333333336vh;
@@ -17003,11 +17079,47 @@ input:checked + .slider:before {
   padding: 0;
 }
 
-.about-page .inspire {
+.static-page .inspire {
   margin-top: 6rem;
 }
 
-.about-page h1.main-heading {
+.static-page h1.main-heading {
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #f05523;
+  text-transform: uppercase;
+}
+
+.faq-page .inspire {
+  margin-top: 6rem;
+}
+
+.faq-page .inspire p.question {
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 3rem;
+  font-weight: 700;
+  vertical-align: middle;
+  margin-left: 3rem;
+}
+
+.faq-page .inspire p.question::before {
+  content: '-';
+  position: absolute;
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f05523;
+  vertical-align: middle;
+  padding-right: 0.5rem;
+  left: 20px;
+}
+
+.faq-page .inspire div.ps-card.answer {
+  margin-left: 3rem;
+  padding: 20px 20px 20px 60px;
+}
+
+.faq-page h1.main-heading {
   font-size: 2rem;
   line-height: 3rem;
   color: #f05523;

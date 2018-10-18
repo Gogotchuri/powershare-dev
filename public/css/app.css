@@ -16450,11 +16450,6 @@ input:checked + .slider:before {
 .campaign-page {
   padding-top: 60px;
   /*
-      Full page video background
-      Simulate object-fit: cover
-      Based on http://fvsch.com/code/video-background/
-    */
-  /*
       Vertical centering for 16/9 youtube iframes and video elements
       Simulate object-fit: contain for entire element, not just contents of element
     */
@@ -16762,6 +16757,14 @@ input:checked + .slider:before {
   font-weight: 700;
 }
 
+.campaign-page .youtube-video-aspect {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+
 .campaign-page .video-container {
   position: absolute;
   top: 0;
@@ -16798,20 +16801,6 @@ input:checked + .slider:before {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-@media (min-aspect-ratio: 16 / 9) {
-  .campaign-page .video-bg.cover .video-fg {
-    height: 300%;
-    top: -100%;
-  }
-}
-
-@media (max-aspect-ratio: 16 / 9) {
-  .campaign-page .video-bg.cover .video-fg {
-    width: 300%;
-    left: -100%;
-  }
 }
 
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {

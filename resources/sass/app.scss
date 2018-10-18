@@ -742,6 +742,13 @@ $logo-height: $front-page-spacer * 0.64;
     }
 
     // Fix youtube videos, this requires parent element to be relative in order to hide overflows
+    .youtube-video-aspect {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+    }
+
     .video-container {
         position: absolute;
         top: 0;
@@ -776,23 +783,7 @@ $logo-height: $front-page-spacer * 0.64;
         width: 100%;
         height: 100%;
     }
-    /*
-      Full page video background
-      Simulate object-fit: cover
-      Based on http://fvsch.com/code/video-background/
-    */
-    @media (min-aspect-ratio: 16/9) {
-        .video-bg.cover .video-fg {
-            height: 300%;
-            top: -100%;
-        }
-    }
-    @media (max-aspect-ratio: 16/9) {
-        .video-bg.cover .video-fg {
-            width: 300%;
-            left: -100%;
-        }
-    }
+
     @supports (object-fit: cover) {
         .video-bg.cover .video-fg.supports-cover {
             width: 100%;

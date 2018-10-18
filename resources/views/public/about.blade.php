@@ -22,8 +22,14 @@
                     <div class="inspire">
                         <div class="ps-card">
                             <h1>About Us</h1>
-                            <div class="videoWrapper mb-5">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/k5vwG_BofJ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <div class="youtube-video-aspect">
+                                <div class="video-container">
+                                    <div class="video-bg cover">
+                                        <div class="video-fg">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/k5vwG_BofJ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <p>
                                 Our unequal world desperately needs changes, but the power to change is limited by resources, reserved for the privileged few. We are here to level the playing field. We believe that small, personal, local changes lead to bigger shifts in society. That’s why we want to make sure every voice has a chance to be heard, every idea has enough fuel to get off the ground.

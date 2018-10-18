@@ -684,6 +684,7 @@ $logo-height: $front-page-spacer * 0.64;
 
         .gallery {
             .gallery-item {
+                position: relative;
                 border-radius: 10px;
                 overflow: hidden;
                 box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -740,17 +741,107 @@ $logo-height: $front-page-spacer * 0.64;
         }
     }
 
-    .videoWrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-        padding-top: 25px;
-        height: 0;
+    // Fix youtube videos, this requires parent element to be relative in order to hide overflows
+    .video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
-    .videoWrapper iframe {
+    .video-container:before {
+        content: '';
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+    .video-bg {
+        background: white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .video-bg .video-fg,
+    .video-bg iframe,
+    .video-bg video {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
+        height: 100%;
+    }
+    /*
+      Full page video background
+      Simulate object-fit: cover
+      Based on http://fvsch.com/code/video-background/
+    */
+    @media (min-aspect-ratio: 16/9) {
+        .video-bg.cover .video-fg {
+            height: 300%;
+            top: -100%;
+        }
+    }
+    @media (max-aspect-ratio: 16/9) {
+        .video-bg.cover .video-fg {
+            width: 300%;
+            left: -100%;
+        }
+    }
+    @supports (object-fit: cover) {
+        .video-bg.cover .video-fg.supports-cover {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .video-bg.cover video {
+            object-fit: cover;
+        }
+    }
+    /*
+      Vertical centering for 16/9 youtube iframes and video elements
+      Simulate object-fit: contain for entire element, not just contents of element
+    */
+    .video-bg.contain {
+        font-size: 0;
+    }
+    .video-bg.contain * {
+        font-size: 16px;
+    }
+    .video-bg.contain:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+    .video-bg.contain .video-fg {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        /* 16:9 */
+        pointer-events: none;
+    }
+    .video-bg.contain iframe,
+    .video-bg.contain video {
+        pointer-events: auto;
+    }
+    @media (min-aspect-ratio: 16/9) {
+        .video-bg.contain .video-fg {
+            height: 100%;
+            padding-bottom: 0;
+            max-width: 53.333333333333336vh;
+            left: 50%;
+            margin-left: -26.666666666666668vh;
+        }
     }
 }
 

@@ -16449,6 +16449,15 @@ input:checked + .slider:before {
 
 .campaign-page {
   padding-top: 60px;
+  /*
+      Full page video background
+      Simulate object-fit: cover
+      Based on http://fvsch.com/code/video-background/
+    */
+  /*
+      Vertical centering for 16/9 youtube iframes and video elements
+      Simulate object-fit: contain for entire element, not just contents of element
+    */
 }
 
 .campaign-page p,
@@ -16703,6 +16712,7 @@ input:checked + .slider:before {
 }
 
 .campaign-page .left-panel .gallery .gallery-item {
+  position: relative;
   border-radius: 10px;
   overflow: hidden;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -16752,19 +16762,111 @@ input:checked + .slider:before {
   font-weight: 700;
 }
 
-.campaign-page .videoWrapper {
-  position: relative;
-  padding-bottom: 56.25%;
-  /* 16:9 */
-  padding-top: 25px;
-  height: 0;
+.campaign-page .video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-.campaign-page .videoWrapper iframe {
+.campaign-page .video-container:before {
+  content: '';
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.campaign-page .video-bg {
+  background: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.campaign-page .video-bg .video-fg,
+.campaign-page .video-bg iframe,
+.campaign-page .video-bg video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16 / 9) {
+  .campaign-page .video-bg.cover .video-fg {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16 / 9) {
+  .campaign-page .video-bg.cover .video-fg {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+  .campaign-page .video-bg.cover .video-fg.supports-cover {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .campaign-page .video-bg.cover video {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+.campaign-page .video-bg.contain {
+  font-size: 0;
+}
+
+.campaign-page .video-bg.contain * {
+  font-size: 16px;
+}
+
+.campaign-page .video-bg.contain:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.campaign-page .video-bg.contain .video-fg {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  pointer-events: none;
+}
+
+.campaign-page .video-bg.contain iframe,
+.campaign-page .video-bg.contain video {
+  pointer-events: auto;
+}
+
+@media (min-aspect-ratio: 16 / 9) {
+  .campaign-page .video-bg.contain .video-fg {
+    height: 100%;
+    padding-bottom: 0;
+    max-width: 53.333333333333336vh;
+    left: 50%;
+    margin-left: -26.666666666666668vh;
+  }
 }
 
 #light-slider ul {

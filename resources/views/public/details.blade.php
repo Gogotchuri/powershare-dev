@@ -175,11 +175,11 @@
                             </div>
                             <div class="about mb-5">
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-lg-7 col-lx-8">
                                         <h1>About campaign</h1>
                                         <p>{{$campaign->details}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-5 col-lx-4">
                                         @if($campaign->ethereum_address)
                                             <div class="ps-card eth-address-card">
                                                 <h6>ETH</h6>

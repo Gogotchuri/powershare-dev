@@ -693,6 +693,14 @@ $logo-height: $front-page-spacer * 0.64;
                     span {
                         font-size: $font-size-base * 0.8;
                         font-weight: $font-weight-light;
+
+                        @include media-breakpoint-down(lg) {
+                            font-size: $font-size-base * 0.65;
+                        }
+
+                        @include media-breakpoint-down(sm) {
+                            font-size: $font-size-base * 0.55;
+                        }
                     }
                 }
             }

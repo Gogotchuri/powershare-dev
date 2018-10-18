@@ -16707,6 +16707,18 @@ input:checked + .slider:before {
   font-weight: 300;
 }
 
+@media (max-width: 1199.98px) {
+  .campaign-page .left-panel .about .ps-card.eth-address-card span {
+    font-size: 0.56875rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .campaign-page .left-panel .about .ps-card.eth-address-card span {
+    font-size: 0.48125rem;
+  }
+}
+
 .campaign-page .left-panel .owners .owner-img {
   background-position: center;
   background-size: cover;

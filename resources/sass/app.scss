@@ -557,21 +557,38 @@ $logo-height: $front-page-spacer * 0.64;
                     }
                 }
 
-                .campaign-details {
-                    @include media-breakpoint-down(lg) {
-                        margin-bottom: 140px;
-                    }
-                    @include media-breakpoint-down(sm) {
-                        margin-bottom: 180px;
+                .campaign-details-area {
+
+                    height: 100%;
+
+                    .vp-table {
+                        display : table; width : 100%; height : 100%;
+
+                        .vp-table-row {
+                            display : table-row;
+
+                            .vp-table-cell {
+                                display : table-cell; vertical-align: top;
+
+                                &.vp-align-top {
+                                    vertical-align: top;
+                                }
+
+                                &.vp-align-middle {
+                                    vertical-align: middle;
+                                }
+
+                                &.vp-align-bottom {
+                                    vertical-align: bottom;
+                                }
+                            }
+                        }
                     }
                 }
 
                 .fund-raising {
 
-                    position: absolute;
-                    width: 100%;
                     min-width: 280px;
-                    bottom: 0;
 
                     @include media-breakpoint-down(lg) {
                         top: 100px;

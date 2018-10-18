@@ -525,6 +525,7 @@ $logo-height: $front-page-spacer * 0.64;
                     color: $secondary;
                     text-transform: uppercase;
                     background: #FFF;
+                    margin: 0 auto;
 
                     &:hover {
                         background-color: darken(#FFF, 10);
@@ -588,51 +589,24 @@ $logo-height: $front-page-spacer * 0.64;
 
                 .fund-raising {
 
-                    min-width: 280px;
-
-                    @include media-breakpoint-down(lg) {
-                        top: 100px;
-                        .fund-raising-bordered-object {
-
-                            .fire-img {
-                                bottom: 30px;
-                            }
-                        }
-
-                        .required-funding {
-                            display: block;
-                            margin-top: 10px;
-
-                            h6 {
-                                text-align: center;
-                            }
-                        }
-                    }
-
-                    @include media-breakpoint-down(md) {
-                        top: 140px;
-                        .fund-raising-bordered-object {
-
-                            .fire-img {
-                                bottom: 30px;
-                            }
-                        }
-
-                        .required-funding {
-                            display: block;
-                            margin-top: 10px;
-
-                            h6 {
-                                text-align: center;
-                            }
-                        }
-                    }
-
                     @include media-breakpoint-down(sm) {
-                        top: 180px;
-                        bottom: auto;
-                        width: auto;
-                        min-width: auto;
+
+                        .fund-raising-bordered-object {
+
+                            .fire-img {
+                                bottom: 30px;
+                            }
+                        }
+
+                        .required-funding {
+                            display: block;
+                            margin-top: 10px;
+                            text-align: center;
+
+                            h6 {
+                                display: inline;
+                            }
+                        }
                     }
 
                     .fund-raising-raised {

@@ -16554,6 +16554,7 @@ input:checked + .slider:before {
   color: #f05523;
   text-transform: uppercase;
   background: #FFF;
+  margin: 0 auto;
 }
 
 .campaign-page .left-panel .inspire .ps-card a.btn:hover {
@@ -16615,54 +16616,19 @@ input:checked + .slider:before {
   vertical-align: bottom;
 }
 
-.campaign-page .left-panel .inspire .ps-card .fund-raising {
-  min-width: 280px;
-}
-
-@media (max-width: 1199.98px) {
-  .campaign-page .left-panel .inspire .ps-card .fund-raising {
-    top: 100px;
-  }
-
-  .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
-    bottom: 30px;
-  }
-
-  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding {
-    display: block;
-    margin-top: 10px;
-  }
-
-  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
-    text-align: center;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .campaign-page .left-panel .inspire .ps-card .fund-raising {
-    top: 140px;
-  }
-
-  .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
-    bottom: 30px;
-  }
-
-  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding {
-    display: block;
-    margin-top: 10px;
-  }
-
-  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
-    text-align: center;
-  }
-}
-
 @media (max-width: 767.98px) {
-  .campaign-page .left-panel .inspire .ps-card .fund-raising {
-    top: 180px;
-    bottom: auto;
-    width: auto;
-    min-width: auto;
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .fund-raising-bordered-object .fire-img {
+    bottom: 30px;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
+    display: inline;
   }
 }
 

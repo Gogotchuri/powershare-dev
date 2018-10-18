@@ -70,18 +70,18 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-7">
-                                            <div class="campaign-details-area">
+                                            <div class="campaign-details-area pb-5 pb-md-2">
                                                 <div class="vp-table">
                                                     <div class="vp-table-row">
                                                         <div class="vp-table-cell vp-align-top">
-                                                            <p class="campaign-details">{{ $campaign->details }}</p>
+                                                            <p class="campaign-details mb-5">{{ $campaign->details }}</p>
                                                         </div>
                                                     </div>
                                                     <div class="vp-table-row">
                                                         <div class="vp-table-cell vp-align-bottom">
                                                             <div class="fund-raising">
                                                                 <div class="row">
-                                                                    <div class="col-md-5 col-lg-7">
+                                                                    <div class="col-md-6 col-lg-7">
                                                                         <div class="fund-raising-raised">
                                                                             <div class="fund-raising-bordered-object">
                                                                                 <div class="current-funding">855,65 $</div>
@@ -89,7 +89,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-5">
+                                                                    <div class="col-md-6 col-lg-5">
                                                         <span class="required-funding">
                                                             <h6>Required funding</h6>
                                                             <h6>1,500 $</h6>

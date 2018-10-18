@@ -88,7 +88,7 @@ $logo-height: $front-page-spacer * 0.64;
 }
 
 //FIXME: Temporary added campaign page selector here to quickly apply menu styles on campaign-page too
-.front-page, .campaign-page {
+.front-page, .campaign-page, .about-page {
     p, h1, h2, h3, h4, h5, h6, a, span, input, select, option, button, span {
         font-family: 'Adrianna', non-serif;
     }
@@ -427,7 +427,8 @@ $logo-height: $front-page-spacer * 0.64;
     }
 }
 
-.campaign-page {
+//FIXME: TMP Still adding about page here just to propagate same styles as campaign page needs separation
+.campaign-page, .about-page {
     padding-top: $front-page-spacer;
 
     p, h1, h2, h3, h4, h5, h6, a, span, input, select, option, button, span {
@@ -578,13 +579,16 @@ $logo-height: $front-page-spacer * 0.64;
                     height: 100%;
 
                     .vp-table {
-                        display : table; width : 100%; height : 100%;
+                        display: table;
+                        width: 100%;
+                        height: 100%;
 
                         .vp-table-row {
-                            display : table-row;
+                            display: table-row;
 
                             .vp-table-cell {
-                                display : table-cell; vertical-align: top;
+                                display: table-cell;
+                                vertical-align: top;
 
                                 &.vp-align-top {
                                     vertical-align: top;
@@ -833,6 +837,25 @@ $logo-height: $front-page-spacer * 0.64;
             left: 50%;
             margin-left: -26.666666666666668vh;
         }
+    }
+}
+
+.about-page {
+    .ps-card {
+        &.ps-card-video {
+            padding: 0;
+        }
+    }
+
+    .inspire {
+        margin-top: 6rem;
+    }
+
+    h1.main-heading {
+        font-size: $font-size-lg * 2;
+        line-height: $font-size-lg * 3;
+        color: $secondary;
+        text-transform: uppercase;
     }
 }
 

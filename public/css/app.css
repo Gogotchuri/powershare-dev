@@ -16080,7 +16080,7 @@ input:checked + .slider:before {
   position: fixed;
   right: 0;
   top: 180px;
-  z-index: 999 -1;
+  z-index: 998;
   list-style: none;
   font-size: 2rem;
 }

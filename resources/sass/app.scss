@@ -108,7 +108,7 @@ $logo-height: $front-page-spacer * 0.64;
         position: fixed;
         right: 0;
         top: 180px;
-        z-index: $fixed-menu-z-index -1;
+        z-index: $fixed-menu-z-index - 1;
 
         list-style: none;
         font-size: $font-size-lg * 2;

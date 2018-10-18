@@ -8,5 +8,8 @@
         <a href="{{ \App\Models\Campaign::createPath() }}">Register Campaign</a>
         <a href="{{ route('faq') }}">FAQ</a>
         @include('public.partials.auth-buttons')
+        <ul class="social-links">
+            @include('public.partials.social')
+        </ul>
     </span>
 </div>

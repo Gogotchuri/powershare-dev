@@ -161,6 +161,21 @@ $logo-height: $front-page-spacer * 0.64;
             .logo {
                 display: block;
             }
+
+            ul.social-links {
+                text-align: center;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    display: inline;
+                    padding: 10px;
+
+                    a {
+                        display: inline;
+                    }
+                }
+            }
         }
 
         .logo {

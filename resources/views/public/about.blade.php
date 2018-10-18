@@ -8,9 +8,7 @@
                 <div class="col-md-12">
                     @include('public.partials.mobile-nav')
                     @include('public.partials.nav')
-                    <ul class="side-connect-menu">
-                        @include('public.partials.social')
-                    </ul>
+                    @include('public.partials.connect-menu')
                 </div>
             </div>
         </div>

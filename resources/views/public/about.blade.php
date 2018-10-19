@@ -58,7 +58,7 @@
                         <p class="mb-5">
                             * For more details, visit <a href="http://fire.powershare.fund">fire.powershare.fund</a>.
                         </p>
-                        <div class="row about-links">
+                        <div class="row about-links mb-5">
                             <div class="col-sm-6">
                                 <a target="_blank" href="http://fire.powershare.fund/whitepaper">
                                     <img src="/img/whitepaper.png" alt="" class="mb-3">

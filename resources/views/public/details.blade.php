@@ -55,11 +55,11 @@
                                                 <div class="col-sm-6">
                                                     <div class="campaign-mark">
                                                         <div class="campaign-mark-img">
-                                                            <img src="data:image/png;base64,{{base64_encode(optional($campaign->category)->icon)}}">
+                                                            <img src="/img/icons/share.png">
                                                         </div>
                                                         <div class="campaign-mark-title">
-                                                            <span>Category</span>
-                                                            <span>{{optional($campaign->category)->name}}</span>
+                                                            <span>Share</span>
+                                                            <span>Campaign</span>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -16728,6 +16728,13 @@ input:checked + .slider:before {
   vertical-align: middle;
 }
 
+.campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-img img,
+.about-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-img img,
+.faq-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-img img {
+  width: 46px;
+  height: 46px;
+}
+
 .campaign-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title,
 .about-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title,
 .faq-page .left-panel .inspire .ps-card .campaign-mark .campaign-mark-title {

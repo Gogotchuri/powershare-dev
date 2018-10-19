@@ -561,6 +561,11 @@ $logo-height: $front-page-spacer * 0.64;
 
                     .campaign-mark-img {
                         vertical-align: middle;
+
+                        img {
+                            width: 46px;
+                            height: 46px;
+                        }
                     }
 
                     .campaign-mark-title {

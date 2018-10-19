@@ -47,6 +47,11 @@
             ])
 
             @include('components.form.input', [
+               'name' => 'Required funding',
+               'value' => $campaign->required_funding,
+            ])
+
+            @include('components.form.input', [
                 'name' => 'Ethereum address',
                 'value' => $campaign->ethereum_address,
             ])

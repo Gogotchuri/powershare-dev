@@ -176,33 +176,59 @@
                                 ‘change lives’ for personal causes, and ‘save planet’ for environmental issues.</p>
                         </div>
 
-                        <div class="ps-card">
-                            <p>22. What kind of campaigns can I create?</p>
-                            <p>Any kind that falls into the three main categories: ‘seed a business’ for startups,
-                                ‘change lives’ for personal causes, and ‘save planet’ for environmental issues.
-                            <p>23. Are there any restrictions?</p>
+                        <p class="question mt-5">Are there any restrictions?</p>
+                        <div class="ps-card answer mb-5">
                             <p>Yes, all the information about it is in the terms and conditions.</p>
-                            <p>24. Is private information needed?</p>
-                            <p>All the registered accounts should go through KYC process.
-                            <p>25. How do I receive the raised funds?</p>
-                            <p>On your Monero and/or Ethereum wallet.
-                            <p>26. Can I mine for my campaign?</p>
-                            <p>Yes.</p>
-                            <p>27. Can I mine for multiple campaigns simultaneously?</p>
-                            <p>Yes, but not recommended.</p>
-                            <p>28. How do I know campaign is not fake?</p>
-                            <p>We do our best by manually reviewing every campaign.</p>
-                            <p>29. How do I know they receive the funding?</p>
-                            <p>All the addresses are public, blockchain technology makes it transparent.</p>
-                            <p>30. How do campaigns exchange donated cryptocurrency for fiat?</p>
-                            <p>Through various exchanges who have Monero and Ethereum listed.</p>
-                            <p>31. Are there any fees?</p>
-                            <p>Currently there is no platform fee, but Coinhive takes 30% of mined Monero.</p>
-                            <p>32. Is any other website using the same technology?</p>
-                            <p>Yes, the hopepage powered by Unicef Australia.</p>
-                            <p>33. How is alpha platform different from the final product?</p>
-                            <p>It lacks various features: technological solutions, the scrypts, mutual benefit etc.</p>
+                        </div>
 
+                        <p class="question mt-5">Is private information needed?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>All the registered accounts should go through KYC process.</p>
+                        </div>
+
+                        <p class="question mt-5">How do I receive the raised funds?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>On your Monero and/or Ethereum wallet.</p>
+                        </div>
+
+                        <p class="question mt-5">Can I mine for my campaign?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>Yes.</p>
+                        </div>
+
+                        <p class="question mt-5">Can I mine for multiple campaigns simultaneously?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>Yes, but not recommended.</p>
+                        </div>
+
+                        <p class="question mt-5">How do I know campaign is not fake?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>We do our best by manually reviewing every campaign.</p>
+                        </div>
+
+                        <p class="question mt-5">How do I know they receive the funding?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>All the addresses are public, blockchain technology makes it transparent.</p>
+                        </div>
+
+                        <p class="question mt-5">How do campaigns exchange donated cryptocurrency for fiat?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>Through various exchanges who have Monero and Ethereum listed.</p>
+                        </div>
+
+                        <p class="question mt-5">Are there any fees?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>Currently there is no platform fee, but Coinhive takes 30% of mined Monero.</p>
+                        </div>
+
+                        <p class="question mt-5">Is any other website using the same technology?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>Yes, the hopepage powered by Unicef Australia.</p>
+                        </div>
+
+                        <p class="question mt-5">How is alpha platform different from the final product?</p>
+                        <div class="ps-card answer mb-5">
+                            <p>It lacks various features: technological solutions, the scrypts, mutual benefit etc.</p>
                         </div>
                     </div>
                 </div>

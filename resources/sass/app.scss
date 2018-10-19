@@ -848,23 +848,9 @@ $logo-height: $front-page-spacer * 0.64;
     }
 }
 
-.static-page {
-    .inspire {
-        margin-top: 6rem;
-    }
-
-    h1.main-heading {
-        font-size: $font-size-lg * 2;
-        line-height: $font-size-lg * 3;
-        color: $secondary;
-        text-transform: uppercase;
-    }
-}
-
 .faq-page {
 
     .inspire {
-        margin-top: 6rem;
 
         p.question {
             text-align: justify;
@@ -877,7 +863,6 @@ $logo-height: $front-page-spacer * 0.64;
 
             &::before {
                 content: '-';
-                position: absolute;
                 font-size: $font-size-lg * 3;
                 line-height: $font-size-lg * 3;
                 color: $secondary;
@@ -891,6 +876,19 @@ $logo-height: $front-page-spacer * 0.64;
             margin-left: 3rem;
             padding: $front-page-spacer / 3 $front-page-spacer / 3 $front-page-spacer / 3 $front-page-spacer;
         }
+    }
+
+    h1.main-heading {
+        font-size: $font-size-lg * 2;
+        line-height: $font-size-lg * 3;
+        color: $secondary;
+        text-transform: uppercase;
+    }
+}
+
+.static-page {
+    .inspire {
+        margin: $front-page-spacer * 1.5 0 0 $front-page-spacer;
     }
 
     h1.main-heading {

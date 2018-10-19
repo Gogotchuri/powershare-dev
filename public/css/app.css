@@ -17079,21 +17079,6 @@ input:checked + .slider:before {
   padding: 0;
 }
 
-.static-page .inspire {
-  margin-top: 6rem;
-}
-
-.static-page h1.main-heading {
-  font-size: 2rem;
-  line-height: 3rem;
-  color: #f05523;
-  text-transform: uppercase;
-}
-
-.faq-page .inspire {
-  margin-top: 6rem;
-}
-
 .faq-page .inspire p.question {
   text-align: justify;
   font-size: 1rem;
@@ -17105,7 +17090,6 @@ input:checked + .slider:before {
 
 .faq-page .inspire p.question::before {
   content: '-';
-  position: absolute;
   font-size: 3rem;
   line-height: 3rem;
   color: #f05523;
@@ -17120,6 +17104,17 @@ input:checked + .slider:before {
 }
 
 .faq-page h1.main-heading {
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #f05523;
+  text-transform: uppercase;
+}
+
+.static-page .inspire {
+  margin: 90px 0 0 60px;
+}
+
+.static-page h1.main-heading {
   font-size: 2rem;
   line-height: 3rem;
   color: #f05523;

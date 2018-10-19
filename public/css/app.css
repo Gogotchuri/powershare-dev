@@ -17099,12 +17099,13 @@ input:checked + .slider:before {
 
 .faq-page .inspire p.question::before {
   content: '-';
+  position: relative;
+  bottom: 4px;
   font-size: 3rem;
   line-height: 3rem;
   color: #f05523;
   vertical-align: middle;
   padding-right: 0.5rem;
-  left: 20px;
 }
 
 .faq-page .inspire div.ps-card.answer {

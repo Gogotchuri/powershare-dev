@@ -875,12 +875,13 @@ $logo-height: $front-page-spacer * 0.64;
 
             &::before {
                 content: '-';
+                position: relative;
+                bottom: 4px;
                 font-size: $font-size-lg * 3;
                 line-height: $font-size-lg * 3;
                 color: $secondary;
                 vertical-align: middle;
                 padding-right: 0.5rem;
-                left: 20px;
             }
         }
 

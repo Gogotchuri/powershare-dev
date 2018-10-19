@@ -90,7 +90,7 @@
                                                                     <div class="col-md-6 col-lg-5">
                                                         <span class="required-funding">
                                                             <h6>Required funding</h6>
-                                                            <h6>1,500 $</h6>
+                                                            <h6>{{ $campaign->required_funding ? number_format($campaign->required_funding) . ' $' : "--" }}</h6>
                                                         </span>
                                                                     </div>
                                                                 </div>

@@ -110,6 +110,7 @@ class CampaignController extends Controller
 
         $campaign->name = $request->input('name');
         $campaign->target_audience = $request->input('target_audience');
+        $campaign->required_funding = $request->input('required_funding');
         $campaign->category_id = $request->input('category');
         $campaign->details = $request->input('details');
         $campaign->video_url = $request->video;

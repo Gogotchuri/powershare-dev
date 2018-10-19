@@ -26,6 +26,7 @@ class Campaign extends Model
             'name' => 'required|string|max:255',
             'details' => 'required|string',
             'target_audience' => 'string',
+            'required_funding' => 'numeric',
         ];
     }
 

@@ -13,6 +13,7 @@
 @import 'cz-variables';
 @import '~bootstrap/scss/bootstrap';
 @import 'cz-theme';
+@import 'mixins/cz-box-shadow';
 @import "bootstrap-switch-checkbox";
 
 .navbar-laravel {
@@ -501,9 +502,11 @@ $logo-height: $front-page-spacer * 0.64;
         }
 
         .ps-card {
+
+            @include cz-box-shadow;
+
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             padding: $front-page-spacer / 3;
         }
@@ -688,10 +691,12 @@ $logo-height: $front-page-spacer * 0.64;
 
         .gallery {
             .gallery-item {
+
+                @include cz-box-shadow-light;
+
                 position: relative;
                 border-radius: 10px;
                 overflow: hidden;
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
                 height: 300px;
 
                 .gallery-image {
@@ -844,6 +849,8 @@ $logo-height: $front-page-spacer * 0.64;
     .ps-card {
         &.ps-card-video {
             padding: 0;
+
+            @include cz-box-shadow;
         }
     }
 }
@@ -873,6 +880,7 @@ $logo-height: $front-page-spacer * 0.64;
         }
 
         div.ps-card.answer {
+            @include cz-box-shadow-light;
             margin-left: 3rem;
             padding: $front-page-spacer / 3 $front-page-spacer / 3 $front-page-spacer / 3 $front-page-spacer;
         }

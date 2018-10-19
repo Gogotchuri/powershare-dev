@@ -124,17 +124,6 @@
                             <p>We recommend donating 20-30% of your CPU power.</p>
                         </div>
 
-                        <p class="question mt-5"></p>
-                        <div class="ps-card answer mb-5">
-                            <p></p>
-                        </div>
-
-                        <p class="question mt-5">17. How can I check my CPU power usage?</p>
-                        <div class="ps-card answer mb-5">
-                            <p>Click cntrl+alt+del and go to ‘task manager’. The first box show you how much percent of
-                                your CPU is being used.</p>
-                        </div>
-
                         <p class="question mt-5">How can I donate apart from fundmining?</p>
                         <div class="ps-card answer mb-5">
                             <p>You can directly donate Ethereum from your wallet.</p>

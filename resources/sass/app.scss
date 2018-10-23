@@ -1063,7 +1063,7 @@ $logo-height: $front-page-spacer * 0.64;
 //Blur background
 //FIXME: This selector could be better.
 .modal-open *:not(.modal-body)>.container-fluid, .modal-open *:not(.modal-body)>.container {
-    -webkit-filter: blur(3px);
+    -webkit-filter: blur(8px);
 }
 
 //Remove dark background color
@@ -1071,9 +1071,62 @@ $logo-height: $front-page-spacer * 0.64;
     background-color: transparent;
 }
 
-.modal-dialog {
-    .modal-content {
-        @include cz-box-shadow;
-        border: none;
+#oldNewModal {
+
+    color: $primary;
+
+    h1 {
+        font-family: 'Adrianna', non-serif;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+        color: $secondary;
+    }
+
+    .modal-dialog {
+        .modal-content {
+            @include cz-box-shadow;
+            border: none;
+
+            button {
+                background: transparent;
+                border: 2px solid $primary;
+                border-radius: $logo-height / 2;
+                color: $primary;
+                font-weight: $font-weight-bold;
+            }
+
+            .campaign-mark {
+
+                padding: 15px 0;
+
+                & > div {
+                    display: inline-block;
+                    height: 32px;
+                }
+
+                .campaign-mark-img {
+                    vertical-align: middle;
+
+                    img {
+                        width: 46px;
+                        height: 46px;
+                    }
+                }
+
+                .campaign-mark-title {
+
+                    vertical-align: middle;
+                    padding-left: 7px;
+                    max-width: 70%;
+
+                    span {
+                        display: block;
+                        width: 100%;
+                        height: 20px;
+                        font-size: $font-size-lg;
+                    }
+                }
+            }
+        }
     }
 }

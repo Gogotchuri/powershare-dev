@@ -17291,16 +17291,66 @@ input:checked + .slider:before {
 
 .modal-open *:not(.modal-body) > .container-fluid,
 .modal-open *:not(.modal-body) > .container {
-  -webkit-filter: blur(3px);
+  -webkit-filter: blur(8px);
 }
 
 .modal-backdrop {
   background-color: transparent;
 }
 
-.modal-dialog .modal-content {
+#oldNewModal {
+  color: #652d90;
+}
+
+#oldNewModal h1 {
+  font-family: 'Adrianna', non-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #f05523;
+}
+
+#oldNewModal .modal-dialog .modal-content {
   -webkit-box-shadow: 0px 4px 14px 1px rgba(101, 45, 144, 0.5);
   box-shadow: 0px 4px 14px 1px rgba(101, 45, 144, 0.5);
   border: none;
+}
+
+#oldNewModal .modal-dialog .modal-content button {
+  background: transparent;
+  border: 2px solid #652d90;
+  border-radius: 19.2px;
+  color: #652d90;
+  font-weight: 700;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark {
+  padding: 15px 0;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark > div {
+  display: inline-block;
+  height: 32px;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-img {
+  vertical-align: middle;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-img img {
+  width: 46px;
+  height: 46px;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-title {
+  vertical-align: middle;
+  padding-left: 7px;
+  max-width: 70%;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-title span {
+  display: block;
+  width: 100%;
+  height: 20px;
+  font-size: 1rem;
 }
 

@@ -1079,6 +1079,7 @@ $logo-height: $front-page-spacer * 0.64;
         font-family: 'Adrianna', non-serif;
         text-transform: uppercase;
         font-weight: $font-weight-bold;
+        font-size: $font-size-lg;
         color: $secondary;
     }
 
@@ -1093,6 +1094,11 @@ $logo-height: $front-page-spacer * 0.64;
                 border-radius: $logo-height / 2;
                 color: $primary;
                 font-weight: $font-weight-bold;
+
+                &:hover {
+                    background-color: $primary;
+                    color: #FFF;
+                }
             }
 
             .campaign-mark {
@@ -1118,6 +1124,7 @@ $logo-height: $front-page-spacer * 0.64;
                     vertical-align: middle;
                     padding-left: 7px;
                     max-width: 70%;
+                    text-align: left;
 
                     span {
                         display: block;
@@ -1126,6 +1133,45 @@ $logo-height: $front-page-spacer * 0.64;
                         font-size: $font-size-lg;
                     }
                 }
+            }
+
+            .checkbox_wrapper{
+                position: relative;
+                height: 16px;
+                width: 17px;
+                margin-right: 0.5rem;
+            }
+
+            input[type="checkbox"] {
+                opacity:0;
+                height: 16px;
+                width: 17px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+            }
+
+            input[type="checkbox"] + label{
+                //background:url('../images/unchecked.png') no-repeat;
+                height: 16px;
+                width: 17px;
+                display:inline-block;
+                padding: 0 0 0 0px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                border: 1px solid $primary;
+                border-radius: 3px;
+            }
+
+            input[type="checkbox"]:checked + label{
+                background:url('/img/checksign.png') no-repeat;
+                height: 16px;
+                width: 17px;
+                display:inline-block;
+                padding: 0 0 0 0px;
             }
         }
     }

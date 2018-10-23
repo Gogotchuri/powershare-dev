@@ -2,10 +2,12 @@
 
 namespace App\Listeners;
 
-use App\Events\CampaignPublished;
+use App\Events\CampaignPublishedEvent;
+use App\Mail\CampaignPublished;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 //TODO: Make this listener queued
 class SendCampaignPublishedEmail
@@ -23,11 +25,11 @@ class SendCampaignPublishedEmail
     /**
      * Handle the event.
      *
-     * @param  CampaignPublished  $event
+     * @param  CampaignPublishedEvent $event
      * @return void
      */
-    public function handle(CampaignPublished $event)
+    public function handle(CampaignPublishedEvent $event)
     {
-        Log::info('Campaign published: ' . $event->campaign->name);
+        Mail::to($event->campaign->author)->send(new CampaignPublished($event->campaign));
     }
 }

@@ -19,7 +19,7 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 
-        'App\Events\CampaignPublished' => [
+        'App\Events\CampaignPublishedEvent' => [
             'App\Listeners\SendCampaignPublishedEmail',
         ],
     ];

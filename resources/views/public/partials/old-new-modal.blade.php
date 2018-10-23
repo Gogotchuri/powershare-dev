@@ -18,7 +18,7 @@
                                     <img src="/img/popup-icon1.png">
                                 </div>
                                 <div class="campaign-mark-title">
-                                    <span>Visit Token Sale Page</span>
+                                    <span>Visit Token </span><span> Sale Page</span>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                                     <img src="/img/popup-icon2.png">
                                 </div>
                                 <div class="campaign-mark-title">
-                                    <span>Proceed to the Alpha Platform</span>
+                                    <span>Proceed to the</span> <span>Alpha Platform</span>
                                 </div>
                             </div>
                         </div>

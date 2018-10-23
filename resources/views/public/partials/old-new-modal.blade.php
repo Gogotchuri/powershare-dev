@@ -15,7 +15,7 @@
                         <div class="col-md-6">
                             <div class="campaign-mark">
                                 <div class="campaign-mark-img">
-                                    <img src="/img/icons/token.png">
+                                    <img src="/img/popup-icon1.png">
                                 </div>
                                 <div class="campaign-mark-title">
                                     <span>Visit Token Sale Page</span>
@@ -25,7 +25,7 @@
                         <div class="col-md-6">
                             <div class="campaign-mark">
                                 <div class="campaign-mark-img">
-                                    <img src="/img/icons/token.png">
+                                    <img src="/img/popup-icon2.png">
                                 </div>
                                 <div class="campaign-mark-title">
                                     <span>Proceed to the Alpha Platform</span>

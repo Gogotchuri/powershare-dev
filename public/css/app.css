@@ -17322,6 +17322,7 @@ input:checked + .slider:before {
   border-radius: 19.2px;
   color: #652d90;
   font-weight: 700;
+  width: 100%;
 }
 
 #oldNewModal .modal-dialog .modal-content button:hover {

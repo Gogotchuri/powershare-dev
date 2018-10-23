@@ -38,10 +38,6 @@ class Campaign extends Model
         return $this->belongsTo(CampaignStatus::class);
     }
 
-    public function video() {
-        return $this->hasOne(Video::class);
-    }
-
     public function featured_image() {
         return $this->belongsTo(Image::class);
     }

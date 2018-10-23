@@ -22,6 +22,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\CampaignPublishedEvent' => [
             'App\Listeners\SendCampaignPublishedEmail',
         ],
+
+        'App\Events\CampaignSubmittedEvent' => [
+            'App\Listeners\SendCampaignSubmittedEmail',
+        ],
     ];
 
     /**

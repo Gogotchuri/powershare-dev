@@ -1058,3 +1058,22 @@ $logo-height: $front-page-spacer * 0.64;
         text-transform: uppercase;
     }
 }
+// Old/New Platform modal styling
+
+//Blur background
+//FIXME: This selector could be better.
+.modal-open *:not(.modal-body)>.container-fluid, .modal-open *:not(.modal-body)>.container {
+    -webkit-filter: blur(3px);
+}
+
+//Remove dark background color
+.modal-backdrop {
+    background-color: transparent;
+}
+
+.modal-dialog {
+    .modal-content {
+        @include cz-box-shadow;
+        border: none;
+    }
+}

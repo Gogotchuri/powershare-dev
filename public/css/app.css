@@ -17289,3 +17289,18 @@ input:checked + .slider:before {
   text-transform: uppercase;
 }
 
+.modal-open *:not(.modal-body) > .container-fluid,
+.modal-open *:not(.modal-body) > .container {
+  -webkit-filter: blur(3px);
+}
+
+.modal-backdrop {
+  background-color: transparent;
+}
+
+.modal-dialog .modal-content {
+  -webkit-box-shadow: 0px 4px 14px 1px rgba(101, 45, 144, 0.5);
+  box-shadow: 0px 4px 14px 1px rgba(101, 45, 144, 0.5);
+  border: none;
+}
+

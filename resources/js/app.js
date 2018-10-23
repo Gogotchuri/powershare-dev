@@ -219,4 +219,39 @@ $(document).ready(function () {
         $(document).on('click', hideMenu);
         $(document).on('touchend', hideMenu);
     }
+
+    // Old or new Platform choice popup
+
+    let oldNewModal = $('#oldNewModal');
+
+    if(oldNewModal.length) {
+
+        if($.cookie('chooseWebsite') !== '1') {
+            oldNewModal.modal('show');
+        }
+
+        $('.old-new-choice-button').click(function(e) {
+
+            if(oldNewModal.find('.chooseWebsiteTick').is(":checked")) {
+                //Set cookie if ticked
+                $.cookie('chooseWebsite', '1');
+            }
+
+            // Prevent default if any
+            e.preventDefault();
+
+            oldNewModal.modal('hide');
+
+            let targetUrl = $(e.target).data('targetUrl');
+
+            // Get hostname from targetUrl
+            let a = document.createElement("a");
+            a.href = targetUrl;
+
+            // If we are already on target url do not redirect
+            if(a.hostname !== window.location.hostname) {
+                window.location.href = targetUrl;
+            }
+        });
+    }
 });

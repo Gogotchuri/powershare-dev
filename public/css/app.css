@@ -17365,9 +17365,11 @@ input:checked + .slider:before {
 
 #oldNewModal .modal-dialog .modal-content .checkbox_wrapper {
   position: relative;
-  height: 16px;
-  width: 17px;
+  height: 14px;
+  width: 14px;
   margin-right: 0.5rem;
+  border: 1px solid #652d90;
+  border-radius: 3px;
 }
 
 #oldNewModal .modal-dialog .modal-content input[type="checkbox"] {
@@ -17386,11 +17388,9 @@ input:checked + .slider:before {
   display: inline-block;
   padding: 0 0 0 0px;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -4px;
+  left: -1px;
   z-index: 1;
-  border: 1px solid #652d90;
-  border-radius: 3px;
 }
 
 #oldNewModal .modal-dialog .modal-content input[type="checkbox"]:checked + label {

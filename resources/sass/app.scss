@@ -1138,9 +1138,11 @@ $logo-height: $front-page-spacer * 0.64;
 
             .checkbox_wrapper{
                 position: relative;
-                height: 16px;
-                width: 17px;
+                height: 14px;
+                width: 14px;
                 margin-right: 0.5rem;
+                border: 1px solid $primary;
+                border-radius: 3px;
             }
 
             input[type="checkbox"] {
@@ -1160,11 +1162,9 @@ $logo-height: $front-page-spacer * 0.64;
                 display:inline-block;
                 padding: 0 0 0 0px;
                 position: absolute;
-                top: 0;
-                left: 0;
+                top: -4px;
+                left: -1px;
                 z-index: 1;
-                border: 1px solid $primary;
-                border-radius: 3px;
             }
 
             input[type="checkbox"]:checked + label{

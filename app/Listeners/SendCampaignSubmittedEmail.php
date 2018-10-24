@@ -3,9 +3,11 @@
 namespace App\Listeners;
 
 use App\Events\CampaignSubmittedEvent;
+use App\Mail\CampaignSubmitted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class SendCampaignSubmittedEmail
 {
@@ -27,6 +29,6 @@ class SendCampaignSubmittedEmail
      */
     public function handle(CampaignSubmittedEvent $event)
     {
-        Log::info("Got Submitted " . $event->campaign->name);
+        Mail::to($event->campaign->author)->queue(new CampaignSubmitted($event->campaign));
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class CampaignPublished extends Mailable
+class CampaignSubmitted extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,7 +32,7 @@ class CampaignPublished extends Mailable
     public function build()
     {
         return $this->subject('Your Campaign was submitted for review')->view('emails.campaign-notification', [
-            'notification' => 'was published.'
+            'notification' => 'was submitted for review.'
         ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Events\CampaignDraftedEvent;
 use App\Events\CampaignPublishedEvent;
 use App\Events\CampaignSubmittedEvent;
 use App\Models\Campaign;
+use Illuminate\Support\Facades\Log;
 
 class CampaignObserver
 {
@@ -23,8 +24,9 @@ class CampaignObserver
                 event(new CampaignSubmittedEvent($campaign));
             }
 
-            // Become approved/public
+            // Become public
             if($campaign->is_approved) {
+                Log::info('Publishing event');
                 event(new CampaignPublishedEvent($campaign));
             }
 

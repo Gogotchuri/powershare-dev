@@ -2,6 +2,7 @@
 
 @section('html-body')
     <body>
+    @include('public.partials.old-new-modal')
     <div id="app" class="background-image front-page" style="background-image: url(/img/background-dotted.png)">
         <div class="wrapper-animation-one">
             <div class="container-fluid">

@@ -17307,7 +17307,7 @@ input:checked + .slider:before {
   font-family: 'Adrianna', non-serif;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.35rem;
   color: #f05523;
 }
 
@@ -17351,16 +17351,17 @@ input:checked + .slider:before {
 
 #oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-title {
   vertical-align: middle;
-  padding-left: 7px;
+  padding-left: 0;
   max-width: 70%;
   text-align: left;
+  margin-top: 1rem;
 }
 
 #oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-title span {
   display: block;
   width: 100%;
   height: 20px;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 #oldNewModal .modal-dialog .modal-content .checkbox_wrapper {

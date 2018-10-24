@@ -2,12 +2,12 @@
 
 namespace App\Listeners;
 
-use App\Events\CampaignSubmittedEvent;
+use App\Events\CampaignDraftedEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
 
-class SendCampaignSubmittedEmail
+class HandleDrafted
 {
     /**
      * Create the event listener.
@@ -22,11 +22,11 @@ class SendCampaignSubmittedEmail
     /**
      * Handle the event.
      *
-     * @param  CampaignSubmittedEvent  $event
+     * @param  CampaignDraftedEvent  $event
      * @return void
      */
-    public function handle(CampaignSubmittedEvent $event)
+    public function handle(CampaignDraftedEvent $event)
     {
-        Log::info("Got Submitted " . $event->campaign->name);
+        Log::info("Got drafted " . $event->campaign->name);
     }
 }

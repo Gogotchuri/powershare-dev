@@ -24,7 +24,7 @@ class CampaignObserver
                 event(new CampaignSubmittedEvent($campaign));
             }
 
-            // Become approved/public
+            // Become public
             if($campaign->is_approved) {
                 Log::info('Publishing event');
                 event(new CampaignPublishedEvent($campaign));

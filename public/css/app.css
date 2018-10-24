@@ -17095,6 +17095,7 @@ input:checked + .slider:before {
   font-weight: 700;
   vertical-align: middle;
   margin-left: 3rem;
+  color: #f05523;
 }
 
 .faq-page .inspire p.question::before {

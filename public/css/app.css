@@ -16072,20 +16072,36 @@ input:checked + .slider:before {
 .about-page select,
 .about-page option,
 .about-page button,
-.about-page span {
+.about-page span,
+.faq-page p,
+.faq-page h1,
+.faq-page h2,
+.faq-page h3,
+.faq-page h4,
+.faq-page h5,
+.faq-page h6,
+.faq-page a,
+.faq-page span,
+.faq-page input,
+.faq-page select,
+.faq-page option,
+.faq-page button,
+.faq-page span {
   font-family: 'Adrianna', non-serif;
 }
 
 .front-page a:hover,
 .campaign-page a:hover,
-.about-page a:hover {
+.about-page a:hover,
+.faq-page a:hover {
   text-decoration: none;
 }
 
 @media (min-width: 576px) {
   .front-page .container-fluid,
   .campaign-page .container-fluid,
-  .about-page .container-fluid {
+  .about-page .container-fluid,
+  .faq-page .container-fluid {
     padding-left: 60px;
     padding-right: 60px;
   }
@@ -16093,7 +16109,8 @@ input:checked + .slider:before {
 
 .front-page ul.side-connect-menu,
 .campaign-page ul.side-connect-menu,
-.about-page ul.side-connect-menu {
+.about-page ul.side-connect-menu,
+.faq-page ul.side-connect-menu {
   position: fixed;
   right: 0;
   top: 180px;
@@ -16105,26 +16122,30 @@ input:checked + .slider:before {
 @media (max-width: 767.98px) {
   .front-page ul.side-connect-menu,
   .campaign-page ul.side-connect-menu,
-  .about-page ul.side-connect-menu {
+  .about-page ul.side-connect-menu,
+  .faq-page ul.side-connect-menu {
     top: 210px;
   }
 }
 
 .front-page ul.side-connect-menu li,
 .campaign-page ul.side-connect-menu li,
-.about-page ul.side-connect-menu li {
+.about-page ul.side-connect-menu li,
+.faq-page ul.side-connect-menu li {
   padding: 5px;
 }
 
 .front-page ul.side-connect-menu li .fa-facebook-f,
 .campaign-page ul.side-connect-menu li .fa-facebook-f,
-.about-page ul.side-connect-menu li .fa-facebook-f {
+.about-page ul.side-connect-menu li .fa-facebook-f,
+.faq-page ul.side-connect-menu li .fa-facebook-f {
   padding-left: 5px;
 }
 
 .front-page .mobile-menu .mobile-menu-items,
 .campaign-page .mobile-menu .mobile-menu-items,
-.about-page .mobile-menu .mobile-menu-items {
+.about-page .mobile-menu .mobile-menu-items,
+.faq-page .mobile-menu .mobile-menu-items {
   position: fixed;
   z-index: 999;
   display: block;
@@ -16138,13 +16159,15 @@ input:checked + .slider:before {
 
 .front-page .mobile-menu .mobile-menu-items.hidden,
 .campaign-page .mobile-menu .mobile-menu-items.hidden,
-.about-page .mobile-menu .mobile-menu-items.hidden {
+.about-page .mobile-menu .mobile-menu-items.hidden,
+.faq-page .mobile-menu .mobile-menu-items.hidden {
   max-height: 0;
 }
 
 .front-page .mobile-menu .mobile-menu-items a,
 .campaign-page .mobile-menu .mobile-menu-items a,
-.about-page .mobile-menu .mobile-menu-items a {
+.about-page .mobile-menu .mobile-menu-items a,
+.faq-page .mobile-menu .mobile-menu-items a {
   background-color: #FFF;
   width: 100%;
   display: block;
@@ -16155,7 +16178,8 @@ input:checked + .slider:before {
 
 .front-page .mobile-menu .mobile-menu-items .authentication-buttons,
 .campaign-page .mobile-menu .mobile-menu-items .authentication-buttons,
-.about-page .mobile-menu .mobile-menu-items .authentication-buttons {
+.about-page .mobile-menu .mobile-menu-items .authentication-buttons,
+.faq-page .mobile-menu .mobile-menu-items .authentication-buttons {
   border: 0;
   border-radius: 0;
   width: 100%;
@@ -16163,20 +16187,23 @@ input:checked + .slider:before {
 
 .front-page .mobile-menu .mobile-menu-items .logo,
 .campaign-page .mobile-menu .mobile-menu-items .logo,
-.about-page .mobile-menu .mobile-menu-items .logo {
+.about-page .mobile-menu .mobile-menu-items .logo,
+.faq-page .mobile-menu .mobile-menu-items .logo {
   display: block;
 }
 
 .front-page .mobile-menu .mobile-menu-items ul.social-links,
 .campaign-page .mobile-menu .mobile-menu-items ul.social-links,
-.about-page .mobile-menu .mobile-menu-items ul.social-links {
+.about-page .mobile-menu .mobile-menu-items ul.social-links,
+.faq-page .mobile-menu .mobile-menu-items ul.social-links {
   text-align: center;
   padding: 0;
 }
 
 .front-page .mobile-menu .mobile-menu-items ul.social-links li,
 .campaign-page .mobile-menu .mobile-menu-items ul.social-links li,
-.about-page .mobile-menu .mobile-menu-items ul.social-links li {
+.about-page .mobile-menu .mobile-menu-items ul.social-links li,
+.faq-page .mobile-menu .mobile-menu-items ul.social-links li {
   list-style: none;
   display: inline;
   padding: 10px;
@@ -16184,26 +16211,30 @@ input:checked + .slider:before {
 
 .front-page .mobile-menu .mobile-menu-items ul.social-links li a,
 .campaign-page .mobile-menu .mobile-menu-items ul.social-links li a,
-.about-page .mobile-menu .mobile-menu-items ul.social-links li a {
+.about-page .mobile-menu .mobile-menu-items ul.social-links li a,
+.faq-page .mobile-menu .mobile-menu-items ul.social-links li a {
   display: inline;
 }
 
 .front-page .mobile-menu .logo,
 .campaign-page .mobile-menu .logo,
-.about-page .mobile-menu .logo {
+.about-page .mobile-menu .logo,
+.faq-page .mobile-menu .logo {
   float: left;
   width: 50%;
 }
 
 .front-page .mobile-menu .logo img,
 .campaign-page .mobile-menu .logo img,
-.about-page .mobile-menu .logo img {
+.about-page .mobile-menu .logo img,
+.faq-page .mobile-menu .logo img {
   width: 152px;
 }
 
 .front-page .mobile-menu .mobile-menu-toggle,
 .campaign-page .mobile-menu .mobile-menu-toggle,
-.about-page .mobile-menu .mobile-menu-toggle {
+.about-page .mobile-menu .mobile-menu-toggle,
+.faq-page .mobile-menu .mobile-menu-toggle {
   display: block;
   float: left;
   padding: 0 16px 0 16px;
@@ -16213,7 +16244,8 @@ input:checked + .slider:before {
 
 .front-page .side-menu,
 .campaign-page .side-menu,
-.about-page .side-menu {
+.about-page .side-menu,
+.faq-page .side-menu {
   left: 0;
   position: fixed;
   top: 120px;
@@ -16227,7 +16259,8 @@ input:checked + .slider:before {
 
 .front-page .side-menu a,
 .campaign-page .side-menu a,
-.about-page .side-menu a {
+.about-page .side-menu a,
+.faq-page .side-menu a {
   color: #f05523;
   display: inline-block;
   line-height: 60px;
@@ -16238,39 +16271,45 @@ input:checked + .slider:before {
 
 .front-page .side-menu a:hover,
 .campaign-page .side-menu a:hover,
-.about-page .side-menu a:hover {
+.about-page .side-menu a:hover,
+.faq-page .side-menu a:hover {
   color: #d23e0e;
 }
 
 .front-page .inspiring-section.inspiring-section-first,
 .campaign-page .inspiring-section.inspiring-section-first,
-.about-page .inspiring-section.inspiring-section-first {
+.about-page .inspiring-section.inspiring-section-first,
+.faq-page .inspiring-section.inspiring-section-first {
   color: #652d90;
 }
 
 .front-page .inspiring-section.inspiring-section-first .inspire,
 .campaign-page .inspiring-section.inspiring-section-first .inspire,
-.about-page .inspiring-section.inspiring-section-first .inspire {
+.about-page .inspiring-section.inspiring-section-first .inspire,
+.faq-page .inspiring-section.inspiring-section-first .inspire {
   margin-top: 40px;
 }
 
 @media (max-width: 767.98px) {
   .front-page .inspiring-section.inspiring-section-first .inspire,
   .campaign-page .inspiring-section.inspiring-section-first .inspire,
-  .about-page .inspiring-section.inspiring-section-first .inspire {
+  .about-page .inspiring-section.inspiring-section-first .inspire,
+  .faq-page .inspiring-section.inspiring-section-first .inspire {
     margin-top: 120px;
   }
 }
 
 .front-page .inspiring-section.inspiring-section-first .inspire .inspire-second,
 .campaign-page .inspiring-section.inspiring-section-first .inspire .inspire-second,
-.about-page .inspiring-section.inspiring-section-first .inspire .inspire-second {
+.about-page .inspiring-section.inspiring-section-first .inspire .inspire-second,
+.faq-page .inspiring-section.inspiring-section-first .inspire .inspire-second {
   color: #f05523;
 }
 
 .front-page .inspiring-section.inspiring-section-first .powershare-button,
 .campaign-page .inspiring-section.inspiring-section-first .powershare-button,
-.about-page .inspiring-section.inspiring-section-first .powershare-button {
+.about-page .inspiring-section.inspiring-section-first .powershare-button,
+.faq-page .inspiring-section.inspiring-section-first .powershare-button {
   background: #652d90;
   border: 1px solid #652d90;
   border-radius: 2rem;
@@ -16284,25 +16323,29 @@ input:checked + .slider:before {
 
 .front-page .inspiring-section.inspiring-section-first .powershare-button:hover,
 .campaign-page .inspiring-section.inspiring-section-first .powershare-button:hover,
-.about-page .inspiring-section.inspiring-section-first .powershare-button:hover {
+.about-page .inspiring-section.inspiring-section-first .powershare-button:hover,
+.faq-page .inspiring-section.inspiring-section-first .powershare-button:hover {
   background-color: #4a2169;
 }
 
 .front-page .inspiring-section.inspiring-section-second,
 .campaign-page .inspiring-section.inspiring-section-second,
-.about-page .inspiring-section.inspiring-section-second {
+.about-page .inspiring-section.inspiring-section-second,
+.faq-page .inspiring-section.inspiring-section-second {
   color: #f05523;
 }
 
 .front-page .inspiring-section.inspiring-section-second .inspire,
 .campaign-page .inspiring-section.inspiring-section-second .inspire,
-.about-page .inspiring-section.inspiring-section-second .inspire {
+.about-page .inspiring-section.inspiring-section-second .inspire,
+.faq-page .inspiring-section.inspiring-section-second .inspire {
   margin-top: 20px;
 }
 
 .front-page .inspiring-section .logo,
 .campaign-page .inspiring-section .logo,
-.about-page .inspiring-section .logo {
+.about-page .inspiring-section .logo,
+.faq-page .inspiring-section .logo {
   display: block;
   height: 60px;
   margin: -21.6px 60px 21.6px 0;
@@ -16310,14 +16353,16 @@ input:checked + .slider:before {
 
 .front-page .inspiring-section .inspire,
 .campaign-page .inspiring-section .inspire,
-.about-page .inspiring-section .inspire {
+.about-page .inspiring-section .inspire,
+.faq-page .inspiring-section .inspire {
   margin: 0 60px;
 }
 
 @media (max-width: 1199.98px) {
   .front-page .inspiring-section .inspire,
   .campaign-page .inspiring-section .inspire,
-  .about-page .inspiring-section .inspire {
+  .about-page .inspiring-section .inspire,
+  .faq-page .inspiring-section .inspire {
     margin: 0 20px;
   }
 }
@@ -16325,14 +16370,16 @@ input:checked + .slider:before {
 @media (max-width: 991.98px) {
   .front-page .inspiring-section .inspire .inspire-first,
   .campaign-page .inspiring-section .inspire .inspire-first,
-  .about-page .inspiring-section .inspire .inspire-first {
+  .about-page .inspiring-section .inspire .inspire-first,
+  .faq-page .inspiring-section .inspire .inspire-first {
     font-size: 1.7rem;
     text-transform: uppercase;
   }
 
   .front-page .inspiring-section .inspire .inspire-second,
   .campaign-page .inspiring-section .inspire .inspire-second,
-  .about-page .inspiring-section .inspire .inspire-second {
+  .about-page .inspiring-section .inspire .inspire-second,
+  .faq-page .inspiring-section .inspire .inspire-second {
     font-weight: 200;
     font-size: 1.15rem;
   }
@@ -16341,20 +16388,23 @@ input:checked + .slider:before {
 @media (max-width: 767.98px) {
   .front-page .inspiring-section .inspire,
   .campaign-page .inspiring-section .inspire,
-  .about-page .inspiring-section .inspire {
+  .about-page .inspiring-section .inspire,
+  .faq-page .inspiring-section .inspire {
     margin: 0 40px 0 20px;
   }
 
   .front-page .inspiring-section .inspire h1.inspire-first,
   .campaign-page .inspiring-section .inspire h1.inspire-first,
-  .about-page .inspiring-section .inspire h1.inspire-first {
+  .about-page .inspiring-section .inspire h1.inspire-first,
+  .faq-page .inspiring-section .inspire h1.inspire-first {
     font-size: 1.2em;
     margin-bottom: 1em !important;
   }
 
   .front-page .inspiring-section .inspire h3.inspire-second,
   .campaign-page .inspiring-section .inspire h3.inspire-second,
-  .about-page .inspiring-section .inspire h3.inspire-second {
+  .about-page .inspiring-section .inspire h3.inspire-second,
+  .faq-page .inspiring-section .inspire h3.inspire-second {
     font-size: 1.2em;
   }
 }
@@ -16362,7 +16412,8 @@ input:checked + .slider:before {
 @media (min-width: 992px) {
   .front-page .inspiring-section .inspire .inspire-second,
   .campaign-page .inspiring-section .inspire .inspire-second,
-  .about-page .inspiring-section .inspire .inspire-second {
+  .about-page .inspiring-section .inspire .inspire-second,
+  .faq-page .inspiring-section .inspire .inspire-second {
     font-weight: 200;
     font-size: 1.35rem;
   }
@@ -16370,7 +16421,8 @@ input:checked + .slider:before {
 
 .front-page .inspiring-section .inspire .inspire-first,
 .campaign-page .inspiring-section .inspire .inspire-first,
-.about-page .inspiring-section .inspire .inspire-first {
+.about-page .inspiring-section .inspire .inspire-first,
+.faq-page .inspiring-section .inspire .inspire-first {
   text-transform: uppercase;
 }
 
@@ -16379,7 +16431,9 @@ input:checked + .slider:before {
 .campaign-page .inspiring-section input,
 .campaign-page .inspiring-section select,
 .about-page .inspiring-section input,
-.about-page .inspiring-section select {
+.about-page .inspiring-section select,
+.faq-page .inspiring-section input,
+.faq-page .inspiring-section select {
   -webkit-appearance: none;
   background: transparent;
   border: 1px solid #652d90;
@@ -16395,25 +16449,29 @@ input:checked + .slider:before {
 
 .front-page .inspiring-section input::-webkit-input-placeholder,
 .campaign-page .inspiring-section input::-webkit-input-placeholder,
-.about-page .inspiring-section input::-webkit-input-placeholder {
+.about-page .inspiring-section input::-webkit-input-placeholder,
+.faq-page .inspiring-section input::-webkit-input-placeholder {
   color: #652d90;
 }
 
 .front-page .inspiring-section input::-ms-input-placeholder,
 .campaign-page .inspiring-section input::-ms-input-placeholder,
-.about-page .inspiring-section input::-ms-input-placeholder {
+.about-page .inspiring-section input::-ms-input-placeholder,
+.faq-page .inspiring-section input::-ms-input-placeholder {
   color: #652d90;
 }
 
 .front-page .inspiring-section input::placeholder,
 .campaign-page .inspiring-section input::placeholder,
-.about-page .inspiring-section input::placeholder {
+.about-page .inspiring-section input::placeholder,
+.faq-page .inspiring-section input::placeholder {
   color: #652d90;
 }
 
 .front-page .left-panel,
 .campaign-page .left-panel,
-.about-page .left-panel {
+.about-page .left-panel,
+.faq-page .left-panel {
   /*color: $primary;
 
         .logo {
@@ -16454,13 +16512,15 @@ input:checked + .slider:before {
 
 .front-page .right-panel .campaigns-list,
 .campaign-page .right-panel .campaigns-list,
-.about-page .right-panel .campaigns-list {
+.about-page .right-panel .campaigns-list,
+.faq-page .right-panel .campaigns-list {
   margin-top: 60px;
 }
 
 .front-page .right-panel .campaigns-list .ps-card,
 .campaign-page .right-panel .campaigns-list .ps-card,
-.about-page .right-panel .campaigns-list .ps-card {
+.about-page .right-panel .campaigns-list .ps-card,
+.faq-page .right-panel .campaigns-list .ps-card {
   border-radius: 8px;
   display: block;
   margin-bottom: 18px;
@@ -16469,7 +16529,8 @@ input:checked + .slider:before {
 
 .front-page .right-panel .campaigns-list .ps-card:hover .ps-card-image,
 .campaign-page .right-panel .campaigns-list .ps-card:hover .ps-card-image,
-.about-page .right-panel .campaigns-list .ps-card:hover .ps-card-image {
+.about-page .right-panel .campaigns-list .ps-card:hover .ps-card-image,
+.faq-page .right-panel .campaigns-list .ps-card:hover .ps-card-image {
   -webkit-transform-origin: center center;
           transform-origin: center center;
   -webkit-transform: scale(1.03, 1.03);
@@ -16478,14 +16539,16 @@ input:checked + .slider:before {
 
 .front-page .right-panel .campaigns-list .ps-card .ps-card-image-container,
 .campaign-page .right-panel .campaigns-list .ps-card .ps-card-image-container,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container {
+.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container,
+.faq-page .right-panel .campaigns-list .ps-card .ps-card-image-container {
   padding: 0 6px;
   overflow: visible;
 }
 
 .front-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
 .campaign-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image {
+.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
+.faq-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image {
   -webkit-transition: all 50ms ease-out;
   transition: all 50ms ease-out;
   -webkit-box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
@@ -16504,7 +16567,8 @@ input:checked + .slider:before {
 
 .front-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image .ps-card-icon,
 .campaign-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image .ps-card-icon,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image .ps-card-icon {
+.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image .ps-card-icon,
+.faq-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image .ps-card-icon {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -16514,14 +16578,16 @@ input:checked + .slider:before {
 
 .front-page .right-panel .campaigns-list .ps-card .ps-card-description,
 .campaign-page .right-panel .campaigns-list .ps-card .ps-card-description,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-description {
+.about-page .right-panel .campaigns-list .ps-card .ps-card-description,
+.faq-page .right-panel .campaigns-list .ps-card .ps-card-description {
   text-align: center;
   padding: 18px 0;
 }
 
 .front-page .right-panel .campaigns-list .ps-card .ps-card-description h4,
 .campaign-page .right-panel .campaigns-list .ps-card .ps-card-description h4,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-description h4 {
+.about-page .right-panel .campaigns-list .ps-card .ps-card-description h4,
+.faq-page .right-panel .campaigns-list .ps-card .ps-card-description h4 {
   font-size: 0.9rem;
   font-weight: 400;
   margin: 0;
@@ -16529,7 +16595,8 @@ input:checked + .slider:before {
 
 .front-page .right-panel .campaigns-list .ps-card .ps-card-description .ps-card-excerpt,
 .campaign-page .right-panel .campaigns-list .ps-card .ps-card-description .ps-card-excerpt,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-description .ps-card-excerpt {
+.about-page .right-panel .campaigns-list .ps-card .ps-card-description .ps-card-excerpt,
+.faq-page .right-panel .campaigns-list .ps-card .ps-card-description .ps-card-excerpt {
   color: #f05523;
   font-size: 0.875rem 0.8;
 }
@@ -17145,8 +17212,8 @@ input:checked + .slider:before {
   text-transform: uppercase;
 }
 
-.static-page .inspire {
-  margin: 90px 0 0 60px;
+.static-page .inspiring-section .inspire {
+  margin: 60px 0 0 60px;
 }
 
 .static-page h1.main-heading {

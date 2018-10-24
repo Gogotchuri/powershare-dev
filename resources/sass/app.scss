@@ -89,7 +89,7 @@ $logo-height: $front-page-spacer * 0.64;
 }
 
 //FIXME: Temporary added campaign page selector here to quickly apply menu styles on campaign-page too
-.front-page, .campaign-page, .about-page {
+.front-page, .campaign-page, .about-page, .faq-page {
     p, h1, h2, h3, h4, h5, h6, a, span, input, select, option, button, span {
         font-family: 'Adrianna', non-serif;
     }
@@ -921,8 +921,11 @@ $logo-height: $front-page-spacer * 0.64;
 }
 
 .static-page {
-    .inspire {
-        margin: $front-page-spacer * 1.5 0 0 $front-page-spacer;
+
+    .inspiring-section {
+        .inspire {
+            margin: $front-page-spacer 0 0 $front-page-spacer;
+        }
     }
 
     h1.main-heading {

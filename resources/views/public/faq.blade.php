@@ -4,7 +4,7 @@
     <body>
     <div id="app" class="background-image campaign-page static-page faq-page"
          style="background-image: url(/img/faq_background.png);">
-        <div class="container-fluid">
+        <div class="container-fluid inspiring-section">
             <div class="row">
                 <div class="col-md-12">
                     @include('public.partials.mobile-nav')
@@ -13,13 +13,26 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid inspiring-section">
             <div class="row">
-                <div class="col-sm-8 left-panel">
+                <div class="col-md-5">
                     <a class="d-none d-sm-block" href="/">
                         <img src="/img/logo-gradient.png" alt="Powershare logo" class="logo">
                     </a>
-                    @include('public.partials.nav')
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+
+                        <div class="col-sm-8 offset-sm-4 text-sm-right ">
+                            <div class="d-none d-sm-block">
+                                @include('public.partials.auth-buttons')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 left-panel">
                     <div class="inspire">
                         <h1 class="main-heading">Frequently</h1>
                         <h1 class="main-heading">Asked</h1>

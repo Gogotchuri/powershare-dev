@@ -16,13 +16,26 @@
             <div class="row">
                 <div class="col-sm-12 left-panel">
 
-                    {{--Inspire row--}}
-                    <div class="row mb-5">
-                        <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-5">
                             <a class="d-none d-sm-block" href="/">
                                 <img src="/img/logo-gradient.png" alt="Powershare logo" class="logo">
                             </a>
-                            @include('public.partials.nav')
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row">
+
+                                <div class="col-sm-8 offset-sm-4 text-sm-right ">
+                                    <div class="d-none d-sm-block">
+                                        @include('public.partials.auth-buttons')
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{--Inspire row--}}
+                    <div class="row mb-5">
+                        <div class="col-md-8">
                             <div class="inspire">
 
                                 <div class="ps-card ps-card-main">

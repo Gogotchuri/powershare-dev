@@ -27,6 +27,8 @@ class CampaignObserver
             if($campaign->is_approved) {
                 event(new CampaignPublishedEvent($campaign));
             }
+
+            // TODO: Add events like CampaignDisapproved
         }
     }
 }

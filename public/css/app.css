@@ -16271,11 +16271,11 @@ input:checked + .slider:before {
 .front-page .inspiring-section.inspiring-section-first .powershare-button,
 .campaign-page .inspiring-section.inspiring-section-first .powershare-button,
 .about-page .inspiring-section.inspiring-section-first .powershare-button {
-  background: transparent;
+  background: #652d90;
   border: 1px solid #652d90;
   border-radius: 2rem;
-  color: #652d90;
-  font-weight: 400;
+  color: #FFF;
+  font-weight: 700;
   padding: 1rem 2rem;
   float: left;
   -webkit-transition: background-color .1s ease-out;
@@ -16285,8 +16285,7 @@ input:checked + .slider:before {
 .front-page .inspiring-section.inspiring-section-first .powershare-button:hover,
 .campaign-page .inspiring-section.inspiring-section-first .powershare-button:hover,
 .about-page .inspiring-section.inspiring-section-first .powershare-button:hover {
-  background-color: #652d90;
-  color: #FFF;
+  background-color: #4a2169;
 }
 
 .front-page .inspiring-section.inspiring-section-second,

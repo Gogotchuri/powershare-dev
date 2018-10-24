@@ -243,19 +243,18 @@ $logo-height: $front-page-spacer * 0.64;
             }
 
             .powershare-button {
-                background: transparent;
+                background: $primary;
                 border: 1px solid $primary;
                 border-radius: 2rem;
-                color: $primary;
-                font-weight: $font-weight-normal;
+                color: #FFF;
+                font-weight: $font-weight-bold;
                 padding: 1rem 2rem;
                 float: left;
 
                 transition: background-color .1s ease-out;
 
                 &:hover {
-                    background-color: $primary;
-                    color: #FFF;
+                    background-color: darken($primary, 10%);
                 }
             }
         }

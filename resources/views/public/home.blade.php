@@ -2,9 +2,6 @@
 
 @section('html-body')
     <body>
-    @if($isFirstTime)
-        @include('public.partials.old-new-modal')
-    @endif
     <div id="app" class="background-image front-page" style="background-image: url(/img/background-dotted.png)">
         <div class="wrapper-animation-one">
             <div class="container-fluid">

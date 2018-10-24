@@ -1118,6 +1118,10 @@ $logo-height: $front-page-spacer * 0.64;
 
                 padding: 15px 0;
 
+                @include media-breakpoint-down(sm) {
+                    padding: 0;
+                }
+
                 & > div {
                     display: inline-block;
                     height: 32px;

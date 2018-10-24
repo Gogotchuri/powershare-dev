@@ -17348,6 +17348,12 @@ input:checked + .slider:before {
   padding: 15px 0;
 }
 
+@media (max-width: 767.98px) {
+  #oldNewModal .modal-dialog .modal-content .campaign-mark {
+    padding: 0;
+  }
+}
+
 #oldNewModal .modal-dialog .modal-content .campaign-mark > div {
   display: inline-block;
   height: 32px;

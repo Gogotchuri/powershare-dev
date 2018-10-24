@@ -36,7 +36,12 @@
                     <div class="col-md-6">
                         <div class="inspire">
                             <h1 class="inspire-first mb-5"><strong>Browser-Based Mining for Charity Crowdfunding </strong></h1>
-                            <h3 class="inspire-second">We remove financial barriers<br/> to the spirit of giving</h3>
+                            <h3 class="inspire-second mb-4">We remove financial barriers<br/> to the spirit of giving</h3>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a class="powershare-button" href="{{ \App\Models\Campaign::createPath() }}">Register a Campaign</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

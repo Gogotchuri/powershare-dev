@@ -16268,6 +16268,27 @@ input:checked + .slider:before {
   color: #f05523;
 }
 
+.front-page .inspiring-section.inspiring-section-first .powershare-button,
+.campaign-page .inspiring-section.inspiring-section-first .powershare-button,
+.about-page .inspiring-section.inspiring-section-first .powershare-button {
+  background: transparent;
+  border: 1px solid #652d90;
+  border-radius: 2rem;
+  color: #652d90;
+  font-weight: 400;
+  padding: 1rem 2rem;
+  float: left;
+  -webkit-transition: background-color .1s ease-out;
+  transition: background-color .1s ease-out;
+}
+
+.front-page .inspiring-section.inspiring-section-first .powershare-button:hover,
+.campaign-page .inspiring-section.inspiring-section-first .powershare-button:hover,
+.about-page .inspiring-section.inspiring-section-first .powershare-button:hover {
+  background-color: #652d90;
+  color: #FFF;
+}
+
 .front-page .inspiring-section.inspiring-section-second,
 .campaign-page .inspiring-section.inspiring-section-second,
 .about-page .inspiring-section.inspiring-section-second {

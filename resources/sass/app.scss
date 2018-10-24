@@ -241,6 +241,23 @@ $logo-height: $front-page-spacer * 0.64;
                     color: $secondary;
                 }
             }
+
+            .powershare-button {
+                background: transparent;
+                border: 1px solid $primary;
+                border-radius: 2rem;
+                color: $primary;
+                font-weight: $font-weight-normal;
+                padding: 1rem 2rem;
+                float: left;
+
+                transition: background-color .1s ease-out;
+
+                &:hover {
+                    background-color: $primary;
+                    color: #FFF;
+                }
+            }
         }
 
         &.inspiring-section-second {

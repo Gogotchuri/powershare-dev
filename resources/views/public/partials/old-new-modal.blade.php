@@ -12,7 +12,7 @@
                 <div class="container-fluid">
                     <h1 class="text-center mt-4">Welcome to POWERSHARE</h1>
                     <div class="row mb-3 text-center">
-                        <div class="col-md-6">
+                        <div class="col-6 no-padding">
                             <div class="campaign-mark">
                                 <div class="campaign-mark-img">
                                     <img src="/img/popup-icon1.png">
@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6 no-padding">
                             <div class="campaign-mark">
                                 <div class="campaign-mark-img">
                                     <img src="/img/popup-icon2.png">
@@ -34,10 +34,10 @@
                         </div>
                     </div>
                     <div class="row mb-3 text-center">
-                        <div class="col-md-6">
+                        <div class="col-6 no-padding">
                             <button type="button" class="btn btn-primary old-new-choice-button" data-target-url="http://fire.powershare.fund" >fire.powershare.fund</button>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6 no-padding">
                             <button type="button" class="btn btn-primary old-new-choice-button" data-target-url="https://powershare.fund">powershare.fund</button>
                         </div>
                     </div>

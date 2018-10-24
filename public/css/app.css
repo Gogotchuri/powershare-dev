@@ -17317,6 +17317,13 @@ input:checked + .slider:before {
   border: none;
 }
 
+@media (max-width: 361px) {
+  #oldNewModal .modal-dialog .modal-content div.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
 #oldNewModal .modal-dialog .modal-content button {
   background: transparent;
   border: 2px solid #652d90;
@@ -17326,6 +17333,12 @@ input:checked + .slider:before {
   width: 100%;
 }
 
+@media (max-width: 767.98px) {
+  #oldNewModal .modal-dialog .modal-content button {
+    font-size: 0.7rem;
+  }
+}
+
 #oldNewModal .modal-dialog .modal-content button:hover {
   background-color: #652d90;
   color: #FFF;
@@ -17333,6 +17346,12 @@ input:checked + .slider:before {
 
 #oldNewModal .modal-dialog .modal-content .campaign-mark {
   padding: 15px 0;
+}
+
+@media (max-width: 767.98px) {
+  #oldNewModal .modal-dialog .modal-content .campaign-mark {
+    padding: 0;
+  }
 }
 
 #oldNewModal .modal-dialog .modal-content .campaign-mark > div {
@@ -17351,17 +17370,23 @@ input:checked + .slider:before {
 
 #oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-title {
   vertical-align: middle;
-  padding-left: 0;
   max-width: 70%;
   text-align: left;
-  margin-top: 1rem;
+  margin: 1rem 0 0;
+  height: auto;
 }
 
 #oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-title span {
   display: block;
   width: 100%;
   height: 20px;
-  font-size: 0.875rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  #oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-title span {
+    font-size: 0.7rem;
+  }
 }
 
 #oldNewModal .modal-dialog .modal-content .checkbox_wrapper {

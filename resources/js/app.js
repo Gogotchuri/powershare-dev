@@ -234,7 +234,7 @@ $(document).ready(function () {
 
             if(oldNewModal.find('.chooseWebsiteTick').is(":checked")) {
                 //Set cookie if ticked
-                $.cookie('chooseWebsite', '1');
+                $.cookie('chooseWebsite', '1', { expires: 365 });
             }
 
             // Prevent default if any

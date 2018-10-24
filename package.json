@@ -28,6 +28,7 @@
         "datatables.net": "^1.10.19",
         "datatables.net-bs": "^1.10.19",
         "dropzone": "^5.5.1",
+        "jquery.cookie": "^1.4.1",
         "lightslider": "^1.1.6",
         "normalize.css": "^8.0.0"
     }

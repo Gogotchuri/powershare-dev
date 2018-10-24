@@ -17289,3 +17289,115 @@ input:checked + .slider:before {
   text-transform: uppercase;
 }
 
+.modal-open #app,
+.modal-open *:not(.modal-body) > .container-fluid,
+.modal-open *:not(.modal-body) > .container {
+  -webkit-filter: blur(8px);
+}
+
+.modal-backdrop {
+  background-color: transparent;
+}
+
+#oldNewModal {
+  color: #652d90;
+}
+
+#oldNewModal h1 {
+  font-family: 'Adrianna', non-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #f05523;
+}
+
+#oldNewModal .modal-dialog .modal-content {
+  -webkit-box-shadow: 0px 4px 14px 1px rgba(101, 45, 144, 0.5);
+  box-shadow: 0px 4px 14px 1px rgba(101, 45, 144, 0.5);
+  border: none;
+}
+
+#oldNewModal .modal-dialog .modal-content button {
+  background: transparent;
+  border: 2px solid #652d90;
+  border-radius: 19.2px;
+  color: #652d90;
+  font-weight: 700;
+  width: 100%;
+}
+
+#oldNewModal .modal-dialog .modal-content button:hover {
+  background-color: #652d90;
+  color: #FFF;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark {
+  padding: 15px 0;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark > div {
+  display: inline-block;
+  height: 32px;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-img {
+  vertical-align: middle;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-img img {
+  width: 46px;
+  height: 46px;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-title {
+  vertical-align: middle;
+  padding-left: 7px;
+  max-width: 70%;
+  text-align: left;
+}
+
+#oldNewModal .modal-dialog .modal-content .campaign-mark .campaign-mark-title span {
+  display: block;
+  width: 100%;
+  height: 20px;
+  font-size: 1rem;
+}
+
+#oldNewModal .modal-dialog .modal-content .checkbox_wrapper {
+  position: relative;
+  height: 14px;
+  width: 14px;
+  margin-right: 0.5rem;
+  border: 1px solid #652d90;
+  border-radius: 3px;
+}
+
+#oldNewModal .modal-dialog .modal-content input[type="checkbox"] {
+  opacity: 0;
+  height: 16px;
+  width: 17px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#oldNewModal .modal-dialog .modal-content input[type="checkbox"] + label {
+  height: 16px;
+  width: 17px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+  position: absolute;
+  top: -4px;
+  left: -1px;
+  z-index: 1;
+}
+
+#oldNewModal .modal-dialog .modal-content input[type="checkbox"]:checked + label {
+  background: url("/img/checksign.png") no-repeat;
+  height: 16px;
+  width: 17px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+}
+

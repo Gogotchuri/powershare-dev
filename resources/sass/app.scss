@@ -220,7 +220,7 @@ $logo-height: $front-page-spacer * 0.64;
             transform: scale(-1, -1);
 
             &:hover {
-                color: darken($secondary, 10%);
+                color: $primary;
             }
         }
     }
@@ -517,6 +517,8 @@ $logo-height: $front-page-spacer * 0.64;
                 -o-transform: scale(-1, -1);
                 -ms-transform: scale(-1, -1);
                 transform: scale(-1, -1);
+
+
             }
         }
 

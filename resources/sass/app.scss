@@ -1062,7 +1062,7 @@ $logo-height: $front-page-spacer * 0.64;
 
 //Blur background
 //FIXME: This selector could be better.
-.modal-open *:not(.modal-body)>.container-fluid, .modal-open *:not(.modal-body)>.container {
+.modal-open #app, .modal-open *:not(.modal-body)>.container-fluid, .modal-open *:not(.modal-body)>.container {
     -webkit-filter: blur(8px);
 }
 

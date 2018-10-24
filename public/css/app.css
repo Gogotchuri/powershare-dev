@@ -17289,6 +17289,7 @@ input:checked + .slider:before {
   text-transform: uppercase;
 }
 
+.modal-open #app,
 .modal-open *:not(.modal-body) > .container-fluid,
 .modal-open *:not(.modal-body) > .container {
   -webkit-filter: blur(8px);

@@ -15,17 +15,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Check if this is first time visit of user after browser was open
-        if(!session()->has('first_time')) {
-            session(['first_time' => 'Yes']);
-        } else if(session('first_time') === 'Yes') {
-            session(['first_time' => 'No']);
-        }
-
-        $isFirstTime = session('first_time') === 'Yes';
         $campaigns = Campaign::where('status_id', CampaignStatus::APPROVED)->take(30)->get();
 
-        return view('public.home', compact('campaigns', 'isFirstTime'));
+        return view('public.home', compact('campaigns'));
     }
 
     public function terms()

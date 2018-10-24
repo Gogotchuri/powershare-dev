@@ -222,36 +222,41 @@ $(document).ready(function () {
 
     // Old or new Platform choice popup
 
-    let oldNewModal = $('#oldNewModal');
+    if(!sessionStorage.notFirstVisit) {
 
-    if(oldNewModal.length) {
+        sessionStorage.notFirstVisit = true;
 
-        if($.cookie('chooseWebsite') !== '1') {
-            oldNewModal.modal('show');
+        let oldNewModal = $('#oldNewModal');
+
+        if(oldNewModal.length) {
+
+            if(!localStorage.chooseWebsite) {
+                oldNewModal.modal('show');
+            }
+
+            $('.old-new-choice-button').click(function(e) {
+
+                if(oldNewModal.find('.chooseWebsiteTick').is(":checked")) {
+                    //Set cookie if ticked
+                    localStorage.chooseWebsite = true;
+                }
+
+                // Prevent default if any
+                e.preventDefault();
+
+                oldNewModal.modal('hide');
+
+                let targetUrl = $(e.target).data('targetUrl');
+
+                // Get hostname from targetUrl
+                let a = document.createElement("a");
+                a.href = targetUrl;
+
+                // If we are already on target url do not redirect
+                if(a.hostname !== window.location.hostname) {
+                    window.location.href = targetUrl;
+                }
+            });
         }
-
-        $('.old-new-choice-button').click(function(e) {
-
-            if(oldNewModal.find('.chooseWebsiteTick').is(":checked")) {
-                //Set cookie if ticked
-                $.cookie('chooseWebsite', '1', { expires: 365 });
-            }
-
-            // Prevent default if any
-            e.preventDefault();
-
-            oldNewModal.modal('hide');
-
-            let targetUrl = $(e.target).data('targetUrl');
-
-            // Get hostname from targetUrl
-            let a = document.createElement("a");
-            a.href = targetUrl;
-
-            // If we are already on target url do not redirect
-            if(a.hostname !== window.location.hostname) {
-                window.location.href = targetUrl;
-            }
-        });
     }
 });

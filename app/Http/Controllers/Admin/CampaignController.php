@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\CampaignPublishedEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreCampaign;
 use App\Http\Requests\Admin\UpdateCampaign;
@@ -100,6 +101,8 @@ class CampaignController extends Controller
         $campaign->is_approved = true;
         $campaign->save();
 
+        event(new CampaignPublishedEvent($campaign));
+
         return redirect(route('admin.campaigns.edit', $campaign));
     }
 
@@ -108,6 +111,9 @@ class CampaignController extends Controller
         $campaign = Campaign::findOrFail($id);
         $campaign->is_approved = false;
         $campaign->save();
+
+        //TODO: Dispatch disapproved event
+        //event(new CampaignUnPublished($campaign));
 
         return redirect(route('admin.campaigns.edit', $campaign));
     }

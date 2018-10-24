@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class Campaign extends Model
 {
+
+
     protected $with = [
         'status'
     ];

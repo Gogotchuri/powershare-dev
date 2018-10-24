@@ -20,6 +20,7 @@
                 'name' => 'Name',
                 'required' => true,
                 'value' => $campaign->name,
+                'placeholder' => 'Campaign Name'
             ])
 
             @include('components.form.select', [

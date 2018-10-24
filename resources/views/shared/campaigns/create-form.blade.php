@@ -15,10 +15,12 @@
     @include('components.form.input', [
         'name' => 'Name',
         'required' => true,
+        'placeholder' => 'Campaign Name'
     ])
 
     @include('components.form.input', [
         'name' => 'Target audience',
+        'placeholder' => 'Important for'
     ])
 
     @include('components.form.textarea', [

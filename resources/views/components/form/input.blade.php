@@ -3,7 +3,7 @@
 
     <input
         id="{{ snake_case($name) }}"
-        type="{{ isset($type) ? $type : 'text' }}"
+        type="{{ isset($type) ? $type : 'text' }}asdsa"
         class="form-control{{ $errors->has(snake_case($name)) ? ' is-invalid' : '' }}"
         name="{{ snake_case($name) . (isset($multiple) && $multiple ? '[]' : '') }}"
         @unless( isset($multiple) && $multiple)
@@ -12,6 +12,11 @@
         {{ isset($required) && $required ? 'required' : '' }}
         {{ isset($checked) && $checked ? 'checked' : '' }}
         {{ isset($multiple) && $multiple ? 'multiple' : '' }}
+
+        @if(isset($placeholder))
+        placeholder="{{$placeholder}}"
+        @endif
+
         autofocus
     />
 

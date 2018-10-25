@@ -4,7 +4,7 @@
     <body>
     <div id="app" class="background-image campaign-page static-page faq-page"
          style="background-image: url(/img/faq_background.png);">
-        <div class="container-fluid inspiring-section">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     @include('public.partials.mobile-nav')

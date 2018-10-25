@@ -206,6 +206,7 @@ $(document).ready(function () {
             e.preventDefault();
 
             mainMenu.removeClass('hidden');
+            console.log('Show main mobile menu')
         });
 
         function hideMenu(e) {
@@ -259,4 +260,20 @@ $(document).ready(function () {
             });
         }
     }
+
+    // Add special class tto mobile hamburger when scroll down.
+
+    let mobileNav = $('#mobileNav');
+
+    if(mobileNav.length) {
+
+        $(window).bind('scroll', function () {
+            if ($(window).scrollTop() > 40) {
+                mobileNav.find('.mobile-menu-controls').addClass('sticky');
+            } else {
+                mobileNav.find('.mobile-menu-controls').removeClass('sticky');
+            }
+        });
+    }
+
 });

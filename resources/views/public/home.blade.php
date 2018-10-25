@@ -86,7 +86,7 @@
                                                 {{ str_limit($campaign->name, 15) }}
                                             </h4>
                                             <p class="ps-card-excerpt">
-                                                {{ $campaign->excerpt }}
+                                                {{ str_limit($campaign->target_audience, 13) }}
                                             </p>
                                         </div>
                                     </a>

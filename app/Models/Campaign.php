@@ -26,8 +26,10 @@ class Campaign extends Model
     public static function baseRules() {
         return [
             'name' => 'required|string|max:255',
-            'details' => 'required|string',
-            'target_audience' => 'string',
+            'details' => 'required|string|max:1000',
+            'importance' => 'string|max:3000',
+            //TODO: Should we use word count validation or is 50 symbol limit sufficient
+            'target_audience' => 'string|max:50',
             'required_funding' => 'numeric',
         ];
     }

@@ -72,6 +72,7 @@ class CampaignController extends Controller
         $campaign->required_funding = $request->input('required_funding');
         $campaign->category_id = $request->input('category');
         $campaign->details = $request->input('details');
+        $campaign->importance = $request->input('importance');
         $campaign->video_url = $request->video;
         $campaign->ethereum_address = $request->ethereum_address;
         $campaign->status_id = intVal($request->status_id);

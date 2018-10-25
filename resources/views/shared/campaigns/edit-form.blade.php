@@ -37,6 +37,12 @@
                 'value' => $campaign->details,
             ])
 
+            @include('components.form.textarea', [
+                'name' => 'Importance',
+                'required' => true,
+                'value' => $campaign->importance,
+            ])
+
             @include('components.form.input', [
                 'name' => 'Target audience',
                 'value' => $campaign->target_audience,

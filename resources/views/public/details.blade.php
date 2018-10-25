@@ -136,16 +136,14 @@
                                                     </div>
                                                 </div>
 
-                                                @if($campaign->ethereum_address)
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <a class="btn btn-secondary d-block m-lg-auto"
+                                                            <a class="btn btn-secondary d-block m-lg-auto @if($campaign->ethereum_address) disabled @endif"
                                                                href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
                                                                 Donate
                                                             </a>
                                                         </div>
                                                     </div>
-                                                @endif
                                             </div>
                                         </div>
                                     </div>

@@ -16984,17 +16984,17 @@ input:checked + .slider:before {
   bottom: 7px;
 }
 
-.campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding,
-.about-page .left-panel .inspire .ps-card .fund-raising .required-funding,
-.faq-page .left-panel .inspire .ps-card .fund-raising .required-funding {
-  visibility: hidden;
-}
-
 .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6,
 .about-page .left-panel .inspire .ps-card .fund-raising .required-funding h6,
 .faq-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {
   font-size: 1rem;
   font-weight: 300;
+}
+
+.campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6:first-child,
+.about-page .left-panel .inspire .ps-card .fund-raising .required-funding h6:first-child,
+.faq-page .left-panel .inspire .ps-card .fund-raising .required-funding h6:first-child {
+  visibility: hidden;
 }
 
 .campaign-page .left-panel .inspire .comments,

@@ -168,6 +168,7 @@ $logo-height: $front-page-spacer * 0.64;
             overflow: hidden;
             max-height: none;
             background: #FFF;
+            @include cz-box-shadow-light;
 
             &.hidden {
                 max-height: 0;

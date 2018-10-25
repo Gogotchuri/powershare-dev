@@ -173,6 +173,7 @@ $(document).ready(function () {
         });
     })(jQuery, window);
 
+    //FIXME: DO we still need fllowing code cause we moved terms on separate page`
     // Registration form
     let terms = $('#registerForm .terms');
     terms.collapse({
@@ -258,5 +259,76 @@ $(document).ready(function () {
                 }
             });
         }
+    }
+
+    campaignEditForm = $('#campaignEditForm');
+
+    if(campaignEditForm.length) {
+
+        var sha3 = require('crypto-js/sha3');
+
+        //NOTE: Following two methods are copied from go-ethereum repository
+
+        /**
+         * Checks if the given string is an address
+         *
+         * @method isAddress
+         * @param {String} address the given HEX adress
+         * @return {Boolean}
+         */
+        var isAddress = function (address) {
+            if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
+                // check if it has the basic requirements of an address
+                return false;
+            } else if (/^(0x)?[0-9a-f]{40}$/.test(address) || /^(0x)?[0-9A-F]{40}$/.test(address)) {
+                // If it's all small caps or all all caps, return true
+                return true;
+            } else {
+                // Otherwise check each case
+                return isChecksumAddress(address);
+            }
+        };
+
+        /**
+         * Checks if the given string is a checksummed address
+         *
+         * @method isChecksumAddress
+         * @param {String} address the given HEX adress
+         * @return {Boolean}
+         */
+        var isChecksumAddress = function (address) {
+            // Check each case
+            address = address.replace('0x','');
+            var addressHash = sha3(address.toLowerCase());
+            for (var i = 0; i < 40; i++ ) {
+                // the nth letter should be uppercase if the nth digit of casemap is 1
+                if ((parseInt(addressHash[i], 16) > 7 && address[i].toUpperCase() !== address[i]) || (parseInt(addressHash[i], 16) <= 7 && address[i].toLowerCase() !== address[i])) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        let validate = function(input) {
+            if(isAddress(input.val())) {
+                input.removeClass('is-invalid');
+                input.parent().find('.eth-address-invalid').css('display', 'none');
+            } else {
+                input.addClass('is-invalid');
+                input.parent().find('.eth-address-invalid').css('display', 'block');
+            }
+        };
+
+        let ethereum_address_input = $(campaignEditForm.find('#ethereum_address'));
+
+        //Explicitly used for this input will append to laravel's feedback element
+        ethereum_address_input.parent().append(
+            '<span class="invalid-feedback eth-address-invalid" role="alert">\n' +
+            '    <strong>Invalid address</strong>\n' +
+            '</span>');
+
+        ethereum_address_input.on('input', function() {
+            validate(ethereum_address_input);
+        });
     }
 });

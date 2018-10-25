@@ -96,7 +96,7 @@ $logo-height: $front-page-spacer * 0.64;
     }
 
     h2, h3, h4, h5, h6 {
-        @include headline-font-style;
+        @include sub-heading-font-style;
     }
 
     a, span, input, select, option, button, span {
@@ -475,7 +475,7 @@ $logo-height: $front-page-spacer * 0.64;
     }
 
     h2, h3, h4, h5, h6 {
-        @include headline-font-style;
+        @include sub-heading-font-style;
     }
 
     a, span, input, select, option, button, span {

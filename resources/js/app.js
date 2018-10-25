@@ -43,6 +43,8 @@ $(document).ready(function () {
             if (typeof Dropzone != 'undefined') {
                 if ($("#fileupload").length) {
                     var dz = new Dropzone("#fileupload", {
+
+                        //TODO: Make maxFiles work with exising files loaded from server
                             maxFiles: 3,
                             addRemoveLinks: true,
                             //Handle existing images
@@ -130,25 +132,25 @@ $(document).ready(function () {
                                 return;
                             }
 
-                            //Remove file from server
-                            $.ajax({
-                                headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                },
-                                url: dz.options.url,
-                                type: 'DELETE',
-                                data: {
-                                    'file_id': file.id,
-                                },
-                                complete: function (response) {
+                        //Remove file from server
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            url: dz.options.url,
+                            type: 'DELETE',
+                            data: {
+                                'file_id': file.id,
+                            },
+                            complete: function (response) {
 
-                                    if (response.status !== 200 || response.responseJSON.status !== 'OK') {
-                                        dz.emit("addedfile", file);
-                                        dz.options.thumbnail.call(dz, file, file.thumbnail_url);
-                                        dz.emit("complete", file);
-                                    }
+                                if (response.status !== 200 || response.responseJSON.status !== 'OK') {
+                                    dz.emit("addedfile", file);
+                                    dz.options.thumbnail.call(dz, file, file.thumbnail_url);
+                                    dz.emit("complete", file);
                                 }
-                            });
+                            }
+                        });
                     });
 
                     $('.dropzone-img').each(function () {

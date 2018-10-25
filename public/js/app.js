@@ -59508,6 +59508,8 @@ $(document).ready(function () {
             if (typeof Dropzone != 'undefined') {
                 if ($("#fileupload").length) {
                     var dz = new Dropzone("#fileupload", {
+
+                        //TODO: Make maxFiles work with exising files loaded from server
                         maxFiles: 3,
                         addRemoveLinks: true,
                         //Handle existing images

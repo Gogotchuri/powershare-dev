@@ -653,6 +653,7 @@ $logo-height: $front-page-spacer * 0.64;
                         }
 
                         .required-funding {
+
                             display: block;
                             margin-top: 10px;
                             text-align: center;
@@ -701,6 +702,10 @@ $logo-height: $front-page-spacer * 0.64;
                     }
 
                     .required-funding {
+                        //FIXME: Temporary hiding this element per client requiremnts.
+                        // Will not give best possible layout
+                        visibility: hidden;
+
                         h6 {
                             font-size: $font-size-lg;
                             font-weight: $font-weight-light;

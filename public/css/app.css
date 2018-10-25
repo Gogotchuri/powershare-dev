@@ -16953,6 +16953,12 @@ input:checked + .slider:before {
   bottom: 7px;
 }
 
+.campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding,
+.about-page .left-panel .inspire .ps-card .fund-raising .required-funding,
+.faq-page .left-panel .inspire .ps-card .fund-raising .required-funding {
+  visibility: hidden;
+}
+
 .campaign-page .left-panel .inspire .ps-card .fund-raising .required-funding h6,
 .about-page .left-panel .inspire .ps-card .fund-raising .required-funding h6,
 .faq-page .left-panel .inspire .ps-card .fund-raising .required-funding h6 {

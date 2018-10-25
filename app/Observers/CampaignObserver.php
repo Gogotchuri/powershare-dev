@@ -6,6 +6,7 @@ use App\Events\CampaignDraftedEvent;
 use App\Events\CampaignPublishedEvent;
 use App\Events\CampaignSubmittedEvent;
 use App\Models\Campaign;
+use App\Models\Reference\CampaignStatus;
 use Illuminate\Support\Facades\Log;
 
 class CampaignObserver
@@ -20,13 +21,12 @@ class CampaignObserver
             }
 
             // Become proposal
-            if($campaign->is_proposal) {
+            if($campaign->is_proposal && $campaign->getOriginal('status_id') == CampaignStatus::DRAFT) {
                 event(new CampaignSubmittedEvent($campaign));
             }
 
             // Become public
             if($campaign->is_approved) {
-                Log::info('Publishing event');
                 event(new CampaignPublishedEvent($campaign));
             }
 

@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Event;
+use App\Events\CampaignPublishedEvent;
+use App\Events\CampaignSubmittedEvent;
+use App\Listeners\SendCampaignPublishedEmail;
+use App\Listeners\SendCampaignSubmittedEmail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -19,16 +22,12 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 
-        'App\Events\CampaignPublishedEvent' => [
-            'App\Listeners\SendCampaignPublishedEmail',
+        CampaignPublishedEvent::class => [
+            SendCampaignPublishedEmail::class,
         ],
 
-        'App\Events\CampaignSubmittedEvent' => [
-            'App\Listeners\SendCampaignSubmittedEmail',
-        ],
-
-        'App\Events\CampaignDraftedEvent' => [
-            'App\Listeners\HandleDrafted',
+        CampaignSubmittedEvent::class => [
+            SendCampaignSubmittedEmail::class,
         ],
     ];
 

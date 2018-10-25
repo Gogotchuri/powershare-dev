@@ -16543,6 +16543,7 @@ input:checked + .slider:before {
 .faq-page .right-panel .campaigns-list .ps-card .ps-card-image-container {
   padding: 0 6px;
   overflow: visible;
+  position: relative;
 }
 
 .front-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
@@ -16565,15 +16566,18 @@ input:checked + .slider:before {
   background-repeat: no-repeat;
 }
 
-.front-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image .ps-card-icon,
-.campaign-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image .ps-card-icon,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image .ps-card-icon,
-.faq-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image .ps-card-icon {
+.front-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-icon,
+.campaign-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-icon,
+.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-icon,
+.faq-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-icon {
   position: absolute;
+  z-index: 1;
   bottom: 0;
   right: 0;
   width: 46px;
   height: 46px;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
 }
 
 .front-page .right-panel .campaigns-list .ps-card .ps-card-description,

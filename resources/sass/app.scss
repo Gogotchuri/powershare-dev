@@ -399,6 +399,7 @@ $logo-height: $front-page-spacer * 0.64;
                 .ps-card-image-container {
                     padding: 0 6px;
                     overflow: visible;
+                    position: relative;
 
                     .ps-card-image {
                         transition: all 50ms ease-out;
@@ -416,13 +417,18 @@ $logo-height: $front-page-spacer * 0.64;
                         background-position: center center;
                         background-repeat: no-repeat;
 
-                        .ps-card-icon {
-                            position: absolute;
-                            bottom: 0;
-                            right: 0;
-                            width: 46px;
-                            height: 46px;
-                        }
+
+                    }
+                    .ps-card-icon {
+                        position: absolute;
+                        z-index: 1;
+                        bottom: 0;
+                        right: 0;
+                        width: 46px;
+                        height: 46px;
+
+                        -webkit-filter: grayscale(0%);
+                        filter: grayscale(0%);
                     }
                 }
 

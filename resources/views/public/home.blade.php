@@ -75,11 +75,10 @@
                                 <div class="col-xl-3 col-sm-6">
                                     <a href="{{ route('public.campaign.show', ['id' => $campaign->id]) }}" class="ps-card">
                                         <div class="ps-card-image-container fade">
-                                            <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});">
-                                        <span class="ps-card-icon">
-                                            <img style="@if(!$campaign->category_icon) display: none; @endif" class="" src="data:image/png;base64,{{base64_encode($campaign->category_icon)}}">
-                                        </span>
-                                            </div>
+                                            <span class="ps-card-icon">
+                                                <img style="@if(!$campaign->category_icon) display: none; @endif" class="" src="data:image/png;base64,{{base64_encode($campaign->category_icon)}}">
+                                            </span>
+                                            <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});"></div>
                                         </div>
 
                                         <div class="ps-card-description">

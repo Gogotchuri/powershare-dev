@@ -59500,21 +59500,6 @@ $(document).ready(function () {
         $("#light-slider-wrapper").removeClass('d-none');
     });
 
-    if (typeof Dropzone != 'undefined') {
-        Dropzone.options.fileupload = {
-            accept: function accept(file, done) {
-                if (file.type != "application/vnd.ms-excel" && file.type != "image/jpeg, image/png, image/jpg") {
-                    done("Error! Files of this type are not accepted");
-                } else {
-                    done();
-                }
-            }
-        };
-        Dropzone.options.fileupload = {
-            acceptedFiles: "image/jpeg, image/png, image/jpg"
-        };
-    }
-
     (function ($, window, undefined) {
         "use strict";
 
@@ -59523,6 +59508,7 @@ $(document).ready(function () {
             if (typeof Dropzone != 'undefined') {
                 if ($("#fileupload").length) {
                     var dz = new Dropzone("#fileupload", {
+                        maxFiles: 3,
                         addRemoveLinks: true,
                         //Handle existing images
                         init: function init() {
@@ -59596,10 +59582,15 @@ $(document).ready(function () {
 
                         dze_info.find('tfoot td').html('<span class="label label-success">' + status.uploaded + ' uploaded</span> <span class="label label-danger">' + status.errors + ' not uploaded</span>');
 
-                        toastr.error('Your File Uploaded Not Successfully!!', 'Error Alert', {
+                        console.error('Your File Uploaded Not Successfully!!', 'Error Alert', {
                             timeOut: 5000
                         });
                     }).on('removedfile', function (file) {
+
+                        // Case when file exists on ui and not on server
+                        if (!file.id) {
+                            return;
+                        }
 
                         //Remove file from server
                         $.ajax({

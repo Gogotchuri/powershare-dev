@@ -4682,6 +4682,13 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 @font-face {
+  font-family: "AdriannaBasic";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/a-lt.ttf");
+}
+
+@font-face {
   font-family: "Adrianna";
   font-style: normal;
   font-weight: 400;
@@ -16031,13 +16038,38 @@ input:checked + .slider:before {
   background-size: 100vw auto;
 }
 
-.front-page p,
 .front-page h1,
+.campaign-page h1,
+.about-page h1,
+.faq-page h1 {
+  font-family: 'Adrianna', non-serif;
+  font-weight: 700;
+}
+
 .front-page h2,
 .front-page h3,
 .front-page h4,
 .front-page h5,
 .front-page h6,
+.campaign-page h2,
+.campaign-page h3,
+.campaign-page h4,
+.campaign-page h5,
+.campaign-page h6,
+.about-page h2,
+.about-page h3,
+.about-page h4,
+.about-page h5,
+.about-page h6,
+.faq-page h2,
+.faq-page h3,
+.faq-page h4,
+.faq-page h5,
+.faq-page h6 {
+  font-family: 'Adrianna', non-serif;
+  font-weight: 700;
+}
+
 .front-page a,
 .front-page span,
 .front-page input,
@@ -16045,13 +16077,6 @@ input:checked + .slider:before {
 .front-page option,
 .front-page button,
 .front-page span,
-.campaign-page p,
-.campaign-page h1,
-.campaign-page h2,
-.campaign-page h3,
-.campaign-page h4,
-.campaign-page h5,
-.campaign-page h6,
 .campaign-page a,
 .campaign-page span,
 .campaign-page input,
@@ -16059,13 +16084,6 @@ input:checked + .slider:before {
 .campaign-page option,
 .campaign-page button,
 .campaign-page span,
-.about-page p,
-.about-page h1,
-.about-page h2,
-.about-page h3,
-.about-page h4,
-.about-page h5,
-.about-page h6,
 .about-page a,
 .about-page span,
 .about-page input,
@@ -16073,13 +16091,6 @@ input:checked + .slider:before {
 .about-page option,
 .about-page button,
 .about-page span,
-.faq-page p,
-.faq-page h1,
-.faq-page h2,
-.faq-page h3,
-.faq-page h4,
-.faq-page h5,
-.faq-page h6,
 .faq-page a,
 .faq-page span,
 .faq-page input,
@@ -16088,6 +16099,14 @@ input:checked + .slider:before {
 .faq-page button,
 .faq-page span {
   font-family: 'Adrianna', non-serif;
+}
+
+.front-page p,
+.campaign-page p,
+.about-page p,
+.faq-page p {
+  font-family: 'AdriannaBasic', non-serif;
+  font-weight: 300;
 }
 
 .front-page a:hover,
@@ -16615,13 +16634,32 @@ input:checked + .slider:before {
     */
 }
 
-.campaign-page p,
 .campaign-page h1,
+.about-page h1,
+.faq-page h1 {
+  font-family: 'Adrianna', non-serif;
+  font-weight: 700;
+}
+
 .campaign-page h2,
 .campaign-page h3,
 .campaign-page h4,
 .campaign-page h5,
 .campaign-page h6,
+.about-page h2,
+.about-page h3,
+.about-page h4,
+.about-page h5,
+.about-page h6,
+.faq-page h2,
+.faq-page h3,
+.faq-page h4,
+.faq-page h5,
+.faq-page h6 {
+  font-family: 'Adrianna', non-serif;
+  font-weight: 700;
+}
+
 .campaign-page a,
 .campaign-page span,
 .campaign-page input,
@@ -16629,13 +16667,6 @@ input:checked + .slider:before {
 .campaign-page option,
 .campaign-page button,
 .campaign-page span,
-.about-page p,
-.about-page h1,
-.about-page h2,
-.about-page h3,
-.about-page h4,
-.about-page h5,
-.about-page h6,
 .about-page a,
 .about-page span,
 .about-page input,
@@ -16643,13 +16674,6 @@ input:checked + .slider:before {
 .about-page option,
 .about-page button,
 .about-page span,
-.faq-page p,
-.faq-page h1,
-.faq-page h2,
-.faq-page h3,
-.faq-page h4,
-.faq-page h5,
-.faq-page h6,
 .faq-page a,
 .faq-page span,
 .faq-page input,
@@ -16658,6 +16682,13 @@ input:checked + .slider:before {
 .faq-page button,
 .faq-page span {
   font-family: 'Adrianna', non-serif;
+}
+
+.campaign-page p,
+.about-page p,
+.faq-page p {
+  font-family: 'AdriannaBasic', non-serif;
+  font-weight: 300;
 }
 
 .campaign-page .left-panel,

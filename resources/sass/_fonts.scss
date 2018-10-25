@@ -1,4 +1,11 @@
 @font-face {
+    font-family: "AdriannaBasic";
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/a-lt.ttf');
+}
+
+@font-face {
   font-family: "Adrianna";
   font-style: normal;
   font-weight: 400;
@@ -17,4 +24,19 @@
   font-style: normal;
   font-weight: 700;
   src: url('/fonts/ae-xb.ttf');
+}
+
+@mixin headline-font-style() {
+    font-family: 'Adrianna', non-serif;
+    font-weight: $font-weight-bold;
+}
+
+@mixin sub-heading-font-style() {
+    font-family: 'Adrianna', non-serif;
+    font-weight: $font-weight-light;
+}
+
+@mixin body-font-style() {
+    font-family: 'AdriannaBasic', non-serif;
+    font-weight: $font-weight-light;
 }

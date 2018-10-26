@@ -41,11 +41,16 @@ $(document).ready(function () {
         $(document).ready(function () {
             // Dropzone Example
             if (typeof Dropzone != 'undefined') {
+
                 if ($("#fileupload").length) {
+
+                    let dz_element = $("#fileupload");
+
                     var dz = new Dropzone("#fileupload", {
 
                         //TODO: Make maxFiles work with exising files loaded from server
                             maxFiles: 3,
+                            url : dz_element.data('url'),
                             addRemoveLinks: true,
                             //Handle existing images
                             init: function () {
@@ -151,7 +156,10 @@ $(document).ready(function () {
                                 }
                             }
                         });
-                    });
+                    })
+                        .on('sending', function(file, xhr, formData){
+                            formData.append('_token', dz_element.data('token'));
+                        });
 
                     $('.dropzone-img').each(function () {
                         var file = {

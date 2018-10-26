@@ -1,6 +1,5 @@
-<form action="{{ $url }}"
-      class="dropzone"
-      id="fileupload">
-
-    {{ csrf_field() }}
-</form>
+<div data-token="{{ csrf_token() }}"
+     data-url="{{ $url }}"
+     class="dropzone"
+     id="fileupload">
+</div>

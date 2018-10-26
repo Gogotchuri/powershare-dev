@@ -434,73 +434,89 @@ $logo-height: $front-page-spacer * 0.64;
 
     .right-panel {
 
-        .campaigns-list {
-            margin-top: $front-page-spacer;
+        .campaigns-list-wrapper {
 
-            .ps-card {
-                border-radius: 8px;
+            height: 230px * 2;
+            width: 100%;
+            overflow: hidden;
 
-                display: block;
-                margin-bottom: $front-page-spacer * 0.3;
-                overflow: visible;
+            .campaigns-list-wrapper-inner {
 
-                &:hover {
-                    .ps-card-image {
-                        transform-origin: center center;
-                        transform: scale(1.03, 1.03);
-                    }
-                }
+                width: 100%;
+                height: 100%;
+                overflow-y: scroll;
+                padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+                box-sizing: content-box; /* So the width will be 100% + 17px */
 
-                .ps-card-image-container {
-                    padding: 0 6px;
-                    overflow: visible;
-                    position: relative;
+                .campaigns-list {
+                    margin-top: $front-page-spacer;
 
-                    .ps-card-image {
-                        transition: all 50ms ease-out;
-                        box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
+                    .ps-card {
+                        border-radius: 8px;
 
-                        -webkit-filter: grayscale(100%);
-                        filter: grayscale(100%);
+                        display: block;
+                        margin-bottom: $front-page-spacer * 0.3;
+                        overflow: visible;
 
-                        position: relative;
-                        border-radius: 50%;
-                        width: 100%;
-                        height: auto;
-                        padding-top: 100%;
-                        background-size: cover;
-                        background-position: center center;
-                        background-repeat: no-repeat;
+                        &:hover {
+                            .ps-card-image {
+                                transform-origin: center center;
+                                transform: scale(1.03, 1.03);
+                            }
+                        }
+
+                        .ps-card-image-container {
+                            padding: 0 6px;
+                            overflow: visible;
+                            position: relative;
+
+                            .ps-card-image {
+                                transition: all 50ms ease-out;
+                                box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
+
+                                -webkit-filter: grayscale(100%);
+                                filter: grayscale(100%);
+
+                                position: relative;
+                                border-radius: 50%;
+                                width: 100%;
+                                height: auto;
+                                padding-top: 100%;
+                                background-size: cover;
+                                background-position: center center;
+                                background-repeat: no-repeat;
 
 
-                    }
-                    .ps-card-icon {
-                        position: absolute;
-                        z-index: 1;
-                        bottom: 0;
-                        right: 0;
-                        width: 46px;
-                        height: 46px;
+                            }
+                            .ps-card-icon {
+                                position: absolute;
+                                z-index: 1;
+                                bottom: 0;
+                                right: 0;
+                                width: 46px;
+                                height: 46px;
 
-                        -webkit-filter: grayscale(0%);
-                        filter: grayscale(0%);
-                    }
-                }
+                                -webkit-filter: grayscale(0%);
+                                filter: grayscale(0%);
+                            }
+                        }
 
-                .ps-card-description {
+                        .ps-card-description {
 
-                    text-align: center;
-                    padding: $front-page-spacer * 0.3 0;
+                            text-align: center;
+                            padding: $front-page-spacer * 0.3 0;
 
-                    h4 {
-                        font-size: $font-size-lg * 0.9;
-                        font-weight: 400;
-                        margin: 0;
-                    }
+                            h4 {
+                                font-size: $font-size-lg * 0.9;
+                                font-weight: 400;
+                                margin: 0;
+                            }
 
-                    .ps-card-excerpt {
-                        color: $secondary;
-                        font-size: $font-size-base 0.8;
+                            .ps-card-excerpt {
+                                color: $secondary;
+                                font-size: $font-size-base 0.8;
+                            }
+                        }
                     }
                 }
             }

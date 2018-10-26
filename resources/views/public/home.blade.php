@@ -70,31 +70,34 @@
                         </div>
                     </div>
                     <div class="col-sm-7 right-panel">
-                        <div class="campaigns-list">
-                            <div class="infinite-scroll">
-                                @foreach($campaigns as $campaign)
-                                    <div class="col-xl-3 col-sm-6">
-                                        <a href="{{ route('public.campaign.show', ['id' => $campaign->id]) }}" class="ps-card">
-                                            <div class="ps-card-image-container fade">
+                        <div class="campaigns-list-wrapper">
+                            <div class="campaigns-list-wrapper-inner">
+                                <div class="campaigns-list">
+                                    <div class="infinite-scroll">
+                                        @foreach($campaigns as $campaign)
+                                            <div class="col-xl-3 col-sm-6">
+                                                <a href="{{ route('public.campaign.show', ['id' => $campaign->id]) }}" class="ps-card">
+                                                    <div class="ps-card-image-container fade">
                                                 <span class="ps-card-icon">
                                                     <img style="@if(!$campaign->category_icon) display: none; @endif" class="" src="data:image/png;base64,{{base64_encode($campaign->category_icon)}}">
                                                 </span>
-                                                <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});"></div>
-                                            </div>
+                                                        <div class="ps-card-image" style="background-image: url({{ $campaign->featured_image_url }});"></div>
+                                                    </div>
 
-                                            <div class="ps-card-description">
-                                                <h4>
-                                                    {{ str_limit($campaign->name, 15) }}
-                                                </h4>
-                                                <p class="ps-card-excerpt">
-                                                    {{ str_limit($campaign->target_audience, 13) }}
-                                                </p>
+                                                    <div class="ps-card-description">
+                                                        <h4>
+                                                            {{ str_limit($campaign->name, 15) }}
+                                                        </h4>
+                                                        <p class="ps-card-excerpt">
+                                                            {{ str_limit($campaign->target_audience, 13) }}
+                                                        </p>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
+                                        @endforeach
+                                        {!! $campaigns->links() !!}
                                     </div>
-                                @endforeach
-                                {!! $campaigns->links() !!}
-
+                                </div>
                             </div>
                         </div>
                     </div>

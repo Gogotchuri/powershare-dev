@@ -16571,46 +16571,69 @@ div.jscroll-added div.jscroll-loading {
         }*/
 }
 
-.front-page .right-panel .campaigns-list,
-.campaign-page .right-panel .campaigns-list,
-.about-page .right-panel .campaigns-list,
-.faq-page .right-panel .campaigns-list {
+.front-page .right-panel .campaigns-list-wrapper,
+.campaign-page .right-panel .campaigns-list-wrapper,
+.about-page .right-panel .campaigns-list-wrapper,
+.faq-page .right-panel .campaigns-list-wrapper {
+  height: 460px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  padding-right: 17px;
+  /* Increase/decrease this value for cross-browser compatibility */
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  /* So the width will be 100% + 17px */
+}
+
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list {
   margin-top: 60px;
 }
 
-.front-page .right-panel .campaigns-list .ps-card,
-.campaign-page .right-panel .campaigns-list .ps-card,
-.about-page .right-panel .campaigns-list .ps-card,
-.faq-page .right-panel .campaigns-list .ps-card {
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card {
   border-radius: 8px;
   display: block;
   margin-bottom: 18px;
   overflow: visible;
 }
 
-.front-page .right-panel .campaigns-list .ps-card:hover .ps-card-image,
-.campaign-page .right-panel .campaigns-list .ps-card:hover .ps-card-image,
-.about-page .right-panel .campaigns-list .ps-card:hover .ps-card-image,
-.faq-page .right-panel .campaigns-list .ps-card:hover .ps-card-image {
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card:hover .ps-card-image,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card:hover .ps-card-image,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card:hover .ps-card-image,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card:hover .ps-card-image {
   -webkit-transform-origin: center center;
           transform-origin: center center;
   -webkit-transform: scale(1.03, 1.03);
           transform: scale(1.03, 1.03);
 }
 
-.front-page .right-panel .campaigns-list .ps-card .ps-card-image-container,
-.campaign-page .right-panel .campaigns-list .ps-card .ps-card-image-container,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container,
-.faq-page .right-panel .campaigns-list .ps-card .ps-card-image-container {
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container {
   padding: 0 6px;
   overflow: visible;
   position: relative;
 }
 
-.front-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
-.campaign-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
-.faq-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-image {
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container .ps-card-image,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container .ps-card-image {
   -webkit-transition: all 50ms ease-out;
   transition: all 50ms ease-out;
   -webkit-box-shadow: 0px 18px 61px -27px rgba(0, 0, 0, 0.73);
@@ -16627,10 +16650,10 @@ div.jscroll-added div.jscroll-loading {
   background-repeat: no-repeat;
 }
 
-.front-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-icon,
-.campaign-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-icon,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-icon,
-.faq-page .right-panel .campaigns-list .ps-card .ps-card-image-container .ps-card-icon {
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container .ps-card-icon,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container .ps-card-icon,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container .ps-card-icon,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-image-container .ps-card-icon {
   position: absolute;
   z-index: 1;
   bottom: 0;
@@ -16641,27 +16664,27 @@ div.jscroll-added div.jscroll-loading {
   filter: grayscale(0%);
 }
 
-.front-page .right-panel .campaigns-list .ps-card .ps-card-description,
-.campaign-page .right-panel .campaigns-list .ps-card .ps-card-description,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-description,
-.faq-page .right-panel .campaigns-list .ps-card .ps-card-description {
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description {
   text-align: center;
   padding: 18px 0;
 }
 
-.front-page .right-panel .campaigns-list .ps-card .ps-card-description h4,
-.campaign-page .right-panel .campaigns-list .ps-card .ps-card-description h4,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-description h4,
-.faq-page .right-panel .campaigns-list .ps-card .ps-card-description h4 {
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description h4,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description h4,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description h4,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description h4 {
   font-size: 0.9rem;
   font-weight: 400;
   margin: 0;
 }
 
-.front-page .right-panel .campaigns-list .ps-card .ps-card-description .ps-card-excerpt,
-.campaign-page .right-panel .campaigns-list .ps-card .ps-card-description .ps-card-excerpt,
-.about-page .right-panel .campaigns-list .ps-card .ps-card-description .ps-card-excerpt,
-.faq-page .right-panel .campaigns-list .ps-card .ps-card-description .ps-card-excerpt {
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description .ps-card-excerpt,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description .ps-card-excerpt,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description .ps-card-excerpt,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card .ps-card-description .ps-card-excerpt {
   color: #f05523;
   font-size: 0.875rem 0.8;
 }

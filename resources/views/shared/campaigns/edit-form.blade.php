@@ -15,15 +15,22 @@
     @csrf
 
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12">
             @include('components.form.input-extended', [
                 'label' => 'Campaign Name',
                 'attributes' => [
                     'placeholder' => 'Aliosha',
                     'name' => 'Name',
-                    'required' => true,
+                    //'required' => true,
                     'value' => $campaign->name,
                 ],
+            ])
+
+            @include('components.form.input-extended', [
+                'attributes' => [
+                    'name' => 'Target audience',
+                    'value' => $campaign->target_audience,
+                ]
             ])
 
             @include('components.form.select', [
@@ -34,8 +41,16 @@
                 'value' => $campaign->category_id,
             ])
 
+            @include('components.form.input-extended', [
+                'attributes' => [
+                    'name' => 'Required funding',
+                    'value' => $campaign->required_funding,
+                    'type' => 'number'
+                ]
+            ])
+
             @include('components.form.textarea-extended', [
-            'label' => 'asdasdasdasd',
+                'label' => 'Short description',
                 'attributes' => [
                     'name' => 'Details',
                     'required' => true,
@@ -43,49 +58,98 @@
                 ],
             ])
 
-            @include('components.form.textarea', [
-                'name' => 'Importance',
-                'required' => true,
-                'value' => $campaign->importance,
-            ])
-
-            @include('components.form.input', [
-                'name' => 'Target audience',
-                'value' => $campaign->target_audience,
-            ])
-
-            @include('components.form.input', [
-               'name' => 'Video',
-               'value' => $campaign->video_url,
-            ])
-
-            @include('components.form.input', [
-               'name' => 'Required funding',
-               'value' => $campaign->required_funding,
-            ])
-
-            @include('components.form.input', [
-                'name' => 'Ethereum address',
-                'value' => $campaign->ethereum_address,
-            ])
-        </div>
-        <div class="col-sm-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Main featured image
-                </div>
-                <div class="card-body">
-                    <img id="featured-image" src="{{ optional($campaign->featured_image)->thumbnail_url }}" class="w-100 mb-3"
-                        @if(!$campaign->featured_image_id) style="display: none;" @endif
-                    />
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" name="featured-image" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Main featured image
+                        </div>
+                        <div class="card-body">
+                            <img id="featured-image" src="{{ optional($campaign->featured_image)->thumbnail_url }}" class="w-100 mb-3"
+                                 @if(!$campaign->featured_image_id) style="display: none;" @endif
+                            />
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" name="featured-image" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            @include('components.form.input-extended', [
+                'attributes' => [
+                    'name' => 'Ethereum address',
+                    'value' => $campaign->ethereum_address,
+                ]
+            ])
+
+            @include('components.form.textarea-extended', [
+                'attributes' => [
+                    'placeholder' => 'For whom is the campaign important',
+                    'name' => 'Importance',
+                    'required' => true,
+                    'value' => $campaign->importance,
+                ]
+            ])
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    Image gallery
+                </div>
+                <div class="card-body">
+                    @include('components.dropzone', [
+                        'images' => $campaign->images,
+                        'url' => route('images.campaigns', $campaign->id)
+                    ])
+                </div>
+            </div>
+
+            @include('components.form.input-extended', [
+                'attributes' => [
+                    'name' => 'Video',
+                    'value' => $campaign->video_url,
+               ]
+            ])
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    Team members
+                    <div class="btn-group float-right">
+                        <a href="{{route($membersRoutePrefix . 'create', ['campaignId' => $campaign->id])}}" class="btn btn-success">Add
+                            new</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach($campaign->members as $member)
+                            <div class="col-sm-4">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        {{$member->name}}
+                                    </div>
+                                    <div class="card-body">
+                                        <img id="featured-image" src="{{ $member->image_url }}" class="w-100 mb-3"
+                                             @if(!$member->image_url) style="display: none;" @endif
+                                        />
+                                        <div class="btn-group">
+                                            <a href="{{route($membersRoutePrefix . 'edit', ['id' => $member->id])}}"
+                                               class="btn btn-primary">Edit</a>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="button" onclick="removeTeamMember('{{route($membersRoutePrefix . 'destroy', ['id' => $member->id])}}')" class="btn btn-danger">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -109,6 +173,10 @@
                 $("#featured-image").show();
                 readURL(this);
             });
+
+            function removeTeamMember(url) {
+                $('<form method="post" action="'+ url +'"> @method("DELETE") @csrf <form>').appendTo('body').submit();
+            }
         </script>
     @endpush
 

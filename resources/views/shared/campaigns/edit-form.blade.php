@@ -16,11 +16,14 @@
 
     <div class="row">
         <div class="col-sm-8">
-            @include('components.form.input', [
-                'name' => 'Name',
-                'required' => true,
-                'value' => $campaign->name,
-                'placeholder' => 'Campaign Name'
+            @include('components.form.input-extended', [
+                'label' => 'Campaign Name',
+                'attributes' => [
+                    'placeholder' => 'Aliosha',
+                    'name' => 'Name',
+                    'required' => true,
+                    'value' => $campaign->name,
+                ],
             ])
 
             @include('components.form.select', [
@@ -31,10 +34,13 @@
                 'value' => $campaign->category_id,
             ])
 
-            @include('components.form.textarea', [
-                'name' => 'Details',
-                'required' => true,
-                'value' => $campaign->details,
+            @include('components.form.textarea-extended', [
+            'label' => 'asdasdasdasd',
+                'attributes' => [
+                    'name' => 'Details',
+                    'required' => true,
+                    'value' => $campaign->details,
+                ],
             ])
 
             @include('components.form.textarea', [

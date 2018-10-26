@@ -46,6 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('campaigns', 'CampaignController');
         Route::get('campaigns/{id}/approve', 'CampaignController@approve')->name('campaigns.approve');
         Route::get('campaigns/{id}/unapprove', 'CampaignController@unapprove')->name('campaigns.unapprove');
+        //TODO: Change this to DELETE METHOD
         Route::get('campaigns/{id}/delete', 'CampaignController@delete')->name('campaigns.delete');
 
         Route::post('campaigns/{id}/images/upload', 'CampaignController@handleFeaturedImages')->name('campaigns.images.upload');
@@ -74,6 +75,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::namespace('User')->middleware('redirect.admin')->prefix('user')->name('user.')->group(function () {
         Route::resource('campaigns', 'CampaignController');
+        Route::delete('campaigns/{id}/delete', 'CampaignController@delete')->name('campaigns.delete');
 
         Route::get('settings', 'SettingsController@edit')->name('settings.edit');
         Route::post('settings/password', 'SettingsController@updatePassword')->name('settings.updatePassword');

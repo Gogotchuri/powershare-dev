@@ -23,6 +23,7 @@
                     'name' => 'Name',
                     'required' => true,
                     'value' => $campaign->name,
+                    'autofocus' => true
                 ],
             ])
 

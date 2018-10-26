@@ -18,6 +18,7 @@
             'placeholder' => 'Name',
             'name' => 'Name',
             'required' => true,
+            'autofocus' => true
         ],
     ])
 

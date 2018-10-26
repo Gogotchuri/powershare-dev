@@ -60054,6 +60054,19 @@ $(document).ready(function () {
         });
         $('.jscroll-inner, .jscroll-added>.infinite-scroll').addClass('row');
     });
+
+    //FIXME: Probably this can be implemented in css
+
+    var updateInfiniteScrollWraperHeight = function updateInfiniteScrollWraperHeight() {
+        var height = $('.infinite-scroll .campaign-col').height();
+        $('.campaigns-list-wrapper').height(height * 2);
+    };
+
+    $(window).resize(function () {
+        updateInfiniteScrollWraperHeight();
+    });
+
+    setTimeout(updateInfiniteScrollWraperHeight, 0);
 });
 
 /***/ }),

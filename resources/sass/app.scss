@@ -141,9 +141,26 @@ $logo-height: $front-page-spacer * 0.64;
     }
 
     .mobile-menu {
+
+
+        .mobile-menu-controls {
+            position: fixed;
+            padding: 1rem 0 .7rem 1rem;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: $mobile-menu-z-index;
+            transition: background-color .3s ease-out;
+
+            &.sticky {
+                background-color: #FFF;
+                @include cz-box-shadow-light;
+            }
+        }
+
         .mobile-menu-items {
             position: fixed;
-            z-index: $fixed-menu-z-index;
+            z-index: $mobile-menu-z-index + 1;
             display: block;
             top: 0;
             left: 0;
@@ -151,6 +168,7 @@ $logo-height: $front-page-spacer * 0.64;
             overflow: hidden;
             max-height: none;
             background: #FFF;
+            @include cz-box-shadow-light;
 
             &.hidden {
                 max-height: 0;

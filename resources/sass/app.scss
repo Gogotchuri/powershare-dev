@@ -436,6 +436,8 @@ $logo-height: $front-page-spacer * 0.64;
 
         .campaigns-list-wrapper {
 
+
+            margin-top: $front-page-spacer;
             height: 230px * 2;
             width: 100%;
             overflow: hidden;
@@ -449,7 +451,6 @@ $logo-height: $front-page-spacer * 0.64;
                 box-sizing: content-box; /* So the width will be 100% + 17px */
 
                 .campaigns-list {
-                    margin-top: $front-page-spacer;
 
                     .ps-card {
                         border-radius: 8px;

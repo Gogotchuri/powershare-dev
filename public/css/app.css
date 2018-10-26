@@ -16575,6 +16575,7 @@ div.jscroll-added div.jscroll-loading {
 .campaign-page .right-panel .campaigns-list-wrapper,
 .about-page .right-panel .campaigns-list-wrapper,
 .faq-page .right-panel .campaigns-list-wrapper {
+  margin-top: 60px;
   height: 460px;
   width: 100%;
   overflow: hidden;
@@ -16592,13 +16593,6 @@ div.jscroll-added div.jscroll-loading {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   /* So the width will be 100% + 17px */
-}
-
-.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
-.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
-.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
-.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list {
-  margin-top: 60px;
 }
 
 .front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card,

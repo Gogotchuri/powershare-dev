@@ -75,7 +75,7 @@
                                 <div class="campaigns-list">
                                     <div class="infinite-scroll">
                                         @foreach($campaigns as $campaign)
-                                            <div class="col-xl-3 col-sm-6">
+                                            <div class="col-xl-3 col-sm-6 campaign-col">
                                                 <a href="{{ route('public.campaign.show', ['id' => $campaign->id]) }}" class="ps-card">
                                                     <div class="ps-card-image-container fade">
                                                 <span class="ps-card-icon">

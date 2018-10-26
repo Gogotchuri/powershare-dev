@@ -349,4 +349,20 @@ $(document).ready(function () {
             }
         });
     }
+
+    $('ul.pagination').hide();
+    $(function() {
+        $('.infinite-scroll').jscroll({
+            autoTrigger: true,
+            loadingHtml: '<img class="center-block" style="width: 40px; height: 40px;" src="/img/loading.gif" alt="Loading..." />',
+            padding: 0,
+            nextSelector: '.pagination li.active + li a',
+            contentSelector: 'div.infinite-scroll',
+            callback: function() {
+                $('.jscroll-inner, .jscroll-added>.infinite-scroll').addClass('row');
+                $('ul.pagination').remove();
+            }
+        });
+        $('.jscroll-inner, .jscroll-added>.infinite-scroll').addClass('row');
+    });
 });

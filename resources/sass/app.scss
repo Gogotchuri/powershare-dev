@@ -45,6 +45,23 @@ div.dataTables_length {
     }
 }
 
+//jScroll
+
+div.jscroll-added {
+    //Mimic a column
+    padding: 0 15px;
+}
+
+div.jscroll-added {
+
+    width: 100%;
+
+    div.jscroll-loading {
+        width: 40px;
+        margin: 0 auto;
+    }
+}
+
 /*TMP*/
 .card-columns {
     @include media-breakpoint-only(sm) {

@@ -11,6 +11,7 @@
 @section('body')
     @include('shared.campaigns.index-table', [
         'row_route_name' => 'user.campaigns.show',
-        'continue_route_name' => 'user.campaigns.edit'
+        'continue_route_name' => 'user.campaigns.edit',
+        'create_route' => route('user.campaigns.create'),
     ])
 @endsection

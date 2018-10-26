@@ -38,6 +38,13 @@
     }
 }
 
+// Fix jQuery datatables UI
+div.dataTables_length {
+    select {
+        margin: 0 0.5rem;
+    }
+}
+
 /*TMP*/
 .card-columns {
     @include media-breakpoint-only(sm) {

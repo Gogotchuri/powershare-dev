@@ -24,12 +24,8 @@ class UpdateCampaign extends FormRequest
      */
     public function rules()
     {
-        return array_merge(Campaign::baseRules(), [
-            'featured-image' => 'image|mimes:jpeg,png,jpg,gif',
+        return array_merge(Campaign::updateRules(), [
             'status_id' => 'required|exists:campaign_statuses,id',
-            'video_url' => 'url',
-            'ethereum_address' => 'nullable|string|max:255',
-            'category' => 'required|exists:campaign_categories,id',
         ]);
     }
 }

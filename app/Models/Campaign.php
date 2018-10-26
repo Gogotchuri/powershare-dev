@@ -26,12 +26,24 @@ class Campaign extends Model
     public static function baseRules() {
         return [
             'name' => 'required|string|max:255',
-            'details' => 'required|string|max:1000',
-            'importance' => 'string|max:3000',
             //TODO: Should we use word count validation or is 50 symbol limit sufficient
-            'target_audience' => 'string|max:50',
-            'required_funding' => 'numeric',
+            'target_audience' => 'required|string|max:50',
+            'details' => 'required|string|max:1000',
         ];
+    }
+
+    public static function updateRules() {
+        return array_merge(Campaign::baseRules(), [
+            'category' => 'required|exists:campaign_categories,id',
+            'required_funding' => 'required|numeric',
+            //Coming from base rules
+            //'details' => 'required|string|max:1000',
+            //TODO: Conditionally add required rule here if campaign have no image
+            'featured-image' => 'image|mimes:jpeg,png,jpg,gif',
+            'ethereum_address' => 'nullable|string|max:255',
+            'importance' => 'string|max:3000',
+            'video_url' => 'url',
+        ]);
     }
 
     public function author() {

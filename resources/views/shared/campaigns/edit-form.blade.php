@@ -21,7 +21,7 @@
                 'attributes' => [
                     'placeholder' => 'Name',
                     'name' => 'Name',
-                    //'required' => true,
+                    'required' => true,
                     'value' => $campaign->name,
                 ],
             ])
@@ -31,6 +31,7 @@
                     'name' => 'Target audience',
                     'value' => $campaign->target_audience,
                     'placeholder' => 'For whom is the campaign important',
+                    'required' => true
                 ]
             ])
 
@@ -47,7 +48,8 @@
                     'name' => 'Required funding',
                     'value' => $campaign->required_funding,
                     'type' => 'number',
-                    'placeholder' => 'Required amount of funds (USD)'
+                    'placeholder' => 'Required amount of funds (USD)',
+                    'required' => true
                 ]
             ])
 

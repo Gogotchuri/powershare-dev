@@ -9,7 +9,11 @@
         autofocus>
         <option value=""> {{$name}} </option>
         @foreach($options as $option)
-            <option value="{{ $option->id }}" {{ isset($value) && $value === $option->id ? 'selected' : '' }}>
+            @php
+                $value = isset($value) ? $value : old(snake_case($name));
+            @endphp
+
+            <option value="{{ $option->id }}" {{ $value == $option->id ? 'selected' : '' }}>
                 {{ $option->$title }}
             </option>
         @endforeach

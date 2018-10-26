@@ -12,20 +12,29 @@
 
     @csrf
 
-    @include('components.form.input', [
-        'name' => 'Name',
-        'required' => true,
-        'placeholder' => 'Campaign Name'
+    @include('components.form.input-extended', [
+        'label' => 'Campaign Name',
+        'attributes' => [
+            'placeholder' => 'Name',
+            'name' => 'Name',
+            'required' => true,
+        ],
     ])
 
-    @include('components.form.input', [
-        'name' => 'Target audience',
-        'placeholder' => 'Important for'
+    @include('components.form.input-extended', [
+        'attributes' => [
+            'name' => 'Target audience',
+            'placeholder' => 'For whom is the campaign important',
+            'required' => true,
+        ]
     ])
 
-    @include('components.form.textarea', [
-        'name' => 'Details',
-        'required' => true,
+    @include('components.form.textarea-extended', [
+        'label' => 'Short description',
+        'attributes' => [
+            'name' => 'Details',
+            'required' => true,
+        ],
     ])
 
     <button type="submit" class="btn btn-secondary">

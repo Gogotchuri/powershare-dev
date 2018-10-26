@@ -19,7 +19,7 @@
             @include('components.form.input-extended', [
                 'label' => 'Campaign Name',
                 'attributes' => [
-                    'placeholder' => 'Aliosha',
+                    'placeholder' => 'Name',
                     'name' => 'Name',
                     //'required' => true,
                     'value' => $campaign->name,
@@ -30,6 +30,7 @@
                 'attributes' => [
                     'name' => 'Target audience',
                     'value' => $campaign->target_audience,
+                    'placeholder' => 'For whom is the campaign important',
                 ]
             ])
 
@@ -45,7 +46,8 @@
                 'attributes' => [
                     'name' => 'Required funding',
                     'value' => $campaign->required_funding,
-                    'type' => 'number'
+                    'type' => 'number',
+                    'placeholder' => 'Required amount of funds (USD)'
                 ]
             ])
 
@@ -62,7 +64,7 @@
                 <div class="col-sm-6">
                     <div class="card mb-3">
                         <div class="card-header">
-                            Main featured image
+                            Cover photo
                         </div>
                         <div class="card-body">
                             <img id="featured-image" src="{{ optional($campaign->featured_image)->thumbnail_url }}" class="w-100 mb-3"
@@ -83,12 +85,13 @@
                 'attributes' => [
                     'name' => 'Ethereum address',
                     'value' => $campaign->ethereum_address,
+                    'placeholder' => 'ETH Wallet Address',
                 ]
             ])
 
             @include('components.form.textarea-extended', [
                 'attributes' => [
-                    'placeholder' => 'For whom is the campaign important',
+                    'placeholder' => 'Why is the campaign important',
                     'name' => 'Importance',
                     'required' => true,
                     'value' => $campaign->importance,
@@ -111,6 +114,7 @@
                 'attributes' => [
                     'name' => 'Video',
                     'value' => $campaign->video_url,
+                    'placeholder' => 'Paste Youtube video link here'
                ]
             ])
 

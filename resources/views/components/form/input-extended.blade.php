@@ -16,7 +16,7 @@
     $dest['class'] .= ' form-control' . ($errors->has($name) ? ' is-invalid' : '');
     //If multiple option provided, Append array braces to support php arrays
     $dest['name'] = $name . (array_get($attributes, 'multiple') ? '[]' : '');
-    $dest['value'] = array_get($attributes, 'value') ?? old($name);
+    $dest['value'] = empty(array_get($attributes, 'value')) ? old($name) : array_get($attributes, 'value');
 
     // Appearance stuff
     $label = (isset($label) ? $label : null) ?? $attributes['name'];

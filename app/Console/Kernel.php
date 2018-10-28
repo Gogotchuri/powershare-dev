@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+         $schedule->command('campaigns')->hourly();
+         $schedule->command('coinhive:users')->hourly();
+         $schedule->command('coinmarketcap')->daily();
     }
 
     /**

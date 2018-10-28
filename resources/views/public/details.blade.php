@@ -95,14 +95,13 @@
                                                                     <div class="col-md-6 col-lg-7">
                                                                         <div class="fund-raising-raised">
                                                                             <div class="fund-raising-bordered-object">
-                                                                                <div class="current-funding">855,65 $</div>
+                                                                                <div class="current-funding">{{ $campaign->realized_funding }} $</div>
                                                                                 <img class="fire-img" src="/img/icons/fire.png" />
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6 col-lg-5">
                                                         <span class="required-funding">
-                                                            <h6>Required funding</h6>
                                                             <h6>{{ $campaign->required_funding ? number_format($campaign->required_funding) . ' $' : "--" }}</h6>
                                                         </span>
                                                                     </div>
@@ -149,10 +148,12 @@
                                                                     </div>
                                                                     <input type="number" step="0.0001" class="form-control ether-amount" value="0.1" placeholder="Ether" aria-label="Ether" aria-describedby="basic-addon1">
                                                                 </div>
-                                                                <button type="button" class="btn btn-secondary d-block m-lg-auto @if($campaign->ethereum_address) open-metamask @else disabled @endif"
-                                                                        value="{{ $campaign->ethereum_address }}">
-                                                                    Donate
-                                                                </button>
+                                                                <div class="input-group mb-3">
+                                                                    <button type="button" class="btn btn-secondary d-block m-lg-auto @if($campaign->ethereum_address) open-metamask @else disabled @endif"
+                                                                            value="{{ $campaign->ethereum_address }}">
+                                                                        Donate
+                                                                    </button>
+                                                                </div>
                                                             </form>
                                                         </div>
                                                     </div>

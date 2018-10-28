@@ -1152,6 +1152,13 @@ $logo-height: $front-page-spacer * 0.64;
     }
 }
 
+// Small screens like iPhone 5
+@media (max-width: 365px) {
+  .coinhive-miner {
+    min-height: 300px;
+  }
+}
+
 @include media-breakpoint-down(sm) {
     .campaign-page {
         min-height: 100vh;

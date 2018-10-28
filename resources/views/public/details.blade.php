@@ -141,7 +141,7 @@
                                                             <div class="alert alert-danger metamask-warning" style="display: none;"></div>
                                                             <div class="alert alert-success metamask-success" style="display: none;"> Thanks! </div>
                                                             <form class="form-inline">
-                                                                <div class="input-group mr-3">
+                                                                <div class="input-group mb-3 mr-3">
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">
                                                                             <i class="fab fa-ethereum"></i>
@@ -261,38 +261,7 @@
                             </div>
 
 
-                            <div class="container">
-                                {{--@if($campaign->youtube_id !== null)--}}
-                                {{--<div class="row">--}}
-                                {{--<div class="col-md-12 text-center">--}}
-                                {{--<iframe width="560" height="315" src="https://www.youtube.com/embed/{{$campaign->youtube_id}}"--}}
-                                {{--frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>--}}
-                                {{--</div>--}}
-                                {{--</div>--}}
-                                {{--@endif--}}
-
-                                {{--@if($campaign->images()->count() > 0)--}}
-                                {{--<div class="row">--}}
-                                {{--<div class="col-md-12 text-center">--}}
-                                {{--@foreach($campaign->images as $image)--}}
-                                {{--<img style="max-width: 25%; padding: 5px;" class="img-fluid" alt="{{$image->name}}"--}}
-                                {{--src="{{$image->public_url}}">--}}
-                                {{--@endforeach--}}
-                                {{--</div>--}}
-                                {{--</div>--}}
-                                {{--@endif--}}
-                                {{--@if($campaign->social_links()->count() > 0)--}}
-                                {{--<div class="row">--}}
-                                {{--<div class="col-md-12 text-center">--}}
-                                {{--@foreach($campaign->social_links as $link)--}}
-                                {{--<strong>{{$link->platform_name}} </strong> {{$link->url}}--}}
-                                {{--@endforeach--}}
-                                {{--</div>--}}
-                                {{--</div>--}}
-                                {{--@endif--}}
-
-
-                            </div>
+                            <div class="container"></div>
                         </div>
                     </div>
                 </div>

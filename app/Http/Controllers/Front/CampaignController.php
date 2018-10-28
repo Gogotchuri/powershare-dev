@@ -37,7 +37,7 @@ class CampaignController extends Controller
         $comment = new Comment();
         $comment->author_id = Auth::user()->id;
         $comment->body = $request->input('body');
-        $comment->is_public = false;
+        $comment->is_public = true;
 
         $campaign->comments()->save($comment);
 

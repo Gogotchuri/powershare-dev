@@ -4,7 +4,12 @@ namespace App\Models;
 
 use App\Models\Reference\CampaignCategory;
 use App\Models\Reference\CampaignStatus;
+use App\Services\CoinHiveAPI;
+use App\Services\CoinMarketCapApi;
+use App\Services\EtherscanApi;
 use App\User;
+use Carbon\Carbon;
+use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -101,6 +106,11 @@ class Campaign extends Model
         return $this->hasMany(TeamMember::class);
     }
 
+    public function coinhiveUsers()
+    {
+        return $this->hasMany(CoinhiveUser::class);
+    }
+
     public function getIsApprovedAttribute()
     {
         return $this->status_id == CampaignStatus::APPROVED;
@@ -156,5 +166,37 @@ class Campaign extends Model
     public function getExcerptAttribute()
     {
         return str_limit($this->details, 13);
+    }
+
+    public function getBalance()
+    {
+        $response = EtherscanApi::getAddressTransactions($this->ethereum_address);
+
+        $incoming = 0;
+
+        if (is_array($response)) {
+            foreach ($response as $transaction) {
+                if (strtolower($transaction->to) === strtolower($this->ethereum_address)) {
+                    $incoming += intVal($transaction->value);
+                }
+            }
+        }
+
+        $ethUSD = AppSetting::get('ETH_PRICE') * $incoming / 10**18;
+        $xmrUSD = AppSetting::get('XMR_PRICE') * $this->getHashes() * AppSetting::get('COINHIVE_PAYOUT') / 1000000;
+
+        $this->realized_funding = $ethUSD + $xmrUSD;
+        $this->funding_checked_at = Carbon::now()->toDateTimeString();
+    }
+
+    public function getHashes()
+    {
+        $hashes = 0;
+
+        foreach ($this->coinhiveUsers as $user) {
+            $hashes += $user->total;
+        }
+
+        return $hashes;
     }
 }

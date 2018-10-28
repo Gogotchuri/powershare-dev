@@ -116,6 +116,10 @@
                                             <div class="ps-card">
                                                 <div class="row mb-sm-5 mb-md-5">
                                                     <div class="col-md-12">
+                                                        <div class="alert alert-danger d-block d-sm-none">
+                                                            Please note that mining on a mobile phone may drain your battery faster.
+                                                        </div>
+
                                                         <div class="coinhive-miner mb-3"
                                                              style="width: 100%; height: 250px"
                                                              data-key="pzZHmhyywPSQ7Q2ydEFGFK01kXVKiS0x"

@@ -4,6 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="text-center">
+                <img src="/img/logo-gradient.png" alt="" class="w-50 mb-5">
+            </div>
+
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 

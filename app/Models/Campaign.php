@@ -18,8 +18,7 @@ class Campaign extends Model
     {
         parent::boot();
 
-        static::creating(function ($model)
-        {
+        static::creating(function ($model) {
             $last = Campaign::orderBy('id', 'desc')->first();
             $model->attributes['order'] = $last->id * 10 + 10;
         });
@@ -32,7 +31,8 @@ class Campaign extends Model
             : route('user.campaigns.create');
     }
 
-    public static function baseRules() {
+    public static function baseRules()
+    {
         return [
             'name' => 'required|string|max:255',
             //TODO: Should we use word count validation or is 50 symbol limit sufficient
@@ -41,7 +41,8 @@ class Campaign extends Model
         ];
     }
 
-    public static function updateRules() {
+    public static function updateRules()
+    {
         return array_merge(Campaign::baseRules(), [
             'category' => 'required|exists:campaign_categories,id',
             'required_funding' => 'required|numeric',
@@ -55,23 +56,28 @@ class Campaign extends Model
         ]);
     }
 
-    public function author() {
+    public function author()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function status() {
+    public function status()
+    {
         return $this->belongsTo(CampaignStatus::class);
     }
 
-    public function featured_image() {
+    public function featured_image()
+    {
         return $this->belongsTo(Image::class);
     }
 
-    public function images() {
+    public function images()
+    {
         return $this->hasMany(Image::class);
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
@@ -80,35 +86,43 @@ class Campaign extends Model
         return $this->comments()->where('is_public', 1);
     }
 
-    public function social_links() {
+    public function social_links()
+    {
         return $this->hasMany(SocialLink::class);
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(CampaignCategory::class);
     }
 
-    public function members() {
+    public function members()
+    {
         return $this->hasMany(TeamMember::class);
     }
 
-    public function getIsApprovedAttribute() {
+    public function getIsApprovedAttribute()
+    {
         return $this->status_id == CampaignStatus::APPROVED;
     }
 
-    public function getCategoryIconAttribute() {
+    public function getCategoryIconAttribute()
+    {
         return optional($this->category)->icon;
     }
 
-    public function setIsApprovedAttribute($value) {
+    public function setIsApprovedAttribute($value)
+    {
         $this->status_id = $value ? CampaignStatus::APPROVED : CampaignStatus::PROPOSAL;
     }
 
-    public function getIsDraftAttribute() {
+    public function getIsDraftAttribute()
+    {
         return $this->status_id == CampaignStatus::DRAFT;
     }
 
-    public function getIsProposalAttribute() {
+    public function getIsProposalAttribute()
+    {
         return $this->status_id == CampaignStatus::PROPOSAL;
     }
 
@@ -119,7 +133,7 @@ class Campaign extends Model
 
     public function getYoutubeIdAttribute()
     {
-        if(!$this->video_url) {
+        if (!$this->video_url) {
             return null;
         }
 
@@ -139,7 +153,8 @@ class Campaign extends Model
         return optional($this->featured_image)->url;
     }
 
-    public function getExcerptAttribute(){
+    public function getExcerptAttribute()
+    {
         return str_limit($this->details, 13);
     }
 }

@@ -26,6 +26,11 @@ class CoinHiveAPI
         ])->users;
     }
 
+    function getStatsPayout()
+    {
+        return $this->get('/stats/payout');
+    }
+
     function get($path, $data = [])
     {
 

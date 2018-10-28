@@ -35,6 +35,36 @@ $(document).ready(function () {
         $("#light-slider-wrapper").removeClass('d-none');
     });
 
+    $(".open-metamask").on('click', function (ev) {
+        if (typeof web3 === 'undefined') {
+            $('.metamask-warning').text('You need to install MetaMask to use this feature.  https://metamask.io');
+            $('.metamask-warning').show();
+            // return renderMessage('You need to install MetaMask to use this feature.  https://metamask.io')
+        } else if (!web3.eth.accounts.length) {
+            $('.metamask-warning').text('You need to be logged in to MetaMask to use this feature.');
+            $('.metamask-warning').show();
+            // return renderMessage('You need to be logged in to use this feature.)
+        } else {
+            var user_address = web3.eth.accounts[0];
+            var balance = $('.ether-amount').val();
+            console.log(balance);
+
+            web3.eth.sendTransaction({
+                to: $(".open-metamask").attr('value'),
+                from: user_address,
+                value: web3.toWei(balance, 'ether')
+            }, function (err, transactionHash) {
+                if (err) {
+                    $('.metamask-warning').text('Oh no! ' + err.message);
+                    $('.metamask-warning').show();
+                } else {
+                    $('.metamask-success').show();
+                }
+            })
+        }
+    });
+
+
     (function ($, window, undefined) {
         "use strict";
 

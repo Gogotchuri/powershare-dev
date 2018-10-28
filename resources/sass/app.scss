@@ -1183,6 +1183,11 @@ $logo-height: $front-page-spacer * 0.64;
         text-transform: uppercase;
     }
 }
+
+.ether-amount {
+    max-width: 100px;
+}
+
 // Old/New Platform modal styling
 
 //Blur background

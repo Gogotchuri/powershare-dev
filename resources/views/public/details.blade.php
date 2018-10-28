@@ -138,10 +138,22 @@
 
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <a class="btn btn-secondary d-block m-lg-auto @if($campaign->ethereum_address) disabled @endif"
-                                                               href="https://etherscan.io/address/{{ $campaign->ethereum_address }}">
-                                                                Donate
-                                                            </a>
+                                                            <div class="alert alert-danger metamask-warning" style="display: none;"></div>
+                                                            <div class="alert alert-success metamask-success" style="display: none;"> Thanks! </div>
+                                                            <form class="form-inline">
+                                                                <div class="input-group mr-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon1">
+                                                                            <i class="fab fa-ethereum"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <input type="number" step="0.0001" class="form-control ether-amount" value="0.1" placeholder="Ether" aria-label="Ether" aria-describedby="basic-addon1">
+                                                                </div>
+                                                                <button type="button" class="btn btn-secondary d-block m-lg-auto @if($campaign->ethereum_address) open-metamask @else disabled @endif"
+                                                                        value="{{ $campaign->ethereum_address }}">
+                                                                    Donate
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                             </div>

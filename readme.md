@@ -1,4 +1,4 @@
-# PowerShare
+# POWERSHARE
 
 ## Installation
 

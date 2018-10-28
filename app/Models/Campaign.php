@@ -10,11 +10,20 @@ use Illuminate\Support\Facades\Auth;
 
 class Campaign extends Model
 {
-
-
     protected $with = [
         'status'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model)
+        {
+            $last = Campaign::orderBy('id', 'desc')->first();
+            $model->attributes['order'] = $last->id * 10 + 10;
+        });
+    }
 
     public static function createPath()
     {

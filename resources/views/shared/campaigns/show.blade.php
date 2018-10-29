@@ -25,4 +25,7 @@
         </div>
     </div>
 @endif
+
+<a class="btn btn-primary" target="_blank" href="{{route('public.campaign.show', ['id' => $campaign->id])}}">Open Campaign Page</a>
+
 @yield('controls')

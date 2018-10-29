@@ -38,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(UserSettings::class)->withDefault();
     }
 
-    public function contributed_campaigns() {
+    public function campaigns_contributed() {
         return Campaign::byContributor($this->id);
     }
 
@@ -47,7 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     public function getContributedCampaignsAttribute() {
-        return $this->contributed_campaigns()->get();
+        return $this->campaigns_contributed()->get();
     }
 
     public function getNotificationsOnAttribute() {

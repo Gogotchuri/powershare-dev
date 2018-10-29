@@ -38,8 +38,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(UserSettings::class)->withDefault();
     }
 
+    public function contributed_campaigns() {
+        return Campaign::byContributor($this->id);
+    }
+
     public function getIsAdminAttribute() {
         return $this->role_id === 1;
+    }
+
+    public function getContributedCampaignsAttribute() {
+        return $this->contributed_campaigns()->get();
     }
 
     public function getNotificationsOnAttribute() {

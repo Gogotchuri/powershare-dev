@@ -168,6 +168,13 @@ class Campaign extends Model
         return str_limit($this->details, 13);
     }
 
+    public function scopeByContributor($query, $contributor_id) {
+        return $query->join('coinhive_users', function ($join) use($contributor_id) {
+                $join->on('coinhive_users.campaign_id', '=', 'campaigns.id');
+                $join->where('coinhive_users.user_id', '=', $contributor_id);
+            })->select('campaigns.*');
+    }
+
     public function getBalance()
     {
         $response = EtherscanApi::getAddressTransactions($this->ethereum_address);

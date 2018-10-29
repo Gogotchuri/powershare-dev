@@ -3,8 +3,8 @@
 @endif
 
 <p>{{$campaign->details}}</p>
-
 <h4>Mining stats</h4>
+
 @if($stats)
     <div class="row">
         <div class="col-md-6">
@@ -23,6 +23,10 @@
                 </li>
             </ul>
         </div>
+    </div>
+@else
+    <div class="mb-3">
+        <small>You haven't contributed to this Campaign yet.</small>
     </div>
 @endif
 

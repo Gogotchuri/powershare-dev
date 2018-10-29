@@ -7,19 +7,10 @@
 
 @if($stats)
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Total:
-                    <span class="badge badge-primary badge-pill">{{$stats->total}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Withdrawn:
-                    <span class="badge badge-primary badge-pill">{{$stats->withdrawn}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Balance:
-                    <span class="badge badge-primary badge-pill">{{$stats->balance}}</span>
+                    Total hashes: <span class="badge badge-secondary badge-pill"><big>{{$stats->total}}</big></span>
                 </li>
             </ul>
         </div>

@@ -19,7 +19,7 @@ class CampaignController extends Controller
 {
     public function index()
     {
-        $campaigns = Campaign::all();
+        $campaigns = Campaign::with('author')->get();
 
         return view('admin.campaigns.index', compact('campaigns'));
     }

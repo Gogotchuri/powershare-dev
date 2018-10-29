@@ -26,7 +26,7 @@ class CampaignController extends Controller
     {
         $user = Auth::user();
 
-        $campaigns = $user->campaigns;
+        $campaigns = $user->contributed_campaigns()->with('author')->get();
 
         return view('user.campaigns.index', compact('campaigns'));
     }

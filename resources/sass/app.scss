@@ -1143,6 +1143,7 @@ $logo-height: $front-page-spacer * 0.64;
 
     @include media-breakpoint-up(xl) {
         background-size: 35vw;
+        margin-top: -80px;
     }
 }
 

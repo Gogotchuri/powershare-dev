@@ -5,7 +5,7 @@
 @endsection
 
 @section('buttons')
-    {{--TODO: ... --}}
+    <a class="btn btn-primary" href="{{route('admin.campaigns.edit', ['id' => $campaign->id])}}">Back</a>
 @endsection
 
 @section('body')

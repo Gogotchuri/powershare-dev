@@ -50,6 +50,7 @@ class Campaign extends Model
     {
         return array_merge(Campaign::baseRules(), [
             'category' => 'required|exists:campaign_categories,id',
+            'initiator' => 'required|string|max:191',
             'required_funding' => 'required|numeric',
             //Coming from base rules
             //'details' => 'required|string|max:1000',

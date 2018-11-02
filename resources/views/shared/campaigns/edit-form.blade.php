@@ -45,6 +45,15 @@
             ])
 
             @include('components.form.input-extended', [
+                'label' => 'Name of Initiator',
+                'attributes' => [
+                    'name' => 'Initiator',
+                    'value' => $campaign->initiator,
+                    'required' => true
+                ]
+            ])
+
+            @include('components.form.input-extended', [
                 'attributes' => [
                     'name' => 'Required funding',
                     'value' => $campaign->required_funding,

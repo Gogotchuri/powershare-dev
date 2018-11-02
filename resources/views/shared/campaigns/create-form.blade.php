@@ -24,8 +24,7 @@
 
     @include('components.form.input-extended', [
         'attributes' => [
-            'name' => 'Target audience',
-            'placeholder' => 'For whom is the campaign important',
+            'name' => 'For whom is the campaign important',
             'required' => true,
         ]
     ])

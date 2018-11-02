@@ -11,6 +11,14 @@ $(document).ready(function () {
         stateSave: true,
     });
 
+    //Campaign Table in on management screens
+    let campaignTable = $('table#campaignTable');
+
+    campaignTable.DataTable().state.clear().destroy();
+    campaignTable.DataTable({
+        order: [[ 3, 'desc' ]],
+    });
+
     $(document).ready(function () {
         $("#light-slider").lightSlider({
             gallery: true,

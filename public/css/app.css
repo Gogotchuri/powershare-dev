@@ -16149,6 +16149,7 @@ div.jscroll-added div.jscroll-loading {
 .faq-page ul.side-connect-menu {
   position: fixed;
   right: 0;
+  padding: 0;
   top: 180px;
   z-index: 998;
   list-style: none;
@@ -16588,11 +16589,17 @@ div.jscroll-added div.jscroll-loading {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  padding-right: 17px;
-  /* Increase/decrease this value for cross-browser compatibility */
+  overflow-x: hidden;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   /* So the width will be 100% + 17px */
+}
+
+.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
+.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
+.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
+.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list {
+  padding: 0 17px 0 0;
 }
 
 .front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card,

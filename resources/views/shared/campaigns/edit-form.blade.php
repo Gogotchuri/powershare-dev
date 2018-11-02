@@ -55,11 +55,12 @@
             ])
 
             @include('components.form.textarea-extended', [
-                'label' => 'Short description',
+                'label' => 'Short description (max. 1000 characters)',
                 'attributes' => [
                     'name' => 'Details',
                     'required' => true,
                     'value' => $campaign->details,
+                    'maxlength' => '1000'
                 ],
             ])
 
@@ -95,9 +96,10 @@
             @include('components.form.textarea-extended', [
                 'attributes' => [
                     'placeholder' => 'Why is the campaign important',
-                    'name' => 'Importance',
+                    'name' => 'Importance (max. 3000 characters)',
                     'required' => true,
                     'value' => $campaign->importance,
+                    'maxlength' => '3000'
                 ]
             ])
 

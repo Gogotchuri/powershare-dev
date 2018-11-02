@@ -31,10 +31,11 @@
     ])
 
     @include('components.form.textarea-extended', [
-        'label' => 'Short description',
+        'label' => 'Short description (max. 1000 characters)',
         'attributes' => [
             'name' => 'Details',
             'required' => true,
+            'maxlength' => '1000'
         ],
     ])
 

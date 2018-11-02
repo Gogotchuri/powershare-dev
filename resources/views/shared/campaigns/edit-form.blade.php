@@ -28,8 +28,9 @@
             ])
 
             @include('components.form.input-extended', [
+                'label' => 'For whom is the campaign important',
                 'attributes' => [
-                    'name' => 'For whom is the campaign important',
+                    'name' => 'Target audience',
                     'value' => $campaign->target_audience,
                     'required' => true
                 ]
@@ -93,9 +94,10 @@
             ])
 
             @include('components.form.textarea-extended', [
+                'label' => '(max. 3000 characters)',
                 'attributes' => [
                     'placeholder' => 'Why is the campaign important',
-                    'name' => 'Importance (max. 3000 characters)',
+                    'name' => 'Importance',
                     'required' => true,
                     'value' => $campaign->importance,
                     'maxlength' => '3000'

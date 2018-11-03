@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => $campaign->name, 'mainImage' => $campaign->featured_image_url])
 
 @section('html-body')
     @modal(['id' => 'socialShareModal'])

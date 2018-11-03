@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('html-body')
-    @include('public.partials.social-share-modal')
+    @modal(['id' => 'socialShareModal'])
+        @include('public.partials.social-share-modal')
+    @endmodal
+
     <body>
     <div id="app" class="background-image campaign-page" style="background-image: url(/img/background-campaign.png);">
         <div class="container-fluid">
@@ -67,14 +70,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <div class="campaign-mark">
+                                                    <div id="shareButton" class="campaign-mark campaign-mark-clickable">
                                                         <div class="campaign-mark-img">
                                                             <img src="/img/icons/share.png">
                                                         </div>
                                                         <div class="campaign-mark-title">
                                                             <span>Share</span>
                                                             <span>Campaign</span>
-                                                            <i data-social="facebook" class="fab fa-facebook-square"></i>
                                                         </div>
                                                     </div>
                                                 </div>

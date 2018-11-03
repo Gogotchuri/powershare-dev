@@ -302,13 +302,23 @@ $(document).ready(function () {
         }
     }
 
-    // Old or new Platform choice popup
-    let socialShareModal = $('#socialShareModal');
+    (function ($, window, undefined) {
 
-    if (socialShareModal.length) {
+        // Old or new Platform choice popup
+        let socialShareModal = $('#socialShareModal');
+        let shareButton = $('#shareButton');
 
-        socialShareModal.modal('show');
-    }
+        if (socialShareModal.length && shareButton.length) {
+
+            socialShareModal.on('click', function () {
+                socialShareModal.modal('hide');
+            });
+
+            shareButton.on('click', function () {
+                socialShareModal.modal('show');
+            });
+        }
+    })(jQuery, window);
 
     // Ethereum address validation.
 

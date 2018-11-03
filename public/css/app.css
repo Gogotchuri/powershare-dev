@@ -16941,6 +16941,12 @@ div.jscroll-added div.jscroll-loading {
   font-size: 1rem;
 }
 
+.campaign-page .left-panel .inspire .ps-card .campaign-mark.campaign-mark-clickable,
+.about-page .left-panel .inspire .ps-card .campaign-mark.campaign-mark-clickable,
+.faq-page .left-panel .inspire .ps-card .campaign-mark.campaign-mark-clickable {
+  cursor: pointer;
+}
+
 .campaign-page .left-panel .inspire .ps-card .campaign-details-area,
 .about-page .left-panel .inspire .ps-card .campaign-details-area,
 .faq-page .left-panel .inspire .ps-card .campaign-details-area {

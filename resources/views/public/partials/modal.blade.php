@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
             <div class="modal-body">
-                @yield('modal-body')
+                {{$slot}}
             </div>
         </div>
     </div>

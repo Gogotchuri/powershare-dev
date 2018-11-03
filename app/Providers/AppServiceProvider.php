@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Campaign;
 use App\Observers\CampaignObserver;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Intervention\Image\ImageManagerStatic;
@@ -26,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
         ]);
 
         Campaign::observe(CampaignObserver::class);
+
+        Blade::component('public.partials.modal', 'modal');
     }
 
     /**

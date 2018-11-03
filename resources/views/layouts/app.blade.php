@@ -27,6 +27,8 @@
     {{--TODO: vendor.css here is only fileupload stuff needs better organisation--}}
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-    @include('public.partials.old-new-modal')
+    @modal(['id' => 'oldNewModal'])
+        @include('public.partials.old-new-modal')
+    @endmodal
     @yield('html-body')
 </html>

@@ -89,7 +89,7 @@
                                                 <div class="vp-table">
                                                     <div class="vp-table-row">
                                                         <div class="vp-table-cell vp-align-top">
-                                                            <p class="campaign-details mb-5">{{ $campaign->details }}</p>
+                                                            <p class="campaign-details mb-5">{{ $campaign->importance }}</p>
                                                         </div>
                                                     </div>
                                                     <div class="vp-table-row">

@@ -224,7 +224,7 @@
                                 </div>
                             </div>
 
-                            @if($campaign->members)
+                            @if($campaign->members->count() > 0)
                                 <div class="owners mb-5">
                                     <h1 class="mb-4">
                                         Campaign owners

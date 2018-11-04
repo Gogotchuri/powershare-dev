@@ -16770,6 +16770,12 @@ div.jscroll-added div.jscroll-loading {
   font-weight: 700;
 }
 
+.campaign-page .left-panel .comments p,
+.about-page .left-panel .comments p,
+.faq-page .left-panel .comments p {
+  margin: 0;
+}
+
 .campaign-page .left-panel p,
 .about-page .left-panel p,
 .faq-page .left-panel p {

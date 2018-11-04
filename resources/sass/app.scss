@@ -557,6 +557,12 @@ $logo-height: $front-page-spacer * 0.64;
             font-weight: $font-weight-bold;
         }
 
+        .comments {
+            p {
+                margin: 0;
+            }
+        }
+
         p {
             //TODO: Set proper font here
             font-size: $font-size-base;

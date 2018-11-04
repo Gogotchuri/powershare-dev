@@ -242,7 +242,7 @@
                             <div class="comments">
                                 <h1 class="mb-3">Comments</h1>
                                 @forelse($comments as $comment)
-                                    <div class="comment mb-3 w-75">
+                                    <div class="comment mb-4 w-75">
                                         <h5>{{ $comment->author_name }}</h5>
                                         <p>{{ $comment->body }}</p>
                                         @if(!$comment->is_public)

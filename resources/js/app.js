@@ -408,10 +408,13 @@ $(document).ready(function () {
 
     $('ul.pagination').hide();
     $(function () {
-        $('.infinite-scroll').jscroll({
+
+        let infinite = $('.infinite-scroll');
+
+        infinite.jscroll({
             autoTrigger: true,
             loadingHtml: '<img class="center-block" style="width: 40px; height: 40px;" src="/img/loading.gif" alt="Loading..." />',
-            padding: 0,
+            padding: 10,
             nextSelector: '.pagination li.active + li a',
             contentSelector: 'div.infinite-scroll',
             callback: function () {
@@ -419,6 +422,11 @@ $(document).ready(function () {
                 $('ul.pagination').remove();
             }
         });
+
+        $('.campaigns-list-wrapper-inner').scroll( function () {
+            infinite.trigger('scroll.jscroll');
+        } );
+
         $('.jscroll-inner, .jscroll-added>.infinite-scroll').addClass('row');
     });
 

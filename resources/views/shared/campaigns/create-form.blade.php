@@ -1,5 +1,9 @@
 <form id="campaignCreateForm" method="post" action="{{$route}}" enctype="multipart/form-data">
 
+    <div class="text-center">
+        <img src="/img/logo-gradient.png" alt="" class="campaign-form-logo w-50 mb-5">
+    </div>
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

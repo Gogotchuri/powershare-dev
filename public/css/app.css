@@ -17652,3 +17652,7 @@ div.jscroll-added div.jscroll-loading {
   height: 30px;
 }
 
+.campaign-form-logo {
+  max-width: 300px;
+}
+

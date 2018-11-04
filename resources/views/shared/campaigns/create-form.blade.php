@@ -1,5 +1,9 @@
 <form id="campaignCreateForm" method="post" action="{{$route}}" enctype="multipart/form-data">
 
+    <div class="text-center">
+        <img src="/img/logo-gradient.png" alt="" class="campaign-form-logo w-50 mb-5">
+    </div>
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -23,18 +27,19 @@
     ])
 
     @include('components.form.input-extended', [
+        'label' => 'For whom is the campaign important',
         'attributes' => [
             'name' => 'Target audience',
-            'placeholder' => 'For whom is the campaign important',
             'required' => true,
         ]
     ])
 
     @include('components.form.textarea-extended', [
-        'label' => 'Short description',
+        'label' => 'Short description (max. 1000 characters)',
         'attributes' => [
             'name' => 'Details',
             'required' => true,
+            'maxlength' => '1000'
         ],
     ])
 

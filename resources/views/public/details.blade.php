@@ -1,6 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => $campaign->name, 'mainImage' => $campaign->featured_image_url])
 
 @section('html-body')
+    @modal(['id' => 'socialShareModal'])
+        @include('public.partials.social-share-modal')
+    @endmodal
+
     <body>
     <div id="app" class="background-image campaign-page" style="background-image: url(/img/background-campaign.png);">
         <div class="container-fluid">
@@ -50,7 +54,7 @@
                                             <div class="row mt-xl-5 pt-4">
                                                 <div class="col-md-12">
                                                     <h1>{{ $campaign->name }}</h1>
-                                                    <h2>Important for: {{$campaign->target_audience}}</h2>
+                                                    <h2>For whom is the campaign important: {{$campaign->target_audience}}</h2>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -66,7 +70,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <div class="campaign-mark">
+                                                    <div id="shareButton" class="campaign-mark campaign-mark-clickable">
                                                         <div class="campaign-mark-img">
                                                             <img src="/img/icons/share.png">
                                                         </div>
@@ -85,7 +89,7 @@
                                                 <div class="vp-table">
                                                     <div class="vp-table-row">
                                                         <div class="vp-table-cell vp-align-top">
-                                                            <p class="campaign-details mb-5">{{ $campaign->details }}</p>
+                                                            <p class="campaign-details mb-5">{{ $campaign->importance }}</p>
                                                         </div>
                                                     </div>
                                                     <div class="vp-table-row">
@@ -220,7 +224,7 @@
                                 </div>
                             </div>
 
-                            @if($campaign->members)
+                            @if($campaign->members->count() > 0)
                                 <div class="owners mb-5">
                                     <h1 class="mb-4">
                                         Campaign owners
@@ -238,7 +242,7 @@
                             <div class="comments">
                                 <h1 class="mb-3">Comments</h1>
                                 @forelse($comments as $comment)
-                                    <div class="comment mb-3 w-75">
+                                    <div class="comment mb-4 w-75">
                                         <h5>{{ $comment->author_name }}</h5>
                                         <p>{{ $comment->body }}</p>
                                         @if(!$comment->is_public)

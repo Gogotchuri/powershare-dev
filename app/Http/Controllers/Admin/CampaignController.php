@@ -68,6 +68,7 @@ class CampaignController extends Controller
 
         $campaign =  Campaign::findOrFail($id);
         $campaign->name = $request->input('name');
+        $campaign->initiator = $request->input('initiator');
         $campaign->target_audience = $request->input('target_audience');
         $campaign->required_funding = $request->input('required_funding');
         $campaign->category_id = $request->input('category');

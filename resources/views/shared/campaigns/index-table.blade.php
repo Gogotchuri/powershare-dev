@@ -1,10 +1,11 @@
 @if(count($campaigns) > 0)
-    <table class="table datatables" style="width: 100%;">
+    <table id="campaignTable" class="table datatables" style="width: 100%;">
         <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Details</th>
+            <th scope="col">Creation Date</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
         </tr>
@@ -15,6 +16,7 @@
                 <td scope="row"> {{$campaign->id}}</td>
                 <td>{{$campaign->name}}</td>
                 <td>{{mb_strimwidth($campaign->details, 0, 150, "...")}}</td>
+                <td>{{$campaign->created_at}}</td>
                 <td>
                     <span
                         class="badge badge-pill badge-{{$campaign->is_approved ? 'success' : 'secondary'}}">{{$campaign->status_name}}</span>

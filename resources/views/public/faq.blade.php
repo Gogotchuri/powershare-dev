@@ -70,12 +70,6 @@
                             <p> 6. What is cryptocurrency?</p>
                         </div>
 
-                        <p class="question mt-5">What is cryptocurrency?</p>
-                        <div class="ps-card answer mb-5">
-                            <p>Cryptocurrency is a digital asset which functions on top of the underlying
-                                blockchain.</p>
-                        </div>
-
                         <p class="question mt-5">What is cryptocurrency mining?</p>
                         <div class="ps-card answer mb-5">
                             <p>Cryptocurrency mining is a process of verifying transactions and adding them into

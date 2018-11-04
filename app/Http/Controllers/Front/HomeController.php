@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $campaigns = Campaign::where('status_id', CampaignStatus::APPROVED)->paginate(8);
+        $campaigns = Campaign::where('status_id', CampaignStatus::APPROVED)->orderBy('created_at', 'desc')->paginate(8);
 
         return view('public.home', compact('campaigns'));
     }

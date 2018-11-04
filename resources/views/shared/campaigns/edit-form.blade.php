@@ -28,10 +28,10 @@
             ])
 
             @include('components.form.input-extended', [
+                'label' => 'For whom is the campaign important',
                 'attributes' => [
                     'name' => 'Target audience',
                     'value' => $campaign->target_audience,
-                    'placeholder' => 'For whom is the campaign important',
                     'required' => true
                 ]
             ])
@@ -45,6 +45,15 @@
             ])
 
             @include('components.form.input-extended', [
+                'label' => 'Name of Initiator',
+                'attributes' => [
+                    'name' => 'Initiator',
+                    'value' => $campaign->initiator,
+                    'required' => true
+                ]
+            ])
+
+            @include('components.form.input-extended', [
                 'attributes' => [
                     'name' => 'Required funding',
                     'value' => $campaign->required_funding,
@@ -55,11 +64,12 @@
             ])
 
             @include('components.form.textarea-extended', [
-                'label' => 'Short description',
+                'label' => 'Short description (max. 1000 characters)',
                 'attributes' => [
                     'name' => 'Details',
                     'required' => true,
                     'value' => $campaign->details,
+                    'maxlength' => '1000'
                 ],
             ])
 
@@ -93,11 +103,13 @@
             ])
 
             @include('components.form.textarea-extended', [
+                'label' => '(max. 3000 characters)',
                 'attributes' => [
                     'placeholder' => 'Why is the campaign important',
                     'name' => 'Importance',
                     'required' => true,
                     'value' => $campaign->importance,
+                    'maxlength' => '3000'
                 ]
             ])
 

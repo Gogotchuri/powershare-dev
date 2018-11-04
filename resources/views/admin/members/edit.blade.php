@@ -7,7 +7,7 @@
 @section('header', "Edit {$member->name}")
 
 @section('buttons')
-    {{--TODO: ...--}}
+    <a class="btn btn-primary" href="{{route('admin.campaigns.edit', ['id' => $member->campaign->id])}}">Back</a>
 @endsection
 
 @section('additional-controls')

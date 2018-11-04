@@ -1,6 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => $campaign->name, 'mainImage' => $campaign->featured_image_url])
 
 @section('html-body')
+    @modal(['id' => 'socialShareModal'])
+        @include('public.partials.social-share-modal')
+    @endmodal
+
     <body>
     <div id="app" class="background-image campaign-page" style="background-image: url(/img/background-campaign.png);">
         <div class="container-fluid">
@@ -66,7 +70,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <div class="campaign-mark">
+                                                    <div id="shareButton" class="campaign-mark campaign-mark-clickable">
                                                         <div class="campaign-mark-img">
                                                             <img src="/img/icons/share.png">
                                                         </div>

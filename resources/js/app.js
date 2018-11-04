@@ -16,7 +16,7 @@ $(document).ready(function () {
 
     campaignTable.DataTable().state.clear().destroy();
     campaignTable.DataTable({
-        order: [[ 3, 'desc' ]],
+        order: [[3, 'desc']],
     });
 
     $(document).ready(function () {
@@ -86,9 +86,9 @@ $(document).ready(function () {
 
                     var dz = new Dropzone("#fileupload", {
 
-                        //TODO: Make maxFiles work with exising files loaded from server
+                            //TODO: Make maxFiles work with exising files loaded from server
                             maxFiles: 3,
-                            url : dz_element.data('url'),
+                            url: dz_element.data('url'),
                             addRemoveLinks: true,
                             //Handle existing images
                             init: function () {
@@ -122,7 +122,7 @@ $(document).ready(function () {
                     var $f = $('<tr><td class="name"></td><td class="size"></td><td class="type"></td><td class="status"></td></tr>');
                     dz.on("success", function (file, responseText) {
 
-                        if(responseText.data !== null) {
+                        if (responseText.data !== null) {
                             file.id = responseText.data.id;
                         }
 
@@ -171,31 +171,31 @@ $(document).ready(function () {
                         .on('removedfile', function (file) {
 
                             // Case when file exists on ui and not on server
-                            if(!file.id) {
+                            if (!file.id) {
                                 return;
                             }
 
-                        //Remove file from server
-                        $.ajax({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            url: dz.options.url,
-                            type: 'DELETE',
-                            data: {
-                                'file_id': file.id,
-                            },
-                            complete: function (response) {
+                            //Remove file from server
+                            $.ajax({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                },
+                                url: dz.options.url,
+                                type: 'DELETE',
+                                data: {
+                                    'file_id': file.id,
+                                },
+                                complete: function (response) {
 
-                                if (response.status !== 200 || response.responseJSON.status !== 'OK') {
-                                    dz.emit("addedfile", file);
-                                    dz.options.thumbnail.call(dz, file, file.thumbnail_url);
-                                    dz.emit("complete", file);
+                                    if (response.status !== 200 || response.responseJSON.status !== 'OK') {
+                                        dz.emit("addedfile", file);
+                                        dz.options.thumbnail.call(dz, file, file.thumbnail_url);
+                                        dz.emit("complete", file);
+                                    }
                                 }
-                            }
-                        });
-                    })
-                        .on('sending', function(file, xhr, formData){
+                            });
+                        })
+                        .on('sending', function (file, xhr, formData) {
                             formData.append('_token', dz_element.data('token'));
                         });
 
@@ -217,16 +217,16 @@ $(document).ready(function () {
     // Registration form
     let terms = $('#registerForm .terms');
     terms.collapse({
-        toggle : false
+        toggle: false
     });
 
     let mainInputs = $('#registerForm .main-inputs input');
 
-    let filledAny = mainInputs.is(function(i, elem) {
+    let filledAny = mainInputs.is(function (i, elem) {
         return elem.value;
     });
 
-    if(filledAny) {
+    if (filledAny) {
         terms.collapse('show');
     }
 
@@ -242,7 +242,7 @@ $(document).ready(function () {
     let mainMenu = $('.mobile-menu-items');
     let toggleButton = $('.mobile-menu-toggle');
 
-    if(mainMenu.length && toggleButton.length) {
+    if (mainMenu.length && toggleButton.length) {
         toggleButton.on('click', function (e) {
             e.preventDefault();
 
@@ -251,7 +251,7 @@ $(document).ready(function () {
         });
 
         function hideMenu(e) {
-            if (!toggleButton.is(e.target) && toggleButton.has(e.target).length === 0  && !mainMenu.is(e.target) // if the target of the click isn't the container...
+            if (!toggleButton.is(e.target) && toggleButton.has(e.target).length === 0 && !mainMenu.is(e.target) // if the target of the click isn't the container...
                 && mainMenu.has(e.target).length === 0) // ... nor a descendant of the container
             {
                 mainMenu.addClass('hidden');
@@ -264,21 +264,21 @@ $(document).ready(function () {
 
     // Old or new Platform choice popup
 
-    if(!sessionStorage.notFirstVisit) {
+    if (!sessionStorage.notFirstVisit) {
 
         sessionStorage.notFirstVisit = true;
 
         let oldNewModal = $('#oldNewModal');
 
-        if(oldNewModal.length) {
+        if (oldNewModal.length) {
 
-            if(!localStorage.chooseWebsite) {
+            if (!localStorage.chooseWebsite) {
                 oldNewModal.modal('show');
             }
 
-            $('.old-new-choice-button').click(function(e) {
+            $('.old-new-choice-button').click(function (e) {
 
-                if(oldNewModal.find('.chooseWebsiteTick').is(":checked")) {
+                if (oldNewModal.find('.chooseWebsiteTick').is(":checked")) {
                     //Set cookie if ticked
                     localStorage.chooseWebsite = true;
                 }
@@ -295,17 +295,35 @@ $(document).ready(function () {
                 a.href = targetUrl;
 
                 // If we are already on target url do not redirect
-                if(a.hostname !== window.location.hostname) {
+                if (a.hostname !== window.location.hostname) {
                     window.location.href = targetUrl;
                 }
             });
         }
     }
 
+    (function ($, window, undefined) {
+
+        // Old or new Platform choice popup
+        let socialShareModal = $('#socialShareModal');
+        let shareButton = $('#shareButton');
+
+        if (socialShareModal.length && shareButton.length) {
+
+            socialShareModal.on('click', function () {
+                socialShareModal.modal('hide');
+            });
+
+            shareButton.on('click', function () {
+                socialShareModal.modal('show');
+            });
+        }
+    })(jQuery, window);
+
     // Ethereum address validation.
 
     campaignEditForm = $('#campaignEditForm');
-    if(campaignEditForm.length) {
+    if (campaignEditForm.length) {
 
         var sha3 = require('crypto-js/sha3');
 
@@ -340,9 +358,9 @@ $(document).ready(function () {
          */
         var isChecksumAddress = function (address) {
             // Check each case
-            address = address.replace('0x','');
+            address = address.replace('0x', '');
             var addressHash = sha3(address.toLowerCase());
-            for (var i = 0; i < 40; i++ ) {
+            for (var i = 0; i < 40; i++) {
                 // the nth letter should be uppercase if the nth digit of casemap is 1
                 if ((parseInt(addressHash[i], 16) > 7 && address[i].toUpperCase() !== address[i]) || (parseInt(addressHash[i], 16) <= 7 && address[i].toLowerCase() !== address[i])) {
                     return false;
@@ -351,8 +369,8 @@ $(document).ready(function () {
             return true;
         };
 
-        let validate = function(input) {
-            if(isAddress(input.val())) {
+        let validate = function (input) {
+            if (isAddress(input.val())) {
                 input.removeClass('is-invalid');
                 input.parent().find('.eth-address-invalid').css('display', 'none');
             } else {
@@ -369,7 +387,7 @@ $(document).ready(function () {
             '    <strong>Invalid address</strong>\n' +
             '</span>');
 
-        ethereum_address_input.on('input', function() {
+        ethereum_address_input.on('input', function () {
             validate(ethereum_address_input);
         });
     }
@@ -377,7 +395,7 @@ $(document).ready(function () {
     // Add special class tto mobile hamburger when scroll down.
     let mobileNav = $('#mobileNav');
 
-    if(mobileNav.length) {
+    if (mobileNav.length) {
 
         $(window).bind('scroll', function () {
             if ($(window).scrollTop() > 40) {
@@ -389,14 +407,14 @@ $(document).ready(function () {
     }
 
     $('ul.pagination').hide();
-    $(function() {
+    $(function () {
         $('.infinite-scroll').jscroll({
             autoTrigger: true,
             loadingHtml: '<img class="center-block" style="width: 40px; height: 40px;" src="/img/loading.gif" alt="Loading..." />',
             padding: 0,
             nextSelector: '.pagination li.active + li a',
             contentSelector: 'div.infinite-scroll',
-            callback: function() {
+            callback: function () {
                 $('.jscroll-inner, .jscroll-added>.infinite-scroll').addClass('row');
                 $('ul.pagination').remove();
             }
@@ -406,7 +424,7 @@ $(document).ready(function () {
 
     //FIXME: Probably this can be implemented in css
 
-    let updateInfiniteScrollWraperHeight = function() {
+    let updateInfiniteScrollWraperHeight = function () {
         let height = $('.infinite-scroll .campaign-col').height();
         $('.campaigns-list-wrapper').height(height * 2);
     };

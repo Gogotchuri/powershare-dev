@@ -19,7 +19,7 @@ class CampaignController extends Controller
 {
     public function index()
     {
-        $campaigns = Campaign::all();
+        $campaigns = Campaign::with('author')->get();
 
         return view('admin.campaigns.index', compact('campaigns'));
     }
@@ -47,8 +47,9 @@ class CampaignController extends Controller
     public function show($id)
     {
         $campaign = Campaign::findOrFail($id);
+        $stats = $campaign->coinhiveUsers()->where('user_id', Auth::user()->id)->first();
 
-        return view('admin.campaigns.show', compact('campaign'));
+        return view('admin.campaigns.show', compact('campaign', 'stats'));
     }
 
     public function edit($id)

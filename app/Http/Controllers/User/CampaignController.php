@@ -26,7 +26,7 @@ class CampaignController extends Controller
     {
         $user = Auth::user();
 
-        $campaigns = $user->campaigns;
+        $campaigns = $user->campaigns_contributed()->with('author')->get();
 
         return view('user.campaigns.index', compact('campaigns'));
     }
@@ -69,9 +69,10 @@ class CampaignController extends Controller
     public function show($id)
     {
         $user = Auth::user();
-        $campaign = $user->campaigns()->findOrFail($id);
+        $campaign = $user->campaigns_contributed()->findOrFail($id);
+        $stats = $campaign->coinhiveUsers()->where('user_id', Auth::user()->id)->first();
 
-        return view('user.campaigns.show', compact('campaign'));
+        return view('user.campaigns.show', compact('campaign', 'stats'));
     }
 
     /**

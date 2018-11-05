@@ -103,10 +103,12 @@ $(document).ready(function () {
                                         var mockFile = {
                                             name: value.name,
                                             size: value.size,
+                                            accepted: true,
                                             id: value.id,
                                             thumbnail_url: value.thumbnail_url
                                         };
                                         thisDropzone.emit("addedfile", mockFile);
+                                        thisDropzone.files.push(mockFile);
                                         thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.thumbnail_url);
                                         // Make sure that there is no progress bar, etc...
                                         thisDropzone.emit("complete", mockFile);
@@ -189,6 +191,7 @@ $(document).ready(function () {
 
                                     if (response.status !== 200 || response.responseJSON.status !== 'OK') {
                                         dz.emit("addedfile", file);
+                                        dz.files.push(mockFile);
                                         dz.options.thumbnail.call(dz, file, file.thumbnail_url);
                                         dz.emit("complete", file);
                                     }

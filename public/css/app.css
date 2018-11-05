@@ -16577,6 +16577,15 @@ div.jscroll-added div.jscroll-loading {
   .campaign-page .right-panel,
   .about-page .right-panel,
   .faq-page .right-panel {
+    padding: 0 20px 0 60px;
+  }
+}
+
+@media (min-width: 768px) {
+  .front-page .right-panel,
+  .campaign-page .right-panel,
+  .about-page .right-panel,
+  .faq-page .right-panel {
     padding: 0 20px 0 96px;
   }
 }

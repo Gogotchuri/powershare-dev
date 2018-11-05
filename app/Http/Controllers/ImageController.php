@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Campaign;
 use App\Models\Image;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,6 +13,18 @@ class ImageController extends Controller
     public function store(Request $request, $id)
     {
         $campaign = Campaign::findOrFail($id);
+
+        $this->validate($request, [
+            'file' => [
+                'required',
+                function ($attribute, $value, $fail) use($campaign) {
+
+                    if($campaign->images()->count() >= 3) {
+                        $fail($attribute.' can\'t this file to campaign. max number reached.');
+                    }
+                },
+            ],
+        ]);
 
         $image = Image::forCampaign($request->file('file'), $campaign);
 

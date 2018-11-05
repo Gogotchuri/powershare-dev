@@ -16,11 +16,8 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::where('status_id', CampaignStatus::APPROVED)->findOrFail($id);
 
-        if(Auth::check()) {
-            $comments = $campaign->comments()->where('author_id', Auth::user()->id)->get();
-        } else {
-            $comments = $campaign->public_comments;
-        }
+
+        $comments = $campaign->public_comments;
 
         return view('public.details', compact('campaign', 'comments'));
     }

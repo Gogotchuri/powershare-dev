@@ -25,7 +25,7 @@ class Campaign extends Model
 
         static::creating(function ($model) {
             $last = Campaign::orderBy('id', 'desc')->first();
-            $model->attributes['order'] = $last->id * 10 + 10;
+            $model->attributes['order'] = optional($last)->id * 10 + 10;
         });
     }
 

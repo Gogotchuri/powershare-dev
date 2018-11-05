@@ -103,9 +103,8 @@
             ])
 
             @include('components.form.textarea-extended', [
-                'label' => '(max. 3000 characters)',
+                'label' => 'Why is this campaign important (max. 3000 characters)',
                 'attributes' => [
-                    'placeholder' => 'Why is the campaign important',
                     'name' => 'Importance',
                     'required' => true,
                     'value' => $campaign->importance,

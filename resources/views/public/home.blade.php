@@ -51,7 +51,7 @@
             <div class="container-fluid inspiring-section inspiring-section-second">
 
                 <div class="row">
-                    <div class="col-sm-5 left-panel">
+                    <div class="col-sm-4 left-panel">
                         <div class="row">
                             <div class="col-md-12">
                                 <a href="/" class="d-block position-relative">
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-10 left-panel">
+                            <div class="col-sm-12 left-panel">
                                 <div class="inspire">
                                     <h1 class="inspire-first mb-5"><strong>You have the power to...</strong></h1>
                                     <h3 class="inspire-second">... become a supporting hero simply by keeping the browser tab open and fuel these important
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-7 right-panel">
+                    <div class="col-sm-8 right-panel">
                         <div class="campaigns-list-wrapper">
                             <div class="campaigns-list-wrapper-inner">
                                 <div class="campaigns-list">

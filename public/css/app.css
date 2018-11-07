@@ -16572,6 +16572,24 @@ div.jscroll-added div.jscroll-loading {
         }*/
 }
 
+@media (min-width: 576px) {
+  .front-page .right-panel,
+  .campaign-page .right-panel,
+  .about-page .right-panel,
+  .faq-page .right-panel {
+    padding: 0 20px 0 60px;
+  }
+}
+
+@media (min-width: 768px) {
+  .front-page .right-panel,
+  .campaign-page .right-panel,
+  .about-page .right-panel,
+  .faq-page .right-panel {
+    padding: 0 20px 0 96px;
+  }
+}
+
 .front-page .right-panel .campaigns-list-wrapper,
 .campaign-page .right-panel .campaigns-list-wrapper,
 .about-page .right-panel .campaigns-list-wrapper,
@@ -16595,11 +16613,13 @@ div.jscroll-added div.jscroll-loading {
   /* So the width will be 100% + 17px */
 }
 
-.front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
-.campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
-.about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
-.faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list {
-  padding: 0 17px 0 0;
+@media (min-width: 576px) {
+  .front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
+  .campaign-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
+  .about-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list,
+  .faq-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list {
+    padding: 0 17px 0 0;
+  }
 }
 
 .front-page .right-panel .campaigns-list-wrapper .campaigns-list-wrapper-inner .campaigns-list .ps-card,

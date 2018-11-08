@@ -527,6 +527,8 @@ $logo-height: $front-page-spacer * 0.64;
                             }
 
                             .ps-card-excerpt {
+                                display: inline-block;
+                                height: 22px;
                                 color: $secondary;
                                 font-size: $font-size-base 0.8;
                             }

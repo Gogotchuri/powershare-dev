@@ -418,6 +418,5 @@ $(document).ready(function () {
     $(window).resize(function () {
         updateInfiniteScrollWraperHeight();
     });
-
-    setTimeout(updateInfiniteScrollWraperHeight, 0);
+    window.addEventListener('load', () => updateInfiniteScrollWraperHeight());
 });

@@ -155,7 +155,6 @@ class Campaigns {
         this.campaigns_ = [];
         document.querySelector('.category-select').onchange = event => this.filterCategory(event);
         document.querySelector('.name-input').oninput = event => this.filterName(event);
-        console.log(document.querySelector('.name-input'));
         // axios.get('/campaigns').then(result => {
         temp.get('/campaigns').then(result => {
             this.sourceCampaigns = result.data;

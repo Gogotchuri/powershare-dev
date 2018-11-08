@@ -54,7 +54,7 @@
                     <div class="col-sm-4 left-panel">
                         <div class="row">
                             <div class="col-md-12">
-                                <a href="/" class="d-block position-relative">
+                                <a href="/" class="d-lg-block d-none position-relative">
                                     <img src="/img/logo-front-orange.png" alt="Powershare logo" class="logo">
                                 </a>
                             </div>

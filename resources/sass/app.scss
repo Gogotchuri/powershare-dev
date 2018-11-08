@@ -1124,6 +1124,10 @@ $logo-height: $front-page-spacer * 0.64;
             max-width: 40vw;
         }
     }
+
+    @include media-breakpoint-up(lg) {
+        min-height: 100vh;
+    }
 }
 
 .wrapper-animation-two {
@@ -1166,7 +1170,10 @@ $logo-height: $front-page-spacer * 0.64;
 
     @include media-breakpoint-up(xl) {
         background-size: 35vw;
-        margin-top: -80px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 0;
     }
 }
 

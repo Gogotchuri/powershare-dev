@@ -19,6 +19,9 @@ class Campaign extends Model
         'status'
     ];
 
+    protected $visible = [ 'id', 'name', 'featured_image_url', 'category_icon', 'category_id', 'target_audience', ];
+    protected $appends = [ 'featured_image_url', 'category_icon'];
+
     protected static function boot()
     {
         parent::boot();
@@ -119,7 +122,7 @@ class Campaign extends Model
 
     public function getCategoryIconAttribute()
     {
-        return optional($this->category)->icon;
+        return optional($this->category)->iconBase64;
     }
 
     public function setIsApprovedAttribute($value)

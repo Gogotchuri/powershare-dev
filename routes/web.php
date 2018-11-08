@@ -19,6 +19,7 @@ Route::get('faq', 'PageController@faq')->name('faq');
 Route::namespace('Front')->name('public.')->group(function () {
 
     Route::get('/', 'HomeController@index');
+    Route::get('campaigns', 'HomeController@campaigns');
 
     Route::prefix('campaigns')->group(function () {
         Route::get('{id}', 'CampaignController@show')->name('campaign.show');

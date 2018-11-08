@@ -16498,36 +16498,60 @@ div.jscroll-added div.jscroll-loading {
 .faq-page .inspiring-section select {
   -webkit-appearance: none;
   background: transparent;
-  border: 1px solid #652d90;
+  border: 1px solid white;
+  outline: none;
   border-radius: 19.2px;
-  color: #652d90;
-  display: inline-block;
+  color: white;
+  display: block;
   font-weight: 500;
   line-height: 38.4px;
   padding: 0 19.2px;
   max-width: 100%;
   margin-bottom: 21.6px;
+  margin-top: 40px;
+}
+
+.front-page .inspiring-section input option,
+.front-page .inspiring-section select option,
+.campaign-page .inspiring-section input option,
+.campaign-page .inspiring-section select option,
+.about-page .inspiring-section input option,
+.about-page .inspiring-section select option,
+.faq-page .inspiring-section input option,
+.faq-page .inspiring-section select option {
+  color: #652d90;
+}
+
+.front-page .inspiring-section input option:disabled,
+.front-page .inspiring-section select option:disabled,
+.campaign-page .inspiring-section input option:disabled,
+.campaign-page .inspiring-section select option:disabled,
+.about-page .inspiring-section input option:disabled,
+.about-page .inspiring-section select option:disabled,
+.faq-page .inspiring-section input option:disabled,
+.faq-page .inspiring-section select option:disabled {
+  color: #ccc;
 }
 
 .front-page .inspiring-section input::-webkit-input-placeholder,
 .campaign-page .inspiring-section input::-webkit-input-placeholder,
 .about-page .inspiring-section input::-webkit-input-placeholder,
 .faq-page .inspiring-section input::-webkit-input-placeholder {
-  color: #652d90;
+  color: white;
 }
 
 .front-page .inspiring-section input::-ms-input-placeholder,
 .campaign-page .inspiring-section input::-ms-input-placeholder,
 .about-page .inspiring-section input::-ms-input-placeholder,
 .faq-page .inspiring-section input::-ms-input-placeholder {
-  color: #652d90;
+  color: white;
 }
 
 .front-page .inspiring-section input::placeholder,
 .campaign-page .inspiring-section input::placeholder,
 .about-page .inspiring-section input::placeholder,
 .faq-page .inspiring-section input::placeholder {
-  color: #652d90;
+  color: white;
 }
 
 .front-page .left-panel,
@@ -17654,5 +17678,48 @@ div.jscroll-added div.jscroll-loading {
 
 .campaign-form-logo {
   max-width: 300px;
+}
+
+@-webkit-keyframes round {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes round {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.loader {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: none;
+  width: 50px;
+  height: 50px;
+  border: 10px solid #F05523;
+  border-radius: 50%;
+  border-top: 10px solid #6A2E89;
+  -webkit-animation: round 1s infinite linear;
+          animation: round 1s infinite linear;
+}
+
+.loader.show {
+  display: inline-block;
 }
 

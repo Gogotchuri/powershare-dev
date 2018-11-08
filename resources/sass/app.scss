@@ -378,19 +378,28 @@ $logo-height: $front-page-spacer * 0.64;
         input, select {
             -webkit-appearance: none;
             background: transparent;
-            border: 1px solid $primary;
+            border: 1px solid white;
+            outline: none;
             border-radius: $logo-height / 2;
-            color: $primary;
-            display: inline-block;
+            color: white;
+            display: block;
             font-weight: 500;
             line-height: $logo-height;
             padding: 0 $logo-height / 2;
             max-width: 100%;
             margin-bottom: $front-page-spacer - $logo-height;
+            margin-top: 40px;
+
+            option {
+                color: $primary;
+                &:disabled {
+                    color: #ccc;
+                }
+            }
         }
 
         input::placeholder {
-            color: $primary;
+            color: white;
         }
     }
 
@@ -1376,4 +1385,29 @@ $logo-height: $front-page-spacer * 0.64;
 
 .campaign-form-logo {
     max-width: 300px;
+}
+
+@keyframes round {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.loader {
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: 10px solid #F05523;
+    border-radius: 50%;
+    border-top: 10px solid #6A2E89;
+    animation: round 1s infinite linear;
+    &.show {
+        display: inline-block;
+    }
 }

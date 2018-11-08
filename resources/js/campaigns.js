@@ -156,9 +156,8 @@ class Campaigns {
         document.querySelector('.category-select').onchange = event => this.filterCategory(event);
         document.querySelector('.name-input').oninput = event => this.filterName(event);
         // axios.get('/campaigns').then(result => {
-        temp.get('/campaigns').then(result => {
-            this.sourceCampaigns = result.data;
-            this.filteredCampaigns = result.data;
+        axios.get('/campaigns').then(result => {
+            this.filteredCampaigns = this.sourceCampaigns = result.data.data;
             this.campaigns = this.filteredCampaigns.slice(0, NUM_CAMPAIGNS_PER_PAGE);
         });
         this.infiniteScroll.addEventListener('scroll', () => {
@@ -183,6 +182,7 @@ class Campaigns {
     }
 
     updateFilter() {
+        this.infiniteScroll.scrollTo(0,0);
         this.filteredCampaigns = this.sourceCampaigns.filter(campaign => {
             return (this.filter.categoryId == -1 || campaign.category_id == this.filter.categoryId) && campaign.name.toLowerCase().indexOf(this.filter.name.toLowerCase()) != -1;
         });

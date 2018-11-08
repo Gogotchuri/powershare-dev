@@ -41,6 +41,6 @@ class HomeController extends Controller
             $query->where('name', 'like', '%' . $name . '%');
         }
 
-        return response()->json($query->paginate());
+        return response()->json(['data' => $query->get()]);
     }
 }

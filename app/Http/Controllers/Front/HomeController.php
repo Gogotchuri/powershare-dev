@@ -30,11 +30,14 @@ class HomeController extends Controller
     {
         $query = Campaign::where('status_id', CampaignStatus::APPROVED);
 
-        if($category = $request->input('category_id') !== null) {
+        $category = $request->input('category_id');
+        $name = $request->input('name');
+
+        if($category !== null) {
             $query->where('category_id', $category);
         }
 
-        if($name = $request->input('name') !== null) {
+        if($name !== null) {
             $query->where('name', 'like', '%' . $name . '%');
         }
 

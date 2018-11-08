@@ -414,7 +414,7 @@ $(document).ready(function () {
         let height = $('.infinite-scroll .campaign-col').height();
         $('.campaigns-list-wrapper').height(height * 2);
     };
-
+    window.updateInfiniteScrollWraperHeight = updateInfiniteScrollWraperHeight;
     $(window).resize(function () {
         updateInfiniteScrollWraperHeight();
     });

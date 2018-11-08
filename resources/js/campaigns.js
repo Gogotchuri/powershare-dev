@@ -159,6 +159,7 @@ class Campaigns {
         axios.get('/campaigns').then(result => {
             this.filteredCampaigns = this.sourceCampaigns = result.data.data;
             this.campaigns = this.filteredCampaigns.slice(0, NUM_CAMPAIGNS_PER_PAGE);
+            window.updateInfiniteScrollWraperHeight();
         });
         this.infiniteScroll.addEventListener('scroll', () => {
             if (this.infiniteScroll.scrollTop + this.infiniteScroll.clientHeight >= this.infiniteScroll.scrollHeight) {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Campaign;
+use App\Models\Reference\CampaignCategory;
 use App\Models\Reference\CampaignStatus;
 use Illuminate\Http\Request;
 
@@ -17,8 +18,9 @@ class HomeController extends Controller
     public function index()
     {
         $campaigns = Campaign::where('status_id', CampaignStatus::APPROVED)->orderBy('created_at', 'desc')->paginate(8);
+        $categories = CampaignCategory::all();
 
-        return view('public.home', compact('campaigns'));
+        return view('public.home', compact('campaigns', 'categories'));
     }
 
     public function terms()

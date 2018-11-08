@@ -67,9 +67,9 @@
                                         causes:</h3>
                                     <select class="category-select">
                                         <option value="-1" selected>Find by Category</option>
-                                        <option value="1">a1</option>
-                                        <option value="2">a2</option>
-                                        <option value="3">a3</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endforeach
                                     </select>
                                     <input type="text" class="name-input" placeholder="Find by Campaign Name">
                                 </div>

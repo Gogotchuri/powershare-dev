@@ -69,7 +69,7 @@
 /***/ (function(module, exports) {
 
 /*!
- * Font Awesome Free 5.4.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.5.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 (function () {
@@ -761,7 +761,7 @@ function makeLayersCounterAbstract(params) {
 
 var noop$2 = function noop() {};
 var p = config.measurePerformance && PERFORMANCE && PERFORMANCE.mark && PERFORMANCE.measure ? PERFORMANCE : { mark: noop$2, measure: noop$2 };
-var preamble = 'FA "5.4.1"';
+var preamble = 'FA "5.5.0"';
 
 var begin = function begin(name) {
   p.mark(preamble + ' ' + name + ' begins');
@@ -1605,7 +1605,7 @@ function onNode(node) {
   }
 }
 
-var baseStyles = "svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.33333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1em}.svg-inline--fa.fa-stack-2x{height:2em;width:2em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}";
+var baseStyles = "svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.33333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}";
 
 var css = function () {
   var dfp = DEFAULT_FAMILY_PREFIX;
@@ -38425,238 +38425,6 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./node_modules/jscroll/jquery.jscroll.js":
-/***/ (function(module, exports) {
-
-/*!
- * jScroll - jQuery Plugin for Infinite Scrolling / Auto-Paging
- * @see @link{https://jscroll.com}
- *
- * @copyright Philip Klauzinski
- * @license Dual licensed under the MIT and GPL Version 2 licenses
- * @author Philip Klauzinski (https://webtopian.com)
- * @version 2.4.1
- * @requires jQuery v1.8.0+
- * @preserve
- */
-(function($) {
-
-    'use strict';
-
-    // Define the jscroll namespace and default settings
-    $.jscroll = {
-        defaults: {
-            debug: false,
-            autoTrigger: true,
-            autoTriggerUntil: false,
-            loadingHtml: '<small>Loading...</small>',
-            loadingFunction: false,
-            padding: 0,
-            nextSelector: 'a:last',
-            contentSelector: '',
-            pagingSelector: '',
-            callback: false
-        }
-    };
-
-    // Constructor
-    var jScroll = function($e, options) {
-
-        // Private vars and methods
-        var _data = $e.data('jscroll'),
-            _userOptions = (typeof options === 'function') ? { callback: options } : options,
-            _options = $.extend({}, $.jscroll.defaults, _userOptions, _data || {}),
-            _isWindow = ($e.css('overflow-y') === 'visible'),
-            _$next = $e.find(_options.nextSelector).first(),
-            _$window = $(window),
-            _$body = $('body'),
-            _$scroll = _isWindow ? _$window : $e,
-            _nextHref = $.trim(_$next.prop('href') + ' ' + _options.contentSelector),
-
-            // Check if a loading image is defined and preload
-            _preloadImage = function() {
-                var src = $(_options.loadingHtml).filter('img').attr('src');
-                if (src) {
-                    var image = new Image();
-                    image.src = src;
-                }
-            },
-
-            // Wrap inner content, if it isn't already
-            _wrapInnerContent = function() {
-                if (!$e.find('.jscroll-inner').length) {
-                    $e.contents().wrapAll('<div class="jscroll-inner" />');
-                }
-            },
-
-            // Find the next link's parent, or add one, and hide it
-            _nextWrap = function($next) {
-                var $parent;
-                if (_options.pagingSelector) {
-                    $next.closest(_options.pagingSelector).hide();
-                } else {
-                    $parent = $next.parent().not('.jscroll-inner,.jscroll-added').addClass('jscroll-next-parent').hide();
-                    if (!$parent.length) {
-                        $next.wrap('<div class="jscroll-next-parent" />').parent().hide();
-                    }
-                }
-            },
-
-            // Remove the jscroll behavior and data from an element
-            _destroy = function() {
-                return _$scroll.unbind('.jscroll')
-                    .removeData('jscroll')
-                    .find('.jscroll-inner').children().unwrap()
-                    .filter('.jscroll-added').children().unwrap();
-            },
-
-            // Observe the scroll event for when to trigger the next load
-            _observe = function() {
-                if ($e.is(':visible')) {
-                    _wrapInnerContent();
-                    var $inner = $e.find('div.jscroll-inner').first(),
-                        data = $e.data('jscroll'),
-                        borderTopWidth = parseInt($e.css('borderTopWidth'), 10),
-                        borderTopWidthInt = isNaN(borderTopWidth) ? 0 : borderTopWidth,
-                        iContainerTop = parseInt($e.css('paddingTop'), 10) + borderTopWidthInt,
-                        iTopHeight = _isWindow ? _$scroll.scrollTop() : $e.offset().top,
-                        innerTop = $inner.length ? $inner.offset().top : 0,
-                        iTotalHeight = Math.ceil(iTopHeight - innerTop + _$scroll.height() + iContainerTop);
-
-                    if (!data.waiting && iTotalHeight + _options.padding >= $inner.outerHeight()) {
-                        _debug('info', 'jScroll:', $inner.outerHeight() - iTotalHeight, 'from bottom. Loading next request...');
-                        return _load();
-                    }
-                }
-            },
-
-            // Check if the href for the next set of content has been set
-            _checkNextHref = function(data) {
-                data = data || $e.data('jscroll');
-                if (!data || !data.nextHref) {
-                    _debug('warn', 'jScroll: nextSelector not found - destroying');
-                    _destroy();
-                    return false;
-                } else {
-                    _setBindings();
-                    return true;
-                }
-            },
-
-            _setBindings = function() {
-                var $next = $e.find(_options.nextSelector).first();
-                if (!$next.length) {
-                    return;
-                }
-                if (_options.autoTrigger && (_options.autoTriggerUntil === false || _options.autoTriggerUntil > 0)) {
-                    _nextWrap($next);
-                    var scrollingBodyHeight = _$body.height() - $e.offset().top,
-                        scrollingHeight = ($e.height() < scrollingBodyHeight) ? $e.height() : scrollingBodyHeight,
-                        windowHeight = ($e.offset().top - _$window.scrollTop() > 0) ? _$window.height() - ($e.offset().top - $(window).scrollTop()) : _$window.height();
-                    if (scrollingHeight <= windowHeight) {
-                        _observe();
-                    }
-                    _$scroll.unbind('.jscroll').bind('scroll.jscroll', function() {
-                        return _observe();
-                    });
-                    if (_options.autoTriggerUntil > 0) {
-                        _options.autoTriggerUntil--;
-                    }
-                } else {
-                    _$scroll.unbind('.jscroll');
-                    $next.bind('click.jscroll', function() {
-                        _nextWrap($next);
-                        _load();
-                        return false;
-                    });
-                }
-            },
-
-            // Load the next set of content, if available
-            _load = function() {
-                var $inner = $e.find('div.jscroll-inner').first(),
-                    data = $e.data('jscroll');
-
-                data.waiting = true;
-                $inner.append('<div class="jscroll-added" />')
-                    .children('.jscroll-added').last()
-                    .html('<div class="jscroll-loading" id="jscroll-loading">' + _options.loadingHtml + '</div>')
-                    .promise()
-                    .done(function() {
-                        if (_options.loadingFunction) {
-                            _options.loadingFunction();
-                        }
-                    });
-
-                return $e.animate({scrollTop: $inner.outerHeight()}, 0, function() {
-                    var nextHref = data.nextHref;
-                    $inner.find('div.jscroll-added').last().load(nextHref, function(r, status) {
-                        if (status === 'error') {
-                            return _destroy();
-                        }
-                        var $next = $(this).find(_options.nextSelector).first();
-                        data.waiting = false;
-                        data.nextHref = $next.prop('href') ? $.trim($next.prop('href') + ' ' + _options.contentSelector) : false;
-                        $('.jscroll-next-parent', $e).remove(); // Remove the previous next link now that we have a new one
-                        _checkNextHref();
-                        if (_options.callback) {
-                            _options.callback.call(this, nextHref);
-                        }
-                        _debug('dir', data);
-                    });
-                });
-            },
-
-            // Safe console debug - http://klauzinski.com/javascript/safe-firebug-console-in-javascript
-            _debug = function(m) {
-                if (_options.debug && typeof console === 'object' && (typeof m === 'object' || typeof console[m] === 'function')) {
-                    if (typeof m === 'object') {
-                        var args = [];
-                        for (var sMethod in m) {
-                            if (typeof console[sMethod] === 'function') {
-                                args = (m[sMethod].length) ? m[sMethod] : [m[sMethod]];
-                                console[sMethod].apply(console, args);
-                            } else {
-                                console.log.apply(console, args);
-                            }
-                        }
-                    } else {
-                        console[m].apply(console, Array.prototype.slice.call(arguments, 1));
-                    }
-                }
-            };
-
-        // Initialization
-        $e.data('jscroll', $.extend({}, _data, {initialized: true, waiting: false, nextHref: _nextHref}));
-        _wrapInnerContent();
-        _preloadImage();
-        _setBindings();
-
-        // Expose API methods via the jQuery.jscroll namespace, e.g. $('sel').jscroll.method()
-        $.extend($e.jscroll, {
-            destroy: _destroy
-        });
-        return $e;
-    };
-
-    // Define the jscroll plugin method and loop
-    $.fn.jscroll = function(m) {
-        return this.each(function() {
-            var $this = $(this),
-                data = $this.data('jscroll');
-
-            // Instantiate jScroll on this element if it hasn't been already
-            if (data && data.initialized) {
-                return;
-            }
-            jScroll($this, m);
-        });
-    };
-
-})(jQuery);
-
-/***/ }),
-
 /***/ "./node_modules/lightslider/dist/js/lightslider.js":
 /***/ (function(module, exports) {
 
@@ -56930,7 +56698,7 @@ return jQuery;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.14.4
+ * @version 1.14.5
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -57027,7 +56795,8 @@ function getStyleComputedProperty(element, property) {
     return [];
   }
   // NOTE: 1 DOM access here
-  var css = getComputedStyle(element, null);
+  var window = element.ownerDocument.defaultView;
+  var css = window.getComputedStyle(element, null);
   return property ? css[property] : css;
 }
 
@@ -57115,7 +56884,7 @@ function getOffsetParent(element) {
   var noOffsetParent = isIE(10) ? document.body : null;
 
   // NOTE: 1 DOM access here
-  var offsetParent = element.offsetParent;
+  var offsetParent = element.offsetParent || null;
   // Skip hidden elements which don't have an offsetParent
   while (offsetParent === noOffsetParent && element.nextElementSibling) {
     offsetParent = (element = element.nextElementSibling).offsetParent;
@@ -57127,9 +56896,9 @@ function getOffsetParent(element) {
     return element ? element.ownerDocument.documentElement : document.documentElement;
   }
 
-  // .offsetParent will return the closest TD or TABLE in case
+  // .offsetParent will return the closest TH, TD or TABLE in case
   // no offsetParent is present, I hate this job...
-  if (['TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 && getStyleComputedProperty(offsetParent, 'position') === 'static') {
+  if (['TH', 'TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 && getStyleComputedProperty(offsetParent, 'position') === 'static') {
     return getOffsetParent(offsetParent);
   }
 
@@ -57677,7 +57446,8 @@ function getReferenceOffsets(state, popper, reference) {
  * @returns {Object} object containing width and height properties
  */
 function getOuterSizes(element) {
-  var styles = getComputedStyle(element);
+  var window = element.ownerDocument.defaultView;
+  var styles = window.getComputedStyle(element);
   var x = parseFloat(styles.marginTop) + parseFloat(styles.marginBottom);
   var y = parseFloat(styles.marginLeft) + parseFloat(styles.marginRight);
   var result = {
@@ -60890,7 +60660,6 @@ $(document).ready(function () {
     }
 
     //FIXME: Probably this can be implemented in css
-
     var updateInfiniteScrollWraperHeight = function updateInfiniteScrollWraperHeight() {
         var height = $('.infinite-scroll .campaign-col').height();
         $('.campaigns-list-wrapper').height(height * 2);
@@ -60916,7 +60685,6 @@ __webpack_require__("./node_modules/datatables.net/js/jquery.dataTables.js");
 __webpack_require__("./node_modules/datatables.net-bs/js/dataTables.bootstrap.js");
 __webpack_require__("./node_modules/lightslider/dist/js/lightslider.js");
 __webpack_require__("./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js");
-__webpack_require__("./node_modules/jscroll/jquery.jscroll.js");
 __webpack_require__("./node_modules/goodshare.js/goodshare.min.js");
 
 window._ = __webpack_require__("./node_modules/lodash/lodash.js");

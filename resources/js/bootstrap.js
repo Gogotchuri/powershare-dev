@@ -5,7 +5,6 @@ require('datatables.net');
 require('datatables.net-bs');
 require('lightslider');
 require('@fortawesome/fontawesome-free');
-require('jscroll');
 require('goodshare.js');
 
 window._ = require('lodash');

@@ -412,7 +412,6 @@ $(document).ready(function () {
     }
 
     //FIXME: Probably this can be implemented in css
-
     let updateInfiniteScrollWraperHeight = function () {
         let height = $('.infinite-scroll .campaign-col').height();
         $('.campaigns-list-wrapper').height(height * 2);

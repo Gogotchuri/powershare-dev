@@ -1137,6 +1137,7 @@ $logo-height: $front-page-spacer * 0.64;
     }
 
     @include media-breakpoint-up(lg) {
+        background-size: 100vh;
         min-height: 100vh;
     }
 }

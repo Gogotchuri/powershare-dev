@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+require('./campaigns');
+
 
 $(document).ready(function () {
     $('.datatables').DataTable({
@@ -409,40 +411,15 @@ $(document).ready(function () {
         });
     }
 
-    $('ul.pagination').hide();
-    $(function () {
-
-        let infinite = $('.infinite-scroll');
-
-        infinite.jscroll({
-            autoTrigger: true,
-            loadingHtml: '<img class="center-block" style="width: 40px; height: 40px;" src="/img/loading.gif" alt="Loading..." />',
-            padding: 10,
-            nextSelector: '.pagination li.active + li a',
-            contentSelector: 'div.infinite-scroll',
-            callback: function () {
-                $('.jscroll-inner, .jscroll-added>.infinite-scroll').addClass('row');
-                $('ul.pagination').remove();
-            }
-        });
-
-        $('.campaigns-list-wrapper-inner').scroll( function () {
-            infinite.trigger('scroll.jscroll');
-        } );
-
-        $('.jscroll-inner, .jscroll-added>.infinite-scroll').addClass('row');
-    });
-
     //FIXME: Probably this can be implemented in css
 
     let updateInfiniteScrollWraperHeight = function () {
         let height = $('.infinite-scroll .campaign-col').height();
         $('.campaigns-list-wrapper').height(height * 2);
     };
-
+    window.updateInfiniteScrollWraperHeight = updateInfiniteScrollWraperHeight;
     $(window).resize(function () {
         updateInfiniteScrollWraperHeight();
     });
-
-    setTimeout(updateInfiniteScrollWraperHeight, 0);
+    window.addEventListener('load', () => updateInfiniteScrollWraperHeight());
 });

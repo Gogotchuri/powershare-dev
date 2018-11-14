@@ -69,6 +69,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         //Campaign TeamMembers
         Route::get('campaigns/{campaignId}/member', 'TeamMemberController@create')->name('members.create');
         Route::post('campaigns/{campaignId}/member', 'TeamMemberController@store')->name('members.store');
+        Route::get('members/{campaignId}', 'TeamMemberController@index')->name('members.index');
         Route::get('members/{id}/edit', 'TeamMemberController@edit')->name('members.edit');
         Route::put('members/{id}', 'TeamMemberController@update')->name('members.update');
         Route::delete('members/{id}', 'TeamMemberController@destroy')->name('members.destroy');
@@ -100,6 +101,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         //Campaign TeamMembers
         Route::get('campaigns/{campaignId}/member', 'TeamMemberController@create')->name('members.create');
         Route::post('campaigns/{campaignId}/member', 'TeamMemberController@store')->name('members.store');
+        Route::get('members/{campaignId}', 'TeamMemberController@index')->name('members.index');
         Route::get('members/{id}/edit', 'TeamMemberController@edit')->name('members.edit');
         Route::put('members/{id}', 'TeamMemberController@update')->name('members.update');
         Route::delete('members/{id}', 'TeamMemberController@destroy')->name('members.destroy');

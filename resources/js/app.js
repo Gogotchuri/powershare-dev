@@ -9,6 +9,8 @@ require('./campaigns');
 
 
 $(document).ready(function () {
+    const csrf = $('meta[name="csrf-token"]').attr('content');
+
     $('.datatables').DataTable({
         stateSave: true,
     });
@@ -182,7 +184,7 @@ $(document).ready(function () {
                             //Remove file from server
                             $.ajax({
                                 headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    'X-CSRF-TOKEN': csrf
                                 },
                                 url: dz.options.url,
                                 type: 'DELETE',
@@ -421,4 +423,59 @@ $(document).ready(function () {
         updateInfiniteScrollWraperHeight();
     });
     window.addEventListener('load', () => updateInfiniteScrollWraperHeight());
+
+    // handle team members on campaign edit page
+    // This code is tightly coupled to campaign edit-form
+    let memberTemplate = $('#memberTempalte');
+    let memberContainer = $('#memberContainer');
+
+    if(memberTemplate.length && memberContainer.length && memberUrls) {
+        // Remove id cause this is partial template and it will repeat
+        memberTemplate.removeAttr('id');
+
+        let loadMembers = function() {
+            $.get(memberUrls.index, function(data) {
+
+                memberContainer.children('.member-column').remove();
+
+                _.each(data.data, function (member) {
+                    let memberElment = memberTemplate.clone();
+
+                    let deleteUrl = memberUrls.delete.replace('ID_PLACEHOLDER', member.id);
+                    let storeUrl = memberUrls.store;
+
+                    console.log('deleteUrl', deleteUrl);
+
+                    memberElment.find('.card-header').html(member.name);
+                    memberElment.find('img.member-image').attr('src', member.image_url);
+                    memberElment.find('member-button-store').on('click', function () {
+                        $.ajax(deleteUrl, {
+                            'method' : 'DELETE',
+                            'data' : $('#memberForm').serialize(),
+                            success: function () {
+                                // Refresh members after delete
+                                loadMembers();
+                            }
+                        });
+                    });
+                    memberElment.find('.member-button-edit').on('click', function () {
+                        $.ajax(deleteUrl, {
+                            'method' : 'DELETE',
+                            'data' : {
+                                '_token' : csrf
+                            },
+                            success: function () {
+                                // Refresh members after delete
+                                loadMembers();
+                            }
+                        });
+                    });
+
+                    memberContainer.append(memberElment);
+                } );
+            });
+        };
+
+        loadMembers();
+    }
 });

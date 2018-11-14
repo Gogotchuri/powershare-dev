@@ -20,14 +20,16 @@
                     Image
                 </div>
                 <div class="card-body">
-                    <img id="featured-image" src="{{ $member->image_url }}" class="w-100 mb-3"
-                         @if(!$member->image_url) style="display: none;" @endif
-                    />
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input" id="image-input"
-                                   aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    <div id="memberForm">
+                        <img id="featured-image" src="{{ $member->image_url }}" class="w-100 mb-3"
+                             @if(!$member->image_url) style="display: none;" @endif
+                        />
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" name="image" class="custom-file-input" id="image-input"
+                                       aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
                         </div>
                     </div>
                 </div>

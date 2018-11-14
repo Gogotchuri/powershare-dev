@@ -80,12 +80,14 @@
                             Cover photo
                         </div>
                         <div class="card-body">
-                            <img id="featured-image" src="{{ optional($campaign->featured_image)->thumbnail_url }}" class="w-100 mb-3"
+                            <img id="featured-image" src="{{ optional($campaign->featured_image)->thumbnail_url }}"
+                                 class="w-100 mb-3"
                                  @if(!$campaign->featured_image_id) style="display: none;" @endif
                             />
                             <div class="input-group mb-3">
                                 <div class="custom-file">
-                                    <input type="file" name="featured-image" class="custom-file-input" id="image-input" aria-describedby="inputGroupFileAddon01">
+                                    <input type="file" name="featured-image" class="custom-file-input" id="image-input"
+                                           aria-describedby="inputGroupFileAddon01">
                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                 </div>
                             </div>
@@ -136,33 +138,77 @@
                 <div class="card-header">
                     Team members
                     <div class="btn-group float-right">
-                        <a href="{{route($membersRoutePrefix . 'create', ['campaignId' => $campaign->id])}}" class="btn btn-success">Add
+                        <a href="{{route($membersRoutePrefix . 'create', ['campaignId' => $campaign->id])}}"
+                           class="btn btn-success">Add
                             new</a>
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        @foreach($campaign->members as $member)
-                            <div class="col-sm-4">
-                                <div class="card mb-3">
-                                    <div class="card-header">
-                                        {{$member->name}}
-                                    </div>
-                                    <div class="card-body">
-                                        <img id="featured-image" src="{{ $member->image_url }}" class="w-100 mb-3"
-                                             @if(!$member->image_url) style="display: none;" @endif
-                                        />
-                                        <div class="btn-group">
-                                            <a href="{{route($membersRoutePrefix . 'edit', ['id' => $member->id])}}"
-                                               class="btn btn-primary">Edit</a>
-                                        </div>
-                                        <div class="btn-group">
-                                            <button type="button" onclick="removeTeamMember('{{route($membersRoutePrefix . 'destroy', ['id' => $member->id])}}')" class="btn btn-danger">Delete</button>
-                                        </div>
+                    <div id="memberContainer" class="row">
+                        {{--@foreach($campaign->members as $member)--}}
+                        <div id="memberTempalte" class="col-sm-4 member-column">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    Member Name{{--{{$member->name}}--}}
+                                </div>
+                                <div class="card-body">
+                                    <img class="member-image img-thumbnail mb-3" src="#{{--{{ $member->image_url }}--}}"
+                                         class="w-100 mb-3"
+                                        {{--@if(!$member->image_url) style="display: none;" @endif--}}
+                                    />
+                                    <div class="btn-group">
+                                        <button type="button"
+                                                {{--onclick="removeTeamMember('{{route($membersRoutePrefix . 'destroy', ['id' => $member->id])}}')"--}} class="btn btn-danger member-button-delete">
+                                            Delete
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        </div>
+                        {{--@endforeach--}}
+                        <dir class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    Add new member
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="card mb-3">
+                                                <div class="card-header">
+                                                    Image
+                                                </div>
+                                                <div class="card-body">
+                                                    <img id="member-image-preview" src="" class="w-100 mb-3"/>
+                                                    <div class="input-group mb-3">
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input"
+                                                                   id="member-image-input"
+                                                                   aria-describedby="inputGroupFileAddon01">
+                                                            <label class="custom-file-label" for="inputGroupFile01">Choose
+                                                                file</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @include('components.form.input', [
+                                            'name' => 'Name',
+                                            'required' => true,
+                                        ])
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-success w-100 member-button-store">
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                        </dir>
                     </div>
 
                 </div>
@@ -174,27 +220,33 @@
     {{--Here we add input to our form indicating with wich status campaign should be saved, based on button clicked--}}
     @push('scripts-stack')
         <script>
-            function readURL(input) {
+            function readURL(input, target) {
 
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
 
-                    reader.onload = function(e) {
-                        $('#featured-image').attr('src', e.target.result);
+                    reader.onload = function (e) {
+                        target.attr('src', e.target.result);
                     }
 
                     reader.readAsDataURL(input.files[0]);
                 }
             }
 
-            $("#image-input").change(function() {
-                $("#featured-image").show();
-                readURL(this);
+            $("#image-input").change(function () {
+                readURL(this, $("#featured-image").show());
             });
 
-            function removeTeamMember(url) {
-                $('<form method="post" action="'+ url +'"> @method("DELETE") @csrf <form>').appendTo('body').submit();
-            }
+            $("#member-image-input").change(function () {
+                readURL(this, $("#member-image-preview").show());
+            });
+
+            //FIXME: Find bettwe way to pass these variables to js
+            var memberUrls = <?php echo json_encode([
+                'index' => route($membersRoutePrefix . 'index', ['id' => $campaign->id]),
+                'delete' => route($membersRoutePrefix . 'destroy', ['id' => 'ID_PLACEHOLDER']),
+                'store' => route($membersRoutePrefix . 'store', ['campaignId' => $campaign->id]),
+            ]) ?>;
         </script>
     @endpush
 

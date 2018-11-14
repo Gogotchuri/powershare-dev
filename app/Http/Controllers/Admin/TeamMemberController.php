@@ -12,6 +12,14 @@ use Intervention\Image\Facades\Image as IntImage;
 
 class TeamMemberController extends Controller
 {
+    //FIXME: Only this method is ajax in this controller should we keep it here?
+    public function index($campaignId)
+    {
+        $members = Campaign::findOrFail($campaignId)->members;
+
+        return response()->json(['data' => $members]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -99,6 +107,6 @@ class TeamMemberController extends Controller
     {
         TeamMember::findOrFail($id)->delete();
 
-        return back()->with('message', 'Team member deleted');
+        return response()->json(['data' => 'OK']);
     }
 }

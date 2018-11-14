@@ -60272,6 +60272,8 @@ __webpack_require__("./resources/js/bootstrap.js");
 __webpack_require__("./resources/js/campaigns.js");
 
 $(document).ready(function () {
+    var csrf = $('meta[name="csrf-token"]').attr('content');
+
     $('.datatables').DataTable({
         stateSave: true
     });
@@ -60435,7 +60437,7 @@ $(document).ready(function () {
                         //Remove file from server
                         $.ajax({
                             headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                'X-CSRF-TOKEN': csrf
                             },
                             url: dz.options.url,
                             type: 'DELETE',
@@ -60671,6 +60673,61 @@ $(document).ready(function () {
     window.addEventListener('load', function () {
         return updateInfiniteScrollWraperHeight();
     });
+
+    // handle team members on campaign edit page
+    // This code is tightly coupled to campaign edit-form
+    var memberTemplate = $('#memberTempalte');
+    var memberContainer = $('#memberContainer');
+
+    if (memberTemplate.length && memberContainer.length && memberUrls) {
+        // Remove id cause this is partial template and it will repeat
+        memberTemplate.removeAttr('id');
+
+        var loadMembers = function loadMembers() {
+            $.get(memberUrls.index, function (data) {
+
+                memberContainer.children('.member-column').remove();
+
+                _.each(data.data, function (member) {
+                    var memberElment = memberTemplate.clone();
+
+                    var deleteUrl = memberUrls.delete.replace('ID_PLACEHOLDER', member.id);
+                    var storeUrl = memberUrls.store;
+
+                    console.log('deleteUrl', deleteUrl);
+
+                    memberElment.find('.card-header').html(member.name);
+                    memberElment.find('img.member-image').attr('src', member.image_url);
+                    memberElment.find('member-button-store').on('click', function () {
+                        $.ajax(deleteUrl, {
+                            'method': 'DELETE',
+                            'data': $('#memberForm').serialize(),
+                            success: function success() {
+                                // Refresh members after delete
+                                loadMembers();
+                            }
+                        });
+                    });
+                    memberElment.find('.member-button-edit').on('click', function () {
+                        $.ajax(deleteUrl, {
+                            'method': 'DELETE',
+                            'data': {
+                                '_token': csrf
+                            },
+                            success: function success() {
+                                // Refresh members after delete
+                                loadMembers();
+                            }
+                        });
+                    });
+
+                    memberContainer.append(memberElment);
+                });
+            });
+        };
+
+        loadMembers();
+    }
 });
 
 /***/ }),

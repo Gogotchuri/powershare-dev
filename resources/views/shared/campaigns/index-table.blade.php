@@ -24,7 +24,7 @@
                         class="badge badge-pill badge-{{$campaign->is_approved ? 'success' : 'secondary'}}">{{$campaign->status_name}}</span>
                 </td>
                 <td>
-                    @if($campaign->is_draft && $row_route_name != $continue_route_name)
+                    @if($campaign->is_draft && ($row_route_name != $continue_route_name) && Auth::user()->ownsCampaign($campaign->id))
                         <a href="{{ route($continue_route_name, ['id' => $campaign->id]) }}"
                            class="btn btn-primary btn-sm">
                             Continue

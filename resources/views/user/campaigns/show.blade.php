@@ -4,9 +4,9 @@
 
 @section('body')
     @section('controls')
-        @if($campaign->is_draft)
+        @if($campaign->is_draft && Auth::user()->ownsCampaign($campaign->id))
             <a class="btn btn-primary" href="{{route('user.campaigns.edit', ['id' => $campaign->id])}}">Continue editing</a>
-        @elseif($campaign->is_proposal)
+        @elseif($campaign->is_proposal && Auth::user()->ownsCampaign($campaign->id))
             <div class="alert alert-warning mt-3" role="alert">
                 <p>Submited for review.</p>
                 <form method="post" action="{{route('user.campaigns.delete', ['id' => $campaign->id])}}">

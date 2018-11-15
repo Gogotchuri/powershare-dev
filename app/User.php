@@ -53,4 +53,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getNotificationsOnAttribute() {
         return optional($this->settings)->receive_notifications;
     }
+
+    /*
+     * Methods
+     */
+
+    public function ownsCampaign($id) {
+        return $this->campaigns()->where('id', $id)->count() > 0;
+    }
 }

@@ -128,10 +128,9 @@ class CampaignController extends Controller
 
     public function delete($id)
     {
-        $user = Auth::user();
-
         //User can delete only campaigns that have status -> Draft
-        $campaign = $user->campaigns()->whereIn('status_id', [CampaignStatus::DRAFT, CampaignStatus::PROPOSAL])->first();
+        $campaign = Auth::user()->campaigns()->where('id', $id)
+            ->whereIn('status_id', [CampaignStatus::DRAFT, CampaignStatus::PROPOSAL])->first();
 
         if(!$campaign) {
             abort(404);

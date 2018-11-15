@@ -126,7 +126,7 @@ class CampaignController extends Controller
         return redirect(route('user.campaigns.show', $campaign->id));
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         //User can delete only campaigns that have status -> Draft
         $campaign = Auth::user()->campaigns()->where('id', $id)

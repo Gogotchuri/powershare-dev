@@ -91,7 +91,7 @@ class CampaignController extends Controller
         return response()->json(array('files' => $image ? [$this->getImageDescriptor($image)] : []), 200);
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         Campaign::findOrFail($id)->delete();
 

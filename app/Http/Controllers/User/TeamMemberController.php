@@ -13,21 +13,15 @@ use Intervention\Image\Facades\Image as IntImage;
 
 class TeamMemberController extends Controller
 {
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($campaignId)
+    public function index($campaignId)
     {
         // Check if user can editd this campaign
         $this->canEditCampaignId($campaignId);
 
-        $campaign = Campaign::findOrFail($campaignId);
+        $members = Campaign::findOrFail($campaignId)->members;
 
-        return view('user.members.create', compact('campaign'));
+        return response()->json(['data' => $members->toArray()]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -53,53 +47,7 @@ class TeamMemberController extends Controller
         $member->campaign_id = $campaignId;
         $member->save();
 
-        return back()->with('message', 'New team member "'. $member->name .'" added');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\TeamMember  $teamMember
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $member = TeamMember::findOrFail($id);
-
-        // Check if user can editd this campaign
-        $this->canEditCampaignId($member->campaign_id);
-
-        return view('user.members.edit', compact('member'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TeamMember  $teamMember
-     * @return \Illuminate\Http\Response
-     */
-    public function update($id, Request $request)
-    {
-        $member = TeamMember::findOrFail($id);
-
-        // Check if user can editd this campaign
-        $this->canEditCampaignId($member->campaign_id);
-
-        $this->validate($request, [
-            'name' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif',
-        ]);
-
-        if($rawImage = $request->file('image')) {
-            $image = Image::forTeamMember($rawImage, $request->input('name'));
-            $member->image_url = $image->url;
-        }
-
-        $member->name = $request->input('name');
-        $member->save();
-
-        return back()->with('message', 'Team member updated');
+        return response()->json(['data' => $member->toArray()]);
     }
 
     /**
@@ -117,7 +65,7 @@ class TeamMemberController extends Controller
 
         $member->delete();
 
-        return back()->with('message', 'Team member deleted');
+        return response()->json(['data' => 'OK']);
     }
 
     private function canEditCampaignId($campaignId) {

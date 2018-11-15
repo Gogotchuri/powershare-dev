@@ -16,10 +16,11 @@
     <a role="button" class="btn btn-primary mr-1" href="{{ route('admin.campaigns.index') }}">
         Back
     </a>
-    <a role="button" style="float: left" class="btn btn-danger mr-1"
-       href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
-        Delete
-    </a>
+    <form action="{{ route('admin.campaigns.destroy', ['id' => $campaign->id]) }}" method="post">
+        @csrf
+        @method('DELETE')
+        <button type="submit" style="float: left" class="btn btn-danger mr-1">Delete</button>
+    </form>
 @endsection
 
 @section('additional-controls')

@@ -4,9 +4,11 @@
 
 @section('buttons')
     @if($campaign->is_draft)
-        <a class="btn btn-danger mr-1" href="{{ route('admin.campaigns.delete', ['id' => $campaign->id]) }}">
-            Delete
-        </a>
+        <form action="{{ route('user.campaigns.destroy', ['id' => $campaign->id]) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" style="float: left" class="btn btn-danger mr-1">Delete</button>
+        </form>
     @endif
     <a class="btn btn-primary" href="{{ route('user.campaigns.index') }}">
         Back

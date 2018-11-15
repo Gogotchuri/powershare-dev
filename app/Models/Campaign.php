@@ -178,9 +178,13 @@ class Campaign extends Model
     }
 
     public function scopeByContributor($query, $contributor_id) {
-        return $query->join('coinhive_users', function ($join) use($contributor_id) {
+
+        //TODO: Make sure this query works correctly for all conditions
+        return $query->leftJoin('coinhive_users', function ($join) use($contributor_id) {
                 $join->on('coinhive_users.campaign_id', '=', 'campaigns.id');
-                $join->where('coinhive_users.user_id', '=', $contributor_id);
+            })->where(function ($query) use($contributor_id) {
+                $query->where('campaigns.author_id', $contributor_id)
+                ->orWhere('coinhive_users.user_id', $contributor_id);
             })->select('campaigns.*');
     }
 

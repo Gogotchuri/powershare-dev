@@ -12,24 +12,11 @@ use Intervention\Image\Facades\Image as IntImage;
 
 class TeamMemberController extends Controller
 {
-    //FIXME: Only this method is ajax in this controller should we keep it here?
     public function index($campaignId)
     {
         $members = Campaign::findOrFail($campaignId)->members;
 
-        return response()->json(['data' => $members]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($campaignId)
-    {
-        $campaign = Campaign::findOrFail($campaignId);
-
-        return view('admin.members.create', compact('campaign'));
+        return response()->json(['data' => $members->toArray()]);
     }
 
     /**
@@ -54,47 +41,7 @@ class TeamMemberController extends Controller
         $member->campaign_id = $campaignId;
         $member->save();
 
-        return back()->with('message', 'New team member "'. $member->name .'" added');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\TeamMember  $teamMember
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $member = TeamMember::findOrFail($id);
-
-        return view('admin.members.edit', compact('member'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TeamMember  $teamMember
-     * @return \Illuminate\Http\Response
-     */
-    public function update($id, Request $request)
-    {
-        $member = TeamMember::findOrFail($id);
-
-        $this->validate($request, [
-            'name' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif',
-        ]);
-
-        if($rawImage = $request->file('image')) {
-            $image = Image::forTeamMember($rawImage, $request->input('name'));
-            $member->image_url = $image->url;
-        }
-
-        $member->name = $request->input('name');
-        $member->save();
-
-        return back()->with('message', 'Team member updated');
+        return response()->json(['data' => $member->toArray()]);
     }
 
     /**

@@ -59,7 +59,6 @@ $(document).ready(function () {
         } else {
             var user_address = web3.eth.accounts[0];
             var balance = $('.ether-amount').val();
-            console.log(balance);
 
             web3.eth.sendTransaction({
                 to: $(".open-metamask").attr('value'),
@@ -254,7 +253,6 @@ $(document).ready(function () {
             e.preventDefault();
 
             mainMenu.removeClass('hidden');
-            console.log('Show main mobile menu')
         });
 
         function hideMenu(e) {
@@ -428,37 +426,82 @@ $(document).ready(function () {
     // This code is tightly coupled to campaign edit-form
     let memberTemplate = $('#memberTempalte');
     let memberContainer = $('#memberContainer');
+    let loading = $('#newMemberLoading');
 
     if(memberTemplate.length && memberContainer.length && memberUrls) {
+
+        let storeUrl = memberUrls.store;
+
         // Remove id cause this is partial template and it will repeat
         memberTemplate.removeAttr('id');
+
+        //Keep reference when user chooses image file
+        let memberImage;
+        $('#member-image-input').on('change', function(e) {
+            memberImage = e.target.files[0];
+        });
+
+        let resetNewMemberForm = function() {
+            $('#member-image-input').val('');
+            $('#member-name-input').val('');
+            $('#member-image-preview').attr('src', '').hide();
+        };
+
+        // Uses memberImage variable and name field to create FormData
+        $('#addNewMemberButton').on('click', function () {
+
+            let memberName = $('#member-name-input').val();
+
+            if(!memberImage) {
+                alert('Please chose an image to upload.');
+                return;
+            }
+
+            if(!memberName) {
+                alert('Please fill the name field.');
+                return;
+            }
+
+            if(memberImage) {
+
+                let formData = new FormData();
+                formData.append('image', memberImage);
+                formData.append('name', memberName);
+                formData.append('_token', csrf);
+
+                loading.show();
+
+                $.ajax({
+                    url: storeUrl,
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    dataType: 'json',
+                    processData: false, // Don't process the files
+                    contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+                }).done(function () {
+                    loadMembers();
+                    resetNewMemberForm();
+                }).fail(function () {
+                    alert('Sorry there was an error while adding team member');
+                }).always(function () {
+                    loading.hide();
+                });
+            }
+        });
 
         let loadMembers = function() {
             $.get(memberUrls.index, function(data) {
 
                 memberContainer.children('.member-column').remove();
 
-                _.each(data.data, function (member) {
+                _.forEachRight(data.data, function (member) {
                     let memberElment = memberTemplate.clone();
-
                     let deleteUrl = memberUrls.delete.replace('ID_PLACEHOLDER', member.id);
-                    let storeUrl = memberUrls.store;
-
-                    console.log('deleteUrl', deleteUrl);
 
                     memberElment.find('.card-header').html(member.name);
                     memberElment.find('img.member-image').attr('src', member.image_url);
-                    memberElment.find('member-button-store').on('click', function () {
-                        $.ajax(deleteUrl, {
-                            'method' : 'DELETE',
-                            'data' : $('#memberForm').serialize(),
-                            success: function () {
-                                // Refresh members after delete
-                                loadMembers();
-                            }
-                        });
-                    });
-                    memberElment.find('.member-button-edit').on('click', function () {
+                    memberElment.find('.member-button-delete').on('click', function () {
                         $.ajax(deleteUrl, {
                             'method' : 'DELETE',
                             'data' : {
@@ -471,7 +514,7 @@ $(document).ready(function () {
                         });
                     });
 
-                    memberContainer.append(memberElment);
+                    memberContainer.prepend(memberElment);
                 } );
             });
         };

@@ -143,7 +143,10 @@ class LoginController extends Controller
             ]);
         }
 
-        $user = User::create(array_merge(['email_verified_at' => Carbon::now()], $providerData));
+        $user = new User($providerData);
+        $user->email_verified_at = Carbon::now();
+        $user->save();
+
         Auth::login($user);
 
         return redirect(array_get($providerData, 'intended', $this->redirectTo));

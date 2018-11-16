@@ -122,13 +122,14 @@
                     @include('components.dropzone', [
                         'images' => $campaign->images,
                         'url' => route('images.campaigns', $campaign->id)
-                    ])
+                    ])q
                 </div>
             </div>
 
             @include('components.form.input-extended', [
+                'label' => 'Video',
                 'attributes' => [
-                    'name' => 'Video',
+                    'name' => 'video_url',
                     'value' => $campaign->video_url,
                     'placeholder' => 'Paste Youtube video link here'
                ]

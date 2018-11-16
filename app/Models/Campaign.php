@@ -61,7 +61,7 @@ class Campaign extends Model
             'featured-image' => 'image|mimes:jpeg,png,jpg,gif',
             'ethereum_address' => 'nullable|string|max:255',
             'importance' => 'string|max:3000',
-            'video_url' => 'url',
+            'video_url' => 'nullable|url',
         ]);
     }
 

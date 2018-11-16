@@ -21,6 +21,15 @@
     </div>
 @endif
 
-<a class="btn btn-primary" target="_blank" href="{{route('public.campaign.show', ['id' => $campaign->id])}}">Open Campaign Page</a>
-
 @yield('controls')
+
+@if($campaign->is_approved)
+    <div class="alert alert-primary mt-3">
+        <div class="d-flex">
+            <div class="mr-auto">
+                Campaign is approved and public
+            </div>
+            <a class="btn btn-primary pull-right" target="_blank" href="{{route('public.campaign.show', ['id' => $campaign->id])}}">Open Campaign Page</a>
+        </div>
+    </div>
+@endif

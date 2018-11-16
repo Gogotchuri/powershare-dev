@@ -91,16 +91,16 @@
                             </div>
 
                         </form>
-                        {{--<hr/>--}}
-                        {{--<div class="form-group row text-center">--}}
+                        <hr/>
+                        <div class="form-group row text-center">
 
-                            {{--<div class="col-md-8 offset-md-2">--}}
-                                {{--<a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-block"><i--}}
-                                        {{--class="fa fa-facebook"></i> Sign up with <b>Facebook</b></a>--}}
-                                {{--<a href="{{ url('/auth/google') }}" class="btn btn-danger btn-block"><i--}}
-                                        {{--class="fa fa-google"></i> Sign up with <b>Google</b></a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                            <div class="col-md-8 offset-md-2">
+                                <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-block"><i
+                                        class="fa fa-facebook"></i> Sign up with <b>Facebook</b></a>
+                                <a href="{{ url('/auth/google') }}" class="btn btn-danger btn-block"><i
+                                        class="fa fa-google"></i> Sign up with <b>Google</b></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

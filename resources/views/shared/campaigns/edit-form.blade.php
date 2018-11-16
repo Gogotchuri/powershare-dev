@@ -122,7 +122,7 @@
                     @include('components.dropzone', [
                         'images' => $campaign->images,
                         'url' => route('images.campaigns', $campaign->id)
-                    ])q
+                    ])
                 </div>
             </div>
 
@@ -194,7 +194,7 @@
                                     </div>
                                     {{--Loading css--}}
                                     <div id="newMemberLoading" class="loader mt-4"></div>
-                                    <button id="addNewMemberButton" type="button" class="btn btn-success w-100 member-button-store">
+                                    <button id="addNewMemberButton" type="button" class="btn btn-primary w-100 member-button-store">
                                         Add
                                     </button>
                                 </div>

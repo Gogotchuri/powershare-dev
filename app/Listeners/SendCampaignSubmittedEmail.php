@@ -29,6 +29,8 @@ class SendCampaignSubmittedEmail
      */
     public function handle(CampaignSubmittedEvent $event)
     {
-        Mail::to($event->campaign->author)->queue(new CampaignSubmitted($event->campaign));
+        if($event->campaign->author->notifications_on) {
+            Mail::to($event->campaign->author)->queue(new CampaignSubmitted($event->campaign));
+        }
     }
 }

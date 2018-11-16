@@ -30,6 +30,9 @@ class SendCampaignPublishedEmail
      */
     public function handle(CampaignPublishedEvent $event)
     {
-        Mail::to($event->campaign->author)->queue(new CampaignPublished($event->campaign));
+        if($event->campaign->author->notifications_on)
+        {
+            Mail::to($event->campaign->author)->queue(new CampaignPublished($event->campaign));
+        }
     }
 }

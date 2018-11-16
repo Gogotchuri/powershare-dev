@@ -31,7 +31,7 @@ class CampaignPublished extends Mailable
      */
     public function build()
     {
-        return $this->subject('Your Campaign was submitted for review')->view('emails.campaign-notification', [
+        return $this->subject('Your Campaign was approved and is public now.')->view('emails.campaign-notification', [
             'notification' => 'was published.'
         ]);
     }

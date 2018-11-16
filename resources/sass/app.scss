@@ -389,6 +389,7 @@ $logo-height: $front-page-spacer * 0.64;
             max-width: 100%;
             margin-bottom: $front-page-spacer - $logo-height;
             margin-top: 40px;
+            cursor: pointer;
 
             option {
                 color: $primary;

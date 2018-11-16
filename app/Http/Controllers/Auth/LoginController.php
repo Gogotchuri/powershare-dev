@@ -87,13 +87,21 @@ class LoginController extends Controller
             return redirect()->intended($this->redirectTo);
         }
 
-        return redirect()->route('social.register-confirmation')->with('providerData', [
-            'name' => $user->name,
-            'email' => $user->email,
-            'provider' => $provider,
-            'provider_id' => $user->id,
-            'intended' => session()->get('url.intended', url($this->redirectTo)),
-        ]);
+        $data = [
+            'providerData' => [
+                'name' => $user->name,
+                'email' => $user->email,
+                'provider' => $provider,
+                'provider_id' => $user->id,
+                'intended' => session()->get('url.intended', url($this->redirectTo)),
+            ]
+        ];
+
+        if(User::where('email', $user->email)->first()) {
+            $data['emailUsed'] = true;
+        }
+
+        return redirect()->route('social.register-confirmation')->with($data);
     }
 
     /**

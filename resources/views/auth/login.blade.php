@@ -69,8 +69,8 @@
                         <hr>
                         <div class="form-group row text-center">
                             <div class="col-md-4 offset-md-4">
-                                <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
-                                <a href="{{ url('/auth/google') }}" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+                                <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-block"><i class="fab fa-facebook"></i> Sign in with <b>Facebook</b></a>
+                                <a href="{{ url('/auth/google') }}" class="btn btn-danger btn-block"><i class="fab fa-google"></i> Sign in with <b>Google</b></a>
                             </div>
                         </div>
                     </form>

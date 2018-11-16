@@ -36,12 +36,12 @@
             'value' => Carbon\Carbon::parse($comment->date)->toDateTimeString()
         ])
 
-        @include('components.form.input', [
-            'type'=> "checkbox",
-            'name'=> "Status",
-            'value' => true,
-            'checked' => $comment->is_public,
-        ])
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" @if($comment->is_public) checked @endif name="status">
+            <label class="form-check-label" for="status">
+                Public
+            </label>
+        </div>
 
         <button type="submit" class="btn btn-primary">
             Edit

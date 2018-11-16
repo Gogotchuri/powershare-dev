@@ -27,7 +27,6 @@ class StoreComment extends FormRequest
             'body' => 'required',
             'author' => 'required|exists:users,id',
             'date' => 'required|date',
-            'status' => 'boolean',
         ];
     }
 }

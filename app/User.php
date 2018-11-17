@@ -12,6 +12,16 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
+    public static function boot() {
+
+        parent::boot();
+
+        static::created(function($user) {
+            $user->settings->receive_notifications = true;
+            $user->settings->save();
+        });
+    }
+
     /**
      * The attributes that are mass assignable.
      *

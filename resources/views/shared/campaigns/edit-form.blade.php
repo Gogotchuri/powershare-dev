@@ -158,7 +158,7 @@
                             </div>
                         </div>
                         <dir class="col-md-4">
-                            <div class="card mb-3 new-member-card">
+                            <div class="card mb-3" id="newMemberInputCard">
                                 <div class="card-header">
                                     Add new member
                                 </div>
@@ -175,7 +175,7 @@
                                                     <img id="member-image-preview" src="" class="w-100 mb-3"/>
                                                     <div class="input-group mb-3">
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input"
+                                                            <input autofocus type="file" class="custom-file-input"
                                                                    id="member-image-input"
                                                                    aria-describedby="inputGroupFileAddon01">
                                                             <label class="custom-file-label" for="inputGroupFile01">Choose
@@ -225,7 +225,7 @@
                 readURL(this, $("#featured-image").show());
             });
 
-            $("#member-image-input").change(function () {
+            $("#member-image-input").on('change keyup', function () {
                 readURL(this, $("#member-image-preview").show());
             });
 

@@ -427,28 +427,14 @@ $(document).ready(function () {
     let memberTemplate = $('#memberTempalte');
     let memberContainer = $('#memberContainer');
     let loading = $('#newMemberLoading');
+    //Card holding inputs to create new member.
+    let newMemberCard = $('#newMemberInputCard');
 
-    if(memberTemplate.length && memberContainer.length && memberUrls) {
+    if(memberTemplate.length && memberContainer.length && newMemberCard.length && memberUrls) {
 
         let storeUrl = memberUrls.store;
 
-        // Remove id cause this is partial template and it will repeat
-        memberTemplate.removeAttr('id');
-
-        //Keep reference when user chooses image file
-        let memberImage;
-        $('#member-image-input').on('change', function(e) {
-            memberImage = e.target.files[0];
-        });
-
-        let resetNewMemberForm = function() {
-            $('#member-image-input').val('');
-            $('#member-name-input').val('');
-            $('#member-image-preview').attr('src', '').hide();
-        };
-
-        // Uses memberImage variable and name field to create FormData
-        $('#addNewMemberButton').on('click', function () {
+        let submit = function () {
 
             let memberName = $('#member-name-input').val();
 
@@ -487,6 +473,30 @@ $(document).ready(function () {
                 }).always(function () {
                     loading.hide();
                 });
+            }
+        };
+
+        // Remove id cause this is partial template and it will repeat
+        memberTemplate.removeAttr('id');
+
+        //Keep reference when user chooses image file
+        let memberImage;
+        $('#member-image-input').on('change', function(e) {
+            memberImage = e.target.files[0];
+        });
+
+        let resetNewMemberForm = function() {
+            $('#member-image-input').val('');
+            $('#member-name-input').val('');
+            $('#member-image-preview').attr('src', '').hide();
+        };
+
+        $('#addNewMemberButton').on('click', submit);
+        newMemberCard.on("keypress", function (e) {
+            //Prevent surrounding form submission and submit member only on 'Enter'
+            if (e.keyCode === 13 && !$(e.target).is('#member-image-input')) {
+                e.preventDefault();
+                submit(e);
             }
         });
 

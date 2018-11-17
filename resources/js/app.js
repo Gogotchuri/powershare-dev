@@ -375,12 +375,12 @@ $(document).ready(function () {
         };
 
         let validate = function (input) {
-            if (isAddress(input.val())) {
-                input.removeClass('is-invalid');
-                input.parent().find('.eth-address-invalid').css('display', 'none');
-            } else {
+            if (input.val() && !isAddress(input.val())) {
                 input.addClass('is-invalid');
                 input.parent().find('.eth-address-invalid').css('display', 'block');
+            } else {
+                input.removeClass('is-invalid');
+                input.parent().find('.eth-address-invalid').css('display', 'none');
             }
         };
 

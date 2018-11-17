@@ -55,8 +55,7 @@
                                             <div class="row mt-xl-5 pt-4">
                                                 <div class="col-md-12">
                                                     <h1>{{ $campaign->name }}</h1>
-                                                    <h2>For whom is the campaign
-                                                        important: {{$campaign->target_audience}}</h2>
+                                                    <h2>Important for: {{$campaign->target_audience}}</h2>
                                                 </div>
                                             </div>
                                             <div class="row">

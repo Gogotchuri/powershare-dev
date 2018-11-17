@@ -71,7 +71,7 @@
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach
                                     </select>
-                                    <input type="text" class="name-input" placeholder="Find by Campaign Name">
+                                    <input type="text" class="name-input" placeholder="Find by Name">
                                 </div>
                             </div>
                         </div>

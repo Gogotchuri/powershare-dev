@@ -16489,15 +16489,7 @@ div.jscroll-added div.jscroll-loading {
 .about-page .inspiring-section .inspire,
 .faq-page .inspiring-section .inspire {
   margin: 0 60px;
-}
-
-@media (max-width: 1199.98px) {
-  .front-page .inspiring-section .inspire,
-  .campaign-page .inspiring-section .inspire,
-  .about-page .inspiring-section .inspire,
-  .faq-page .inspiring-section .inspire {
-    margin: 0 20px;
-  }
+  margin: 0 20px;
 }
 
 @media (max-width: 991.98px) {
@@ -16581,6 +16573,7 @@ div.jscroll-added div.jscroll-loading {
   margin-bottom: 21.6px;
   margin-top: 40px;
   cursor: pointer;
+  font-size: 0.875rem;
 }
 
 .front-page .inspiring-section input option,
@@ -16603,6 +16596,13 @@ div.jscroll-added div.jscroll-loading {
 .faq-page .inspiring-section input option:disabled,
 .faq-page .inspiring-section select option:disabled {
   color: #ccc;
+}
+
+.front-page .inspiring-section input,
+.campaign-page .inspiring-section input,
+.about-page .inspiring-section input,
+.faq-page .inspiring-section input {
+  width: 10.5rem;
 }
 
 .front-page .inspiring-section input::-webkit-input-placeholder,

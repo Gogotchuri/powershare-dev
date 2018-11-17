@@ -332,7 +332,7 @@ $logo-height: $front-page-spacer * 0.64;
         .inspire {
             margin: 0 $front-page-spacer;
 
-            @include media-breakpoint-down(lg) {
+            @include media-breakpoint-down(xl) {
                 margin: 0 20px;
             }
 
@@ -390,6 +390,7 @@ $logo-height: $front-page-spacer * 0.64;
             margin-bottom: $front-page-spacer - $logo-height;
             margin-top: 40px;
             cursor: pointer;
+            font-size: $font-size-base;
 
             option {
                 color: $primary;
@@ -397,6 +398,10 @@ $logo-height: $front-page-spacer * 0.64;
                     color: #ccc;
                 }
             }
+        }
+
+        input {
+            width: $font-size-base * 12;
         }
 
         input::placeholder {

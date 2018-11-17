@@ -108,7 +108,6 @@
                 'label' => 'Why is this campaign important (max. 3000 characters)',
                 'attributes' => [
                     'name' => 'Importance',
-                    'required' => true,
                     'value' => $campaign->importance,
                     'maxlength' => '3000'
                 ]

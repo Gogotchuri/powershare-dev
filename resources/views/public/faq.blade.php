@@ -67,7 +67,6 @@
                         <div class="ps-card answer mb-5">
                             <p>Blockchain is a distributed digital ledger in which all the transactions are recorded
                                 chronologically and publicly for everyone to see.</p>
-                            <p> 6. What is cryptocurrency?</p>
                         </div>
 
                         <p class="question mt-5">What is cryptocurrency mining?</p>

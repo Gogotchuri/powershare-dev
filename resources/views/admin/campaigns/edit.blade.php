@@ -9,11 +9,11 @@
             Unapprove
         </a>
     @else
-        <a class="btn btn-success" href="{{route('admin.campaigns.approve', ['id' => $campaign->id])}}">
+        <a class="btn btn-success mr-1" href="{{route('admin.campaigns.approve', ['id' => $campaign->id])}}">
             Approve
         </a>
     @endif
-    <a role="button" class="btn btn-primary mr-1" href="{{ route('admin.campaigns.index') }}">
+    <a role="button" class="btn btn-primary mr-4" href="{{ route('admin.campaigns.index') }}">
         Back
     </a>
     <form action="{{ route('admin.campaigns.destroy', ['id' => $campaign->id]) }}" method="post">

@@ -895,6 +895,11 @@ $logo-height: $front-page-spacer * 0.64;
                 margin: 0 auto $front-page-spacer / 4;
                 height: 100px;
                 width: 100px;
+
+                @include media-breakpoint-up(xl) {
+                    height: 150px;
+                    width: 150px;
+                }
             }
 
             p.owner-name {

@@ -17263,6 +17263,15 @@ div.jscroll-added div.jscroll-loading {
   width: 100px;
 }
 
+@media (min-width: 1200px) {
+  .campaign-page .left-panel .owners .owner-img,
+  .about-page .left-panel .owners .owner-img,
+  .faq-page .left-panel .owners .owner-img {
+    height: 150px;
+    width: 150px;
+  }
+}
+
 .campaign-page .left-panel .owners p.owner-name,
 .about-page .left-panel .owners p.owner-name,
 .faq-page .left-panel .owners p.owner-name {

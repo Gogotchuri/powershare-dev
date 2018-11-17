@@ -531,4 +531,13 @@ $(document).ready(function () {
 
         loadMembers();
     }
+
+    //Scroll to newely added comment
+
+    let newComment = $('#newComment');
+
+    if(newComment.length) {
+        $('html,body').animate({scrollTop: $(newComment).offset().top},'fast');
+        $(newComment).hide().fadeIn(1000);
+    }
 });

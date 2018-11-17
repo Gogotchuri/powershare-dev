@@ -37,6 +37,6 @@ class CampaignController extends Controller
 
         $campaign->comments()->save($comment);
 
-        return redirect(route('public.campaign.show', compact('campaign')));
+        return redirect(route('public.campaign.show', compact('campaign')))->with('submitted_comment_id', $comment->id);
     }
 }

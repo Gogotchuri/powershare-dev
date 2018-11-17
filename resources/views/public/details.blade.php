@@ -266,10 +266,10 @@
                                     </div>
                                 </div>
                             @endif
-                            <div class="comments">
+                            <div class="comments mb-5">
                                 <h1 class="mb-3">Comments</h1>
                                 @forelse($comments as $comment)
-                                    <div class="comment mb-4 w-75">
+                                    <div @if($comment->id === session('submitted_comment_id')) id="newComment" @endif class="comment mb-4 w-75">
                                         <h5>{{ $comment->author_name }}</h5>
                                         <p>{{ $comment->body }}</p>
                                         @if(!$comment->is_public)
@@ -286,7 +286,7 @@
                                     <form method="post"
                                           action="{{route('public.campaign.add-comment', ['id' => $campaign->id])}}">
                                         @csrf
-                                        <textarea name="body" class="w-75 mb-3" rows="5"></textarea>
+                                        <textarea class="form-control w-75 mb-3" name="body" rows="5"></textarea>
                                         <div class="text-right w-75">
                                             <button type="submit" class="btn btn-primary">
                                                 Submit

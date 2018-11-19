@@ -15,6 +15,7 @@ class CoinhiveUsers extends Command
     public function handle()
     {
         $coinhive = new CoinHiveAPI();
+        //FIXME: This will fail if user count goes over 4096.
         $users = $coinhive->getUserList();
 
         foreach ($users as $user) {

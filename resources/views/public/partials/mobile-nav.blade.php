@@ -6,6 +6,7 @@
         </a>
     </div>
     <span class="mobile-menu-items hidden">
+        <a href="{{ url('/') }}">Home</a>
         <a href="{{ route('about') }}">About us</a>
         <a href="{{ \App\Models\Campaign::createPath() }}">Register Campaign</a>
         <a href="{{ route('faq') }}">FAQ</a>

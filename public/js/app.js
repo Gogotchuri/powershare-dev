@@ -60213,7 +60213,7 @@ __webpack_require__("./node_modules/datatables.net-bs/js/dataTables.bootstrap.js
 __webpack_require__("./node_modules/lightslider/dist/js/lightslider.js");
 __webpack_require__("./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js");
 __webpack_require__("./node_modules/goodshare.js/goodshare.min.js");
-__webpack_require__("./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js")(window.jQuery);
+__webpack_require__("./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
 
 window._ = __webpack_require__("./node_modules/lodash/lodash.js");
 window.Popper = __webpack_require__("./node_modules/popper.js/dist/esm/popper.js").default;

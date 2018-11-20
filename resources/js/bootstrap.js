@@ -6,7 +6,7 @@ require('datatables.net-bs');
 require('lightslider');
 require('@fortawesome/fontawesome-free');
 require('goodshare.js');
-require( 'datatables.net-bs4' )( window.jQuery );
+require( 'datatables.net-bs4' );
 
 window._ = require('lodash');
 window.Popper = require('popper.js').default;

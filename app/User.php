@@ -12,11 +12,12 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
-    public static function boot() {
+    public static function boot()
+    {
 
         parent::boot();
 
-        static::created(function($user) {
+        static::created(function ($user) {
             $user->settings->receive_notifications = true;
             $user->settings->save();
         });
@@ -28,7 +29,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','provider', 'provider_id'
+        'name', 'email', 'password', 'provider', 'provider_id'
     ];
 
     /**
@@ -40,27 +41,33 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
-    public function campaigns() {
+    public function campaigns()
+    {
         return $this->hasMany(Campaign::class, 'author_id');
     }
 
-    public function settings() {
+    public function settings()
+    {
         return $this->hasOne(UserSettings::class)->withDefault();
     }
 
-    public function campaigns_contributed() {
+    public function campaigns_contributed()
+    {
         return Campaign::byContributor($this->id);
     }
 
-    public function getIsAdminAttribute() {
+    public function getIsAdminAttribute()
+    {
         return $this->role_id === 1;
     }
 
-    public function getContributedCampaignsAttribute() {
+    public function getContributedCampaignsAttribute()
+    {
         return $this->campaigns_contributed()->get();
     }
 
-    public function getNotificationsOnAttribute() {
+    public function getNotificationsOnAttribute()
+    {
         return optional($this->settings)->receive_notifications;
     }
 
@@ -68,7 +75,14 @@ class User extends Authenticatable implements MustVerifyEmail
      * Methods
      */
 
-    public function ownsCampaign($id) {
+    public function ownsCampaign($id)
+    {
         return $this->campaigns()->where('id', $id)->count() > 0;
+    }
+
+    public function getTotalContributionsAttribute()
+    {
+        //TODO: Implement this method
+        return 0;
     }
 }

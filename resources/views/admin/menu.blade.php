@@ -14,6 +14,11 @@
             Categories
         </a>
     </li>
+    <li class="nav-item {{ request()->is('admin/users*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.users.index') }}">
+            Users
+        </a>
+    </li>
     <li class="nav-item {{ request()->is('admin/settings*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.settings.edit') }}">
             Settings

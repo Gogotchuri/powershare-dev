@@ -68,6 +68,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('campaigns/{campaignId}/member', 'TeamMemberController@store')->name('members.store');
         Route::get('members/{campaignId}', 'TeamMemberController@index')->name('members.index');
         Route::delete('members/{id}', 'TeamMemberController@destroy')->name('members.destroy');
+
+        //Registered users
+        Route::get('users', 'UserController@index')->name('users.index');
+        Route::get('users/{id}', 'UserController@show')->name('users.show');
     });
 
     Route::namespace('User')->middleware('redirect.admin')->prefix('user')->name('user.')->group(function () {

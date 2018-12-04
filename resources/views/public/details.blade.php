@@ -176,7 +176,7 @@
                                                                 </button>
                                                             </div>
                                                         </form>
-                                                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                                        <form class="text-xl-right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                                             <input type="hidden" name="cmd" value="_s-xclick" />
                                                             <input type="hidden" name="item_name" value="{{str_limit($campaign->name, 127, '')}}">
                                                             <input type="hidden" name="item_number" value="{{$campaign->id}}">

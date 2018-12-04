@@ -42,7 +42,7 @@ class Campaign extends Model
     public static function baseRules()
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:191',
             'target_audience' => 'required|string|max:50',
             'details' => 'required|string|max:1000',
         ];

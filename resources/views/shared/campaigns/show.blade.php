@@ -10,7 +10,7 @@
         <div class="col-md-3">
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Total hashes: <span class="badge badge-secondary badge-pill"><big>{{$stats->total}}</big></span>
+                    Your total hashes: <span class="badge badge-secondary badge-pill"><big>{{$stats->total}}</big></span>
                 </li>
             </ul>
         </div>

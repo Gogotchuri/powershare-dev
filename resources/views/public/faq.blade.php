@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('html-body')
-    <body>
     <div id="app" class="background-image campaign-page static-page faq-page"
          style="background-image: url(/img/faq_background.png);">
         <div class="container-fluid">
@@ -235,7 +234,6 @@
     @yield('scripts')
 
     @stack('scripts-stack')
-    </body>
 @endsection
 
 @push('scripts-stack')

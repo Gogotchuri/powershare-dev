@@ -17,6 +17,45 @@
 @import 'mixins/cz-box-shadow';
 @import "bootstrap-switch-checkbox";
 
+
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+footer.footer-dark {
+
+    background-color: $primary;
+    color: $secondary;
+    font-weight: $font-weight-bold;
+
+    a {
+        color: $secondary;
+
+        &:hover {
+            color: lighten($secondary, 5%);
+            text-decoration: none;
+        }
+    }
+}
+
+footer.footer-light {
+
+    background-color: $secondary;
+    color: $primary;
+
+    a {
+        color: $primary;
+
+        &:hover {
+            color: lighten($primary, 10%);
+            text-decoration: none;
+        }
+    }
+}
+
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

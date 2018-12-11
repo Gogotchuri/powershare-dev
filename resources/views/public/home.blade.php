@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('html-body')
-    <body>
     <div id="app" class="background-image front-page" style="background-image: url(/img/background-dotted.png)">
         <div class="wrapper-animation-one">
             <div class="container-fluid">
@@ -92,10 +91,10 @@
             </div>
         </div>
     </div>
+
     <script src="{{ mix('js/app.js') }}" defer></script>
     @yield('scripts')
     @stack('scripts-stack')
-    </body>
 @endsection
 
 @push('scripts-stack')

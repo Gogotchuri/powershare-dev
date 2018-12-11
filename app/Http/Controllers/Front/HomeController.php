@@ -28,6 +28,11 @@ class HomeController extends Controller
         return view('auth.terms');
     }
 
+    public function privacyPolicy()
+    {
+        return view('auth.privacy-policy');
+    }
+
     public function campaigns(Request $request)
     {
         $query = Campaign::where('status_id', CampaignStatus::APPROVED);

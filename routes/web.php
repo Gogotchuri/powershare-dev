@@ -27,6 +27,7 @@ Route::namespace('Front')->name('public.')->group(function () {
     });
 
     Route::get('terms', 'HomeController@terms')->name('terms');
+    Route::get('privacy-policy', 'HomeController@privacyPolicy')->name('privacy-policy');
 });
 
 // Auth routes

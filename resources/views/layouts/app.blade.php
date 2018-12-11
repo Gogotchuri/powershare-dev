@@ -61,5 +61,12 @@
     @modal(['id' => 'oldNewModal'])
         @include('public.partials.old-new-modal')
     @endmodal
-    @yield('html-body')
+    <body>
+        {{--NOTE: flex-wrapper is used to position footer at the bottom of page when content is not long enough--}}
+        <div class="flex-wrapper">
+            @yield('html-body')
+            @include('partials.footer')
+        </div>
+    </body>
+
 </html>

@@ -58,8 +58,8 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-    @modal(['id' => 'oldNewModal'])
+    {{-- @modal(['id' => 'oldNewModal'])
         @include('public.partials.old-new-modal')
-    @endmodal
+    @endmodal --}}
     @yield('html-body')
 </html>

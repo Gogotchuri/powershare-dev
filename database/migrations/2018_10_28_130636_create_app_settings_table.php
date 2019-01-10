@@ -21,7 +21,7 @@ class CreateAppSettingsTable extends Migration
             $table->timestamps();
         });
 
-        AppSetting::updateCurrencies();
+        // AppSetting::updateCurrencies();
     }
 
     /**

@@ -66,7 +66,7 @@
                                     <h3 class="inspire-second">... become a supporting hero simply by keeping the browser tab open and fuel these important
                                         causes:</h3>
                                     <select class="category-select">
-                                        <option value="-1" selected>Find by Category</option>
+                                        <option value="-1" selceted>All Categories</option>
                                         @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach

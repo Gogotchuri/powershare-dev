@@ -11,3 +11,4 @@ yarn-error.log
 .env
 .phpunit.result.cache
 .phpintel
+.env.example
